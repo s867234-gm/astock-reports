@@ -2,8 +2,8 @@
 """
 每日复盘 / 选股报告 同步脚本
 --------------------------------
-将 D:\选股报告存档\<类别>\ 下的 HTML 报告 增量镜像 到
-D:\报告同步\astock-reports\<类别>\ ，重建 index.html 落地页，
+将 D:/选股报告存档/<类别>/ 下的 HTML 报告 增量镜像 到
+D:/报告同步/astock-reports/<类别>/ ，重建 index.html 落地页，
 并推送到 GitHub(github) 与 Gitee(origin) 两个 remote。
 
 规则：
