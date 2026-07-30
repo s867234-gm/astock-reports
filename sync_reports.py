@@ -149,6 +149,17 @@ def git(*args):
     return r.returncode, (r.stdout or "").strip(), (r.stderr or "").strip()
 
 
+def push_all():
+    """无条件推送到两个 remote（幂等）。即使本次无新提交，也能把
+    本地领先远端、之前因网络失败而积压的提交补推上去。"""
+    rc, branch, _ = git("rev-parse", "--abbrev-ref", "HEAD")
+    branch = branch.strip() or "master"
+    for remote in ("github", "origin"):
+        rc, out, err = git("push", remote, branch)
+        head = (out or err or "").replace("\n", " ")[:200]
+        print(f"[sync] push {remote} rc={rc} {head}")
+
+
 def main():
     apply_proxy()
     copied = 0
@@ -166,19 +177,14 @@ def main():
         # 仅 index.html 时间戳刷新，无实质内容变化 -> 丢弃，保持工作树干净
         git("checkout", "--", "index.html")
         print("[sync] 无内容变化，跳过提交")
-        return
+    else:
+        git("add", "-A")
+        ts = datetime.datetime.now().strftime("%Y%m%d %H%M")
+        rc, out, err = git("commit", "-m", f"auto sync reports {ts}")
+        print(f"[sync] commit rc={rc} {out} {err}")
 
-    git("add", "-A")
-    ts = datetime.datetime.now().strftime("%Y%m%d %H%M")
-    rc, out, err = git("commit", "-m", f"auto sync reports {ts}")
-    print(f"[sync] commit rc={rc} {out} {err}")
-
-    rc, branch, _ = git("rev-parse", "--abbrev-ref", "HEAD")
-    branch = branch.strip() or "master"
-    for remote in ("github", "origin"):
-        rc, out, err = git("push", remote, branch)
-        head = (out or err or "").replace("\n", " ")[:200]
-        print(f"[sync] push {remote} rc={rc} {head}")
+    # 无论是否有新提交，都尝试推送（补推之前因网络失败积压的提交）
+    push_all()
 
 
 if __name__ == "__main__":
