@@ -13,7 +13,7 @@ D:/报告同步/astock-reports/<类别>/ ，重建 index.html 落地页，
 
 用法：python sync_reports.py
 """
-import os, shutil, subprocess, datetime, sys
+import os, shutil, subprocess, datetime, sys, socket
 
 SRC = r"D:\选股报告存档"
 DST = r"D:\报告同步\astock-reports"
@@ -86,10 +86,18 @@ def build_index():
         fh.write("\n".join(html))
 
 
+def clear_repo_proxy():
+    """清除仓库级 http.proxy，确保 git 走直连（避免死代理拖垮推送）。"""
+    subprocess.run(["git", "-C", REPO, "config", "--unset", "http.proxy"],
+                   capture_output=True, text=True)
+
+
 def apply_proxy():
-    """若 Windows 启用了系统代理，则导出 GIT_*/HTTP(S)_PROXY 环境变量，
-    让 git 子进程经代理推送。git 默认不读系统代理设置，直连 GitHub 443 会超时。"""
+    """智能代理：仅当系统代理启用且端口确实可达时才走代理；
+    否则清除仓库级残留代理，让 git 直连。git 默认不读系统代理，且仓库级
+    http.proxy 会强制覆盖直连，故需显式管理，防止死代理把所有平台都拖垮。"""
     if sys.platform != "win32":
+        clear_repo_proxy()
         return
     try:
         import winreg
@@ -98,8 +106,10 @@ def apply_proxy():
         enabled, _ = winreg.QueryValueEx(key, "ProxyEnable")
         server, _ = winreg.QueryValueEx(key, "ProxyServer")
     except Exception:
+        clear_repo_proxy()
         return
     if not enabled or not server:
+        clear_repo_proxy()
         return
     s = str(server).strip()
     if "=" in s:  # 形如 http=host:port;https=host:port
@@ -109,6 +119,21 @@ def apply_proxy():
         addr = s
     addr = addr.strip()
     if not addr:
+        clear_repo_proxy()
+        return
+    # 探测端口是否真正可达，避免把直连请求打到已死的代理
+    host, _, port = addr.partition(":")
+    port = int(port) if port.isdigit() else 80
+    sock = socket.socket(); sock.settimeout(2)
+    try:
+        sock.connect((host, port)); reachable = True
+    except Exception:
+        reachable = False
+    finally:
+        sock.close()
+    if not reachable:
+        print(f"[sync] 系统代理 {addr} 不可达，改用直连（已清除仓库级代理）")
+        clear_repo_proxy()
         return
     proxy = addr if "://" in addr else f"http://{addr}"
     for v in ("HTTP_PROXY", "HTTPS_PROXY", "GIT_HTTP_PROXY", "GIT_HTTPS_PROXY"):
