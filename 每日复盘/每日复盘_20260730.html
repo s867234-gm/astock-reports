@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang='zh-CN'><head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width,initial-scale=1'>
+<title>每日复盘_20260730</title>
+<style>
+* { box-sizing:border-box }
+body { font-family:-apple-system,Segoe UI,Roboto,'PingFang SC',sans-serif; margin:0; background:#f4f6f9; color:#1f2530; }
+.wrap { max-width:780px; margin:0 auto; padding:12px 12px 40px; }
+h1 { font-size:20px; margin:8px 0 2px; }
+.sub { color:#7a8494; font-size:12px; margin-bottom:10px; }
+.card { background:#fff; border-radius:12px; padding:14px; margin:12px 0; box-shadow:0 1px 4px rgba(0,0,0,.06); }
+.card h2 { font-size:16px; margin:0 0 10px; color:#185fa5; border-left:4px solid #185fa5; padding-left:8px; }
+.warn { background:#fff7e6; border:1px solid #ffd591; color:#8a5300; }
+.kpi { display:flex; flex-wrap:wrap; gap:8px; }
+.kpi .b { flex:1 1 30%; background:#f7f9fc; border-radius:10px; padding:10px; text-align:center; min-width:90px; }
+.kpi .b .v { font-size:20px; font-weight:700; }
+.kpi .b .l { font-size:11px; color:#8a93a3; margin-top:2px; }
+table { width:100%; border-collapse:collapse; font-size:13px; }
+th,td { padding:7px 6px; text-align:right; border-bottom:1px solid #eef1f5; }
+th:first-child,td:first-child { text-align:left; }
+.up { color:#e23b3b; font-weight:600; }
+.down { color:#1aa260; font-weight:600; }
+.dim { display:grid; grid-template-columns:1fr 1fr; gap:8px; }
+.dim .d { background:#f7f9fc; border-radius:10px; padding:10px; }
+.dim .d .t { font-size:12px; color:#8a93a3; }
+.dim .d .c { font-size:14px; margin-top:4px; font-weight:600; }
+.risk { display:inline-block; padding:2px 10px; border-radius:20px; font-size:12px; font-weight:700; }
+.risk.low { background:#e6f7ec; color:#1aa260; }
+.risk.mid { background:#fff7e6; color:#d4860b; }
+.risk.high { background:#ffe9e9; color:#e23b3b; }
+.act { display:inline-block; padding:3px 12px; border-radius:20px; font-size:13px; font-weight:700; }
+.act-hold { background:#e6f7ec; color:#1aa260; }
+.act-add { background:#eef6ff; color:#185fa5; }
+.act-watch { background:#f0f2f5; color:#7a8494; }
+.act-reduce { background:#fff7e6; color:#d4860b; }
+.act-avoid { background:#ffe9e9; color:#e23b3b; }
+.hdays { font-size:13px; font-weight:700; color:#185fa5; white-space:nowrap; }
+.note { font-size:12px; color:#8a93a3; line-height:1.6; }
+.tip { background:#eef6ff; border:1px solid #bcdcff; color:#185fa5; border-radius:10px; padding:10px; font-size:13px; line-height:1.6; }
+.heat { display:grid; grid-template-columns:repeat(auto-fill,minmax(74px,1fr)); gap:5px; }
+.hc { border-radius:8px; padding:6px 3px; text-align:center; }
+.hn { font-size:11px; line-height:1.2; height:26px; overflow:hidden; }
+.hv { font-size:13px; font-weight:700; margin-top:2px; }
+@keyframes fadein { from{opacity:0} to{opacity:1} }
+.hc { animation:fadein .4s ease both; }
+@media(max-width:600px) { .dim { grid-template-columns:1fr; } .kpi .b { flex:1 1 45%; } table { font-size:12px; } .heat { grid-template-columns:repeat(auto-fill,minmax(64px,1fr)); } }
+</style></head><body><div class='wrap'>
+<h1>📈 每日复盘 · 2026-07-30</h1>
+<div class='sub'>数据截止：2026-07-30（最近完整交易日）｜ 生成于 2026-07-30 16:04 ｜ 框架：Miner 高胜算四维</div>
+
+<div class='card tip'>
+<b>📌 数据范围</b><br>
+大盘/宽基（上证·深证·创业板·沪深300·上证50·中证500·科创50·中小100）与 <b>145</b> 个行业板块指数（通达信）均已补齐进 DuckDB（vipdoc 数据源，与看盘终端同源）。板块轮动为<b>真实行业板块</b>排名，非近似。
+</div>
+
+<div class='card'>
+<h2>一、大盘指数复盘 · 上证指数</h2>
+<div class='dim'>
+<div class='d'><div class='t'>收盘</div><div class='c'>3804.69</div></div>
+<div class='d'><div class='t'>MA60 / 长期均线</div><div class='c'>4036.01 / 4043.90</div></div>
+<div class='d'><div class='t'>大周期(周线)动量</div><div class='c'>Bear 未超卖</div></div>
+<div class='d'><div class='t'>小周期(日线)动量</div><div class='c'>日线动量中性区</div></div>
+</div>
+<table style='margin-top:10px'>
+<tr><th>维度</th><th>结论</th><th>依据</th></tr>
+<tr><td>动量</td><td>Bear 未超卖 / 日线动量中性区</td><td>周线D=31.12 日线D=28.90 K/D无交叉；MACD柱=-8.25</td></tr>
+<tr><td>形态</td><td>调整结构(ABC 重叠特征)</td><td>近期摆动高低点结构</td></tr>
+<tr><td>价格</td><td>低位区(接近120日低点，关注OS反弹)</td><td>120日区间 3741.11–4258.86；回撤 50%=3999.98 61.8%=3938.89；扩展 100%=4258.86 161.8%=4578.83</td></tr>
+<tr><td>时间</td><td>—</td><td>最近一段上行 6 交易日 / 下行 8 交易日；时间回撤关注前段运行的 38%-62% 区间</td></tr>
+</table>
+<div style='margin-top:10px'>
+<b>市场背景判定：</b>偏空（大周期动量偏弱，空仓观望，不做多）<br>
+<b>风险等级：</b><span class='risk mid'>中高</span>
+<div class='note' style='margin-top:6px'>提示：A股仅做多，指数背景用于判断「是否可逢回调做多指数ETF」。若偏多，参考价格回撤区（50%=3999.98/61.8%=3938.89）作为支撑，日线动量在OB区外发生看涨反转(K/D金叉)为触发，止损置于使多头前提失效的精确位（如跌破61.8%回撤）。</div>
+</div>
+</div>
+
+<div class='card'>
+<h2>二、宽基指数概览（当日）</h2>
+<table><tr><th>指数</th><th>涨跌幅</th><th>收盘</th></tr><tr><td>上证50</td><td class='up'>0.39%</td><td>2926</td></tr><tr><td>上证指数</td><td class='down'>-0.62%</td><td>3805</td></tr><tr><td>沪深300</td><td class='down'>-1.10%</td><td>4550</td></tr><tr><td>深证成指</td><td class='down'>-2.73%</td><td>13286</td></tr><tr><td>中证500</td><td class='down'>-2.86%</td><td>7310</td></tr><tr><td>中小100</td><td class='down'>-3.01%</td><td>8244</td></tr><tr><td>创业板指</td><td class='down'>-3.97%</td><td>3245</td></tr><tr><td>科创50</td><td class='down'>-5.38%</td><td>1588</td></tr></table>
+</div>
+
+<div class='card'>
+<h2>三、市场广度与量能</h2>
+<div class='kpi'>
+<div class='b'><div class='v up'>1625</div><div class='l'>上涨家数</div></div>
+<div class='b'><div class='v down'>3451</div><div class='l'>下跌家数</div></div>
+<div class='b'><div class='v'>114</div><div class='l'>平盘</div></div>
+<div class='b'><div class='v'>-1.21%</div><div class='l'>中位涨跌</div></div>
+<div class='b'><div class='v up'>58</div><div class='l'>涨停(近似)</div></div>
+<div class='b'><div class='v down'>123</div><div class='l'>跌停(近似)</div></div>
+</div>
+<div class='kpi' style='margin-top:8px'>
+<div class='b'><div class='v'>3449亿</div><div class='l'>全市成交额(千元)</div></div>
+<div class='b'><div class='v up'>1.9%</div><div class='l'>量能环比</div></div>
+<div class='b'><div class='v'>5190</div><div class='l'>样本家数</div></div>
+</div>
+</div>
+
+<div class='card'>
+<h2>四、行业板块轮动热力图</h2>
+<div class='kpi' style='margin-bottom:8px'>
+<div class='b'><div class='v up'>75</div><div class='l'>上涨板块</div></div>
+<div class='b'><div class='v down'>70</div><div class='l'>下跌板块</div></div>
+<div class='b'><div class='v'>145</div><div class='l'>板块总数</div></div>
+</div>
+<div class='heat'><div class='hc' style='background:#e23b3b;color:#fff'><div class='hn'>白酒</div><div class='hv'>3.5%</div></div><div class='hc' style='background:#e23b3b;color:#fff'><div class='hn'>酿酒</div><div class='hv'>3.4%</div></div><div class='hc' style='background:#e23b3b;color:#fff'><div class='hn'>石油开采</div><div class='hv'>3.2%</div></div><div class='hc' style='background:#e23b3b;color:#fff'><div class='hn'>园区开发</div><div class='hv'>3.2%</div></div><div class='hc' style='background:#e23b3b;color:#fff'><div class='hn'>汽车整车</div><div class='hv'>3.1%</div></div><div class='hc' style='background:#f3756f;color:#fff'><div class='hn'>石油</div><div class='hv'>2.9%</div></div><div class='hc' style='background:#f3756f;color:#fff'><div class='hn'>陶瓷</div><div class='hv'>2.8%</div></div><div class='hc' style='background:#f3756f;color:#fff'><div class='hn'>银行</div><div class='hv'>2.5%</div></div><div class='hc' style='background:#f3756f;color:#fff'><div class='hn'>电信运营</div><div class='hv'>2.4%</div></div><div class='hc' style='background:#f3756f;color:#fff'><div class='hn'>摩托车</div><div class='hv'>2.1%</div></div><div class='hc' style='background:#f3756f;color:#fff'><div class='hn'>啤酒</div><div class='hv'>2.0%</div></div><div class='hc' style='background:#f3756f;color:#fff'><div class='hn'>TDX 消费</div><div class='hv'>2.0%</div></div><div class='hc' style='background:#f3756f;color:#fff'><div class='hn'>电器连锁</div><div class='hv'>1.9%</div></div><div class='hc' style='background:#f3756f;color:#fff'><div class='hn'>TDX 金融</div><div class='hv'>1.9%</div></div><div class='hc' style='background:#f3756f;color:#fff'><div class='hn'>机场</div><div class='hv'>1.8%</div></div><div class='hc' style='background:#f3756f;color:#fff'><div class='hn'>铁路</div><div class='hv'>1.7%</div></div><div class='hc' style='background:#f3756f;color:#fff'><div class='hn'>保险</div><div class='hv'>1.7%</div></div><div class='hc' style='background:#f3756f;color:#fff'><div class='hn'>石油加工</div><div class='hv'>1.7%</div></div><div class='hc' style='background:#f3756f;color:#fff'><div class='hn'>港口</div><div class='hv'>1.6%</div></div><div class='hc' style='background:#f3756f;color:#fff'><div class='hn'>饲料</div><div class='hv'>1.5%</div></div><div class='hc' style='background:#f3756f;color:#fff'><div class='hn'>商品城</div><div class='hv'>1.5%</div></div><div class='hc' style='background:#f3756f;color:#fff'><div class='hn'>农业综合</div><div class='hv'>1.4%</div></div><div class='hc' style='background:#f3756f;color:#fff'><div class='hn'>水运</div><div class='hv'>1.4%</div></div><div class='hc' style='background:#f3756f;color:#fff'><div class='hn'>乳制品</div><div class='hv'>1.3%</div></div><div class='hc' style='background:#f3756f;color:#fff'><div class='hn'>运输服务</div><div class='hv'>1.3%</div></div><div class='hc' style='background:#f3756f;color:#fff'><div class='hn'>TDX 能源</div><div class='hv'>1.2%</div></div><div class='hc' style='background:#f3756f;color:#fff'><div class='hn'>农林牧渔</div><div class='hv'>1.2%</div></div><div class='hc' style='background:#f3756f;color:#fff'><div class='hn'>水力发电</div><div class='hv'>1.2%</div></div><div class='hc' style='background:#f3756f;color:#fff'><div class='hn'>特种钢</div><div class='hv'>1.1%</div></div><div class='hc' style='background:#f3756f;color:#fff'><div class='hn'>TDX 交运</div><div class='hv'>1.1%</div></div><div class='hc' style='background:#f3756f;color:#fff'><div class='hn'>农药化肥</div><div class='hv'>1.1%</div></div><div class='hc' style='background:#f3756f;color:#fff'><div class='hn'>普钢</div><div class='hv'>1.1%</div></div><div class='hc' style='background:#f3756f;color:#fff'><div class='hn'>家用电器</div><div class='hv'>1.0%</div></div><div class='hc' style='background:#f9b9b6;color:#1f2530'><div class='hn'>交通设施</div><div class='hv'>1.0%</div></div><div class='hc' style='background:#f9b9b6;color:#1f2530'><div class='hn'>旅游服务</div><div class='hv'>1.0%</div></div><div class='hc' style='background:#f9b9b6;color:#1f2530'><div class='hn'>红黄酒</div><div class='hv'>0.9%</div></div><div class='hc' style='background:#f9b9b6;color:#1f2530'><div class='hn'>食品</div><div class='hv'>0.9%</div></div><div class='hc' style='background:#f9b9b6;color:#1f2530'><div class='hn'>煤炭开采</div><div class='hv'>0.9%</div></div><div class='hc' style='background:#f9b9b6;color:#1f2530'><div class='hn'>多元金融</div><div class='hv'>0.9%</div></div><div class='hc' style='background:#f9b9b6;color:#1f2530'><div class='hn'>煤炭</div><div class='hv'>0.8%</div></div><div class='hc' style='background:#f9b9b6;color:#1f2530'><div class='hn'>仓储物流</div><div class='hv'>0.8%</div></div><div class='hc' style='background:#f9b9b6;color:#1f2530'><div class='hn'>钢铁</div><div class='hv'>0.7%</div></div><div class='hc' style='background:#f9b9b6;color:#1f2530'><div class='hn'>超市连锁</div><div class='hv'>0.7%</div></div><div class='hc' style='background:#f9b9b6;color:#1f2530'><div class='hn'>旅游景点</div><div class='hv'>0.7%</div></div><div class='hc' style='background:#f9b9b6;color:#1f2530'><div class='hn'>空运</div><div class='hv'>0.6%</div></div><div class='hc' style='background:#f9b9b6;color:#1f2530'><div class='hn'>酒店餐饮</div><div class='hv'>0.6%</div></div><div class='hc' style='background:#f9b9b6;color:#1f2530'><div class='hn'>出版业</div><div class='hv'>0.6%</div></div><div class='hc' style='background:#f9b9b6;color:#1f2530'><div class='hn'>食品饮料</div><div class='hv'>0.5%</div></div><div class='hc' style='background:#f9b9b6;color:#1f2530'><div class='hn'>种植业</div><div class='hv'>0.5%</div></div><div class='hc' style='background:#f9b9b6;color:#1f2530'><div class='hn'>运输设备</div><div class='hv'>0.5%</div></div><div class='hc' style='background:#f9b9b6;color:#1f2530'><div class='hn'>旅游</div><div class='hv'>0.5%</div></div><div class='hc' style='background:#f9b9b6;color:#1f2530'><div class='hn'>服饰</div><div class='hv'>0.5%</div></div><div class='hc' style='background:#f9b9b6;color:#1f2530'><div class='hn'>黄金</div><div class='hv'>0.5%</div></div><div class='hc' style='background:#f9b9b6;color:#1f2530'><div class='hn'>商业连锁</div><div class='hv'>0.4%</div></div><div class='hc' style='background:#f9b9b6;color:#1f2530'><div class='hn'>水泥</div><div class='hv'>0.3%</div></div><div class='hc' style='background:#f9b9b6;color:#1f2530'><div class='hn'>百货</div><div class='hv'>0.3%</div></div><div class='hc' style='background:#f9b9b6;color:#1f2530'><div class='hn'>TDX 公用</div><div class='hv'>0.3%</div></div><div class='hc' style='background:#f9b9b6;color:#1f2530'><div class='hn'>铝</div><div class='hv'>0.3%</div></div><div class='hc' style='background:#f9b9b6;color:#1f2530'><div class='hn'>铜</div><div class='hv'>0.3%</div></div><div class='hc' style='background:#f9b9b6;color:#1f2530'><div class='hn'>中成药</div><div class='hv'>0.2%</div></div><div class='hc' style='background:#f9b9b6;color:#1f2530'><div class='hn'>汽车类</div><div class='hv'>0.2%</div></div><div class='hc' style='background:#f9b9b6;color:#1f2530'><div class='hn'>化纤</div><div class='hv'>0.2%</div></div><div class='hc' style='background:#f9b9b6;color:#1f2530'><div class='hn'>TDX 商贸</div><div class='hv'>0.2%</div></div><div class='hc' style='background:#f9b9b6;color:#1f2530'><div class='hn'>水务</div><div class='hv'>0.2%</div></div><div class='hc' style='background:#f9b9b6;color:#1f2530'><div class='hn'>建筑工程</div><div class='hv'>0.2%</div></div><div class='hc' style='background:#f9b9b6;color:#1f2530'><div class='hn'>医药商业</div><div class='hv'>0.1%</div></div><div class='hc' style='background:#f9b9b6;color:#1f2530'><div class='hn'>日用化工</div><div class='hv'>0.1%</div></div><div class='hc' style='background:#f9b9b6;color:#1f2530'><div class='hn'>文教休闲</div><div class='hv'>0.1%</div></div><div class='hc' style='background:#f9b9b6;color:#1f2530'><div class='hn'>工程机械</div><div class='hv'>0.1%</div></div><div class='hc' style='background:#f9b9b6;color:#1f2530'><div class='hn'>TDX 服务</div><div class='hv'>0.1%</div></div><div class='hc' style='background:#f9b9b6;color:#1f2530'><div class='hn'>新型电力</div><div class='hv'>0.1%</div></div><div class='hc' style='background:#f9b9b6;color:#1f2530'><div class='hn'>纺织服饰</div><div class='hv'>0.1%</div></div><div class='hc' style='background:#f9b9b6;color:#1f2530'><div class='hn'>渔业</div><div class='hv'>0.1%</div></div><div class='hc' style='background:#f9b9b6;color:#1f2530'><div class='hn'>证券</div><div class='hv'>0.1%</div></div><div class='hc' style='background:#f9b9b6;color:#1f2530'><div class='hn'>电力</div><div class='hv'>0.0%</div></div><div class='hc' style='background:#a8e0c0;color:#1f2530'><div class='hn'>传媒娱乐</div><div class='hv'>-0.0%</div></div><div class='hc' style='background:#a8e0c0;color:#1f2530'><div class='hn'>汽车服务</div><div class='hv'>-0.1%</div></div><div class='hc' style='background:#a8e0c0;color:#1f2530'><div class='hn'>房地产</div><div class='hv'>-0.1%</div></div><div class='hc' style='background:#a8e0c0;color:#1f2530'><div class='hn'>全国地产</div><div class='hv'>-0.2%</div></div><div class='hc' style='background:#a8e0c0;color:#1f2530'><div class='hn'>路桥</div><div class='hv'>-0.2%</div></div><div class='hc' style='background:#a8e0c0;color:#1f2530'><div class='hn'>医疗保健</div><div class='hv'>-0.2%</div></div><div class='hc' style='background:#a8e0c0;color:#1f2530'><div class='hn'>TDX 建设</div><div class='hv'>-0.2%</div></div><div class='hc' style='background:#a8e0c0;color:#1f2530'><div class='hn'>TDX 可选</div><div class='hv'>-0.2%</div></div><div class='hc' style='background:#a8e0c0;color:#1f2530'><div class='hn'>焦炭加工</div><div class='hv'>-0.2%</div></div><div class='hc' style='background:#a8e0c0;color:#1f2530'><div class='hn'>广告包装</div><div class='hv'>-0.3%</div></div><div class='hc' style='background:#a8e0c0;color:#1f2530'><div class='hn'>建筑</div><div class='hv'>-0.3%</div></div><div class='hc' style='background:#a8e0c0;color:#1f2530'><div class='hn'>公共交通</div><div class='hv'>-0.3%</div></div><div class='hc' style='background:#a8e0c0;color:#1f2530'><div class='hn'>公路</div><div class='hv'>-0.4%</div></div><div class='hc' style='background:#a8e0c0;color:#1f2530'><div class='hn'>批发业</div><div class='hv'>-0.5%</div></div><div class='hc' style='background:#a8e0c0;color:#1f2530'><div class='hn'>轻工机械</div><div class='hv'>-0.5%</div></div><div class='hc' style='background:#a8e0c0;color:#1f2530'><div class='hn'>影视音像</div><div class='hv'>-0.5%</div></div><div class='hc' style='background:#a8e0c0;color:#1f2530'><div class='hn'>其他商业</div><div class='hv'>-0.6%</div></div><div class='hc' style='background:#a8e0c0;color:#1f2530'><div class='hn'>商贸代理</div><div class='hv'>-0.7%</div></div><div class='hc' style='background:#a8e0c0;color:#1f2530'><div class='hn'>电气设备</div><div class='hv'>-0.7%</div></div><div class='hc' style='background:#a8e0c0;color:#1f2530'><div class='hn'>造纸</div><div class='hv'>-0.8%</div></div><div class='hc' style='background:#a8e0c0;color:#1f2530'><div class='hn'>纺织</div><div class='hv'>-0.9%</div></div><div class='hc' style='background:#a8e0c0;color:#1f2530'><div class='hn'>有色</div><div class='hv'>-0.9%</div></div><div class='hc' style='background:#a8e0c0;color:#1f2530'><div class='hn'>石油贸易</div><div class='hv'>-0.9%</div></div><div class='hc' style='background:#a8e0c0;color:#1f2530'><div class='hn'>房产服务</div><div class='hv'>-1.0%</div></div><div class='hc' style='background:#a8e0c0;color:#1f2530'><div class='hn'>TDX 材料</div><div class='hv'>-1.0%</div></div><div class='hc' style='background:#a8e0c0;color:#1f2530'><div class='hn'>软件服务</div><div class='hv'>-1.0%</div></div><div class='hc' style='background:#5cc18a;color:#1f2530'><div class='hn'>化工</div><div class='hv'>-1.1%</div></div><div class='hc' style='background:#5cc18a;color:#1f2530'><div class='hn'>化学制药</div><div class='hv'>-1.1%</div></div><div class='hc' style='background:#5cc18a;color:#1f2530'><div class='hn'>医药</div><div class='hv'>-1.2%</div></div><div class='hc' style='background:#5cc18a;color:#1f2530'><div class='hn'>互联网</div><div class='hv'>-1.2%</div></div><div class='hc' style='background:#5cc18a;color:#1f2530'><div class='hn'>船舶</div><div class='hv'>-1.2%</div></div><div class='hc' style='background:#5cc18a;color:#1f2530'><div class='hn'>供气供热</div><div class='hv'>-1.2%</div></div><div class='hc' style='background:#5cc18a;color:#1f2530'><div class='hn'>家居用品</div><div class='hv'>-1.3%</div></div><div class='hc' style='background:#5cc18a;color:#1f2530'><div class='hn'>航空</div><div class='hv'>-1.3%</div></div><div class='hc' style='background:#5cc18a;color:#1f2530'><div class='hn'>化工原料</div><div class='hv'>-1.4%</div></div><div class='hc' style='background:#5cc18a;color:#1f2530'><div class='hn'>钢加工</div><div class='hv'>-1.5%</div></div><div class='hc' style='background:#5cc18a;color:#1f2530'><div class='hn'>汽车配件</div><div class='hv'>-1.5%</div></div><div class='hc' style='background:#5cc18a;color:#1f2530'><div class='hn'>农用机械</div><div class='hv'>-1.5%</div></div><div class='hc' style='background:#5cc18a;color:#1f2530'><div class='hn'>环境保护</div><div class='hv'>-1.6%</div></div><div class='hc' style='background:#5cc18a;color:#1f2530'><div class='hn'>火力发电</div><div class='hv'>-1.8%</div></div><div class='hc' style='background:#5cc18a;color:#1f2530'><div class='hn'>其他建材</div><div class='hv'>-1.8%</div></div><div class='hc' style='background:#5cc18a;color:#1f2530'><div class='hn'>TDX 制造</div><div class='hv'>-2.0%</div></div><div class='hc' style='background:#5cc18a;color:#1f2530'><div class='hn'>区域地产</div><div class='hv'>-2.0%</div></div><div class='hc' style='background:#5cc18a;color:#1f2530'><div class='hn'>塑料</div><div class='hv'>-2.0%</div></div><div class='hc' style='background:#5cc18a;color:#1f2530'><div class='hn'>铅锌</div><div class='hv'>-2.0%</div></div><div class='hc' style='background:#5cc18a;color:#1f2530'><div class='hn'>软饮料</div><div class='hv'>-2.1%</div></div><div class='hc' style='background:#5cc18a;color:#1f2530'><div class='hn'>建材</div><div class='hv'>-2.2%</div></div><div class='hc' style='background:#5cc18a;color:#1f2530'><div class='hn'>小金属</div><div class='hv'>-2.3%</div></div><div class='hc' style='background:#5cc18a;color:#1f2530'><div class='hn'>橡胶</div><div class='hv'>-2.3%</div></div><div class='hc' style='background:#5cc18a;color:#1f2530'><div class='hn'>林业</div><div class='hv'>-2.4%</div></div><div class='hc' style='background:#5cc18a;color:#1f2530'><div class='hn'>生物制药</div><div class='hv'>-2.4%</div></div><div class='hc' style='background:#5cc18a;color:#1f2530'><div class='hn'>纺织机械</div><div class='hv'>-2.7%</div></div><div class='hc' style='background:#5cc18a;color:#1f2530'><div class='hn'>电器仪表</div><div class='hv'>-2.7%</div></div><div class='hc' style='background:#1aa260;color:#fff'><div class='hn'>机床制造</div><div class='hv'>-3.4%</div></div><div class='hc' style='background:#1aa260;color:#fff'><div class='hn'>染料涂料</div><div class='hv'>-3.4%</div></div><div class='hc' style='background:#1aa260;color:#fff'><div class='hn'>IT设备</div><div class='hv'>-3.9%</div></div><div class='hc' style='background:#1aa260;color:#fff'><div class='hn'>玻璃</div><div class='hv'>-4.0%</div></div><div class='hc' style='background:#1aa260;color:#fff'><div class='hn'>矿物制品</div><div class='hv'>-4.4%</div></div><div class='hc' style='background:#1aa260;color:#fff'><div class='hn'>TDX 综企</div><div class='hv'>-4.5%</div></div><div class='hc' style='background:#1aa260;color:#fff'><div class='hn'>综合类</div><div class='hv'>-4.5%</div></div><div class='hc' style='background:#1aa260;color:#fff'><div class='hn'>装修装饰</div><div class='hv'>-4.7%</div></div><div class='hc' style='background:#1aa260;color:#fff'><div class='hn'>工业机械</div><div class='hv'>-4.9%</div></div><div class='hc' style='background:#1aa260;color:#fff'><div class='hn'>通用机械</div><div class='hv'>-5.0%</div></div><div class='hc' style='background:#1aa260;color:#fff'><div class='hn'>专用机械</div><div class='hv'>-5.0%</div></div><div class='hc' style='background:#1aa260;color:#fff'><div class='hn'>机械基件</div><div class='hv'>-5.2%</div></div><div class='hc' style='background:#1aa260;color:#fff'><div class='hn'>TDX 信息</div><div class='hv'>-5.8%</div></div><div class='hc' style='background:#1aa260;color:#fff'><div class='hn'>化工机械</div><div class='hv'>-6.2%</div></div><div class='hc' style='background:#1aa260;color:#fff'><div class='hn'>半导体</div><div class='hv'>-6.4%</div></div><div class='hc' style='background:#1aa260;color:#fff'><div class='hn'>元器件</div><div class='hv'>-6.6%</div></div><div class='hc' style='background:#1aa260;color:#fff'><div class='hn'>通信设备</div><div class='hv'>-7.4%</div></div></div>
+<div class='note' style='margin-top:8px'>颜色：红=涨（深红≥3%、浅红1-3%、淡红0-1%），绿=跌。网格按当日涨跌幅由高到低排列，左上角为最强板块。每块显示名称与当日涨跌幅。结合「近20日动量」看趋势持续性。</div>
+</div>
+
+<div class='card'>
+<h2>五、领涨 / 领跌行业板块（Top15）</h2>
+<table><tr><th>行业</th><th>当日涨幅</th><th>近20日动量</th></tr><tr><td>白酒</td><td class='up'>3.52%</td><td>13.7%</td></tr><tr><td>酿酒</td><td class='up'>3.40%</td><td>13.6%</td></tr><tr><td>石油开采</td><td class='up'>3.25%</td><td>25.2%</td></tr><tr><td>园区开发</td><td class='up'>3.16%</td><td>3.8%</td></tr><tr><td>汽车整车</td><td class='up'>3.05%</td><td>11.7%</td></tr><tr><td>石油</td><td class='up'>2.85%</td><td>20.8%</td></tr><tr><td>陶瓷</td><td class='up'>2.85%</td><td>-29.4%</td></tr><tr><td>银行</td><td class='up'>2.53%</td><td>14.3%</td></tr><tr><td>电信运营</td><td class='up'>2.37%</td><td>10.6%</td></tr><tr><td>摩托车</td><td class='up'>2.14%</td><td>7.7%</td></tr><tr><td>啤酒</td><td class='up'>1.98%</td><td>14.1%</td></tr><tr><td>TDX 消费</td><td class='up'>1.98%</td><td>8.1%</td></tr><tr><td>电器连锁</td><td class='up'>1.92%</td><td>4.8%</td></tr><tr><td>TDX 金融</td><td class='up'>1.89%</td><td>9.3%</td></tr><tr><td>机场</td><td class='up'>1.83%</td><td>7.5%</td></tr></table>
+<div style='height:8px'></div>
+<table><tr><th>行业</th><th>当日跌幅</th><th>近20日动量</th></tr><tr><td>通信设备</td><td class='down'>-7.38%</td><td>-25.1%</td></tr><tr><td>元器件</td><td class='down'>-6.63%</td><td>-31.4%</td></tr><tr><td>半导体</td><td class='down'>-6.43%</td><td>-28.2%</td></tr><tr><td>化工机械</td><td class='down'>-6.22%</td><td>-12.4%</td></tr><tr><td>TDX 信息</td><td class='down'>-5.83%</td><td>-25.3%</td></tr><tr><td>机械基件</td><td class='down'>-5.21%</td><td>-30.3%</td></tr><tr><td>专用机械</td><td class='down'>-5.02%</td><td>-28.3%</td></tr><tr><td>通用机械</td><td class='down'>-4.97%</td><td>-29.3%</td></tr><tr><td>工业机械</td><td class='down'>-4.87%</td><td>-26.7%</td></tr><tr><td>装修装饰</td><td class='down'>-4.65%</td><td>-26.0%</td></tr><tr><td>综合类</td><td class='down'>-4.51%</td><td>-18.5%</td></tr><tr><td>TDX 综企</td><td class='down'>-4.51%</td><td>-18.5%</td></tr><tr><td>矿物制品</td><td class='down'>-4.38%</td><td>-35.0%</td></tr><tr><td>玻璃</td><td class='down'>-4.01%</td><td>-41.6%</td></tr><tr><td>IT设备</td><td class='down'>-3.88%</td><td>-7.3%</td></tr></table>
+</div>
+
+<div class='card'>
+<h2>六、个股风格轮动</h2>
+<table><tr><th>风格</th><th>家数</th><th>平均涨跌</th><th>上涨占比</th></tr><tr><td>沪市主板</td><td>1698</td><td class='down'>-0.79%</td><td>44.8%</td></tr><tr><td>深市主板</td><td>1488</td><td class='down'>-1.37%</td><td>32.5%</td></tr><tr><td>创业板</td><td>1393</td><td class='down'>-2.78%</td><td>19.8%</td></tr><tr><td>科创板</td><td>611</td><td class='down'>-4.18%</td><td>17.2%</td></tr></table>
+<div class='note' style='margin-top:6px'>按代码前缀分组：沪市主板(60)/深市主板(000-003)/创业板(300-301)/科创板(688)。平均涨跌最高组为当日资金偏好方向。</div>
+</div>
+
+<div class='card'>
+<h2>七、领涨 / 领跌个股（Top15）</h2>
+<table><tr><th>代码</th><th>名称</th><th>涨幅</th><th>收盘</th></tr><tr><td>300894</td><td>火星人</td><td class='up'>20.04%</td><td>11.80</td></tr><tr><td>301667</td><td>纳百川</td><td class='up'>20.00%</td><td>65.82</td></tr><tr><td>301668</td><td>昊创瑞通</td><td class='up'>20.00%</td><td>37.26</td></tr><tr><td>301449</td><td>天溯计量</td><td class='up'>19.99%</td><td>39.08</td></tr><tr><td>688260</td><td>昀冢科技</td><td class='up'>16.16%</td><td>102.81</td></tr><tr><td>300605</td><td>恒锋信息</td><td class='up'>13.51%</td><td>10.25</td></tr><tr><td>300989</td><td>蕾奥规划</td><td class='up'>11.92%</td><td>11.17</td></tr><tr><td>300688</td><td>创业黑马</td><td class='up'>11.42%</td><td>30.64</td></tr><tr><td>300164</td><td>通源石油</td><td class='up'>10.56%</td><td>11.94</td></tr><tr><td>300981</td><td>中红医疗</td><td class='up'>10.35%</td><td>14.18</td></tr><tr><td>002731</td><td>*ST萃华</td><td class='up'>10.16%</td><td>2.06</td></tr><tr><td>002512</td><td>ST达华</td><td class='up'>10.15%</td><td>3.69</td></tr><tr><td>601616</td><td>广电电气</td><td class='up'>10.14%</td><td>3.80</td></tr><tr><td>605388</td><td>均瑶健康</td><td class='up'>10.07%</td><td>6.12</td></tr><tr><td>600712</td><td>南宁百货</td><td class='up'>10.06%</td><td>5.25</td></tr></table>
+<div style='height:8px'></div>
+<table><tr><th>代码</th><th>名称</th><th>跌幅</th><th>收盘</th></tr><tr><td>688432</td><td>有研硅</td><td class='down'>-19.93%</td><td>28.88</td></tr><tr><td>300458</td><td>全志科技</td><td class='down'>-19.93%</td><td>31.82</td></tr><tr><td>688237</td><td>超卓航科</td><td class='down'>-19.07%</td><td>54.95</td></tr><tr><td>301583</td><td>托伦斯</td><td class='down'>-18.44%</td><td>158.07</td></tr><tr><td>301536</td><td>星宸科技</td><td class='down'>-17.35%</td><td>104.00</td></tr><tr><td>688498</td><td>源杰科技</td><td class='down'>-17.20%</td><td>1016.80</td></tr><tr><td>688663</td><td>新风光</td><td class='down'>-16.97%</td><td>46.00</td></tr><tr><td>300489</td><td>光智科技</td><td class='down'>-16.08%</td><td>125.61</td></tr><tr><td>300903</td><td>科翔股份</td><td class='down'>-15.95%</td><td>45.27</td></tr><tr><td>300814</td><td>中富电路</td><td class='down'>-15.72%</td><td>98.41</td></tr><tr><td>688147</td><td>微导纳米</td><td class='down'>-15.19%</td><td>81.10</td></tr><tr><td>688048</td><td>长光华芯</td><td class='down'>-15.17%</td><td>213.00</td></tr><tr><td>300720</td><td>海川智能</td><td class='down'>-15.12%</td><td>42.33</td></tr><tr><td>688347</td><td>华虹宏力</td><td class='down'>-14.88%</td><td>230.00</td></tr><tr><td>300137</td><td>先河环保</td><td class='down'>-14.85%</td><td>9.35</td></tr></table>
+</div>
+
+<div class='card'>
+<h2>八、票操作建议（短 / 中 / 长）</h2>
+<div class='dim'>
+<div class='d'><div class='t'>短期（日线·数日）</div><div class='c'><span class='act act-watch'>持有/观望</span></div></div>
+<div class='d'><div class='t'>中期（周线·数周）</div><div class='c'><span class='act act-avoid'>空仓观望</span></div></div>
+<div class='d'><div class='t'>长期（主趋势·数月+）</div><div class='c'><span class='act act-avoid'>低配/空仓</span></div></div>
+</div>
+<div class='note' style='margin-top:8px'>
+<b>短期：</b>【参与时机】日线动量中性无交叉，方向不明；【操作】维持现有短线仓或观望，不追涨杀跌；【风控】无信号不动作，等待K/D明确交叉。 注意：大周期偏空背景下，一切短线反弹均按『反弹而非反转』处理，仓位从严。<br>
+<b>中期：</b>【操作】周线偏空(空头未超卖)，中期下行；空仓观望不做多，仅待超卖或反转确认；【风控】不逆势抄底。 形态显示调整结构，中期以高抛低吸的区间思路应对。<br>
+<b>长期：</b>【操作】指数仍在长期均线(MA200=4043.90)下方，长期处下行/熊市结构；长期仓低配或空仓，等有效站回MA200并确认周线多头后再战略配置；【风控】长空结构不重仓，不抢反弹。
+</div>
+<div class='note' style='margin-top:6px'>操作建议由四维数据自动推导：短期看日线动量/K-D金叉/量能/广度（含【参与时机/操作/止损/风控】）；中期看周线动量(大周期四态)与形态；长期看指数相对MA200位置与周线趋势。A股仅做多，偏空周期以『持币/低配/减仓』为主，不做多加仓。</div>
+</div>
+
+<div class='card'>
+<h2>九、热门板块股票操作建议（Top 12）</h2>
+<table><tr><th>板块</th><th>当日</th><th>近20日</th><th>建议</th><th>操作要点</th></tr><tr><td>白酒</td><td class='up'>3.52%</td><td class='up'>13.7%</td><td><span class='act act-hold'>持有(趋势强)</span></td><td style='text-align:left;font-size:12px;color:#7a8494'>【操作】中期动量强+当日领涨，板块趋势持有；沿5/10日线持股，回踩不破可加仓，关注板块内领涨龙头低吸，忌追当日大阳；【止损】板块指数跌破10日线减仓。 大周期偏空，板块仓应轻，操作以短线为主。</td></tr><tr><td>酿酒</td><td class='up'>3.40%</td><td class='up'>13.6%</td><td><span class='act act-hold'>持有(趋势强)</span></td><td style='text-align:left;font-size:12px;color:#7a8494'>【操作】中期动量强+当日领涨，板块趋势持有；沿5/10日线持股，回踩不破可加仓，关注板块内领涨龙头低吸，忌追当日大阳；【止损】板块指数跌破10日线减仓。 大周期偏空，板块仓应轻，操作以短线为主。</td></tr><tr><td>石油开采</td><td class='up'>3.25%</td><td class='up'>25.2%</td><td><span class='act act-hold'>持有(趋势强)</span></td><td style='text-align:left;font-size:12px;color:#7a8494'>【操作】中期动量强+当日领涨，板块趋势持有；沿5/10日线持股，回踩不破可加仓，关注板块内领涨龙头低吸，忌追当日大阳；【止损】板块指数跌破10日线减仓。 大周期偏空，板块仓应轻，操作以短线为主。</td></tr><tr><td>园区开发</td><td class='up'>3.16%</td><td class='up'>3.8%</td><td><span class='act act-hold'>持有(短线)</span></td><td style='text-align:left;font-size:12px;color:#7a8494'>【操作】中期震荡偏多，可持有；短线在当日冲高时部分止盈，回落再接，做板块内相对强度靠前个股；【止损】当日大阳失守开盘价减半。 大周期偏空，板块仓应轻，操作以短线为主。</td></tr><tr><td>汽车整车</td><td class='up'>3.05%</td><td class='up'>11.7%</td><td><span class='act act-hold'>持有(趋势强)</span></td><td style='text-align:left;font-size:12px;color:#7a8494'>【操作】中期动量强+当日领涨，板块趋势持有；沿5/10日线持股，回踩不破可加仓，关注板块内领涨龙头低吸，忌追当日大阳；【止损】板块指数跌破10日线减仓。 大周期偏空，板块仓应轻，操作以短线为主。</td></tr><tr><td>石油</td><td class='up'>2.85%</td><td class='up'>20.8%</td><td><span class='act act-hold'>持有/可加</span></td><td style='text-align:left;font-size:12px;color:#7a8494'>【操作】中期趋势强，可持有并在回踩均线时加仓；当日未大涨可低吸板块龙头，仓位随回撤区分批；【止损】跌破中期趋势线离场。 大周期偏空，板块仓应轻，操作以短线为主。</td></tr><tr><td>陶瓷</td><td class='up'>2.85%</td><td class='down'>-29.4%</td><td><span class='act act-reduce'>快进快出</span></td><td style='text-align:left;font-size:12px;color:#7a8494'>【操作】当日强但中期动量弱，属游资短炒/反弹；仅做板块内最强领涨股快进快出，不恋战，当日大阳宜减仓；【止损】隔日低开即离场。 大周期偏空，板块仓应轻，操作以短线为主。</td></tr><tr><td>银行</td><td class='up'>2.53%</td><td class='up'>14.3%</td><td><span class='act act-hold'>持有/可加</span></td><td style='text-align:left;font-size:12px;color:#7a8494'>【操作】中期趋势强，可持有并在回踩均线时加仓；当日未大涨可低吸板块龙头，仓位随回撤区分批；【止损】跌破中期趋势线离场。 大周期偏空，板块仓应轻，操作以短线为主。</td></tr><tr><td>电信运营</td><td class='up'>2.37%</td><td class='up'>10.6%</td><td><span class='act act-hold'>持有/可加</span></td><td style='text-align:left;font-size:12px;color:#7a8494'>【操作】中期趋势强，可持有并在回踩均线时加仓；当日未大涨可低吸板块龙头，仓位随回撤区分批；【止损】跌破中期趋势线离场。 大周期偏空，板块仓应轻，操作以短线为主。</td></tr><tr><td>摩托车</td><td class='up'>2.14%</td><td class='up'>7.7%</td><td><span class='act act-hold'>持有(短线)</span></td><td style='text-align:left;font-size:12px;color:#7a8494'>【操作】中期震荡偏多，可持有；短线在当日冲高时部分止盈，回落再接，做板块内相对强度靠前个股；【止损】当日大阳失守开盘价减半。 大周期偏空，板块仓应轻，操作以短线为主。</td></tr><tr><td>啤酒</td><td class='up'>1.98%</td><td class='up'>14.1%</td><td><span class='act act-hold'>持有/可加</span></td><td style='text-align:left;font-size:12px;color:#7a8494'>【操作】中期趋势强，可持有并在回踩均线时加仓；当日未大涨可低吸板块龙头，仓位随回撤区分批；【止损】跌破中期趋势线离场。 大周期偏空，板块仓应轻，操作以短线为主。</td></tr><tr><td>TDX 消费</td><td class='up'>1.98%</td><td class='up'>8.1%</td><td><span class='act act-hold'>持有(短线)</span></td><td style='text-align:left;font-size:12px;color:#7a8494'>【操作】中期震荡偏多，可持有；短线在当日冲高时部分止盈，回落再接，做板块内相对强度靠前个股；【止损】当日大阳失守开盘价减半。 大周期偏空，板块仓应轻，操作以短线为主。</td></tr></table>
+<div class='note' style='margin-top:6px'>热门板块=当日涨幅≥2% 或 近20日动量≥8%，按当日涨幅取前12。『趋势强』=中期动量&gt;10%且当日领涨，可持有/加仓板块内龙头；『快进快出』=当日强但中期弱，属游资短炒，仅做最强领涨股、隔日不恋战。操作要点含参与时机、买点、止损与风控，均为技术面推导（A股仅做多）。</div>
+</div>
+
+<div class='card'>
+<h2>通俗总结</h2>
+<div class='note'>
+本次复盘基于最近交易日（2026-07-30）。一句话：以上证指数看，大周期动量状态为「Bear 未超卖」，市场背景<b>偏空</b>；
+当天全市场 1625 家上涨、3451 家下跌，中位涨跌 -1.21%，全市成交额约 3449 亿（环比 1.9%）。
+行业板块层面：75 个行业上涨、70 个下跌，最强为「白酒」、最弱为「通信设备」。资金整体偏向「沪市主板」风格个股。
+整体属于技术面中性偏空的格局：当日个股与板块普涨属<b>短线反弹</b>，而指数仍运行于长期均线(MA200=4043.90)下方、周线动量未转多，属<b>「长空短多」结构</b>——不宜因单日反弹追高，须等日线动量在OB区外出现看涨反转确认后再考虑加仓。
+操作上可参考「八、票操作建议」：长期【低配/空仓】、中期【空仓观望】、短期【持有/观望】；强势板块的分级股票操作建议见「九、热门板块股票操作建议」。
+</div>
+</div>
+
+<div class='card warn' style='font-size:12px'>
+⚠️ 股市有风险，技术分析不保证盈利。以上为纯技术面复盘，非投资建议；指数背景仅用于判断交易环境，具体买卖须结合个人风险承受能力并自行决策。
+</div>
+</div></body></html>
