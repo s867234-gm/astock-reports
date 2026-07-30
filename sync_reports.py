@@ -19,6 +19,13 @@ SRC = r"D:\选股报告存档"
 DST = r"D:\报告同步\astock-reports"
 REPO = DST
 
+# 固定使用「系统 Git for Windows」(C:\Program Files\Git)，其 system 级
+# credential.helper 已设为 manager，可避免 WorkBuddy 自带 PortableGit 的
+# helper-selector 每次弹出凭据助手选择框。若系统版不存在则退回 PATH 中的 git。
+_CAND = [r"C:\Program Files\Git\cmd\git.exe",
+         r"C:\Program Files (x86)\Git\cmd\git.exe"]
+GIT = next((c for c in _CAND if os.path.isfile(c)), "git")
+
 
 def copy_category(src_cat, dst_cat):
     """递归拷贝 src_cat 下所有 .html 到 dst_cat，返回新增/覆盖数量。"""
@@ -88,7 +95,7 @@ def build_index():
 
 def clear_repo_proxy():
     """清除仓库级 http.proxy 与代理环境变量，确保 git 直连（避免死代理拖垮推送）。"""
-    subprocess.run(["git", "-C", REPO, "config", "--unset", "http.proxy"],
+    subprocess.run([GIT, "-C", REPO, "config", "--unset", "http.proxy"],
                    capture_output=True, text=True)
     for v in ("HTTP_PROXY", "HTTPS_PROXY", "GIT_HTTP_PROXY", "GIT_HTTPS_PROXY",
               "http_proxy", "https_proxy"):
@@ -145,7 +152,7 @@ def apply_proxy():
 
 
 def git(*args):
-    r = subprocess.run(["git", "-C", REPO, *args], capture_output=True, text=True)
+    r = subprocess.run([GIT, "-C", REPO, *args], capture_output=True, text=True)
     return r.returncode, (r.stdout or "").strip(), (r.stderr or "").strip()
 
 
