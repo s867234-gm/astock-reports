@@ -13,7 +13,7 @@ D:/报告同步/astock-reports/<类别>/ ，重建 index.html 落地页，
 
 用法：python sync_reports.py
 """
-import os, shutil, subprocess, datetime
+import os, shutil, subprocess, datetime, sys
 
 SRC = r"D:\选股报告存档"
 DST = r"D:\报告同步\astock-reports"
@@ -86,12 +86,43 @@ def build_index():
         fh.write("\n".join(html))
 
 
+def apply_proxy():
+    """若 Windows 启用了系统代理，则导出 GIT_*/HTTP(S)_PROXY 环境变量，
+    让 git 子进程经代理推送。git 默认不读系统代理设置，直连 GitHub 443 会超时。"""
+    if sys.platform != "win32":
+        return
+    try:
+        import winreg
+        key = winreg.OpenKey(winreg.HKEY_CURRENT_USER,
+                             r"Software\Microsoft\Windows\CurrentVersion\Internet Settings")
+        enabled, _ = winreg.QueryValueEx(key, "ProxyEnable")
+        server, _ = winreg.QueryValueEx(key, "ProxyServer")
+    except Exception:
+        return
+    if not enabled or not server:
+        return
+    s = str(server).strip()
+    if "=" in s:  # 形如 http=host:port;https=host:port
+        parts = dict(kv.split("=", 1) for kv in s.split(";") if "=" in kv)
+        addr = parts.get("https=") or parts.get("http=") or next(iter(parts.values()), "")
+    else:  # 形如 host:port
+        addr = s
+    addr = addr.strip()
+    if not addr:
+        return
+    proxy = addr if "://" in addr else f"http://{addr}"
+    for v in ("HTTP_PROXY", "HTTPS_PROXY", "GIT_HTTP_PROXY", "GIT_HTTPS_PROXY"):
+        os.environ[v] = proxy
+    print(f"[sync] 启用系统代理推送: {proxy}")
+
+
 def git(*args):
     r = subprocess.run(["git", "-C", REPO, *args], capture_output=True, text=True)
     return r.returncode, (r.stdout or "").strip(), (r.stderr or "").strip()
 
 
 def main():
+    apply_proxy()
     copied = 0
     if os.path.isdir(SRC):
         for name in sorted(os.listdir(SRC)):
