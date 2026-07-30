@@ -87,9 +87,12 @@ def build_index():
 
 
 def clear_repo_proxy():
-    """清除仓库级 http.proxy，确保 git 走直连（避免死代理拖垮推送）。"""
+    """清除仓库级 http.proxy 与代理环境变量，确保 git 直连（避免死代理拖垮推送）。"""
     subprocess.run(["git", "-C", REPO, "config", "--unset", "http.proxy"],
                    capture_output=True, text=True)
+    for v in ("HTTP_PROXY", "HTTPS_PROXY", "GIT_HTTP_PROXY", "GIT_HTTPS_PROXY",
+              "http_proxy", "https_proxy"):
+        os.environ.pop(v, None)
 
 
 def apply_proxy():
