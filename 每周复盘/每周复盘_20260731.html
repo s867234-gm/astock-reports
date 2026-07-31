@@ -4,34 +4,36 @@
 <title>每周复盘_20260731</title>
 <style>
 :root{
-  --ink:#2b3646;      /* 主文字 藏青 */
-  --sub:#6a7280;      /* 次要文字 深灰 高对比 */
-  --line:#d9d4c9;     /* 分隔线 */
-  --bg:#f4f2ee;       /* 页面背景 米灰纸感 */
-  --card:#fffdfa;     /* 卡片 暖白 */
-  --up:#a94442;       /* 涨 暗红 */
-  --down:#2e6b4f;     /* 跌 墨绿 */
-  --band:#a9b4c0;     /* 色条 灰蓝 */
+  --ink:#2b3646;
+  --sub:#6a7280;
+  --line:#d9d4c9;
+  --bg:#f4f2ee;
+  --card:#fffdfa;
+  --up:#a94442;
+  --down:#2e6b4f;
+  --band:#7d8ba1;
 }
 * { box-sizing:border-box }
 html { -webkit-text-size-adjust:100% }
 body { font-family:-apple-system,Segoe UI,Roboto,'PingFang SC',sans-serif; margin:0; background:var(--bg); color:var(--ink); font-size:17px; line-height:1.7; }
 .wrap { max-width:820px; margin:0 auto; padding:10px 10px 44px; }
 .head { text-align:center; padding:22px 12px 16px; margin:0 0 16px; border-bottom:2px solid var(--line); }
-.head h1 { font-size:25px; margin:0; letter-spacing:2px; font-weight:700; }
+.head h1 { font-size:25px; margin:0; letter-spacing:1px; font-weight:700; }
 .head .sub { color:var(--sub); font-size:14px; margin-top:8px; letter-spacing:.5px; }
 .card { background:var(--card); border-radius:12px; padding:18px 16px 16px; margin:14px 0; border:1px solid var(--line); box-shadow:0 1px 4px rgba(47,59,76,.06); }
-.card h2 { font-size:19px; margin:0 0 14px; color:var(--ink); border-left:5px solid var(--band); padding-left:12px; font-weight:700; letter-spacing:.5px; }
-.wrap > .card:nth-of-type(2) h2 { border-left-color:#8e9fb2; }
-.wrap > .card:nth-of-type(3) h2 { border-left-color:#7fa098; }
-.wrap > .card:nth-of-type(4) h2 { border-left-color:#8e9fb2; }
-.wrap > .card:nth-of-type(5) h2 { border-left-color:#a5967e; }
-.wrap > .card:nth-of-type(6) h2 { border-left-color:#a08a95; }
-.wrap > .card:nth-of-type(7) h2 { border-left-color:#7fa098; }
-.wrap > .card:nth-of-type(8) h2 { border-left-color:#a58a8a; }
-.wrap > .card:nth-of-type(9) h2 { border-left-color:#7d8ba1; }
-.wrap > .card:nth-of-type(10) h2 { border-left-color:#8e9fb2; }
-.wrap > .card:nth-of-type(11) h2 { border-left-color:#5f6d80; }
+.card h2 { font-size:19px; margin:0 0 14px; color:var(--ink); background:#f5f3ec; padding:8px 12px; border-left:6px solid #7d8ba1; border-radius:6px; font-weight:700; letter-spacing:.5px; }
+.wrap > .card:nth-of-type(2) h2 { border-left-color:#7d8ba1; }
+.wrap > .card:nth-of-type(3) h2 { border-left-color:#6f8a7e; }
+.wrap > .card:nth-of-type(4) h2 { border-left-color:#7d8ba1; }
+.wrap > .card:nth-of-type(5) h2 { border-left-color:#8b7864; }
+.wrap > .card:nth-of-type(6) h2 { border-left-color:#806878; }
+.wrap > .card:nth-of-type(7) h2 { border-left-color:#6f8a7e; }
+.wrap > .card:nth-of-type(8) h2 { border-left-color:#806868; }
+.wrap > .card:nth-of-type(9) h2 { border-left-color:#6d7990; }
+.wrap > .card:nth-of-type(10) h2 { border-left-color:#7d8ba1; }
+.wrap > .card:nth-of-type(11) h2 { border-left-color:#4a5566; background:#e8e2d2; }
+.tip { background:#eaf1f7; border:1px solid #c5d3df; color:#3f5066; border-radius:12px; padding:16px 16px 14px; font-size:15px; line-height:1.8; }
+.tip h2 { background:#dfeaf3; border-left-color:#6e8aa3; color:var(--ink); }
 .warn { background:#f6f0e6; border:1px solid #e0d3bd; color:#6b4d28; }
 .kpi { display:flex; flex-wrap:wrap; gap:10px; }
 .kpi .b { flex:1 1 30%; background:var(--card); border:1px solid var(--line); border-radius:10px; padding:14px 8px; text-align:center; min-width:100px; border-top:4px solid #c3c9d1; }
@@ -67,7 +69,6 @@ tr:nth-child(even) td { background:#faf8f4; }
 .hdays { font-size:15px; font-weight:700; color:#3a5a80; white-space:nowrap; }
 .note { font-size:16px; color:#333d4c; line-height:1.9; }
 .note p { margin:8px 0; }
-.tip { background:#eff2f5; border:1px solid #d5dce4; color:#3f5066; border-radius:10px; padding:14px; font-size:15px; line-height:1.8; }
 a { color:#2f5d8f; }
 @media(max-width:768px) {
   .dim { grid-template-columns:1fr; }
@@ -75,16 +76,16 @@ a { color:#2f5d8f; }
   table { font-size:14px; }
   .card { overflow-x:auto; }
   .head { padding:16px 10px 12px; }
-  .head h1 { font-size:21px; }
+  .head h1 { font-size:21px; letter-spacing:.5px; }
   .card h2 { font-size:17px; }
   .note { font-size:15px; }
 }
 </style></head><body><div class='wrap'>
 <div class='head'><h1>📈 每周复盘 · 2026-07-31</h1>
-<div class='sub'>本周区间：2026-07-24 ~ 2026-07-31（最近完整交易周）｜ 生成于 2026-07-31 23:43 ｜ 框架：Miner 高胜算四维</div></div>
+<div class='sub'>本周区间：2026-07-24 ~ 2026-07-31（最近完整交易周）｜ 生成于 2026-07-31 23:49 ｜ 框架：Miner 高胜算四维</div></div>
 
 <div class='card tip'>
-<b>📌 数据范围</b><br>
+<h2>📌 数据范围</h2>
 大盘/宽基（上证·深证·创业板·沪深300·上证50·中证500·科创50·中小100）与 <b>145</b> 个行业板块指数（通达信）均已补齐进 DuckDB（vipdoc 数据源，与看盘终端同源）。本报告所有涨跌/量能/板块/个股统计均为<b>本周口径</b>（2026-07-24 收盘 → 2026-07-31 收盘），板块轮动为<b>真实行业板块</b>排名，非近似。
 </div>
 
