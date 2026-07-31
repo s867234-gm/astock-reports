@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang='zh-CN'><head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width,initial-scale=1'>
+<title>每月复盘_20260731</title>
+<style>
+* { box-sizing:border-box }
+body { font-family:-apple-system,Segoe UI,Roboto,'PingFang SC',sans-serif; margin:0; background:#f4f6f9; color:#1f2530; }
+.wrap { max-width:780px; margin:0 auto; padding:12px 12px 40px; }
+h1 { font-size:20px; margin:8px 0 2px; }
+.sub { color:#7a8494; font-size:12px; margin-bottom:10px; }
+.card { background:#fff; border-radius:12px; padding:14px; margin:12px 0; box-shadow:0 1px 4px rgba(0,0,0,.06); }
+.card h2 { font-size:16px; margin:0 0 10px; color:#185fa5; border-left:4px solid #185fa5; padding-left:8px; }
+.warn { background:#fff7e6; border:1px solid #ffd591; color:#8a5300; }
+.kpi { display:flex; flex-wrap:wrap; gap:8px; }
+.kpi .b { flex:1 1 30%; background:#f7f9fc; border-radius:10px; padding:10px; text-align:center; min-width:90px; }
+.kpi .b .v { font-size:20px; font-weight:700; }
+.kpi .b .l { font-size:11px; color:#8a93a3; margin-top:2px; }
+table { width:100%; border-collapse:collapse; font-size:13px; }
+th,td { padding:7px 6px; text-align:right; border-bottom:1px solid #eef1f5; }
+th:first-child,td:first-child { text-align:left; }
+.up { color:#e23b3b; font-weight:600; }
+.down { color:#1aa260; font-weight:600; }
+.dim { display:grid; grid-template-columns:1fr 1fr; gap:8px; }
+.dim .d { background:#f7f9fc; border-radius:10px; padding:10px; }
+.dim .d .t { font-size:12px; color:#8a93a3; }
+.dim .d .c { font-size:14px; margin-top:4px; font-weight:600; }
+.risk { display:inline-block; padding:2px 10px; border-radius:20px; font-size:12px; font-weight:700; }
+.risk.low { background:#e6f7ec; color:#1aa260; }
+.risk.mid { background:#fff7e6; color:#d4860b; }
+.risk.high { background:#ffe9e9; color:#e23b3b; }
+.act { display:inline-block; padding:3px 12px; border-radius:20px; font-size:13px; font-weight:700; }
+.act-hold { background:#e6f7ec; color:#1aa260; }
+.act-add { background:#eef6ff; color:#185fa5; }
+.act-watch { background:#f0f2f5; color:#7a8494; }
+.act-reduce { background:#fff7e6; color:#d4860b; }
+.act-avoid { background:#ffe9e9; color:#e23b3b; }
+.hdays { font-size:13px; font-weight:700; color:#185fa5; white-space:nowrap; }
+.note { font-size:14px; color:#3a4252; line-height:1.8; }
+.note p { margin:7px 0; }
+.tip { background:#eef6ff; border:1px solid #bcdcff; color:#185fa5; border-radius:10px; padding:10px; font-size:13px; line-height:1.6; }
+@keyframes fadein { from{opacity:0} to{opacity:1} }
+@media(max-width:600px) { .dim { grid-template-columns:1fr; } .kpi .b { flex:1 1 45%; } table { font-size:12px; } }
+</style></head><body><div class='wrap'>
+<h1>📈 每月复盘 · 2026-07-31</h1>
+<div class='sub'>本月区间：2026-07-03 ~ 2026-07-31（近一个月）｜ 生成于 2026-07-31 23:10 ｜ 框架：Miner 高胜算四维</div>
+
+<div class='card tip'>
+<b>📌 数据范围</b><br>
+大盘/宽基（上证·深证·创业板·沪深300·上证50·中证500·科创50·中小100）与 <b>145</b> 个行业板块指数（通达信）均已补齐进 DuckDB（vipdoc 数据源，与看盘终端同源）。本报告所有涨跌/量能/板块/个股统计均为<b>本月口径</b>（2026-07-03 收盘 → 2026-07-31 收盘），板块轮动为<b>真实行业板块</b>排名，非近似。
+</div>
+
+<div class='card'>
+<h2>一、大盘指数复盘 · 上证指数</h2>
+<div class='dim'>
+<div class='d'><div class='t'>收盘</div><div class='c'>3832.26</div></div>
+<div class='d'><div class='t'>MA60 / 长期均线</div><div class='c'>4030.21 / 4041.18</div></div>
+<div class='d'><div class='t'>大周期(周线)动量</div><div class='c'>Bear 未超卖</div></div>
+<div class='d'><div class='t'>小周期(日线)动量</div><div class='c'>日线动量中性区</div></div>
+</div>
+<table style='margin-top:10px'>
+<tr><th>维度</th><th>结论</th><th>依据</th></tr>
+<tr><td>动量</td><td>Bear 未超卖 / 日线动量中性区</td><td>周线D=31.71 日线D=29.96 K/D无交叉；MACD柱=-2.59</td></tr>
+<tr><td>形态</td><td>调整结构(ABC 重叠特征)</td><td>近期摆动高低点结构</td></tr>
+<tr><td>价格</td><td>低位区(接近120日低点，关注OS反弹)</td><td>120日区间 3741.11–4258.86；回撤 50%=3999.98 61.8%=3938.89；扩展 100%=4258.86 161.8%=4578.83</td></tr>
+<tr><td>时间</td><td>—</td><td>最近一段上行 6 交易日 / 下行 9 交易日；时间回撤关注前段运行的 38%-62% 区间</td></tr>
+</table>
+<div style='margin-top:10px'>
+<b>市场背景判定：</b>偏空（大周期动量偏弱，空仓观望，不做多）<br>
+<b>风险等级：</b><span class='risk mid'>中高</span>
+<div class='note' style='margin-top:6px'>提示：A股仅做多，指数背景用于判断「是否可逢回调做多指数ETF」。若偏多，参考价格回撤区（50%=3999.98/61.8%=3938.89）作为支撑，日线动量在OB区外发生看涨反转(K/D金叉)为触发，止损置于使多头前提失效的精确位（如跌破61.8%回撤）。</div>
+</div>
+</div>
+
+<div class='card'>
+<h2>二、宽基指数概览（本月）</h2>
+<table><tr><th>指数</th><th>本月涨跌幅</th><th>收盘</th></tr><tr><td>上证50</td><td class='down'>-0.28%</td><td>2923</td></tr><tr><td>上证指数</td><td class='down'>-5.23%</td><td>3832</td></tr><tr><td>沪深300</td><td class='down'>-5.24%</td><td>4588</td></tr><tr><td>中小100</td><td class='down'>-11.21%</td><td>8412</td></tr><tr><td>深证成指</td><td class='down'>-12.94%</td><td>13579</td></tr><tr><td>中证500</td><td class='down'>-14.31%</td><td>7494</td></tr><tr><td>创业板指</td><td class='down'>-16.82%</td><td>3344</td></tr><tr><td>科创50</td><td class='down'>-17.19%</td><td>1636</td></tr></table>
+</div>
+
+<div class='card'>
+<h2>三、市场广度与量能（本月）</h2>
+<div class='kpi'>
+<div class='b'><div class='v up'>1696</div><div class='l'>上涨家数</div></div>
+<div class='b'><div class='v down'>3470</div><div class='l'>下跌家数</div></div>
+<div class='b'><div class='v'>20</div><div class='l'>平盘</div></div>
+<div class='b'><div class='v'>-6.28%</div><div class='l'>中位涨跌(月)</div></div>
+<div class='b'><div class='v up'>33</div><div class='l'>月涨超30%</div></div>
+<div class='b'><div class='v down'>762</div><div class='l'>月跌超30%</div></div>
+</div>
+<div class='kpi' style='margin-top:8px'>
+<div class='b'><div class='v'>3747亿</div><div class='l'>月末成交额(千元)</div></div>
+<div class='b'><div class='v down'>-19.6%</div><div class='l'>量能环比(月末vs上月末)</div></div>
+<div class='b'><div class='v'>5186</div><div class='l'>样本家数</div></div>
+</div>
+</div>
+
+<div class='card'>
+<h2>四、领涨 / 领跌行业板块（Top15）</h2>
+<table><tr><th>行业</th><th>本月涨幅</th><th>近40日动量</th></tr><tr><td>石油开采</td><td class='up'>21.26%</td><td>4.3%</td></tr><tr><td>石油</td><td class='up'>17.36%</td><td>4.6%</td></tr><tr><td>商品城</td><td class='up'>16.89%</td><td>7.4%</td></tr><tr><td>白酒</td><td class='up'>13.52%</td><td>7.1%</td></tr><tr><td>酿酒</td><td class='up'>13.36%</td><td>6.6%</td></tr><tr><td>银行</td><td class='up'>12.59%</td><td>8.1%</td></tr><tr><td>啤酒</td><td class='up'>12.43%</td><td>-0.8%</td></tr><tr><td>乳制品</td><td class='up'>12.02%</td><td>5.0%</td></tr><tr><td>煤炭开采</td><td class='up'>11.96%</td><td>-10.2%</td></tr><tr><td>煤炭</td><td class='up'>11.80%</td><td>-10.4%</td></tr><tr><td>TDX 能源</td><td class='up'>10.55%</td><td>-5.2%</td></tr><tr><td>水力发电</td><td class='up'>10.19%</td><td>2.6%</td></tr><tr><td>港口</td><td class='up'>10.05%</td><td>3.1%</td></tr><tr><td>铁路</td><td class='up'>9.63%</td><td>2.2%</td></tr><tr><td>黄金</td><td class='up'>9.14%</td><td>2.0%</td></tr></table>
+<div style='height:8px'></div>
+<table><tr><th>行业</th><th>本月跌幅</th><th>近40日动量</th></tr><tr><td>玻璃</td><td class='down'>-41.67%</td><td>-21.1%</td></tr><tr><td>矿物制品</td><td class='down'>-32.30%</td><td>-24.9%</td></tr><tr><td>机械基件</td><td class='down'>-29.35%</td><td>-20.9%</td></tr><tr><td>元器件</td><td class='down'>-29.30%</td><td>-25.6%</td></tr><tr><td>建材</td><td class='down'>-29.25%</td><td>-15.5%</td></tr><tr><td>通用机械</td><td class='down'>-28.37%</td><td>-20.2%</td></tr><tr><td>陶瓷</td><td class='down'>-27.46%</td><td>-3.4%</td></tr><tr><td>专用机械</td><td class='down'>-25.81%</td><td>-23.6%</td></tr><tr><td>半导体</td><td class='down'>-24.73%</td><td>-9.5%</td></tr><tr><td>工业机械</td><td class='down'>-24.49%</td><td>-22.3%</td></tr><tr><td>装修装饰</td><td class='down'>-24.19%</td><td>-16.9%</td></tr><tr><td>TDX 信息</td><td class='down'>-21.85%</td><td>-17.8%</td></tr><tr><td>通信设备</td><td class='down'>-21.75%</td><td>-28.7%</td></tr><tr><td>机床制造</td><td class='down'>-21.46%</td><td>-15.7%</td></tr><tr><td>小金属</td><td class='down'>-20.51%</td><td>-17.7%</td></tr></table>
+</div>
+
+<div class='card'>
+<h2>五、个股风格轮动（本月）</h2>
+<table><tr><th>风格</th><th>家数</th><th>平均涨跌</th><th>上涨占比</th></tr><tr><td>沪市主板</td><td>1693</td><td class='down'>-5.03%</td><td>45.0%</td></tr><tr><td>深市主板</td><td>1489</td><td class='down'>-6.27%</td><td>38.1%</td></tr><tr><td>其他</td><td>3</td><td class='down'>-9.25%</td><td>0.0%</td></tr><tr><td>创业板</td><td>1393</td><td class='down'>-13.56%</td><td>22.5%</td></tr><tr><td>科创板</td><td>608</td><td class='down'>-21.06%</td><td>8.7%</td></tr></table>
+<div class='note' style='margin-top:6px'>按代码前缀分组：沪市主板(60)/深市主板(000-003)/创业板(300-301)/科创板(688)。平均涨跌最高组为本月资金偏好方向。</div>
+</div>
+
+<div class='card'>
+<h2>六、领涨 / 领跌个股（Top15，本月）</h2>
+<table><tr><th>代码</th><th>名称</th><th>月涨幅</th><th>收盘</th></tr><tr><td>603221</td><td>爱丽家居</td><td class='up'>110.46%</td><td>22.54</td></tr><tr><td>600664</td><td>哈药股份</td><td class='up'>87.58%</td><td>5.89</td></tr><tr><td>300795</td><td>米奥会展</td><td class='up'>86.61%</td><td>16.44</td></tr><tr><td>300534</td><td>陇神戎发</td><td class='up'>80.66%</td><td>13.73</td></tr><tr><td>301234</td><td>五洲医疗</td><td class='up'>78.85%</td><td>65.89</td></tr><tr><td>603580</td><td>艾艾精工</td><td class='up'>75.57%</td><td>52.90</td></tr><tr><td>001258</td><td>立新能源</td><td class='up'>73.80%</td><td>12.34</td></tr><tr><td>003032</td><td>传智教育</td><td class='up'>62.85%</td><td>8.81</td></tr><tr><td>002726</td><td>ST龙大</td><td class='up'>61.94%</td><td>2.17</td></tr><tr><td>300663</td><td>科蓝软件</td><td class='up'>58.04%</td><td>10.62</td></tr><tr><td>300996</td><td>普联软件</td><td class='up'>57.66%</td><td>18.62</td></tr><tr><td>000779</td><td>甘咨询</td><td class='up'>52.14%</td><td>12.78</td></tr><tr><td>301108</td><td>洁雅股份</td><td class='up'>49.77%</td><td>35.60</td></tr><tr><td>300164</td><td>通源石油</td><td class='up'>48.94%</td><td>11.93</td></tr><tr><td>603137</td><td>恒尚节能</td><td class='up'>45.18%</td><td>25.00</td></tr></table>
+<div style='height:8px'></div>
+<table><tr><th>代码</th><th>名称</th><th>月跌幅</th><th>收盘</th></tr><tr><td>688059</td><td>华锐精密</td><td class='down'>-64.07%</td><td>72.32</td></tr><tr><td>300005</td><td>探路者</td><td class='down'>-61.06%</td><td>9.21</td></tr><tr><td>603663</td><td>三祥新材</td><td class='down'>-60.72%</td><td>33.70</td></tr><tr><td>301042</td><td>安联锐视</td><td class='down'>-60.02%</td><td>26.39</td></tr><tr><td>688020</td><td>方邦股份</td><td class='down'>-57.95%</td><td>103.27</td></tr><tr><td>688168</td><td>安博通</td><td class='down'>-57.44%</td><td>31.41</td></tr><tr><td>301511</td><td>德福科技</td><td class='down'>-56.69%</td><td>66.30</td></tr><tr><td>688766</td><td>普冉股份</td><td class='down'>-56.50%</td><td>354.90</td></tr><tr><td>001268</td><td>联合精密</td><td class='down'>-56.37%</td><td>17.19</td></tr><tr><td>001309</td><td>德明利</td><td class='down'>-56.24%</td><td>385.90</td></tr><tr><td>688359</td><td>三孚新科</td><td class='down'>-56.19%</td><td>86.50</td></tr><tr><td>300806</td><td>斯迪克</td><td class='down'>-56.12%</td><td>41.65</td></tr><tr><td>688636</td><td>智明达</td><td class='down'>-55.90%</td><td>17.73</td></tr><tr><td>688450</td><td>光格科技</td><td class='down'>-55.62%</td><td>28.17</td></tr><tr><td>603155</td><td>新亚强</td><td class='down'>-54.80%</td><td>12.15</td></tr></table>
+</div>
+
+<div class='card'>
+<h2>七、票操作建议（短 / 中 / 长）</h2>
+<div class='dim'>
+<div class='d'><div class='t'>短期（日线·数日）</div><div class='c'><span class='act act-watch'>持有/观望</span></div></div>
+<div class='d'><div class='t'>中期（周线·数周）</div><div class='c'><span class='act act-avoid'>空仓观望</span></div></div>
+<div class='d'><div class='t'>长期（主趋势·数月+）</div><div class='c'><span class='act act-avoid'>低配/空仓</span></div></div>
+</div>
+<div class='note' style='margin-top:8px'>
+<b>短期：</b>【参与时机】日线动量中性无交叉，方向不明；【操作】维持现有短线仓或观望，不追涨杀跌；【风控】无信号不动作，等待K/D明确交叉。 注意：大周期偏空背景下，一切短线反弹均按『反弹而非反转』处理，仓位从严。<br>
+<b>中期：</b>【操作】周线偏空(空头未超卖)，中期下行；空仓观望不做多，仅待超卖或反转确认；【风控】不逆势抄底。 形态显示调整结构，中期以高抛低吸的区间思路应对。<br>
+<b>长期：</b>【操作】指数仍在长期均线(MA200=4041.18)下方，长期处下行/熊市结构；长期仓低配或空仓，等有效站回MA200并确认周线多头后再战略配置；【风控】长空结构不重仓，不抢反弹。
+</div>
+<div class='note' style='margin-top:6px'>操作建议由四维数据自动推导：短期看日线动量/K-D金叉/量能/广度（含【参与时机/操作/止损/风控】）；中期看周线动量(大周期四态)与形态；长期看指数相对MA200位置与周线趋势。A股仅做多，偏空周期以『持币/低配/减仓』为主，不做多加仓。</div>
+</div>
+
+<div class='card'>
+<h2>八、热门板块股票操作建议（Top 12，本月）</h2>
+<table><tr><th>板块</th><th>本月</th><th>近40日</th><th>建议</th><th>操作要点</th></tr><tr><td>石油开采</td><td class='up'>21.26%</td><td class='up'>4.3%</td><td><span class='act act-hold'>持有(短线)</span></td><td style='text-align:left;font-size:12px;color:#7a8494'>【操作】中期震荡偏多，可持有；短线在冲高时部分止盈，回落再接，做板块内相对强度靠前个股；【止损】当日大阳失守开盘价减半。 单月>15%已过热，严禁追高。 大周期偏空，板块仓应轻，操作以短线为主。</td></tr><tr><td>石油</td><td class='up'>17.36%</td><td class='up'>4.6%</td><td><span class='act act-hold'>持有(短线)</span></td><td style='text-align:left;font-size:12px;color:#7a8494'>【操作】中期震荡偏多，可持有；短线在冲高时部分止盈，回落再接，做板块内相对强度靠前个股；【止损】当日大阳失守开盘价减半。 单月>15%已过热，严禁追高。 大周期偏空，板块仓应轻，操作以短线为主。</td></tr><tr><td>商品城</td><td class='up'>16.89%</td><td class='up'>7.4%</td><td><span class='act act-hold'>持有(短线)</span></td><td style='text-align:left;font-size:12px;color:#7a8494'>【操作】中期震荡偏多，可持有；短线在冲高时部分止盈，回落再接，做板块内相对强度靠前个股；【止损】当日大阳失守开盘价减半。 单月>15%已过热，严禁追高。 大周期偏空，板块仓应轻，操作以短线为主。</td></tr><tr><td>白酒</td><td class='up'>13.52%</td><td class='up'>7.1%</td><td><span class='act act-hold'>持有(短线)</span></td><td style='text-align:left;font-size:12px;color:#7a8494'>【操作】中期震荡偏多，可持有；短线在冲高时部分止盈，回落再接，做板块内相对强度靠前个股；【止损】当日大阳失守开盘价减半。 大周期偏空，板块仓应轻，操作以短线为主。</td></tr><tr><td>酿酒</td><td class='up'>13.36%</td><td class='up'>6.6%</td><td><span class='act act-hold'>持有(短线)</span></td><td style='text-align:left;font-size:12px;color:#7a8494'>【操作】中期震荡偏多，可持有；短线在冲高时部分止盈，回落再接，做板块内相对强度靠前个股；【止损】当日大阳失守开盘价减半。 大周期偏空，板块仓应轻，操作以短线为主。</td></tr><tr><td>银行</td><td class='up'>12.59%</td><td class='up'>8.1%</td><td><span class='act act-hold'>持有(短线)</span></td><td style='text-align:left;font-size:12px;color:#7a8494'>【操作】中期震荡偏多，可持有；短线在冲高时部分止盈，回落再接，做板块内相对强度靠前个股；【止损】当日大阳失守开盘价减半。 大周期偏空，板块仓应轻，操作以短线为主。</td></tr><tr><td>啤酒</td><td class='up'>12.43%</td><td class='down'>-0.8%</td><td><span class='act act-reduce'>快进快出</span></td><td style='text-align:left;font-size:12px;color:#7a8494'>【操作】本月强但中期动量弱，属游资短炒/反弹；仅做板块内最强领涨股快进快出，不恋战，当日大阳宜减仓；【止损】隔日低开即离场。 大周期偏空，板块仓应轻，操作以短线为主。</td></tr><tr><td>乳制品</td><td class='up'>12.02%</td><td class='up'>5.0%</td><td><span class='act act-hold'>持有(短线)</span></td><td style='text-align:left;font-size:12px;color:#7a8494'>【操作】中期震荡偏多，可持有；短线在冲高时部分止盈，回落再接，做板块内相对强度靠前个股；【止损】当日大阳失守开盘价减半。 大周期偏空，板块仓应轻，操作以短线为主。</td></tr><tr><td>煤炭开采</td><td class='up'>11.96%</td><td class='down'>-10.2%</td><td><span class='act act-reduce'>快进快出</span></td><td style='text-align:left;font-size:12px;color:#7a8494'>【操作】本月强但中期动量弱，属游资短炒/反弹；仅做板块内最强领涨股快进快出，不恋战，当日大阳宜减仓；【止损】隔日低开即离场。 大周期偏空，板块仓应轻，操作以短线为主。</td></tr><tr><td>煤炭</td><td class='up'>11.80%</td><td class='down'>-10.4%</td><td><span class='act act-reduce'>快进快出</span></td><td style='text-align:left;font-size:12px;color:#7a8494'>【操作】本月强但中期动量弱，属游资短炒/反弹；仅做板块内最强领涨股快进快出，不恋战，当日大阳宜减仓；【止损】隔日低开即离场。 大周期偏空，板块仓应轻，操作以短线为主。</td></tr><tr><td>TDX 能源</td><td class='up'>10.55%</td><td class='down'>-5.2%</td><td><span class='act act-reduce'>快进快出</span></td><td style='text-align:left;font-size:12px;color:#7a8494'>【操作】本月强但中期动量弱，属游资短炒/反弹；仅做板块内最强领涨股快进快出，不恋战，当日大阳宜减仓；【止损】隔日低开即离场。 大周期偏空，板块仓应轻，操作以短线为主。</td></tr><tr><td>水力发电</td><td class='up'>10.19%</td><td class='up'>2.6%</td><td><span class='act act-hold'>持有(短线)</span></td><td style='text-align:left;font-size:12px;color:#7a8494'>【操作】中期震荡偏多，可持有；短线在冲高时部分止盈，回落再接，做板块内相对强度靠前个股；【止损】当日大阳失守开盘价减半。 大周期偏空，板块仓应轻，操作以短线为主。</td></tr></table>
+<div class='note' style='margin-top:6px'>热门板块=本月涨幅≥10% 或 近40日动量≥15%，按本月涨幅取前12。『趋势强』=中期动量&gt;20%且本月领涨，可持有/加仓板块内龙头；『快进快出』=本月强但中期弱，属游资短炒，仅做最强领涨股、隔日不恋战。操作要点含参与时机、买点、止损与风控，均为技术面推导（A股仅做多）。</div>
+</div>
+
+
+<div class='card'>
+<h2>九、下月分析（基于四维框架）</h2>
+<div class='note'>
+<p><b>① 动量：</b>周线动量偏弱（空头未超卖），下月整体仍偏空；反弹持续性差，空仓观望为主，不做多加仓，仅待超卖或反转确认。</p>
+<p><b>② 关键价位：</b>当前收盘 3832.26；回踩支撑 50%@3999.98、61.8%@3938.89；上行压力 100%@4258.86、161.8%@4578.83；长期多空分水岭 MA200=4041.18。</p>
+<p><b>③ 时间窗口：</b>最近一段上行 6 交易日 / 下行 9 交易日；时间回撤关注前段运行的 38%-62% 区间</p>
+<p><b>④ 基准情形：</b>偏弱：下月延续寻底或弱势反弹；未站回 MA200 前不轻易言底，反弹仍按减仓 / 观望对待。</p>
+<p><b>⑤ 风控：</b>⚠️ 下月关键风险：大周期偏空背景下任何反弹均须控制仓位（单笔≤3%、合计≤6%）；若指数有效跌破长期均线 MA200(4041.18) 则全面转防御；下月操作以前文『短/中/长』建议的四维触发条件为准，不提前预判方向。</p>
+</div>
+<div class='note' style='margin-top:6px'>下月分析为对当前「已知」四维状态的情景推演（动量延续/反转概率、关键价位与时间窗），非点位预测；实际操作以前文『八、票操作建议』的触发条件（K/D 金叉/死叉、回撤区、止损位）为准，触发前保持计划、不提前行动。</div>
+</div>
+
+
+<div class='card'>
+<h2>总结</h2>
+<div class='note'>
+<p><b>① 大盘环境：</b>以上证指数看，大周期动量「Bear 未超卖」、市场背景偏空；指数仍位于长期均线 MA200（4041.18）这道「地平线」之下、大气候偏冷，操作上宜裹紧棉袄少出手。</p>
+<p><b>② 市场温度：</b>本月 1696 家上涨、3470 家下跌，中位月涨跌 -6.28%，成交约 3747 亿（环比 -19.6%）；个股普跌如退潮百舸下沉，潮水方向比零星翻红更值得盯。</p>
+<p><b>③ 板块与资金：</b>77 个行业上涨、68 个下跌，最强「石油开采」、最弱「玻璃」；资金整体偏向「沪市主板」风格。</p>
+<p><b>④ 格局与策略：</b>技术面中性偏空：本月个股与板块普涨属短线反弹，指数仍在 MA200 之下、周线动量未转多，反弹仍按反弹对待；像下坡路上的小缓坡——别把喘息当掉头。等日线动量在 OB 区外看涨反转确认再加仓，不提前行动。</p>
+<p><b>⑤ 操作指引：</b>长期【低配/空仓】、中期【空仓观望】、短期【持有/观望】（详见「七、票操作建议」）；热门板块分级建议见「八、热门板块股票操作建议」；下月方向与关键价位见「九、下月分析」。</p>
+</div>
+</div>
+
+<div class='card warn' style='font-size:12px'>
+⚠️ 股市有风险，技术分析不保证盈利。以上为纯技术面月度复盘，非投资建议；指数背景仅用于判断交易环境，具体买卖须结合个人风险承受能力并自行决策。
+</div>
+</div></body></html>
