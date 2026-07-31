@@ -4,9 +4,9 @@
 <title>每月复盘_20260731</title>
 <style>
 :root{
-  --ink:#2f3b4c;      /* 主文字/标题 藏青 */
-  --sub:#8a8f98;      /* 次要文字 灰 */
-  --line:#e5e1d8;     /* 分隔线 米灰 */
+  --ink:#2b3646;      /* 主文字 藏青 */
+  --sub:#6a7280;      /* 次要文字 深灰 高对比 */
+  --line:#d9d4c9;     /* 分隔线 */
   --bg:#f4f2ee;       /* 页面背景 米灰纸感 */
   --card:#fffdfa;     /* 卡片 暖白 */
   --up:#a94442;       /* 涨 暗红 */
@@ -14,64 +14,74 @@
   --band:#a9b4c0;     /* 色条 灰蓝 */
 }
 * { box-sizing:border-box }
-body { font-family:-apple-system,Segoe UI,Roboto,'PingFang SC',sans-serif; margin:0; background:var(--bg); color:var(--ink); }
-.wrap { max-width:800px; margin:0 auto; padding:12px 12px 44px; }
-.head { text-align:center; padding:20px 12px 16px; margin:0 0 16px; border-bottom:1px solid var(--line); }
-.head h1 { font-size:22px; margin:0; letter-spacing:2px; font-weight:600; }
-.head .sub { color:var(--sub); font-size:12px; margin-top:6px; letter-spacing:.5px; }
-.card { background:var(--card); border-radius:10px; padding:16px 16px 14px; margin:12px 0; border:1px solid var(--line); box-shadow:0 1px 3px rgba(47,59,76,.05); }
-.card h2 { font-size:15px; margin:0 0 12px; color:var(--ink); border-left:4px solid var(--band); padding-left:10px; font-weight:600; letter-spacing:.5px; }
-.wrap > .card:nth-of-type(2) h2 { border-left-color:#9aa8b8; }
-.wrap > .card:nth-of-type(3) h2 { border-left-color:#8fa8a0; }
-.wrap > .card:nth-of-type(4) h2 { border-left-color:#9aa8b8; }
-.wrap > .card:nth-of-type(5) h2 { border-left-color:#b0a08c; }
-.wrap > .card:nth-of-type(6) h2 { border-left-color:#a897a0; }
-.wrap > .card:nth-of-type(7) h2 { border-left-color:#8fa8a0; }
-.wrap > .card:nth-of-type(8) h2 { border-left-color:#a89a9a; }
-.wrap > .card:nth-of-type(9) h2 { border-left-color:#8a94a6; }
-.wrap > .card:nth-of-type(10) h2 { border-left-color:#9aa8b8; }
-.wrap > .card:nth-of-type(11) h2 { border-left-color:#6e7a8a; }
-.warn { background:#f6f0e6; border:1px solid #e0d3bd; color:#7a5a30; }
-.kpi { display:flex; flex-wrap:wrap; gap:8px; }
-.kpi .b { flex:1 1 30%; background:var(--card); border:1px solid var(--line); border-radius:8px; padding:10px; text-align:center; min-width:90px; border-top:3px solid #c3c9d1; }
-.kpi .b .v { font-size:20px; font-weight:700; }
-.kpi .b .l { font-size:11px; color:var(--sub); margin-top:2px; }
+html { -webkit-text-size-adjust:100% }
+body { font-family:-apple-system,Segoe UI,Roboto,'PingFang SC',sans-serif; margin:0; background:var(--bg); color:var(--ink); font-size:17px; line-height:1.7; }
+.wrap { max-width:820px; margin:0 auto; padding:10px 10px 44px; }
+.head { text-align:center; padding:22px 12px 16px; margin:0 0 16px; border-bottom:2px solid var(--line); }
+.head h1 { font-size:25px; margin:0; letter-spacing:2px; font-weight:700; }
+.head .sub { color:var(--sub); font-size:14px; margin-top:8px; letter-spacing:.5px; }
+.card { background:var(--card); border-radius:12px; padding:18px 16px 16px; margin:14px 0; border:1px solid var(--line); box-shadow:0 1px 4px rgba(47,59,76,.06); }
+.card h2 { font-size:19px; margin:0 0 14px; color:var(--ink); border-left:5px solid var(--band); padding-left:12px; font-weight:700; letter-spacing:.5px; }
+.wrap > .card:nth-of-type(2) h2 { border-left-color:#8e9fb2; }
+.wrap > .card:nth-of-type(3) h2 { border-left-color:#7fa098; }
+.wrap > .card:nth-of-type(4) h2 { border-left-color:#8e9fb2; }
+.wrap > .card:nth-of-type(5) h2 { border-left-color:#a5967e; }
+.wrap > .card:nth-of-type(6) h2 { border-left-color:#a08a95; }
+.wrap > .card:nth-of-type(7) h2 { border-left-color:#7fa098; }
+.wrap > .card:nth-of-type(8) h2 { border-left-color:#a58a8a; }
+.wrap > .card:nth-of-type(9) h2 { border-left-color:#7d8ba1; }
+.wrap > .card:nth-of-type(10) h2 { border-left-color:#8e9fb2; }
+.wrap > .card:nth-of-type(11) h2 { border-left-color:#5f6d80; }
+.warn { background:#f6f0e6; border:1px solid #e0d3bd; color:#6b4d28; }
+.kpi { display:flex; flex-wrap:wrap; gap:10px; }
+.kpi .b { flex:1 1 30%; background:var(--card); border:1px solid var(--line); border-radius:10px; padding:14px 8px; text-align:center; min-width:100px; border-top:4px solid #c3c9d1; }
+.kpi .b .v { font-size:26px; font-weight:700; }
+.kpi .b .l { font-size:13px; color:var(--sub); margin-top:4px; }
 .kpi .b:nth-child(1) { border-top-color:#c4a3a1; }
 .kpi .b:nth-child(2) { border-top-color:#a8c4b5; }
 .kpi .b:nth-child(3) { border-top-color:#c3c9d1; }
 .kpi .b:nth-child(4) { border-top-color:#d3c3a4; }
 .kpi .b:nth-child(5) { border-top-color:#c4a3a1; }
 .kpi .b:nth-child(6) { border-top-color:#a8c4b5; }
-table { width:100%; border-collapse:collapse; font-size:13px; }
-th { padding:7px 6px; text-align:right; background:#f0ede7; color:#5a6572; font-weight:600; border-bottom:1px solid var(--line); }
-td { padding:7px 6px; text-align:right; border-bottom:1px solid #f0ece3; }
+table { width:100%; border-collapse:collapse; font-size:16px; }
+th { padding:10px 8px; text-align:right; background:#f0ede7; color:#4a5560; font-weight:700; border-bottom:2px solid var(--line); }
+td { padding:10px 8px; text-align:right; border-bottom:1px solid #f0ece3; }
 th:first-child,td:first-child { text-align:left; }
 tr:nth-child(even) td { background:#faf8f4; }
-.up { color:var(--up); font-weight:600; }
-.down { color:var(--down); font-weight:600; }
-.dim { display:grid; grid-template-columns:1fr 1fr; gap:8px; }
-.dim .d { background:var(--card); border:1px solid var(--line); border-radius:8px; padding:10px; border-left:3px solid var(--band); }
-.dim .d .t { font-size:12px; color:var(--sub); }
-.dim .d .c { font-size:14px; margin-top:4px; font-weight:600; }
-.risk { display:inline-block; padding:2px 12px; border-radius:16px; font-size:12px; font-weight:700; }
+.up { color:var(--up); font-weight:700; }
+.down { color:var(--down); font-weight:700; }
+.dim { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+.dim .d { background:var(--card); border:1px solid var(--line); border-radius:10px; padding:12px; border-left:4px solid var(--band); }
+.dim .d .t { font-size:14px; color:var(--sub); }
+.dim .d .c { font-size:17px; margin-top:4px; font-weight:700; }
+.risk { display:inline-block; padding:3px 14px; border-radius:18px; font-size:15px; font-weight:700; }
 .risk.low { background:#e8efe9; color:#3d6b52; border:1px solid #c9d9cd; }
 .risk.mid { background:#f4ece0; color:#8a6a3a; border:1px solid #ddd3c0; }
 .risk.high { background:#f2e7e5; color:#8a4a44; border:1px solid #dcc9c6; }
-.act { display:inline-block; padding:3px 12px; border-radius:16px; font-size:13px; font-weight:700; }
+.act { display:inline-block; padding:5px 16px; border-radius:18px; font-size:16px; font-weight:700; }
 .act-hold { background:#e8efe9; color:#3d6b52; border:1px solid #c9d9cd; }
 .act-add { background:#e9eef4; color:#3a5a80; border:1px solid #c9d5e2; }
 .act-watch { background:#eef0f1; color:#5f6a76; border:1px solid #d6dae0; }
 .act-reduce { background:#f4ece0; color:#8a6a3a; border:1px solid #ddd3c0; }
 .act-avoid { background:#f2e7e5; color:#8a4a44; border:1px solid #dcc9c6; }
-.hdays { font-size:13px; font-weight:700; color:#3a5a80; white-space:nowrap; }
-.note { font-size:14px; color:#3c4554; line-height:1.8; }
-.note p { margin:7px 0; }
-.tip { background:#eff2f5; border:1px solid #d5dce4; color:#4a5a6e; border-radius:8px; padding:11px; font-size:13px; line-height:1.7; }
-a { color:#3a5a80; }
-@media(max-width:600px) { .dim { grid-template-columns:1fr; } .kpi .b { flex:1 1 45%; } table { font-size:12px; } .head { padding:14px 10px 12px; } .head h1 { font-size:19px; } }
+.hdays { font-size:15px; font-weight:700; color:#3a5a80; white-space:nowrap; }
+.note { font-size:16px; color:#333d4c; line-height:1.9; }
+.note p { margin:8px 0; }
+.tip { background:#eff2f5; border:1px solid #d5dce4; color:#3f5066; border-radius:10px; padding:14px; font-size:15px; line-height:1.8; }
+a { color:#2f5d8f; }
+@media(max-width:768px) {
+  .dim { grid-template-columns:1fr; }
+  .kpi .b { flex:1 1 46%; }
+  table { font-size:15px; }
+  .card { overflow-x:auto; }
+  .head { padding:16px 10px 12px; }
+  .head h1 { font-size:21px; }
+  .card h2 { font-size:17px; }
+  .note { font-size:15px; }
+}
 </style></head><body><div class='wrap'>
 <div class='head'><h1>📈 每月复盘 · 2026-07-31</h1>
-<div class='sub'>本月区间：2026-07-03 ~ 2026-07-31（近一个月）｜ 生成于 2026-07-31 23:36 ｜ 框架：Miner 高胜算四维</div></div>
+<div class='sub'>本月区间：2026-07-03 ~ 2026-07-31（近一个月）｜ 生成于 2026-07-31 23:40 ｜ 框架：Miner 高胜算四维</div></div>
 
 <div class='card tip'>
 <b>📌 数据范围</b><br>
@@ -159,7 +169,7 @@ a { color:#3a5a80; }
 
 <div class='card'>
 <h2>八、热门板块股票操作建议（Top 12，本月）</h2>
-<table><tr><th>板块</th><th>本月</th><th>近40日</th><th>建议</th><th>操作要点</th></tr><tr><td>石油开采</td><td class='up'>21.26%</td><td class='up'>4.3%</td><td><span class='act act-hold'>持有(短线)</span></td><td style='text-align:left;font-size:12px;color:#7a8494'>【操作】中期震荡偏多，可持有；短线在冲高时部分止盈，回落再接，做板块内相对强度靠前个股；【止损】当日大阳失守开盘价减半。 单月>15%已过热，严禁追高。 大周期偏空，板块仓应轻，操作以短线为主。</td></tr><tr><td>石油</td><td class='up'>17.36%</td><td class='up'>4.6%</td><td><span class='act act-hold'>持有(短线)</span></td><td style='text-align:left;font-size:12px;color:#7a8494'>【操作】中期震荡偏多，可持有；短线在冲高时部分止盈，回落再接，做板块内相对强度靠前个股；【止损】当日大阳失守开盘价减半。 单月>15%已过热，严禁追高。 大周期偏空，板块仓应轻，操作以短线为主。</td></tr><tr><td>商品城</td><td class='up'>16.89%</td><td class='up'>7.4%</td><td><span class='act act-hold'>持有(短线)</span></td><td style='text-align:left;font-size:12px;color:#7a8494'>【操作】中期震荡偏多，可持有；短线在冲高时部分止盈，回落再接，做板块内相对强度靠前个股；【止损】当日大阳失守开盘价减半。 单月>15%已过热，严禁追高。 大周期偏空，板块仓应轻，操作以短线为主。</td></tr><tr><td>白酒</td><td class='up'>13.52%</td><td class='up'>7.1%</td><td><span class='act act-hold'>持有(短线)</span></td><td style='text-align:left;font-size:12px;color:#7a8494'>【操作】中期震荡偏多，可持有；短线在冲高时部分止盈，回落再接，做板块内相对强度靠前个股；【止损】当日大阳失守开盘价减半。 大周期偏空，板块仓应轻，操作以短线为主。</td></tr><tr><td>酿酒</td><td class='up'>13.36%</td><td class='up'>6.6%</td><td><span class='act act-hold'>持有(短线)</span></td><td style='text-align:left;font-size:12px;color:#7a8494'>【操作】中期震荡偏多，可持有；短线在冲高时部分止盈，回落再接，做板块内相对强度靠前个股；【止损】当日大阳失守开盘价减半。 大周期偏空，板块仓应轻，操作以短线为主。</td></tr><tr><td>银行</td><td class='up'>12.59%</td><td class='up'>8.1%</td><td><span class='act act-hold'>持有(短线)</span></td><td style='text-align:left;font-size:12px;color:#7a8494'>【操作】中期震荡偏多，可持有；短线在冲高时部分止盈，回落再接，做板块内相对强度靠前个股；【止损】当日大阳失守开盘价减半。 大周期偏空，板块仓应轻，操作以短线为主。</td></tr><tr><td>啤酒</td><td class='up'>12.43%</td><td class='down'>-0.8%</td><td><span class='act act-reduce'>快进快出</span></td><td style='text-align:left;font-size:12px;color:#7a8494'>【操作】本月强但中期动量弱，属游资短炒/反弹；仅做板块内最强领涨股快进快出，不恋战，当日大阳宜减仓；【止损】隔日低开即离场。 大周期偏空，板块仓应轻，操作以短线为主。</td></tr><tr><td>乳制品</td><td class='up'>12.02%</td><td class='up'>5.0%</td><td><span class='act act-hold'>持有(短线)</span></td><td style='text-align:left;font-size:12px;color:#7a8494'>【操作】中期震荡偏多，可持有；短线在冲高时部分止盈，回落再接，做板块内相对强度靠前个股；【止损】当日大阳失守开盘价减半。 大周期偏空，板块仓应轻，操作以短线为主。</td></tr><tr><td>煤炭开采</td><td class='up'>11.96%</td><td class='down'>-10.2%</td><td><span class='act act-reduce'>快进快出</span></td><td style='text-align:left;font-size:12px;color:#7a8494'>【操作】本月强但中期动量弱，属游资短炒/反弹；仅做板块内最强领涨股快进快出，不恋战，当日大阳宜减仓；【止损】隔日低开即离场。 大周期偏空，板块仓应轻，操作以短线为主。</td></tr><tr><td>煤炭</td><td class='up'>11.80%</td><td class='down'>-10.4%</td><td><span class='act act-reduce'>快进快出</span></td><td style='text-align:left;font-size:12px;color:#7a8494'>【操作】本月强但中期动量弱，属游资短炒/反弹；仅做板块内最强领涨股快进快出，不恋战，当日大阳宜减仓；【止损】隔日低开即离场。 大周期偏空，板块仓应轻，操作以短线为主。</td></tr><tr><td>TDX 能源</td><td class='up'>10.55%</td><td class='down'>-5.2%</td><td><span class='act act-reduce'>快进快出</span></td><td style='text-align:left;font-size:12px;color:#7a8494'>【操作】本月强但中期动量弱，属游资短炒/反弹；仅做板块内最强领涨股快进快出，不恋战，当日大阳宜减仓；【止损】隔日低开即离场。 大周期偏空，板块仓应轻，操作以短线为主。</td></tr><tr><td>水力发电</td><td class='up'>10.19%</td><td class='up'>2.6%</td><td><span class='act act-hold'>持有(短线)</span></td><td style='text-align:left;font-size:12px;color:#7a8494'>【操作】中期震荡偏多，可持有；短线在冲高时部分止盈，回落再接，做板块内相对强度靠前个股；【止损】当日大阳失守开盘价减半。 大周期偏空，板块仓应轻，操作以短线为主。</td></tr></table>
+<table><tr><th>板块</th><th>本月</th><th>近40日</th><th>建议</th><th>操作要点</th></tr><tr><td>石油开采</td><td class='up'>21.26%</td><td class='up'>4.3%</td><td><span class='act act-hold'>持有(短线)</span></td><td style='text-align:left;font-size:15px;color:#333d4c'>【操作】中期震荡偏多，可持有；短线在冲高时部分止盈，回落再接，做板块内相对强度靠前个股；【止损】当日大阳失守开盘价减半。 单月>15%已过热，严禁追高。 大周期偏空，板块仓应轻，操作以短线为主。</td></tr><tr><td>石油</td><td class='up'>17.36%</td><td class='up'>4.6%</td><td><span class='act act-hold'>持有(短线)</span></td><td style='text-align:left;font-size:15px;color:#333d4c'>【操作】中期震荡偏多，可持有；短线在冲高时部分止盈，回落再接，做板块内相对强度靠前个股；【止损】当日大阳失守开盘价减半。 单月>15%已过热，严禁追高。 大周期偏空，板块仓应轻，操作以短线为主。</td></tr><tr><td>商品城</td><td class='up'>16.89%</td><td class='up'>7.4%</td><td><span class='act act-hold'>持有(短线)</span></td><td style='text-align:left;font-size:15px;color:#333d4c'>【操作】中期震荡偏多，可持有；短线在冲高时部分止盈，回落再接，做板块内相对强度靠前个股；【止损】当日大阳失守开盘价减半。 单月>15%已过热，严禁追高。 大周期偏空，板块仓应轻，操作以短线为主。</td></tr><tr><td>白酒</td><td class='up'>13.52%</td><td class='up'>7.1%</td><td><span class='act act-hold'>持有(短线)</span></td><td style='text-align:left;font-size:15px;color:#333d4c'>【操作】中期震荡偏多，可持有；短线在冲高时部分止盈，回落再接，做板块内相对强度靠前个股；【止损】当日大阳失守开盘价减半。 大周期偏空，板块仓应轻，操作以短线为主。</td></tr><tr><td>酿酒</td><td class='up'>13.36%</td><td class='up'>6.6%</td><td><span class='act act-hold'>持有(短线)</span></td><td style='text-align:left;font-size:15px;color:#333d4c'>【操作】中期震荡偏多，可持有；短线在冲高时部分止盈，回落再接，做板块内相对强度靠前个股；【止损】当日大阳失守开盘价减半。 大周期偏空，板块仓应轻，操作以短线为主。</td></tr><tr><td>银行</td><td class='up'>12.59%</td><td class='up'>8.1%</td><td><span class='act act-hold'>持有(短线)</span></td><td style='text-align:left;font-size:15px;color:#333d4c'>【操作】中期震荡偏多，可持有；短线在冲高时部分止盈，回落再接，做板块内相对强度靠前个股；【止损】当日大阳失守开盘价减半。 大周期偏空，板块仓应轻，操作以短线为主。</td></tr><tr><td>啤酒</td><td class='up'>12.43%</td><td class='down'>-0.8%</td><td><span class='act act-reduce'>快进快出</span></td><td style='text-align:left;font-size:15px;color:#333d4c'>【操作】本月强但中期动量弱，属游资短炒/反弹；仅做板块内最强领涨股快进快出，不恋战，当日大阳宜减仓；【止损】隔日低开即离场。 大周期偏空，板块仓应轻，操作以短线为主。</td></tr><tr><td>乳制品</td><td class='up'>12.02%</td><td class='up'>5.0%</td><td><span class='act act-hold'>持有(短线)</span></td><td style='text-align:left;font-size:15px;color:#333d4c'>【操作】中期震荡偏多，可持有；短线在冲高时部分止盈，回落再接，做板块内相对强度靠前个股；【止损】当日大阳失守开盘价减半。 大周期偏空，板块仓应轻，操作以短线为主。</td></tr><tr><td>煤炭开采</td><td class='up'>11.96%</td><td class='down'>-10.2%</td><td><span class='act act-reduce'>快进快出</span></td><td style='text-align:left;font-size:15px;color:#333d4c'>【操作】本月强但中期动量弱，属游资短炒/反弹；仅做板块内最强领涨股快进快出，不恋战，当日大阳宜减仓；【止损】隔日低开即离场。 大周期偏空，板块仓应轻，操作以短线为主。</td></tr><tr><td>煤炭</td><td class='up'>11.80%</td><td class='down'>-10.4%</td><td><span class='act act-reduce'>快进快出</span></td><td style='text-align:left;font-size:15px;color:#333d4c'>【操作】本月强但中期动量弱，属游资短炒/反弹；仅做板块内最强领涨股快进快出，不恋战，当日大阳宜减仓；【止损】隔日低开即离场。 大周期偏空，板块仓应轻，操作以短线为主。</td></tr><tr><td>TDX 能源</td><td class='up'>10.55%</td><td class='down'>-5.2%</td><td><span class='act act-reduce'>快进快出</span></td><td style='text-align:left;font-size:15px;color:#333d4c'>【操作】本月强但中期动量弱，属游资短炒/反弹；仅做板块内最强领涨股快进快出，不恋战，当日大阳宜减仓；【止损】隔日低开即离场。 大周期偏空，板块仓应轻，操作以短线为主。</td></tr><tr><td>水力发电</td><td class='up'>10.19%</td><td class='up'>2.6%</td><td><span class='act act-hold'>持有(短线)</span></td><td style='text-align:left;font-size:15px;color:#333d4c'>【操作】中期震荡偏多，可持有；短线在冲高时部分止盈，回落再接，做板块内相对强度靠前个股；【止损】当日大阳失守开盘价减半。 大周期偏空，板块仓应轻，操作以短线为主。</td></tr></table>
 <div class='note' style='margin-top:6px'>热门板块=本月涨幅≥10% 或 近40日动量≥15%，按本月涨幅取前12。『趋势强』=中期动量&gt;20%且本月领涨，可持有/加仓板块内龙头；『快进快出』=本月强但中期弱，属游资短炒，仅做最强领涨股、隔日不恋战。操作要点含参与时机、买点、止损与风控，均为技术面推导（A股仅做多）。</div>
 </div>
 
@@ -188,7 +198,7 @@ a { color:#3a5a80; }
 </div>
 </div>
 
-<div class='card warn' style='font-size:12px'>
+<div class='card warn' style='font-size:15px'>
 ⚠️ 股市有风险，技术分析不保证盈利。以上为纯技术面月度复盘，非投资建议；指数背景仅用于判断交易环境，具体买卖须结合个人风险承受能力并自行决策。
 </div>
 </div></body></html>
