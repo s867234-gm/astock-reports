@@ -4,69 +4,74 @@
 <title>每月复盘_20260731</title>
 <style>
 :root{
-  --grad:linear-gradient(135deg,#bf360c,#e65100 50%,#f9a825);
-  --link:#e65100;
+  --ink:#2f3b4c;      /* 主文字/标题 藏青 */
+  --sub:#8a8f98;      /* 次要文字 灰 */
+  --line:#e5e1d8;     /* 分隔线 米灰 */
+  --bg:#f4f2ee;       /* 页面背景 米灰纸感 */
+  --card:#fffdfa;     /* 卡片 暖白 */
+  --up:#a94442;       /* 涨 暗红 */
+  --down:#2e6b4f;     /* 跌 墨绿 */
+  --band:#a9b4c0;     /* 色条 灰蓝 */
 }
 * { box-sizing:border-box }
-body { font-family:-apple-system,Segoe UI,Roboto,'PingFang SC',sans-serif; margin:0; background:#e9edf4; color:#1f2530; }
+body { font-family:-apple-system,Segoe UI,Roboto,'PingFang SC',sans-serif; margin:0; background:var(--bg); color:var(--ink); }
 .wrap { max-width:800px; margin:0 auto; padding:12px 12px 44px; }
-.banner { background:var(--grad); color:#fff; border-radius:16px; padding:16px 16px 12px; margin:4px 0 12px; box-shadow:0 6px 18px rgba(24,95,165,.28); }
-.banner h1 { font-size:21px; margin:0; letter-spacing:.5px; }
-.banner .sub { color:rgba(255,255,255,.88); font-size:12px; margin-top:5px; }
-.card { background:#fff; border-radius:14px; padding:14px; margin:12px 0; box-shadow:0 2px 10px rgba(31,37,48,.08); border:1px solid #dfe5ee; }
-.card h2 { font-size:16px; margin:0 0 10px; color:#fff; padding:6px 12px; border-radius:9px; background:var(--grad); }
-.wrap > .card:nth-of-type(2) h2 { background:linear-gradient(135deg,#1565c0,#42a5f5); }
-.wrap > .card:nth-of-type(3) h2 { background:linear-gradient(135deg,#6a1b9a,#ab47bc); }
-.wrap > .card:nth-of-type(4) h2 { background:linear-gradient(135deg,#00695c,#26a69a); }
-.wrap > .card:nth-of-type(5) h2 { background:linear-gradient(135deg,#e65100,#ffa726); }
-.wrap > .card:nth-of-type(6) h2 { background:linear-gradient(135deg,#ad1457,#f06292); }
-.wrap > .card:nth-of-type(7) h2 { background:linear-gradient(135deg,#2e7d32,#66bb6a); }
-.wrap > .card:nth-of-type(8) h2 { background:linear-gradient(135deg,#c62828,#ef5350); }
-.wrap > .card:nth-of-type(9) h2 { background:linear-gradient(135deg,#4527a0,#7e57c2); }
-.wrap > .card:nth-of-type(10) h2 { background:linear-gradient(135deg,#37474f,#78909c); }
-.wrap > .card:nth-of-type(11) h2 { background:linear-gradient(135deg,#0d47a1,#1976d2); }
-.wrap > .card:nth-of-type(12) h2 { background:linear-gradient(135deg,#bf360c,#e65100); }
-.warn { background:#fff3e0; border:1px solid #ffb74d; color:#7a4a00; }
+.head { text-align:center; padding:20px 12px 16px; margin:0 0 16px; border-bottom:1px solid var(--line); }
+.head h1 { font-size:22px; margin:0; letter-spacing:2px; font-weight:600; }
+.head .sub { color:var(--sub); font-size:12px; margin-top:6px; letter-spacing:.5px; }
+.card { background:var(--card); border-radius:10px; padding:16px 16px 14px; margin:12px 0; border:1px solid var(--line); box-shadow:0 1px 3px rgba(47,59,76,.05); }
+.card h2 { font-size:15px; margin:0 0 12px; color:var(--ink); border-left:4px solid var(--band); padding-left:10px; font-weight:600; letter-spacing:.5px; }
+.wrap > .card:nth-of-type(2) h2 { border-left-color:#9aa8b8; }
+.wrap > .card:nth-of-type(3) h2 { border-left-color:#8fa8a0; }
+.wrap > .card:nth-of-type(4) h2 { border-left-color:#9aa8b8; }
+.wrap > .card:nth-of-type(5) h2 { border-left-color:#b0a08c; }
+.wrap > .card:nth-of-type(6) h2 { border-left-color:#a897a0; }
+.wrap > .card:nth-of-type(7) h2 { border-left-color:#8fa8a0; }
+.wrap > .card:nth-of-type(8) h2 { border-left-color:#a89a9a; }
+.wrap > .card:nth-of-type(9) h2 { border-left-color:#8a94a6; }
+.wrap > .card:nth-of-type(10) h2 { border-left-color:#9aa8b8; }
+.wrap > .card:nth-of-type(11) h2 { border-left-color:#6e7a8a; }
+.warn { background:#f6f0e6; border:1px solid #e0d3bd; color:#7a5a30; }
 .kpi { display:flex; flex-wrap:wrap; gap:8px; }
-.kpi .b { flex:1 1 30%; background:#fff; border:1px solid #dde3ec; border-radius:10px; padding:10px; text-align:center; min-width:90px; border-top:4px solid #90a4ae; }
+.kpi .b { flex:1 1 30%; background:var(--card); border:1px solid var(--line); border-radius:8px; padding:10px; text-align:center; min-width:90px; border-top:3px solid #c3c9d1; }
 .kpi .b .v { font-size:20px; font-weight:700; }
-.kpi .b .l { font-size:11px; color:#5b6472; margin-top:2px; }
-.kpi .b:nth-child(1) { border-top-color:#e23b3b; }
-.kpi .b:nth-child(2) { border-top-color:#1aa260; }
-.kpi .b:nth-child(3) { border-top-color:#7a8494; }
-.kpi .b:nth-child(4) { border-top-color:#f5a623; }
-.kpi .b:nth-child(5) { border-top-color:#e23b3b; }
-.kpi .b:nth-child(6) { border-top-color:#1aa260; }
+.kpi .b .l { font-size:11px; color:var(--sub); margin-top:2px; }
+.kpi .b:nth-child(1) { border-top-color:#c4a3a1; }
+.kpi .b:nth-child(2) { border-top-color:#a8c4b5; }
+.kpi .b:nth-child(3) { border-top-color:#c3c9d1; }
+.kpi .b:nth-child(4) { border-top-color:#d3c3a4; }
+.kpi .b:nth-child(5) { border-top-color:#c4a3a1; }
+.kpi .b:nth-child(6) { border-top-color:#a8c4b5; }
 table { width:100%; border-collapse:collapse; font-size:13px; }
-th { padding:7px 6px; text-align:right; background:#1a2a6c; color:#fff; font-weight:600; }
-td { padding:7px 6px; text-align:right; border-bottom:1px solid #eef1f5; }
+th { padding:7px 6px; text-align:right; background:#f0ede7; color:#5a6572; font-weight:600; border-bottom:1px solid var(--line); }
+td { padding:7px 6px; text-align:right; border-bottom:1px solid #f0ece3; }
 th:first-child,td:first-child { text-align:left; }
-tr:nth-child(even) td { background:#f4f7fc; }
-.up { color:#e23b3b; font-weight:600; }
-.down { color:#1aa260; font-weight:600; }
+tr:nth-child(even) td { background:#faf8f4; }
+.up { color:var(--up); font-weight:600; }
+.down { color:var(--down); font-weight:600; }
 .dim { display:grid; grid-template-columns:1fr 1fr; gap:8px; }
-.dim .d { background:#fff; border:1px solid #dde3ec; border-radius:10px; padding:10px; border-left:4px solid #185fa5; }
-.dim .d .t { font-size:12px; color:#5b6472; }
+.dim .d { background:var(--card); border:1px solid var(--line); border-radius:8px; padding:10px; border-left:3px solid var(--band); }
+.dim .d .t { font-size:12px; color:var(--sub); }
 .dim .d .c { font-size:14px; margin-top:4px; font-weight:600; }
-.risk { display:inline-block; padding:3px 12px; border-radius:20px; font-size:12px; font-weight:700; color:#fff; }
-.risk.low { background:#2e7d32; }
-.risk.mid { background:#ef6c00; }
-.risk.high { background:#c62828; }
-.act { display:inline-block; padding:4px 14px; border-radius:20px; font-size:13px; font-weight:700; color:#fff; }
-.act-hold { background:#2e7d32; }
-.act-add { background:#1565c0; }
-.act-watch { background:#546e7a; }
-.act-reduce { background:#ef6c00; }
-.act-avoid { background:#c62828; }
-.hdays { font-size:13px; font-weight:700; color:#185fa5; white-space:nowrap; }
-.note { font-size:14px; color:#3a4252; line-height:1.8; }
+.risk { display:inline-block; padding:2px 12px; border-radius:16px; font-size:12px; font-weight:700; }
+.risk.low { background:#e8efe9; color:#3d6b52; border:1px solid #c9d9cd; }
+.risk.mid { background:#f4ece0; color:#8a6a3a; border:1px solid #ddd3c0; }
+.risk.high { background:#f2e7e5; color:#8a4a44; border:1px solid #dcc9c6; }
+.act { display:inline-block; padding:3px 12px; border-radius:16px; font-size:13px; font-weight:700; }
+.act-hold { background:#e8efe9; color:#3d6b52; border:1px solid #c9d9cd; }
+.act-add { background:#e9eef4; color:#3a5a80; border:1px solid #c9d5e2; }
+.act-watch { background:#eef0f1; color:#5f6a76; border:1px solid #d6dae0; }
+.act-reduce { background:#f4ece0; color:#8a6a3a; border:1px solid #ddd3c0; }
+.act-avoid { background:#f2e7e5; color:#8a4a44; border:1px solid #dcc9c6; }
+.hdays { font-size:13px; font-weight:700; color:#3a5a80; white-space:nowrap; }
+.note { font-size:14px; color:#3c4554; line-height:1.8; }
 .note p { margin:7px 0; }
-.tip { background:#e3f0fd; border:1px solid #90caf9; color:#0d47a1; border-radius:12px; padding:11px; font-size:13px; line-height:1.7; }
-a { color:var(--link); }
-@media(max-width:600px) { .dim { grid-template-columns:1fr; } .kpi .b { flex:1 1 45%; } table { font-size:12px; } .banner { padding:13px 12px 10px; } .banner h1 { font-size:18px; } }
+.tip { background:#eff2f5; border:1px solid #d5dce4; color:#4a5a6e; border-radius:8px; padding:11px; font-size:13px; line-height:1.7; }
+a { color:#3a5a80; }
+@media(max-width:600px) { .dim { grid-template-columns:1fr; } .kpi .b { flex:1 1 45%; } table { font-size:12px; } .head { padding:14px 10px 12px; } .head h1 { font-size:19px; } }
 </style></head><body><div class='wrap'>
-<div class='banner'><h1>📈 每月复盘 · 2026-07-31</h1>
-<div class='sub'>本月区间：2026-07-03 ~ 2026-07-31（近一个月）｜ 生成于 2026-07-31 23:28 ｜ 框架：Miner 高胜算四维</div></div>
+<div class='head'><h1>📈 每月复盘 · 2026-07-31</h1>
+<div class='sub'>本月区间：2026-07-03 ~ 2026-07-31（近一个月）｜ 生成于 2026-07-31 23:36 ｜ 框架：Miner 高胜算四维</div></div>
 
 <div class='card tip'>
 <b>📌 数据范围</b><br>
