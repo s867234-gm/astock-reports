@@ -12,8 +12,8 @@
   --sub:#8e97aa;
   --up:#e08781;
   --down:#7dc29a;
-  --h2bg:#3b4a66;
-  --h2bar:#9db0cf;
+  --h2bg:#2f4d4a;
+  --h2bar:#7fb0a8;
 }
 * { box-sizing:border-box }
 html { -webkit-text-size-adjust:100% }
@@ -23,7 +23,7 @@ body { font-family:-apple-system,Segoe UI,Roboto,'PingFang SC',sans-serif; margi
 .head h1 { font-size:26px; margin:0; letter-spacing:1px; font-weight:700; color:var(--ink); }
 .head .sub { color:var(--sub); font-size:14px; margin-top:8px; letter-spacing:.5px; }
 .card { background:var(--card); border-radius:12px; padding:18px 16px 16px; margin:14px 0; border:1px solid var(--line); box-shadow:0 1px 4px rgba(0,0,0,.25); overflow-x:auto; }.hot-card { overflow-x:visible; }
-.card h2 { font-size:19px; margin:0 0 14px; color:#eef1f7; background:var(--h2bg); padding:8px 12px; border-left:6px solid var(--h2bar); border-radius:6px; font-weight:700; letter-spacing:.5px; border:1px solid #4c5c7d; border-left-width:6px; }
+.card h2 { font-size:19px; margin:0 0 14px; color:#eef1f7; background:var(--h2bg); padding:8px 12px; border-left:6px solid var(--h2bar); border-radius:6px; font-weight:700; letter-spacing:.5px; border:1px solid #4a6b66; border-left-width:6px; }
 .wrap > .card:nth-of-type(2) h2 { border-left-color:#7d8ba1; }
 .wrap > .card:nth-of-type(3) h2 { border-left-color:#6f9088; }
 .wrap > .card:nth-of-type(4) h2 { border-left-color:#7d8ba1; }
@@ -33,9 +33,9 @@ body { font-family:-apple-system,Segoe UI,Roboto,'PingFang SC',sans-serif; margi
 .wrap > .card:nth-of-type(8) h2 { border-left-color:#907575; }
 .wrap > .card:nth-of-type(9) h2 { border-left-color:#758296; }
 .wrap > .card:nth-of-type(10) h2 { border-left-color:#7d8ba1; }
-.wrap > .card:nth-of-type(11) h2 { border-left-color:#b8c4d8; background:#48587a; }
+.wrap > .card:nth-of-type(11) h2 { border-left-color:#9cc9bf; background:#3a5d55; }
 .tip { background:#2a3346; border:1px solid #3f4960; color:#c4cad8; border-radius:12px; padding:16px 16px 14px; font-size:15px; line-height:1.8; }
-.tip h2 { background:#40526e; border-left-color:#8aa3bf; color:#eef1f7; }
+.tip h2 { background:#33515c; border-left-color:#85b0bd; color:#eef1f7; }
 .warn { background:#3a2e1a; border:1px solid #5c4830; color:#e0c896; }
 .kpi { display:flex; flex-wrap:wrap; gap:10px; }
 .kpi .b { flex:1 1 30%; background:var(--card); border:1px solid var(--line); border-radius:10px; padding:14px 8px; text-align:center; min-width:100px; border-top:4px solid #4a5566; }
@@ -92,7 +92,7 @@ a { color:#8ab4d8; }
 }
 </style></head><body><div class='wrap'>
 <div class='head'><h1>📈 每月复盘 · 2026-07-31</h1>
-<div class='sub'>本月区间：2026-07-03 ~ 2026-07-31（近一个月）｜ 生成于 2026-08-01 00:28 ｜ 框架：Miner 高胜算四维</div></div>
+<div class='sub'>本月区间：2026-07-03 ~ 2026-07-31（近一个月）｜ 生成于 2026-08-01 00:35 ｜ 框架：Miner 高胜算四维</div></div>
 
 <div class='card tip'>
 <h2>📌 数据范围</h2>
@@ -108,11 +108,16 @@ a { color:#8ab4d8; }
 <div class='d'><div class='t'>小周期(日线)动量</div><div class='c'>日线动量中性区</div></div>
 </div>
 <table style='margin-top:10px'>
-<tr><th>维度</th><th>结论 / 依据</th></tr>
-<tr><td>动量</td><td class='dimd'><div class='dl'><b>结论：</b>Bear 未超卖 / 日线动量中性区</div><td ><div class='dl'><b>依据：</b>周线D=31.71 日线D=29.96 K/D无交叉；MACD柱=-2.59</div></td></tr>
-<tr><td>形态</td><td class='dimd'><div class='dl'><b>结论：</b>调整结构(ABC 重叠特征)</div><td ><div class='dl'><b>依据：</b>近期摆动高低点结构</div></td></tr>
-<tr><td>价格</td><td class='dimd'><div class='dl'><b>结论：</b>低位区(接近120日低点，关注OS反弹)</div><td ><div class='dl'><b>依据：</b>120日区间 3741.11–4258.86；回撤 50%=3999.98 61.8%=3938.89；扩展 100%=4258.86 161.8%=4578.83</div></td></tr>
-<tr><td>时间</td><td class='dimd'><div class='dl'><b>结论：</b>—</div><td ><div class='dl'><b>依据：</b>最近一段上行 6 交易日 / 下行 9 交易日；时间回撤关注前段运行的 38%-62% 区间</div></td></tr>
+<tr><th rowspan='2'>维度</th><th>结论</th></tr>
+<tr><th>依据</th></tr>
+<tr><td rowspan='2' class='dimk'>动量</td><td class='dimd'><div class='dl'><b>结论：</b>Bear 未超卖 / 日线动量中性区</div></td></tr>
+<tr><td class='dimd'><div class='dl'><b>依据：</b>周线D=31.71 日线D=29.96 K/D无交叉；MACD柱=-2.59</div></td></tr>
+<tr><td rowspan='2' class='dimk'>形态</td><td class='dimd'><div class='dl'><b>结论：</b>调整结构(ABC 重叠特征)</div></td></tr>
+<tr><td class='dimd'><div class='dl'><b>依据：</b>近期摆动高低点结构</div></td></tr>
+<tr><td rowspan='2' class='dimk'>价格</td><td class='dimd'><div class='dl'><b>结论：</b>低位区(接近120日低点，关注OS反弹)</div></td></tr>
+<tr><td class='dimd'><div class='dl'><b>依据：</b>120日区间 3741.11–4258.86；回撤 50%=3999.98 61.8%=3938.89；扩展 100%=4258.86 161.8%=4578.83</div></td></tr>
+<tr><td rowspan='2' class='dimk'>时间</td><td class='dimd'><div class='dl'><b>结论：</b>—</div></td></tr>
+<tr><td class='dimd'><div class='dl'><b>依据：</b>最近一段上行 6 交易日 / 下行 9 交易日；时间回撤关注前段运行的 38%-62% 区间</div></td></tr>
 </table>
 <div style='margin-top:10px'>
 <b>市场背景判定：</b>偏空（大周期动量偏弱，空仓观望，不做多）<br>
