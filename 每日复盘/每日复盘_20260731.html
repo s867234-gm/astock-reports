@@ -4,85 +4,87 @@
 <title>每日复盘_20260731</title>
 <style>
 :root{
-  --ink:#2b3646;
-  --sub:#6a7280;
-  --line:#d9d4c9;
-  --bg:#f4f2ee;
-  --card:#fffdfa;
-  --up:#a94442;
-  --down:#2e6b4f;
-  --band:#7d8ba1;
+  --bg:#181f2c;
+  --card:#222b3c;
+  --card2:#2a3245;
+  --line:#363f54;
+  --ink:#dfe3ec;
+  --sub:#8e97aa;
+  --up:#e08781;
+  --down:#7dc29a;
+  --h2bg:#2c3548;
+  --h2bar:#7d8ba1;
 }
 * { box-sizing:border-box }
 html { -webkit-text-size-adjust:100% }
-body { font-family:-apple-system,Segoe UI,Roboto,'PingFang SC',sans-serif; margin:0; background:var(--bg); color:var(--ink); font-size:17px; line-height:1.7; }
+body { font-family:-apple-system,Segoe UI,Roboto,'PingFang SC',sans-serif; margin:0; background:var(--bg); color:var(--ink); font-size:17px; line-height:1.75; }
 .wrap { max-width:820px; margin:0 auto; padding:10px 10px 44px; }
 .head { text-align:center; padding:22px 12px 16px; margin:0 0 16px; border-bottom:2px solid var(--line); }
-.head h1 { font-size:25px; margin:0; letter-spacing:1px; font-weight:700; }
+.head h1 { font-size:26px; margin:0; letter-spacing:1px; font-weight:700; color:var(--ink); }
 .head .sub { color:var(--sub); font-size:14px; margin-top:8px; letter-spacing:.5px; }
-.card { background:var(--card); border-radius:12px; padding:18px 16px 16px; margin:14px 0; border:1px solid var(--line); box-shadow:0 1px 4px rgba(47,59,76,.06); }
-.card h2 { font-size:19px; margin:0 0 14px; color:var(--ink); background:#f5f3ec; padding:8px 12px; border-left:6px solid #7d8ba1; border-radius:6px; font-weight:700; letter-spacing:.5px; }
+.card { background:var(--card); border-radius:12px; padding:18px 16px 16px; margin:14px 0; border:1px solid var(--line); box-shadow:0 1px 4px rgba(0,0,0,.25); }
+.card h2 { font-size:19px; margin:0 0 14px; color:var(--ink); background:var(--h2bg); padding:8px 12px; border-left:6px solid var(--h2bar); border-radius:6px; font-weight:700; letter-spacing:.5px; }
 .wrap > .card:nth-of-type(2) h2 { border-left-color:#7d8ba1; }
-.wrap > .card:nth-of-type(3) h2 { border-left-color:#6f8a7e; }
+.wrap > .card:nth-of-type(3) h2 { border-left-color:#6f9088; }
 .wrap > .card:nth-of-type(4) h2 { border-left-color:#7d8ba1; }
-.wrap > .card:nth-of-type(5) h2 { border-left-color:#8b7864; }
-.wrap > .card:nth-of-type(6) h2 { border-left-color:#806878; }
-.wrap > .card:nth-of-type(7) h2 { border-left-color:#6f8a7e; }
-.wrap > .card:nth-of-type(8) h2 { border-left-color:#806868; }
-.wrap > .card:nth-of-type(9) h2 { border-left-color:#6d7990; }
+.wrap > .card:nth-of-type(5) h2 { border-left-color:#9d8c70; }
+.wrap > .card:nth-of-type(6) h2 { border-left-color:#90788a; }
+.wrap > .card:nth-of-type(7) h2 { border-left-color:#6f9088; }
+.wrap > .card:nth-of-type(8) h2 { border-left-color:#907575; }
+.wrap > .card:nth-of-type(9) h2 { border-left-color:#758296; }
 .wrap > .card:nth-of-type(10) h2 { border-left-color:#7d8ba1; }
-.wrap > .card:nth-of-type(11) h2 { border-left-color:#4a5566; background:#e8e2d2; }
-.tip { background:#eaf1f7; border:1px solid #c5d3df; color:#3f5066; border-radius:12px; padding:16px 16px 14px; font-size:15px; line-height:1.8; }
-.tip h2 { background:#dfeaf3; border-left-color:#6e8aa3; color:var(--ink); }
-.warn { background:#f6f0e6; border:1px solid #e0d3bd; color:#6b4d28; }
+.wrap > .card:nth-of-type(11) h2 { border-left-color:#9aa8b8; background:#353e54; }
+.tip { background:#2a3346; border:1px solid #3f4960; color:#c4cad8; border-radius:12px; padding:16px 16px 14px; font-size:15px; line-height:1.8; }
+.tip h2 { background:#33415a; border-left-color:#6e8aa3; color:var(--ink); }
+.warn { background:#3a2e1a; border:1px solid #5c4830; color:#e0c896; }
 .kpi { display:flex; flex-wrap:wrap; gap:10px; }
-.kpi .b { flex:1 1 30%; background:var(--card); border:1px solid var(--line); border-radius:10px; padding:14px 8px; text-align:center; min-width:100px; border-top:4px solid #c3c9d1; }
-.kpi .b .v { font-size:26px; font-weight:700; }
+.kpi .b { flex:1 1 30%; background:var(--card); border:1px solid var(--line); border-radius:10px; padding:14px 8px; text-align:center; min-width:100px; border-top:4px solid #4a5566; }
+.kpi .b .v { font-size:26px; font-weight:700; color:var(--ink); }
 .kpi .b .l { font-size:13px; color:var(--sub); margin-top:4px; }
-.kpi .b:nth-child(1) { border-top-color:#c4a3a1; }
-.kpi .b:nth-child(2) { border-top-color:#a8c4b5; }
-.kpi .b:nth-child(3) { border-top-color:#c3c9d1; }
-.kpi .b:nth-child(4) { border-top-color:#d3c3a4; }
-.kpi .b:nth-child(5) { border-top-color:#c4a3a1; }
-.kpi .b:nth-child(6) { border-top-color:#a8c4b5; }
-table { width:100%; border-collapse:collapse; font-size:14px; }
-th { padding:8px 7px; text-align:right; background:#f0ede7; color:#4a5560; font-weight:700; border-bottom:2px solid var(--line); white-space:nowrap; }
-td { padding:8px 7px; text-align:right; border-bottom:1px solid #f0ece3; white-space:nowrap; }
+.kpi .b:nth-child(1) { border-top-color:#b87a72; }
+.kpi .b:nth-child(2) { border-top-color:#6fa888; }
+.kpi .b:nth-child(3) { border-top-color:#6e7888; }
+.kpi .b:nth-child(4) { border-top-color:#a89570; }
+.kpi .b:nth-child(5) { border-top-color:#b87a72; }
+.kpi .b:nth-child(6) { border-top-color:#6fa888; }
+table { width:100%; border-collapse:collapse; font-size:13px; }
+th { padding:7px 6px; text-align:right; background:var(--card2); color:#b8c0d0; font-weight:700; border-bottom:2px solid var(--line); white-space:nowrap; }
+td { padding:7px 6px; text-align:right; border-bottom:1px solid var(--line); white-space:nowrap; color:var(--ink); }
 th:first-child,td:first-child { text-align:left; }
-tr:nth-child(even) td { background:#faf8f4; }
+tr:nth-child(even) td { background:#26304a; }
 .up { color:var(--up); font-weight:700; }
 .down { color:var(--down); font-weight:700; }
 .dim { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
-.dim .d { background:var(--card); border:1px solid var(--line); border-radius:10px; padding:12px; border-left:4px solid var(--band); }
+.dim .d { background:var(--card); border:1px solid var(--line); border-radius:10px; padding:12px; border-left:4px solid var(--h2bar); }
 .dim .d .t { font-size:14px; color:var(--sub); }
-.dim .d .c { font-size:17px; margin-top:4px; font-weight:700; }
+.dim .d .c { font-size:17px; margin-top:4px; font-weight:700; color:var(--ink); }
 .risk { display:inline-block; padding:3px 14px; border-radius:18px; font-size:15px; font-weight:700; }
-.risk.low { background:#e8efe9; color:#3d6b52; border:1px solid #c9d9cd; }
-.risk.mid { background:#f4ece0; color:#8a6a3a; border:1px solid #ddd3c0; }
-.risk.high { background:#f2e7e5; color:#8a4a44; border:1px solid #dcc9c6; }
+.risk.low { background:#2c4a3a; color:#a4d4b3; border:1px solid #3e6450; }
+.risk.mid { background:#4a3a20; color:#e0c485; border:1px solid #6b5230; }
+.risk.high { background:#4a2c2c; color:#e09890; border:1px solid #6e3e3e; }
 .act { display:inline-block; padding:5px 16px; border-radius:18px; font-size:16px; font-weight:700; }
-.act-hold { background:#e8efe9; color:#3d6b52; border:1px solid #c9d9cd; }
-.act-add { background:#e9eef4; color:#3a5a80; border:1px solid #c9d5e2; }
-.act-watch { background:#eef0f1; color:#5f6a76; border:1px solid #d6dae0; }
-.act-reduce { background:#f4ece0; color:#8a6a3a; border:1px solid #ddd3c0; }
-.act-avoid { background:#f2e7e5; color:#8a4a44; border:1px solid #dcc9c6; }
-.hdays { font-size:15px; font-weight:700; color:#3a5a80; white-space:nowrap; }
-.note { font-size:16px; color:#333d4c; line-height:1.9; }
+.act-hold { background:#2c4a3a; color:#a4d4b3; border:1px solid #3e6450; }
+.act-add { background:#2c3e5a; color:#a8c4e8; border:1px solid #3e567a; }
+.act-watch { background:#3a4250; color:#a8b4c4; border:1px solid #4e5666; }
+.act-reduce { background:#4a3a20; color:#e0c485; border:1px solid #6b5230; }
+.act-avoid { background:#4a2c2c; color:#e09890; border:1px solid #6e3e3e; }
+.hdays { font-size:15px; font-weight:700; color:#a8c4e8; white-space:nowrap; }
+.note { font-size:16px; color:#d4d8e0; line-height:1.9; }
 .note p { margin:8px 0; }
-a { color:#2f5d8f; }
+a { color:#8ab4d8; }
 @media(max-width:768px) {
   .dim { grid-template-columns:1fr; }
   .kpi .b { flex:1 1 46%; }
-  table { font-size:14px; }
+  table { font-size:12px; }
   .card { overflow-x:auto; }
   .head { padding:16px 10px 12px; }
-  .head h1 { font-size:21px; letter-spacing:.5px; }
+  .head h1 { font-size:22px; letter-spacing:.5px; }
   .card h2 { font-size:17px; }
   .note { font-size:15px; }
 }
 </style></head><body><div class='wrap'>
 <div class='head'><h1>📈 每日复盘 · 2026-07-31</h1>
-<div class='sub'>数据截止：2026-07-31（最近完整交易日）｜ 生成于 2026-07-31 23:49 ｜ 框架：Miner 高胜算四维</div></div>
+<div class='sub'>数据截止：2026-07-31（最近完整交易日）｜ 生成于 2026-07-31 23:56 ｜ 框架：Miner 高胜算四维</div></div>
 
 <div class='card tip'>
 <h2>📌 数据范围</h2>
@@ -170,7 +172,7 @@ a { color:#2f5d8f; }
 
 <div class='card'>
 <h2>八、热门板块股票操作建议（Top 12）</h2>
-<table><tr><th>板块</th><th>当日</th><th>近20日</th><th>建议</th><th>操作要点</th></tr><tr><td>软件服务</td><td class='up'>6.43%</td><td class='down'>-3.5%</td><td><span class='act act-reduce'>快进快出</span></td><td style='text-align:left;font-size:15px;color:#333d4c;white-space:normal'>【操作】当日强但中期动量弱，属游资短炒/反弹；仅做板块内最强领涨股快进快出，不恋战，当日大阳宜减仓；【止损】隔日低开即离场。 单日>5%已过热，严禁追高。 大周期偏空，板块仓应轻，操作以短线为主。</td></tr><tr><td>互联网</td><td class='up'>6.04%</td><td class='down'>-0.3%</td><td><span class='act act-reduce'>快进快出</span></td><td style='text-align:left;font-size:15px;color:#333d4c;white-space:normal'>【操作】当日强但中期动量弱，属游资短炒/反弹；仅做板块内最强领涨股快进快出，不恋战，当日大阳宜减仓；【止损】隔日低开即离场。 单日>5%已过热，严禁追高。 大周期偏空，板块仓应轻，操作以短线为主。</td></tr><tr><td>纺织机械</td><td class='up'>5.79%</td><td class='down'>-19.6%</td><td><span class='act act-reduce'>快进快出</span></td><td style='text-align:left;font-size:15px;color:#333d4c;white-space:normal'>【操作】当日强但中期动量弱，属游资短炒/反弹；仅做板块内最强领涨股快进快出，不恋战，当日大阳宜减仓；【止损】隔日低开即离场。 单日>5%已过热，严禁追高。 大周期偏空，板块仓应轻，操作以短线为主。</td></tr><tr><td>综合类</td><td class='up'>5.67%</td><td class='down'>-13.5%</td><td><span class='act act-reduce'>快进快出</span></td><td style='text-align:left;font-size:15px;color:#333d4c;white-space:normal'>【操作】当日强但中期动量弱，属游资短炒/反弹；仅做板块内最强领涨股快进快出，不恋战，当日大阳宜减仓；【止损】隔日低开即离场。 单日>5%已过热，严禁追高。 大周期偏空，板块仓应轻，操作以短线为主。</td></tr><tr><td>TDX 综企</td><td class='up'>5.67%</td><td class='down'>-13.5%</td><td><span class='act act-reduce'>快进快出</span></td><td style='text-align:left;font-size:15px;color:#333d4c;white-space:normal'>【操作】当日强但中期动量弱，属游资短炒/反弹；仅做板块内最强领涨股快进快出，不恋战，当日大阳宜减仓；【止损】隔日低开即离场。 单日>5%已过热，严禁追高。 大周期偏空，板块仓应轻，操作以短线为主。</td></tr><tr><td>机械基件</td><td class='up'>5.25%</td><td class='down'>-29.3%</td><td><span class='act act-reduce'>快进快出</span></td><td style='text-align:left;font-size:15px;color:#333d4c;white-space:normal'>【操作】当日强但中期动量弱，属游资短炒/反弹；仅做板块内最强领涨股快进快出，不恋战，当日大阳宜减仓；【止损】隔日低开即离场。 单日>5%已过热，严禁追高。 大周期偏空，板块仓应轻，操作以短线为主。</td></tr><tr><td>通用机械</td><td class='up'>5.01%</td><td class='down'>-28.4%</td><td><span class='act act-reduce'>快进快出</span></td><td style='text-align:left;font-size:15px;color:#333d4c;white-space:normal'>【操作】当日强但中期动量弱，属游资短炒/反弹；仅做板块内最强领涨股快进快出，不恋战，当日大阳宜减仓；【止损】隔日低开即离场。 单日>5%已过热，严禁追高。 大周期偏空，板块仓应轻，操作以短线为主。</td></tr><tr><td>IT设备</td><td class='up'>4.86%</td><td class='down'>-4.0%</td><td><span class='act act-reduce'>快进快出</span></td><td style='text-align:left;font-size:15px;color:#333d4c;white-space:normal'>【操作】当日强但中期动量弱，属游资短炒/反弹；仅做板块内最强领涨股快进快出，不恋战，当日大阳宜减仓；【止损】隔日低开即离场。 大周期偏空，板块仓应轻，操作以短线为主。</td></tr><tr><td>通信设备</td><td class='up'>4.76%</td><td class='down'>-21.7%</td><td><span class='act act-reduce'>快进快出</span></td><td style='text-align:left;font-size:15px;color:#333d4c;white-space:normal'>【操作】当日强但中期动量弱，属游资短炒/反弹；仅做板块内最强领涨股快进快出，不恋战，当日大阳宜减仓；【止损】隔日低开即离场。 大周期偏空，板块仓应轻，操作以短线为主。</td></tr><tr><td>广告包装</td><td class='up'>4.48%</td><td class='up'>1.9%</td><td><span class='act act-hold'>持有(短线)</span></td><td style='text-align:left;font-size:15px;color:#333d4c;white-space:normal'>【操作】中期震荡偏多，可持有；短线在当日冲高时部分止盈，回落再接，做板块内相对强度靠前个股；【止损】当日大阳失守开盘价减半。 大周期偏空，板块仓应轻，操作以短线为主。</td></tr><tr><td>TDX 信息</td><td class='up'>4.30%</td><td class='down'>-21.9%</td><td><span class='act act-reduce'>快进快出</span></td><td style='text-align:left;font-size:15px;color:#333d4c;white-space:normal'>【操作】当日强但中期动量弱，属游资短炒/反弹；仅做板块内最强领涨股快进快出，不恋战，当日大阳宜减仓；【止损】隔日低开即离场。 大周期偏空，板块仓应轻，操作以短线为主。</td></tr><tr><td>化工机械</td><td class='up'>4.23%</td><td class='down'>-13.0%</td><td><span class='act act-reduce'>快进快出</span></td><td style='text-align:left;font-size:15px;color:#333d4c;white-space:normal'>【操作】当日强但中期动量弱，属游资短炒/反弹；仅做板块内最强领涨股快进快出，不恋战，当日大阳宜减仓；【止损】隔日低开即离场。 大周期偏空，板块仓应轻，操作以短线为主。</td></tr></table>
+<table><tr><th>板块</th><th>当日</th><th>近20日</th><th>建议</th><th>操作要点</th></tr><tr><td>软件服务</td><td class='up'>6.43%</td><td class='down'>-3.5%</td><td><span class='act act-reduce'>快进快出</span></td><td style='text-align:left;font-size:15px;color:#d4d8e0;white-space:normal'>【操作】当日强但中期动量弱，属游资短炒/反弹；仅做板块内最强领涨股快进快出，不恋战，当日大阳宜减仓；【止损】隔日低开即离场。 单日>5%已过热，严禁追高。 大周期偏空，板块仓应轻，操作以短线为主。</td></tr><tr><td>互联网</td><td class='up'>6.04%</td><td class='down'>-0.3%</td><td><span class='act act-reduce'>快进快出</span></td><td style='text-align:left;font-size:15px;color:#d4d8e0;white-space:normal'>【操作】当日强但中期动量弱，属游资短炒/反弹；仅做板块内最强领涨股快进快出，不恋战，当日大阳宜减仓；【止损】隔日低开即离场。 单日>5%已过热，严禁追高。 大周期偏空，板块仓应轻，操作以短线为主。</td></tr><tr><td>纺织机械</td><td class='up'>5.79%</td><td class='down'>-19.6%</td><td><span class='act act-reduce'>快进快出</span></td><td style='text-align:left;font-size:15px;color:#d4d8e0;white-space:normal'>【操作】当日强但中期动量弱，属游资短炒/反弹；仅做板块内最强领涨股快进快出，不恋战，当日大阳宜减仓；【止损】隔日低开即离场。 单日>5%已过热，严禁追高。 大周期偏空，板块仓应轻，操作以短线为主。</td></tr><tr><td>综合类</td><td class='up'>5.67%</td><td class='down'>-13.5%</td><td><span class='act act-reduce'>快进快出</span></td><td style='text-align:left;font-size:15px;color:#d4d8e0;white-space:normal'>【操作】当日强但中期动量弱，属游资短炒/反弹；仅做板块内最强领涨股快进快出，不恋战，当日大阳宜减仓；【止损】隔日低开即离场。 单日>5%已过热，严禁追高。 大周期偏空，板块仓应轻，操作以短线为主。</td></tr><tr><td>TDX 综企</td><td class='up'>5.67%</td><td class='down'>-13.5%</td><td><span class='act act-reduce'>快进快出</span></td><td style='text-align:left;font-size:15px;color:#d4d8e0;white-space:normal'>【操作】当日强但中期动量弱，属游资短炒/反弹；仅做板块内最强领涨股快进快出，不恋战，当日大阳宜减仓；【止损】隔日低开即离场。 单日>5%已过热，严禁追高。 大周期偏空，板块仓应轻，操作以短线为主。</td></tr><tr><td>机械基件</td><td class='up'>5.25%</td><td class='down'>-29.3%</td><td><span class='act act-reduce'>快进快出</span></td><td style='text-align:left;font-size:15px;color:#d4d8e0;white-space:normal'>【操作】当日强但中期动量弱，属游资短炒/反弹；仅做板块内最强领涨股快进快出，不恋战，当日大阳宜减仓；【止损】隔日低开即离场。 单日>5%已过热，严禁追高。 大周期偏空，板块仓应轻，操作以短线为主。</td></tr><tr><td>通用机械</td><td class='up'>5.01%</td><td class='down'>-28.4%</td><td><span class='act act-reduce'>快进快出</span></td><td style='text-align:left;font-size:15px;color:#d4d8e0;white-space:normal'>【操作】当日强但中期动量弱，属游资短炒/反弹；仅做板块内最强领涨股快进快出，不恋战，当日大阳宜减仓；【止损】隔日低开即离场。 单日>5%已过热，严禁追高。 大周期偏空，板块仓应轻，操作以短线为主。</td></tr><tr><td>IT设备</td><td class='up'>4.86%</td><td class='down'>-4.0%</td><td><span class='act act-reduce'>快进快出</span></td><td style='text-align:left;font-size:15px;color:#d4d8e0;white-space:normal'>【操作】当日强但中期动量弱，属游资短炒/反弹；仅做板块内最强领涨股快进快出，不恋战，当日大阳宜减仓；【止损】隔日低开即离场。 大周期偏空，板块仓应轻，操作以短线为主。</td></tr><tr><td>通信设备</td><td class='up'>4.76%</td><td class='down'>-21.7%</td><td><span class='act act-reduce'>快进快出</span></td><td style='text-align:left;font-size:15px;color:#d4d8e0;white-space:normal'>【操作】当日强但中期动量弱，属游资短炒/反弹；仅做板块内最强领涨股快进快出，不恋战，当日大阳宜减仓；【止损】隔日低开即离场。 大周期偏空，板块仓应轻，操作以短线为主。</td></tr><tr><td>广告包装</td><td class='up'>4.48%</td><td class='up'>1.9%</td><td><span class='act act-hold'>持有(短线)</span></td><td style='text-align:left;font-size:15px;color:#d4d8e0;white-space:normal'>【操作】中期震荡偏多，可持有；短线在当日冲高时部分止盈，回落再接，做板块内相对强度靠前个股；【止损】当日大阳失守开盘价减半。 大周期偏空，板块仓应轻，操作以短线为主。</td></tr><tr><td>TDX 信息</td><td class='up'>4.30%</td><td class='down'>-21.9%</td><td><span class='act act-reduce'>快进快出</span></td><td style='text-align:left;font-size:15px;color:#d4d8e0;white-space:normal'>【操作】当日强但中期动量弱，属游资短炒/反弹；仅做板块内最强领涨股快进快出，不恋战，当日大阳宜减仓；【止损】隔日低开即离场。 大周期偏空，板块仓应轻，操作以短线为主。</td></tr><tr><td>化工机械</td><td class='up'>4.23%</td><td class='down'>-13.0%</td><td><span class='act act-reduce'>快进快出</span></td><td style='text-align:left;font-size:15px;color:#d4d8e0;white-space:normal'>【操作】当日强但中期动量弱，属游资短炒/反弹；仅做板块内最强领涨股快进快出，不恋战，当日大阳宜减仓；【止损】隔日低开即离场。 大周期偏空，板块仓应轻，操作以短线为主。</td></tr></table>
 <div class='note' style='margin-top:6px'>热门板块=当日涨幅≥2% 或 近20日动量≥8%，按当日涨幅取前12。『趋势强』=中期动量&gt;10%且当日领涨，可持有/加仓板块内龙头；『快进快出』=当日强但中期弱，属游资短炒，仅做最强领涨股、隔日不恋战。操作要点含参与时机、买点、止损与风控，均为技术面推导（A股仅做多）。</div>
 </div>
 
