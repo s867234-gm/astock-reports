@@ -58,6 +58,17 @@ tr:nth-child(even) td { background:#26304a; }
 .dim .d { background:var(--card); border:1px solid var(--line); border-radius:10px; padding:12px; border-left:4px solid var(--h2bar); }
 .dim .d .t { font-size:14px; color:var(--sub); }
 .dim .d .c { font-size:17px; margin-top:4px; font-weight:700; color:var(--ink); }
+table.hot .act-hold { background:#2e3d55; color:#9db4d8; border:1px solid #3e567a; }
+table.hot .act-reduce { background:#2c4a3a; color:#a4d4b3; border:1px solid #3e6450; }
+.dim.dim3 { grid-template-columns:1fr 1fr 1fr; }
+.dim.dim3 .d { padding:10px 6px; }
+.dim.dim3 .t { font-size:12px; }
+@media(max-width:768px) {
+  .dim.dim3 { grid-template-columns:1fr 1fr 1fr; }
+  .dim.dim3 .d { padding:8px 4px; }
+  .dim.dim3 .act { padding:3px 8px; font-size:14px; }
+}
+
 .risk { display:inline-block; padding:3px 14px; border-radius:18px; font-size:15px; font-weight:700; }
 .risk.low { background:#2c4a3a; color:#a4d4b3; border:1px solid #3e6450; }
 .risk.mid { background:#4a3a20; color:#e0c485; border:1px solid #6b5230; }
@@ -92,7 +103,7 @@ a { color:#8ab4d8; }
 }
 </style></head><body><div class='wrap'>
 <div class='head'><h1>📈 每周复盘 · 2026-07-31</h1>
-<div class='sub'>本周区间：2026-07-24 ~ 2026-07-31（最近完整交易周）｜ 生成于 2026-08-01 00:42 ｜ 框架：Miner 高胜算四维</div></div>
+<div class='sub'>本周区间：2026-07-24 ~ 2026-07-31（最近完整交易周）｜ 生成于 2026-08-01 00:50 ｜ 框架：Miner 高胜算四维</div></div>
 
 <div class='card tip'>
 <h2>📌 数据范围</h2>
@@ -170,7 +181,7 @@ a { color:#8ab4d8; }
 
 <div class='card'>
 <h2>七、票操作建议（短 / 中 / 长）</h2>
-<div class='dim'>
+<div class='dim dim3'>
 <div class='d'><div class='t'>短期（日线·数日）</div><div class='c'><span class='act act-watch'>持有/观望</span></div></div>
 <div class='d'><div class='t'>中期（周线·数周）</div><div class='c'><span class='act act-avoid'>空仓观望</span></div></div>
 <div class='d'><div class='t'>长期（主趋势·数月+）</div><div class='c'><span class='act act-avoid'>低配/空仓</span></div></div>
