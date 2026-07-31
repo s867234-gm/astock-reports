@@ -27,6 +27,16 @@ _CAND = [r"C:\Program Files\Git\cmd\git.exe",
 GIT = next((c for c in _CAND if os.path.isfile(c)), "git")
 
 
+# 类别在 index.html 落地页的展示顺序：固定优先按时间粒度从大到小 → 选股
+# 未列出的新类别按拼音字母序追加在末尾
+CATEGORY_ORDER = {
+    "每月复盘": 0,
+    "每周复盘": 1,
+    "每日复盘": 2,
+    "预期涨幅选股": 3,
+}
+
+
 def copy_category(src_cat, dst_cat):
     """递归拷贝 src_cat 下所有 .html 到 dst_cat，返回新增/覆盖数量。"""
     if not os.path.isdir(src_cat):
@@ -47,7 +57,7 @@ def copy_category(src_cat, dst_cat):
 def build_index():
     """扫描 DST 下各「类别子目录」，重建 index.html。"""
     cats = []
-    for name in sorted(os.listdir(DST)):
+    for name in sorted(os.listdir(DST), key=lambda n: (CATEGORY_ORDER.get(n, 99), n)):
         p = os.path.join(DST, name)
         if not os.path.isdir(p) or name in (".git",):
             continue
