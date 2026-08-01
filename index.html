@@ -3,29 +3,41 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>股票分析报告索引</title>
 <style>
-body{font-family:-apple-system,Segoe UI,Roboto,sans-serif;margin:0;background:#f5f6f8;color:#222;}
-.wrap{max-width:860px;margin:0 auto;padding:16px;} h1{font-size:20px;} h2{font-size:16px;margin-top:24px;color:#185fa5;}
-.card{background:#fff;border-radius:10px;padding:10px 14px;margin:8px 0;box-shadow:0 1px 3px rgba(0,0,0,.08);}
-a{color:#185fa5;text-decoration:none;font-size:15px;} .t{color:#888;font-size:12px;margin-left:8px;} .empty{color:#999;}
-@media(max-width:600px){.wrap{padding:10px;} a{font-size:14px;}}
-</style></head><body><div class='wrap'>
-<h1>股票分析报告索引</h1>
-<p class='t'>生成于 2026-08-01 02:43 ｜ 共 13 个报告</p>
-<h2>每周复盘</h2>
-<div class='card'><a href='每周复盘/每周复盘_20260731.html'>每周复盘\每周复盘_20260731.html</a><span class='t'>2026-08-01 01:35</span></div>
-<h2>每日复盘</h2>
-<div class='card'><a href='每日复盘/每日复盘_20260731.html'>每日复盘\每日复盘_20260731.html</a><span class='t'>2026-08-01 01:35</span></div>
-<div class='card'><a href='每日复盘/每日复盘_20260730.html'>每日复盘\每日复盘_20260730.html</a><span class='t'>2026-07-31 00:00</span></div>
-<div class='card'><a href='每日复盘/每日复盘_20260729.html'>每日复盘\每日复盘_20260729.html</a><span class='t'>2026-07-30 14:45</span></div>
-<h2>每月复盘</h2>
-<div class='card'><a href='每月复盘/每月复盘_20260731.html'>每月复盘\每月复盘_20260731.html</a><span class='t'>2026-08-01 01:35</span></div>
-<h2>预期涨幅选股</h2>
-<div class='card'><a href='预期涨幅选股/预期涨幅选股报告_20260731.html'>预期涨幅选股\预期涨幅选股报告_20260731.html</a><span class='t'>2026-08-01 02:43</span></div>
-<div class='card'><a href='预期涨幅选股/历史命中率回测报告_20260731.html'>预期涨幅选股\历史命中率回测报告_20260731.html</a><span class='t'>2026-08-01 02:41</span></div>
-<div class='card'><a href='预期涨幅选股/预期涨幅选股报告_20260730.html'>预期涨幅选股\预期涨幅选股报告_20260730.html</a><span class='t'>2026-07-30 16:00</span></div>
-<div class='card'><a href='预期涨幅选股/历史模拟/预期涨幅选股报告_历史模拟_20260601.html'>预期涨幅选股\历史模拟\预期涨幅选股报告_历史模拟_20260601.html</a><span class='t'>2026-07-29 18:56</span></div>
-<div class='card'><a href='预期涨幅选股/预期涨幅选股报告_20260729.html'>预期涨幅选股\预期涨幅选股报告_20260729.html</a><span class='t'>2026-07-29 16:00</span></div>
-<div class='card'><a href='预期涨幅选股/预期涨幅选股报告_20260728.html'>预期涨幅选股\预期涨幅选股报告_20260728.html</a><span class='t'>2026-07-29 13:09</span></div>
-<div class='card'><a href='预期涨幅选股/历史命中率回测报告_20260728.html'>预期涨幅选股\历史命中率回测报告_20260728.html</a><span class='t'>2026-07-29 00:08</span></div>
-<div class='card'><a href='预期涨幅选股/预期涨幅选股报告_20260726.html'>预期涨幅选股\预期涨幅选股报告_20260726.html</a><span class='t'>2026-07-28 03:21</span></div>
+:root{
+  --bg:#181f2c;
+  --card:#222b3c;
+  --card2:#2a3245;
+  --line:#363f54;
+  --ink:#dfe3ec;
+  --sub:#8e97aa;
+  --link:#8ab4d8;
+  --h2bg:#3a2e1a;
+  --h2bar:#c9a87c;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{font-family:-apple-system,Segoe UI,Roboto,'PingFang SC',sans-serif;margin:0;background:var(--bg);color:var(--ink);font-size:16px;line-height:1.7}
+.wrap{max-width:820px;margin:0 auto;padding:10px 10px 44px}
+.head{text-align:center;padding:22px 12px 16px;margin:0 0 16px;border-bottom:2px solid var(--line)}
+.head h1{font-size:26px;margin:0;letter-spacing:1px;font-weight:700}
+.head .sub{color:var(--sub);font-size:14px;margin-top:8px;letter-spacing:.5px}
+.card{background:var(--card);border-radius:12px;padding:18px 16px 16px;margin:14px 0;border:1px solid var(--line);box-shadow:0 1px 4px rgba(0,0,0,.25)}
+.card h2{font-size:19px;margin:0 0 14px;color:#f0e8da;background:var(--h2bg);padding:8px 12px;border-left:6px solid var(--h2bar);border-radius:6px;font-weight:700;letter-spacing:.5px;border:1px solid #6b5540;border-left-width:6px}
+.list{display:flex;flex-direction:column;gap:10px}
+.item{background:var(--card2);border:1px solid var(--line);border-radius:10px;padding:12px 14px;display:flex;flex-direction:column;gap:4px;transition:background .15s,border-color .15s}
+.item:hover{background:#303a4e;border-color:#4a5566}
+.item a.title{color:var(--link);font-size:16px;font-weight:600;text-decoration:none}
+.item a.title:hover{text-decoration:underline}
+.item .path{color:var(--sub);font-size:12px;word-break:break-all}
+.item .time{color:var(--sub);font-size:12px}
+.empty{color:var(--sub);text-align:center;padding:40px 0}
+@media(max-width:768px){
+  .head{padding:16px 10px 12px}
+  .head h1{font-size:22px}
+  .card{padding:14px 12px}
+  .card h2{font-size:17px}
+}
+</style></head><body><div class="wrap">
+<div class="head"><h1>📈 股票分析报告索引</h1><div class="sub">生成于 2026-08-01 12:05 ｜ 共 13 个报告</div></div>
+<div class='card'><h2>每月复盘</h2><div class='list'><div class='item'><a class='title' href='每月复盘/每月复盘_20260731.html'>每月复盘_20260731.html</a><span class='path'>每月复盘\每月复盘_20260731.html</span><span class='time'>2026-08-01 01:35</span></div></div></div><div class='card'><h2>每周复盘</h2><div class='list'><div class='item'><a class='title' href='每周复盘/每周复盘_20260731.html'>每周复盘_20260731.html</a><span class='path'>每周复盘\每周复盘_20260731.html</span><span class='time'>2026-08-01 01:35</span></div></div></div><div class='card'><h2>每日复盘</h2><div class='list'><div class='item'><a class='title' href='每日复盘/每日复盘_20260731.html'>每日复盘_20260731.html</a><span class='path'>每日复盘\每日复盘_20260731.html</span><span class='time'>2026-08-01 01:35</span></div><div class='item'><a class='title' href='每日复盘/每日复盘_20260730.html'>每日复盘_20260730.html</a><span class='path'>每日复盘\每日复盘_20260730.html</span><span class='time'>2026-07-31 00:00</span></div><div class='item'><a class='title' href='每日复盘/每日复盘_20260729.html'>每日复盘_20260729.html</a><span class='path'>每日复盘\每日复盘_20260729.html</span><span class='time'>2026-07-30 14:45</span></div></div></div><div class='card'><h2>预期涨幅选股</h2><div class='list'><div class='item'><a class='title' href='预期涨幅选股/预期涨幅选股报告_20260731.html'>预期涨幅选股报告_20260731.html</a><span class='path'>预期涨幅选股\预期涨幅选股报告_20260731.html</span><span class='time'>2026-08-01 02:43</span></div><div class='item'><a class='title' href='预期涨幅选股/历史命中率回测报告_20260731.html'>历史命中率回测报告_20260731.html</a><span class='path'>预期涨幅选股\历史命中率回测报告_20260731.html</span><span class='time'>2026-08-01 02:41</span></div><div class='item'><a class='title' href='预期涨幅选股/预期涨幅选股报告_20260730.html'>预期涨幅选股报告_20260730.html</a><span class='path'>预期涨幅选股\预期涨幅选股报告_20260730.html</span><span class='time'>2026-07-30 16:00</span></div><div class='item'><a class='title' href='预期涨幅选股/预期涨幅选股报告_20260729.html'>预期涨幅选股报告_20260729.html</a><span class='path'>预期涨幅选股\预期涨幅选股报告_20260729.html</span><span class='time'>2026-07-29 16:00</span></div><div class='item'><a class='title' href='预期涨幅选股/预期涨幅选股报告_20260728.html'>预期涨幅选股报告_20260728.html</a><span class='path'>预期涨幅选股\预期涨幅选股报告_20260728.html</span><span class='time'>2026-07-29 13:09</span></div><div class='item'><a class='title' href='预期涨幅选股/历史命中率回测报告_20260728.html'>历史命中率回测报告_20260728.html</a><span class='path'>预期涨幅选股\历史命中率回测报告_20260728.html</span><span class='time'>2026-07-29 00:08</span></div><div class='item'><a class='title' href='预期涨幅选股/预期涨幅选股报告_20260726.html'>预期涨幅选股报告_20260726.html</a><span class='path'>预期涨幅选股\预期涨幅选股报告_20260726.html</span><span class='time'>2026-07-28 03:21</span></div><div class='item'><a class='title' href='预期涨幅选股/历史模拟/预期涨幅选股报告_历史模拟_20260601.html'>预期涨幅选股报告_历史模拟_20260601.html</a><span class='path'>预期涨幅选股\历史模拟\预期涨幅选股报告_历史模拟_20260601.html</span><span class='time'>2026-07-29 18:56</span></div></div></div>
 </div></body></html>
