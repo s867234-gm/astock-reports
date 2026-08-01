@@ -27,14 +27,9 @@ _CAND = [r"C:\Program Files\Git\cmd\git.exe",
 GIT = next((c for c in _CAND if os.path.isfile(c)), "git")
 
 
-# 类别在 index.html 落地页的展示顺序：固定优先按时间粒度从大到小 → 选股
-# 未列出的新类别按拼音字母序追加在末尾
-CATEGORY_ORDER = {
-    "每月复盘": 0,
-    "每周复盘": 1,
-    "每日复盘": 2,
-    "预期涨幅选股": 3,
-}
+# index.html 落地页统一由 gitee-sync-tools/gen_index.py 生成（深色紧凑、与每月复盘风格一致）。
+# 单点维护，避免和 gitee-sync-tools/gen_index.py 分叉导致两套样式互覆盖。
+# build_index() 直接委托给它（见下方 build_index）。
 
 
 def copy_category(src_cat, dst_cat):
@@ -55,52 +50,12 @@ def copy_category(src_cat, dst_cat):
 
 
 def build_index():
-    """扫描 DST 下各「类别子目录」，重建 index.html。"""
-    cats = []
-    for name in sorted(os.listdir(DST), key=lambda n: (CATEGORY_ORDER.get(n, 99), n)):
-        p = os.path.join(DST, name)
-        if not os.path.isdir(p) or name in (".git",):
-            continue
-        items = []
-        for root, _dirs, files in os.walk(p):
-            for f in files:
-                if not f.lower().endswith(".html"):
-                    continue
-                full = os.path.join(root, f)
-                if os.path.abspath(full) == os.path.abspath(os.path.join(DST, "index.html")):
-                    continue
-                rel = os.path.relpath(full, DST).replace("\\", "/")
-                disp = os.path.relpath(full, DST).replace("/", "\\")
-                items.append((os.path.getmtime(full), rel, disp))
-        if items:
-            items.sort(reverse=True)
-            cats.append((name, items))
-
-    total = sum(len(it) for _, it in cats)
-    now = datetime.datetime.now().strftime("%Y-%m-%d %H:%M")
-    style = (
-        "body{font-family:-apple-system,Segoe UI,Roboto,sans-serif;margin:0;background:#f5f6f8;color:#222;}"
-        ".wrap{max-width:860px;margin:0 auto;padding:16px;} h1{font-size:20px;} h2{font-size:16px;margin-top:24px;color:#185fa5;}"
-        ".card{background:#fff;border-radius:10px;padding:10px 14px;margin:8px 0;box-shadow:0 1px 3px rgba(0,0,0,.08);}"
-        "a{color:#185fa5;text-decoration:none;font-size:15px;} .t{color:#888;font-size:12px;margin-left:8px;} .empty{color:#999;}"
-        "@media(max-width:600px){.wrap{padding:10px;} a{font-size:14px;}}"
-    )
-    html = ["<!doctype html>",
-            "<html lang='zh-CN'><head><meta charset='utf-8'>",
-            "<meta name='viewport' content='width=device-width,initial-scale=1'>",
-            "<title>股票分析报告索引</title>",
-            f"<style>{style}</style>",
-            "</head><body><div class='wrap'>",
-            "<h1>股票分析报告索引</h1>",
-            f"<p class='t'>生成于 {now} ｜ 共 {total} 个报告</p>"]
-    for name, items in cats:
-        html.append(f"<h2>{name}</h2>")
-        for mt, rel, disp in items:
-            ts = datetime.datetime.fromtimestamp(mt).strftime("%Y-%m-%d %H:%M")
-            html.append(f"<div class='card'><a href='{rel}'>{disp}</a><span class='t'>{ts}</span></div>")
-    html.append("</div></body></html>")
-    with open(os.path.join(DST, "index.html"), "w", encoding="utf-8") as fh:
-        fh.write("\n".join(html))
+    """重建 index.html：委托给 gitee-sync-tools/gen_index.py（深色紧凑、与每月复盘一致），单点维护。"""
+    tools = os.path.normpath(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "gitee-sync-tools"))
+    if tools not in sys.path:
+        sys.path.insert(0, tools)
+    import gen_index as _gi
+    _gi.build_index(DST)
 
 
 def clear_repo_proxy():
