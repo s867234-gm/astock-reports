@@ -6,6 +6,14 @@
 D:/报告同步/astock-reports/<类别>/ ，重建 index.html 落地页，
 并推送到 GitHub(github) 与 Gitee(origin) 两个 remote。
 
+=== 整站密码保护（方案 A：AES-256-GCM 客户端解密）===
+- 仓库里的 HTML 在提交前被加密为「解密门页」；浏览器端输入密码后用
+  原生 Web Crypto(AES-GCM + PBKDF2) 本地解密，密码从不上传。
+- 主密码绝不写进会被 GitHub 公开的仓库文件：优先读环境变量 ASTOCK_SITE_PASS，
+  否则读本机文件 D:/报告同步/site_pass.txt（位于仓库父目录，不会被提交）。
+- 提示文字(SITE_HINT)解密页公开可见，仅作本人提醒，勿写泄露密码的内容。
+- 本地存档 D:/选股报告存档/ 始终保持明文（双击可看）；仅仓库副本加密。
+
 规则：
 - 仅做增量拷贝（不删除仓库中已有的其他报告，如历史模拟），保证历史不丢。
 - 仅当确有内容变化（新增/修改报告、新增脚本等，排除 index.html 时间戳自动刷新）才提交。
@@ -14,10 +22,23 @@ D:/报告同步/astock-reports/<类别>/ ，重建 index.html 落地页，
 用法：python sync_reports.py
 """
 import os, shutil, subprocess, datetime, sys, socket
+import base64, json, hashlib
+
+# ---- 整站密码加密依赖 ----
+from cryptography.hazmat.primitives.kdf.pbkdf2 import PBKDF2HMAC
+from cryptography.hazmat.primitives import hashes
+from cryptography.hazmat.primitives.ciphers.aead import AESGCM
 
 SRC = r"D:\选股报告存档"
 DST = r"D:\报告同步\astock-reports"
 REPO = DST
+
+# ===== 整站密码保护配置 =====
+SITE_HINT = "江生日"                      # 解密页提示（公开可见，仅本人可懂）
+SITE_PASS_ENV = "ASTOCK_SITE_PASS"        # 优先：环境变量
+SITE_PASS_FILE = r"D:\报告同步\site_pass.txt"  # 兜底：本机文件（仓库外，不提交）
+ENC_CACHE = os.path.join(REPO, ".enc_cache.json")  # 本地缓存(gitignore)：跳过未变更文件，避免无意义提交
+PBKDF2_ITERS = 200000
 
 # 固定使用「系统 Git for Windows」(C:\Program Files\Git)，其 system 级
 # credential.helper 已设为 manager，可避免 WorkBuddy 自带 PortableGit 的
@@ -56,6 +77,155 @@ def build_index():
         sys.path.insert(0, tools)
     import gen_index as _gi
     _gi.build_index(DST)
+
+
+# ===== 整站密码加密：解密门页模板 + 加解密函数 =====
+GATE_TEMPLATE = """<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>私密报告 · 需要密码</title>
+<style>
+  :root{--bg:#181f2c;--card:#222b3c;--ink:#e8e2d4;--muted:#9aa3b2;--accent:#3a2e1a;--line:#3b4a66;}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,"Microsoft YaHei",sans-serif;display:flex;min-height:100vh;align-items:center;justify-content:center;padding:20px}
+  .gate{background:var(--card);border:1px solid var(--line);border-radius:14px;max-width:420px;width:100%;padding:28px 24px;text-align:center}
+  h1{margin:0 0 6px;font-size:22px}
+  .hint{color:var(--muted);font-size:14px;margin:0 0 18px}
+  input[type=password]{width:100%;padding:12px 14px;font-size:16px;border-radius:10px;border:1px solid var(--line);background:#1a2230;color:var(--ink);outline:none}
+  button{margin-top:14px;width:100%;padding:12px;border:none;border-radius:10px;background:var(--accent);color:#f3ead6;font-size:16px;cursor:pointer}
+  button:disabled{opacity:.5;cursor:not-allowed}
+  .row{display:flex;align-items:center;gap:8px;margin-top:14px;color:var(--muted);font-size:13px;justify-content:center}
+  .err{color:#e07a6f;font-size:13px;min-height:18px;margin:10px 0 0;white-space:pre-line}
+  .loading{color:var(--muted);font-size:14px;margin-top:12px}
+</style>
+</head>
+<body>
+<div class="gate">
+  <h1>私密报告</h1>
+  <p class="hint">提示：__HINT__</p>
+  <input id="pw" type="password" placeholder="请输入密码" autocomplete="off" autofocus>
+  <button id="go">解锁</button>
+  <div class="row"><input type="checkbox" id="rm"> 记住密码（仅本机浏览器）</div>
+  <div id="err" class="err"></div>
+  <div id="loading" class="loading" style="display:none">解密中…</div>
+</div>
+<script>
+const PAYLOAD = __PAYLOAD__;
+function b64dec(s){return Uint8Array.from(atob(s),function(c){return c.charCodeAt(0);});}
+function navigate(html){document.open();document.write(html);document.close();}
+async function deriveKey(pw, salt){
+  var km = await crypto.subtle.importKey('raw', new TextEncoder().encode(pw), 'PBKDF2', false, ['deriveKey']);
+  return crypto.subtle.deriveKey({name:'PBKDF2', salt:salt, iterations:__ITERS__, hash:'SHA-256'}, km, {name:'AES-GCM', length:256}, false, ['decrypt']);
+}
+async function doDecrypt(pw){
+  var salt=b64dec(PAYLOAD.s), nonce=b64dec(PAYLOAD.n), ct=b64dec(PAYLOAD.c);
+  var key=await deriveKey(pw, salt);
+  var plain=await crypto.subtle.decrypt({name:'AES-GCM', iv:nonce}, key, ct);
+  return new TextDecoder().decode(plain);
+}
+function setSession(pw){
+  sessionStorage.setItem('astock_pw', pw);
+  if(document.getElementById('rm').checked) localStorage.setItem('astock_pw', pw);
+}
+function showErr(m){document.getElementById('err').textContent=m;document.getElementById('loading').style.display='none';}
+function unlock(pw){
+  document.getElementById('loading').style.display='block';
+  document.getElementById('err').textContent='';
+  doDecrypt(pw).then(function(html){ setSession(pw); navigate(html); }).catch(function(){ showErr('密码错误，请重试'); });
+}
+window.addEventListener('DOMContentLoaded', function(){
+  if(!window.crypto || !crypto.subtle){
+    document.getElementById('err').textContent='请在 GitHub / Gitee Pages 的 HTTPS 网址打开；本地双击文件（file://）无法解密。';
+    document.getElementById('loading').style.display='none';
+    document.getElementById('go').disabled=true;
+    return;
+  }
+  var pwInput=document.getElementById('pw'), go=document.getElementById('go');
+  function bindManual(){
+    go.addEventListener('click', function(){ unlock(pwInput.value); });
+    pwInput.addEventListener('keydown', function(e){ if(e.key==='Enter') unlock(pwInput.value); });
+  }
+  var cached = sessionStorage.getItem('astock_pw') || localStorage.getItem('astock_pw');
+  if(cached){
+    pwInput.value=cached;
+    document.getElementById('rm').checked = !!localStorage.getItem('astock_pw');
+    document.getElementById('loading').style.display='block';
+    doDecrypt(cached).then(function(html){ setSession(cached); navigate(html); }).catch(function(){
+      sessionStorage.removeItem('astock_pw'); localStorage.removeItem('astock_pw');
+      document.getElementById('loading').style.display='none';
+      document.getElementById('err').textContent='已保存的密码无效，请重新输入';
+      pwInput.value='';
+      bindManual();
+    });
+    return;
+  }
+  bindManual();
+});
+</script>
+</body>
+</html>"""
+
+
+def load_site_password():
+    env = os.environ.get(SITE_PASS_ENV)
+    if env:
+        return env
+    if os.path.isfile(SITE_PASS_FILE):
+        with open(SITE_PASS_FILE, encoding="utf-8") as f:
+            pw = f.read().strip()
+        if pw:
+            return pw
+    raise SystemExit("[sync] 未找到站点密码：请设置环境变量 %s，或在 %s 写入主密码。" % (SITE_PASS_ENV, SITE_PASS_FILE))
+
+
+def encrypt_html(plain: bytes, password: str) -> str:
+    """AES-256-GCM 加密整页 HTML，产出带密码门的解密页（与浏览器端 Web Crypto 参数一致）。"""
+    salt = os.urandom(16)
+    nonce = os.urandom(12)
+    kdf = PBKDF2HMAC(algorithm=hashes.SHA256(), length=32, salt=salt, iterations=PBKDF2_ITERS)
+    key = kdf.derive(password.encode("utf-8"))
+    ct = AESGCM(key).encrypt(nonce, plain, None)
+    payload = json.dumps({
+        "s": base64.b64encode(salt).decode(),
+        "n": base64.b64encode(nonce).decode(),
+        "c": base64.b64encode(ct).decode(),
+    }, separators=(",", ":"))
+    return (GATE_TEMPLATE
+            .replace("__PAYLOAD__", payload)
+            .replace("__HINT__", SITE_HINT)
+            .replace("__ITERS__", str(PBKDF2_ITERS)))
+
+
+def load_cache():
+    if os.path.isfile(ENC_CACHE):
+        try:
+            with open(ENC_CACHE, encoding="utf-8") as f:
+                return json.load(f)
+        except Exception:
+            return {}
+    return {}
+
+
+def save_cache(c):
+    with open(ENC_CACHE, "w", encoding="utf-8") as f:
+        json.dump(c, f)
+
+
+def ensure_encrypted(rel_path, plaintext, password, cache):
+    """明文未变化则跳过（保留既有密文，避免无意义提交）；否则加密写盘。返回是否本次写盘。"""
+    h = hashlib.sha256(plaintext).hexdigest()
+    key = rel_path.replace("\\", "/")
+    if cache.get(key) == h:
+        return False
+    out = encrypt_html(plaintext, password)
+    dst = os.path.join(DST, rel_path)
+    os.makedirs(os.path.dirname(dst), exist_ok=True)
+    with open(dst, "w", encoding="utf-8") as f:
+        f.write(out)
+    cache[key] = h
+    return True
 
 
 def clear_repo_proxy():
@@ -134,14 +304,52 @@ def push_all():
 
 def main():
     apply_proxy()
-    copied = 0
+    password = load_site_password()
+    cache = load_cache()
+    changed = 0
+
+    # 1) 报告：从本地明文存档读取并加密写入仓库（仅变更者重加密）
     if os.path.isdir(SRC):
         for name in sorted(os.listdir(SRC)):
             sp = os.path.join(SRC, name)
-            if os.path.isdir(sp):
-                copied += copy_category(sp, os.path.join(DST, name))
+            if not os.path.isdir(sp):
+                continue
+            for root, _dirs, files in os.walk(sp):
+                for f in files:
+                    if not f.lower().endswith(".html"):
+                        continue
+                    s = os.path.join(root, f)
+                    rel = os.path.relpath(s, sp)
+                    rel_full = os.path.join(name, rel)
+                    with open(s, "rb") as fh:
+                        pt = fh.read()
+                    if ensure_encrypted(rel_full, pt, password, cache):
+                        changed += 1
+
+    # 2) 落地页 index.html：先由 gen_index 生成明文，再加密
     build_index()
-    print(f"[sync] 镜像新增/覆盖 HTML：{copied} 个")
+    idx = os.path.join(DST, "index.html")
+    if os.path.isfile(idx):
+        with open(idx, "rb") as fh:
+            pt = fh.read()
+        if ensure_encrypted("index.html", pt, password, cache):
+            changed += 1
+
+    # 3) 兜底：加密仓库内任何仍为明文的 .html（历史遗留），确保无明文泄露
+    for root, _dirs, files in os.walk(DST):
+        for f in files:
+            if not f.lower().endswith(".html"):
+                continue
+            p = os.path.join(root, f)
+            rel = os.path.relpath(p, DST)
+            with open(p, "rb") as fh:
+                data = fh.read()
+            if b"PAYLOAD" not in data:   # 尚未加密
+                if ensure_encrypted(rel, data, password, cache):
+                    changed += 1
+
+    save_cache(cache)
+    print(f"[sync] 加密更新 HTML：{changed} 个")
 
     rc, out, _ = git("status", "--porcelain")
     lines = [ln for ln in out.splitlines() if "index.html" not in ln]
