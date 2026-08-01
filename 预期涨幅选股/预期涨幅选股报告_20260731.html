@@ -11,47 +11,36 @@
   --sub:#8e97aa;
   --up:#e08781;
   --down:#7dc29a;
-  --h2bg:#3a2e1a;
   --h2bar:#c9a87c;
-  --accent:#c9a87c;
+  --hl:#2a3245;
 }
 * { box-sizing:border-box }
-html { -webkit-text-size-adjust:100% }
-body { font-family:-apple-system,Segoe UI,Roboto,'PingFang SC',sans-serif; margin:0; background:var(--bg); color:var(--ink); font-size:16px; line-height:1.7; }
-.wrap { max-width:1180px; margin:0 auto; padding:10px 10px 44px; }
-.head { text-align:center; padding:22px 12px 16px; margin:0 0 16px; border-bottom:2px solid var(--line); }
-.head h1 { font-size:26px; margin:0; letter-spacing:1px; font-weight:700; color:var(--ink); }
-.head .sub { color:var(--sub); font-size:14px; margin-top:8px; letter-spacing:.5px; }
-.card { background:var(--card); border-radius:12px; padding:18px 16px 16px; margin:14px 0; border:1px solid var(--line); box-shadow:0 1px 4px rgba(0,0,0,.25); overflow-x:auto; }
-.card h2 { font-size:19px; margin:0 0 14px; color:#f0e8da; background:var(--h2bg); padding:8px 12px; border-left:6px solid var(--h2bar); border-radius:6px; font-weight:700; letter-spacing:.5px; border:1px solid #6b5540; border-left-width:6px; }
-.kpi { display:flex; flex-wrap:wrap; gap:10px; margin-bottom:16px; }
-.kpi .b { flex:1 1 30%; background:var(--card); border:1px solid var(--line); border-radius:10px; padding:14px 8px; text-align:center; min-width:100px; border-top:4px solid #4a5566; }
-.kpi .b .v { font-size:24px; font-weight:700; color:var(--ink); }
-.kpi .b .l { font-size:13px; color:var(--sub); margin-top:4px; }
-table { width:100%; border-collapse:collapse; font-size:13px; }
-th { padding:7px 6px; text-align:right; background:var(--card2); color:#b8c0d0; font-weight:700; border-bottom:2px solid var(--line); white-space:nowrap; }
-td { padding:7px 6px; text-align:right; border-bottom:1px solid var(--line); white-space:nowrap; color:var(--ink); }
-th:first-child,td:first-child { text-align:left; }
-tr:nth-child(even) td { background:#26304a; }
-.up { color:var(--up); font-weight:700; }
-.down { color:var(--down); font-weight:700; }
-.note { background:var(--card); border:1px solid var(--line); border-left:4px solid var(--h2bar); border-radius:8px; padding:14px 18px; margin-bottom:20px; font-size:14px; color:var(--ink); line-height:1.8; }
-.note h3 { margin:0 0 8px; font-size:16px; color:#f0e8da; }
+body { font-family:-apple-system,Segoe UI,Roboto,'PingFang SC',sans-serif; margin:0; background:var(--bg); color:var(--ink); font-size:14px; line-height:1.6; }
+.wrap { max-width:1180px; margin:0 auto; padding:24px 18px 60px; }
+h1 { font-size:24px; margin:0 0 4px; color:var(--ink); }
+.meta { color:var(--sub); font-size:13px; margin-bottom:18px; }
+.cards { display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:12px; margin-bottom:20px; }
+.kpi { background:var(--card); border:1px solid var(--line); border-radius:10px; padding:14px 16px; }
+.kpi b { display:block; font-size:22px; color:var(--h2bar); }
+.kpi span { color:var(--sub); font-size:12px; }
+.note { background:var(--card); border:1px solid var(--line); border-left:4px solid var(--h2bar); border-radius:8px; padding:14px 18px; margin-bottom:20px; font-size:13px; color:var(--ink); line-height:1.8; }
+.note h3 { margin:0 0 8px; font-size:15px; color:var(--ink); }
 .note li { margin:3px 0; }
-.warn { background:#3a2e1a; border:1px solid #5c4830; color:#e0c896; }
-.foot { margin-top:24px; padding:14px 18px; background:#3a2e1a; border:1px solid #5c4830; border-radius:8px; color:#e0c896; font-size:13px; }
-
 .tabs { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:14px; }
 .tab { background:var(--card); border:1px solid var(--line); border-radius:8px; padding:9px 16px; cursor:pointer; font-size:14px; color:var(--ink); font-weight:600; }
 .tab.active { background:var(--h2bar); color:#1a1208; border-color:var(--h2bar); }
 .panel { display:none; } .panel.active { display:block; }
-.phead { font-size:16px; font-weight:700; margin:6px 0 12px; color:#f0e8da; }
+.phead { font-size:16px; font-weight:700; margin:6px 0 12px; color:var(--ink); }
 .cap { font-weight:400; color:var(--sub); font-size:12px; }
-td.rk { text-align:left; color:var(--sub); } td.code { text-align:left; font-family:Consolas,monospace; font-weight:600; color:var(--ink); }
+table { width:100%; border-collapse:collapse; background:var(--card); border:1px solid var(--line); border-radius:10px; overflow:hidden; }
+th { background:var(--card2); text-align:right; padding:9px 10px; font-size:12px; color:var(--sub); font-weight:600; white-space:nowrap; }
+th:nth-child(1),th:nth-child(2),th:nth-child(3) { text-align:left; }
+td { padding:8px 10px; border-top:1px solid var(--line); text-align:right; font-size:13px; color:var(--ink); }
+td.rk { text-align:left; color:var(--sub); } td.code { text-align:left; font-family:Consolas,monospace; font-weight:600; }
 td.nm { text-align:left; } .mk { color:var(--sub); font-size:11px; margin-left:4px; }
 td.gain { color:var(--up); font-weight:700; } td.tgt { color:var(--up); } td.stop { color:var(--down); }
-tr.detail td { text-align:left; color:var(--sub); font-size:12px; background:#1c2433; border-top:none; padding:6px 10px 12px 46px; }
-.dim { display:inline-block; background:#2a3245; color:var(--ink); border-radius:4px; padding:0 6px; margin-right:4px; font-size:11px; }
+tr.detail td { text-align:left; color:var(--sub); font-size:12px; background:var(--hl); border-top:none; padding:6px 10px 12px 46px; }
+.dim { display:inline-block; background:var(--card2); color:var(--ink); border-radius:4px; padding:0 6px; margin-right:4px; font-size:11px; }
 .rl-high { color:var(--up); font-weight:700; } .rl-mid { color:#d6b46a; }
 .badge { font-size:10px; padding:1px 6px; border-radius:4px; margin-left:6px; vertical-align:middle; }
 .badge.new { background:#3a2e1a; color:#e0a89e; border:1px solid #5c4830; }
@@ -61,61 +50,63 @@ tr.detail td { text-align:left; color:var(--sub); font-size:12px; background:#1c
 .badge.stk2 { background:#332a1a; color:#d6a05a; border:1px solid #5c4a30; }
 .badge.stk3 { background:#3a2a1a; color:#e0a05a; border:1px solid #5c4830; font-weight:700; }
 .badge.stknew { background:#1f2a3a; color:#8ab4d8; border:1px solid #2c4358; }
-.hzchip { display:inline-block; background:#2a3245; border:1px solid var(--line); border-radius:4px; padding:0 6px; margin:1px 3px 1px 0; font-size:11px; color:var(--ink); }
+.hzchip { display:inline-block; background:var(--card2); border:1px solid var(--line); border-radius:4px; padding:0 6px; margin:1px 3px 1px 0; font-size:11px; color:var(--ink); }
 .gainlist { font-size:12px; } .gtx { color:var(--up); }
+.foot { margin-top:24px; padding:14px 18px; background:#3a2e1a; border:1px solid #5c4830; border-radius:8px; color:#e0c896; font-size:12px; }
+
 .verify .vg { display:block; font-weight:700; color:var(--up); }
 .verify .vbadge { display:inline-block; font-size:10px; padding:1px 6px; border-radius:4px; margin-top:2px; }
 .verify .vbadge.vok { background:#2c4a3a; color:#a4d4b3; border:1px solid #3e6450; }
 .verify .vbadge.vpart { background:#3a3320; color:#d6b46a; border:1px solid #5c5230; }
 .verify .vbadge.vstop { background:#3a2e1a; color:#e0a89e; border:1px solid #5c4830; font-weight:700; }
-.verify .vbadge.vnone { background:#2a3245; color:var(--sub); border:1px solid var(--line); }
+.verify .vbadge.vnone { background:var(--card2); color:var(--sub); border:1px solid var(--line); }
 .verify .vreal { display:block; font-size:10px; color:var(--sub); margin-top:1px; }
-.histbadge { display:inline-block; background:#2a3245; color:var(--ink); border:1px solid var(--line); border-radius:6px; padding:1px 8px; font-size:13px; vertical-align:middle; margin-left:6px; }
+.histbadge { display:inline-block; background:var(--card2); color:var(--ink); border:1px solid var(--line); border-radius:6px; padding:1px 8px; font-size:13px; vertical-align:middle; margin-left:6px; }
 
-@media(max-width:768px){
-  .wrap { padding:10px 10px 44px; }
-  .head { padding:16px 10px 12px; }
-  .head h1 { font-size:22px; }
-  .card h2 { font-size:17px; }
-  .note { font-size:13px; }
-  .kpi .b { flex:1 1 46%; }
-  table { font-size:12px; }
-  .tabs { position:sticky; top:0; z-index:9; background:var(--bg); padding:8px 0; margin:0 0 10px; flex-wrap:nowrap; overflow-x:auto; -webkit-overflow-scrolling:touch; }
-  .tab { flex:0 0 auto; padding:10px 14px; font-size:13px; }
-  table,tbody { display:block; background:none; border:none; }
-  thead { display:none; }
-  tr { display:flex; flex-wrap:wrap; background:var(--card); border:1px solid var(--line); border-radius:10px 10px 0 0; margin-top:12px; padding:8px 10px 4px; }
-  tr.detail { border-radius:0 0 10px 10px; border-top:none; margin-top:0; padding:0; }
-  td { border:none; padding:3px 8px 3px 0; font-size:13px; text-align:left; }
-  td[data-l]::before { content:attr(data-l); display:block; color:var(--sub); font-size:10px; line-height:1.2; }
-  td.rk { width:100%; padding:0; font-size:11px; }
-  td.code { width:31%; } td.nm { width:41%; } td[data-l="现价"]{width:28%;}
-  td.gain { width:31%; font-size:15px; } td.tgt { width:22%; }
-  td[data-l="触发价"]{width:22%;} td.stop{width:25%;}
-  td.rl-high,td.rl-mid{width:31%;} td.amt{width:41%;}
-  td[data-l="入选板块"],td[data-l="各周期预期涨幅"]{width:100%;}
-  .badge{margin-left:3px;}
-  tr.detail td.dspace{display:none;}
-  tr.detail td{width:100%;padding:8px 10px 10px;font-size:12px;}
+@media(max-width:680px){
+ .wrap { padding:14px 10px 50px; }
+ h1 { font-size:19px; }
+ .cards { grid-template-columns:repeat(2,1fr); gap:8px; }
+ .kpi { padding:10px 12px; } .kpi b { font-size:18px; }
+ .note { padding:10px 12px; font-size:12px; } .note ul { padding-left:18px; margin:6px 0; }
+ .tabs { position:sticky; top:0; z-index:9; background:var(--bg); padding:8px 0; margin:0 0 10px;
+        flex-wrap:nowrap; overflow-x:auto; -webkit-overflow-scrolling:touch; }
+ .tab { flex:0 0 auto; padding:10px 14px; font-size:13px; }
+ table,tbody { display:block; background:none; border:none; }
+ thead { display:none; }
+ tr { display:flex; flex-wrap:wrap; background:var(--card); border:1px solid var(--line);
+     border-radius:10px 10px 0 0; margin-top:12px; padding:8px 10px 4px; }
+ tr.detail { border-radius:0 0 10px 10px; border-top:none; margin-top:0; padding:0; }
+ td { border:none; padding:3px 8px 3px 0; font-size:13px; text-align:left; }
+ td[data-l]::before { content:attr(data-l); display:block; color:var(--sub); font-size:10px; line-height:1.2; }
+ td.rk { width:100%; padding:0; font-size:11px; }
+ td.code { width:31%; } td.nm { width:41%; } td[data-l="现价"]{width:28%;}
+ td.gain { width:31%; font-size:15px; } td.tgt { width:22%; }
+ td[data-l="触发价"]{width:22%;} td.stop{width:25%;}
+ td.rl-high,td.rl-mid{width:31%;} td.amt{width:41%;}
+ td[data-l="入选板块"],td[data-l="各周期预期涨幅"]{width:100%;}
+ .badge { margin-left:3px; }
+ tr.detail td.dspace { display:none; }
+ tr.detail td { width:100%; padding:8px 10px 10px; font-size:12px; }
 }
 </style></head><body><div class="wrap">
-<div class='head'><h1>📈 预期涨幅选股报告 <span style="font-size:16px;color:var(--sub);">20260731</span></h1>
-<div class='sub'>数据源：DuckDB 前复权 v_day_qfq ｜ 最新交易日 <b>2026-07-31</b> ｜ 框架：Miner 高胜算四维 ｜ 生成 2026-08-01 14:15</div></div>
+<h1>📈 预期涨幅选股报告 <span style="font-size:16px;color:var(--sub);">20260731</span></h1>
+<div class="meta">数据源：DuckDB 前复权 v_day_qfq ｜ 最新交易日 <b>2026-07-31</b> ｜ 框架：Miner 高胜算四维 ｜ 生成 2026-08-01 16:48</div>
 
-<div class="kpi">
+<div class="cards">
 
- <div class="b"><div class="v">2956</div><div class="l">非创池个股</div></div>
- <div class="b"><div class="v">2936</div><div class="l">有效评估(剔停牌/低流动)</div></div>
- <div class="b"><div class="v">120</div><div class="l">入选股票次(4×30)</div></div>
- <div class="b"><div class="v">33</div><div class="l">跨周期重复入选(⭐重点)</div></div>
- <div class="b"><div class="v">41</div><div class="l">连续≥2期在榜(🔥追踪)</div></div>
- <div class="b"><div class="v">+0</div><div class="l">本次新增自选股</div></div>
- <div class="b"><div class="v">350→350</div><div class="l">自选股总数</div></div>
+ <div class="kpi"><b>2956</b><span>非创池个股</span></div>
+ <div class="kpi"><b>2938</b><span>有效评估(剔停牌/低流动)</span></div>
+ <div class="kpi"><b>120</b><span>入选股票次(4×30)</span></div>
+ <div class="kpi"><b>33</b><span>跨周期重复入选(⭐重点)</span></div>
+ <div class="kpi"><b>41</b><span>连续≥2期在榜(🔥追踪)</span></div>
+ <div class="kpi"><b>+0</b><span>本次新增自选股</span></div>
+ <div class="kpi"><b>350→350</b><span>自选股总数</span></div>
 
 </div>
 
-<div class="card">
-<h2>方法与口径说明</h2>
+<div class="note">
+<h3>方法与口径说明</h3>
 
 <ul>
 <li><b>预期涨幅定义</b>：未来 N 日窗口内可能出现的<b>最大上行幅度（峰值涨幅）</b>，非"N日后终点收益"；为技术面潜力投影而非确定收益。</li>
@@ -126,8 +117,8 @@ tr.detail td { text-align:left; color:var(--sub); font-size:12px; background:#1c
 </div>
 
 
-<div class="card">
-<h2>⭐ 跨周期重复入选汇总（共 33 只，重点关注）</h2>
+<div class="note" style="border-left-color:#c9a87c;">
+<h3>⭐ 跨周期重复入选汇总（共 33 只，重点关注）</h3>
 <div style="font-size:12px;color:#6b7280;margin-bottom:8px;">同一股票在多个周期榜单中重复出现，说明其短中线多个时间框架的技术面共振，信号更强；周期数越多越值得优先跟踪（仍须等突破触发价）。</div>
 <table>
  <thead><tr><th>代码</th><th>名称</th><th>入选板块</th><th>现价</th><th>各周期预期涨幅</th><th>风险</th></tr></thead>
@@ -399,8 +390,8 @@ tr.detail td { text-align:left; color:var(--sub); font-size:12px; background:#1c
 </table>
 </div>
 
-<div class="card">
-<h2>🔥 连续入选追踪（历史共 6 期榜单，连续≥2期共 41 只）</h2>
+<div class="note" style="border-left-color:#d2691e;">
+<h3>🔥 连续入选追踪（历史共 6 期榜单，连续≥2期共 41 只）</h3>
 <div style="font-size:12px;color:#6b7280;margin-bottom:8px;">连续多期在榜 = 技术面强势状态在时间上的持续确认，比单期上榜更可靠；连3期以上（🔥）为最高优先级跟踪对象。跌出榜单即视为动能衰减信号。</div>
 <table>
  <thead><tr><th>代码</th><th>名称</th><th>连续在榜</th><th>现价</th><th>预期涨幅</th><th>风险</th></tr></thead>
@@ -736,8 +727,8 @@ tr.detail td { text-align:left; color:var(--sub); font-size:12px; background:#1c
 </table>
 </div>
 
-<div class="card">
-<h2>🎯 历史命中率回测摘要（2025-06-16 ~ 2026-06-04，48 个评估时点）</h2>
+<div class="note" style="border-left-color:#2563eb;">
+<h3>🎯 历史命中率回测摘要（2025-06-16 ~ 2026-06-04，48 个评估时点）</h3>
 <div style="font-size:12px;color:#6b7280;margin-bottom:8px;">用同一套四维引擎在历史时点重演选股，统计入选股在其后 N 日窗口的<b>实际峰值涨幅</b>。达标率=实际峰值达到预期值50%以上的比例；基准=非创池全体同期平均峰值；超额=Top30较基准的峰值优势。回测报告：历史命中率回测报告_20260731.html</div>
 <table>
  <thead><tr><th>周期</th><th>样本数</th><th>达标率(≥50%预期)</th><th>峰值≥5%</th><th>平均实际峰值</th><th>全池基准</th><th>超额</th></tr></thead>
@@ -745,7 +736,6 @@ tr.detail td { text-align:left; color:var(--sub); font-size:12px; background:#1c
 </table>
 </div>
 
-<div class="card">
 <h2>四周期选股结果（各 Top30）</h2>
 <div class="tabs"><button class="tab active" onclick="showtab(5)">预期05日 · Top30</button><button class="tab" onclick="showtab(10)">预期10日 · Top30</button><button class="tab" onclick="showtab(20)">预期20日 · Top30</button><button class="tab" onclick="showtab(40)">预期40日 · Top30</button></div>
 
@@ -2953,10 +2943,9 @@ tr.detail td { text-align:left; color:var(--sub); font-size:12px; background:#1c
 </td></tr></tbody>
   </table>
 </div>
-</div>
 
-<div class="card" style="margin-top:8px;">
-<h2>通俗总结</h2>
+<div class="note" style="margin-top:24px;">
+<h3>通俗总结</h3>
 
 <ul>
 <li>这份报告从 2956 只非创业板/科创板股票里，挑出未来 5、10、20、40 天里"最有可能冲高"的各 30 只，涨幅数字是<b>期间可能摸到的最高点</b>，不是保证能赚到的钱。</li>
