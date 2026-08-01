@@ -1,86 +1,41 @@
 <!doctype html>
-<html lang="zh-CN">
-<head>
-<meta charset="utf-8">
+<html lang="zh-CN"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>私密报告 · 需要密码</title>
+<title>股票分析报告索引</title>
 <style>
-  :root{--bg:#181f2c;--card:#222b3c;--ink:#e8e2d4;--muted:#9aa3b2;--accent:#3a2e1a;--line:#3b4a66;}
-  *{box-sizing:border-box}
-  body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,"Microsoft YaHei",sans-serif;display:flex;min-height:100vh;align-items:center;justify-content:center;padding:20px}
-  .gate{background:var(--card);border:1px solid var(--line);border-radius:14px;max-width:420px;width:100%;padding:28px 24px;text-align:center}
-  h1{margin:0 0 6px;font-size:22px}
-  .hint{color:var(--muted);font-size:14px;margin:0 0 18px}
-  input[type=password]{width:100%;padding:12px 14px;font-size:16px;border-radius:10px;border:1px solid var(--line);background:#1a2230;color:var(--ink);outline:none}
-  button{margin-top:14px;width:100%;padding:12px;border:none;border-radius:10px;background:var(--accent);color:#f3ead6;font-size:16px;cursor:pointer}
-  button:disabled{opacity:.5;cursor:not-allowed}
-  .row{display:flex;align-items:center;gap:8px;margin-top:14px;color:var(--muted);font-size:13px;justify-content:center}
-  .err{color:#e07a6f;font-size:13px;min-height:18px;margin:10px 0 0;white-space:pre-line}
-  .loading{color:var(--muted);font-size:14px;margin-top:12px}
-</style>
-</head>
-<body>
-<div class="gate">
-  <h1>私密报告</h1>
-  <p class="hint">提示：江生日</p>
-  <input id="pw" type="password" placeholder="请输入密码" autocomplete="off" autofocus>
-  <button id="go">解锁</button>
-  <div class="row"><input type="checkbox" id="rm"> 记住密码（仅本机浏览器）</div>
-  <div id="err" class="err"></div>
-  <div id="loading" class="loading" style="display:none">解密中…</div>
-</div>
-<script>
-const PAYLOAD = {"s":"Gn0O8eoiL3FSyN59d9f59Q==","n":"ayAPtG+D3QgNMtsS","c":"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"};
-function b64dec(s){return Uint8Array.from(atob(s),function(c){return c.charCodeAt(0);});}
-function navigate(html){document.open();document.write(html);document.close();}
-async function deriveKey(pw, salt){
-  var km = await crypto.subtle.importKey('raw', new TextEncoder().encode(pw), 'PBKDF2', false, ['deriveKey']);
-  return crypto.subtle.deriveKey({name:'PBKDF2', salt:salt, iterations:200000, hash:'SHA-256'}, km, {name:'AES-GCM', length:256}, false, ['decrypt']);
+:root{
+  --bg:#181f2c;
+  --card:#222b3c;
+  --card2:#2a3245;
+  --line:#2e374a;
+  --ink:#dfe3ec;
+  --sub:#8e97aa;
+  --link:#8ab4d8;
+  --h2bg:#3a2e1a;
+  --h2bar:#c9a87c;
 }
-async function doDecrypt(pw){
-  var salt=b64dec(PAYLOAD.s), nonce=b64dec(PAYLOAD.n), ct=b64dec(PAYLOAD.c);
-  var key=await deriveKey(pw, salt);
-  var plain=await crypto.subtle.decrypt({name:'AES-GCM', iv:nonce}, key, ct);
-  return new TextDecoder().decode(plain);
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{font-family:-apple-system,Segoe UI,Roboto,'PingFang SC',sans-serif;margin:0;background:var(--bg);color:var(--ink);font-size:15px;line-height:1.5}
+.wrap{max-width:860px;margin:0 auto;padding:8px 12px 30px}
+.head{text-align:center;padding:14px 12px 10px;margin:0 0 6px;border-bottom:2px solid var(--line)}
+.head h1{font-size:22px;margin:0;letter-spacing:1px;font-weight:700}
+.head .sub{color:var(--sub);font-size:12px;margin-top:5px;letter-spacing:.5px}
+.group{margin:4px 0}
+.group h2{font-size:17px;margin:12px 0 4px;color:#f0e8da;background:var(--h2bg);padding:5px 10px;border-left:5px solid var(--h2bar);border-radius:4px;font-weight:700;letter-spacing:.5px}
+.list{display:flex;flex-direction:column}
+.item{padding:6px 8px;border-bottom:1px solid var(--line)}
+.item:hover{background:var(--card)}
+.item a.title{color:var(--link);font-size:15px;font-weight:500;text-decoration:none;display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.item a.title:hover{text-decoration:underline}
+.empty{color:var(--sub);text-align:center;padding:40px 0}
+@media(max-width:768px){
+  .head{padding:12px 10px 8px}
+  .head h1{font-size:19px}
+  .group h2{font-size:16px}
+  .item a.title{font-size:14px}
 }
-function setSession(pw){
-  sessionStorage.setItem('astock_pw', pw);
-  if(document.getElementById('rm').checked) localStorage.setItem('astock_pw', pw);
-}
-function showErr(m){document.getElementById('err').textContent=m;document.getElementById('loading').style.display='none';}
-function unlock(pw){
-  document.getElementById('loading').style.display='block';
-  document.getElementById('err').textContent='';
-  doDecrypt(pw).then(function(html){ setSession(pw); navigate(html); }).catch(function(){ showErr('密码错误，请重试'); });
-}
-window.addEventListener('DOMContentLoaded', function(){
-  if(!window.crypto || !crypto.subtle){
-    document.getElementById('err').textContent='请在 GitHub / Gitee Pages 的 HTTPS 网址打开；本地双击文件（file://）无法解密。';
-    document.getElementById('loading').style.display='none';
-    document.getElementById('go').disabled=true;
-    return;
-  }
-  var pwInput=document.getElementById('pw'), go=document.getElementById('go');
-  function bindManual(){
-    go.addEventListener('click', function(){ unlock(pwInput.value); });
-    pwInput.addEventListener('keydown', function(e){ if(e.key==='Enter') unlock(pwInput.value); });
-  }
-  var cached = sessionStorage.getItem('astock_pw') || localStorage.getItem('astock_pw');
-  if(cached){
-    pwInput.value=cached;
-    document.getElementById('rm').checked = !!localStorage.getItem('astock_pw');
-    document.getElementById('loading').style.display='block';
-    doDecrypt(cached).then(function(html){ setSession(cached); navigate(html); }).catch(function(){
-      sessionStorage.removeItem('astock_pw'); localStorage.removeItem('astock_pw');
-      document.getElementById('loading').style.display='none';
-      document.getElementById('err').textContent='已保存的密码无效，请重新输入';
-      pwInput.value='';
-      bindManual();
-    });
-    return;
-  }
-  bindManual();
-});
-</script>
-</body>
-</html>
+</style></head><body><div class="wrap">
+<div class="head"><h1>📈 股票分析报告索引</h1><div class="sub">生成于 2026-08-02 00:04 ｜ 共 11 个报告</div></div>
+<div class='group'><h2>每月复盘</h2><div class='list'><div class='item'><a class='title' href='每月复盘/每月复盘_20260731.html'>每月复盘_20260731.html</a></div></div></div><div class='group'><h2>每周复盘</h2><div class='list'><div class='item'><a class='title' href='每周复盘/每周复盘_20260731.html'>每周复盘_20260731.html</a></div></div></div><div class='group'><h2>每日复盘</h2><div class='list'><div class='item'><a class='title' href='每日复盘/每日复盘_20260731.html'>每日复盘_20260731.html</a></div><div class='item'><a class='title' href='每日复盘/每日复盘_20260730.html'>每日复盘_20260730.html</a></div><div class='item'><a class='title' href='每日复盘/每日复盘_20260729.html'>每日复盘_20260729.html</a></div></div></div><div class='group'><h2>预期涨幅选股</h2><div class='list'><div class='item'><a class='title' href='预期涨幅选股/预期涨幅选股报告_20260731.html'>预期涨幅选股报告_20260731.html</a></div><div class='item'><a class='title' href='预期涨幅选股/预期涨幅选股报告_20260730.html'>预期涨幅选股报告_20260730.html</a></div><div class='item'><a class='title' href='预期涨幅选股/预期涨幅选股报告_20260729.html'>预期涨幅选股报告_20260729.html</a></div><div class='item'><a class='title' href='预期涨幅选股/预期涨幅选股报告_20260728.html'>预期涨幅选股报告_20260728.html</a></div></div></div><div class='group'><h2>历史模拟选股</h2><div class='list'><div class='item'><a class='title' href='预期涨幅选股/历史模拟/预期涨幅选股报告_历史模拟_20260601.html'>预期涨幅选股报告_历史模拟_20260601.html</a></div></div></div><div class='group'><h2>历史命中率回测</h2><div class='list'><div class='item'><a class='title' href='预期涨幅选股/历史命中率回测报告_20260728.html'>历史命中率回测报告_20260728.html</a></div></div></div>
+</div></body></html>
