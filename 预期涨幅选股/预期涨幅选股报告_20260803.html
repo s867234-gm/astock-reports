@@ -1,0 +1,2914 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>预期涨幅选股报告 20260803（数据截至 2026-08-03）</title>
+<style>
+:root{
+  --bg:#181f2c;
+  --card:#222b3c;
+  --card2:#2a3245;
+  --line:#363f54;
+  --ink:#dfe3ec;
+  --sub:#8e97aa;
+  --up:#e08781;
+  --down:#7dc29a;
+  --h2bar:#c9a87c;
+  --hl:#2a3245;
+}
+* { box-sizing:border-box }
+body { font-family:-apple-system,Segoe UI,Roboto,'PingFang SC',sans-serif; margin:0; background:var(--bg); color:var(--ink); font-size:14px; line-height:1.6; }
+.wrap { max-width:1180px; margin:0 auto; padding:24px 18px 60px; }
+h1 { font-size:24px; margin:0 0 4px; color:var(--ink); }
+.meta { color:var(--sub); font-size:13px; margin-bottom:18px; }
+.cards { display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:12px; margin-bottom:20px; }
+.kpi { background:var(--card); border:1px solid var(--line); border-radius:10px; padding:14px 16px; }
+.kpi b { display:block; font-size:22px; color:var(--h2bar); }
+.kpi span { color:var(--sub); font-size:12px; }
+.note { background:var(--card); border:1px solid var(--line); border-left:4px solid var(--h2bar); border-radius:8px; padding:14px 18px; margin-bottom:20px; font-size:13px; color:var(--ink); line-height:1.8; }
+.note h3 { margin:0 0 8px; font-size:15px; color:var(--ink); }
+.note li { margin:3px 0; }
+.tabs { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:14px; }
+.tab { background:var(--card); border:1px solid var(--line); border-radius:8px; padding:9px 16px; cursor:pointer; font-size:14px; color:var(--ink); font-weight:600; }
+.tab.active { background:var(--h2bar); color:#1a1208; border-color:var(--h2bar); }
+.panel { display:none; } .panel.active { display:block; }
+.phead { font-size:16px; font-weight:700; margin:6px 0 12px; color:var(--ink); }
+.cap { font-weight:400; color:var(--sub); font-size:12px; }
+table { width:100%; border-collapse:collapse; background:var(--card); border:1px solid var(--line); border-radius:10px; overflow:hidden; }
+th { background:var(--card2); text-align:right; padding:9px 10px; font-size:12px; color:var(--sub); font-weight:600; white-space:nowrap; }
+th:nth-child(1),th:nth-child(2),th:nth-child(3) { text-align:left; }
+td { padding:8px 10px; border-top:1px solid var(--line); text-align:right; font-size:13px; color:var(--ink); }
+td.rk { text-align:left; color:var(--sub); } td.code { text-align:left; font-family:Consolas,monospace; font-weight:600; }
+td.nm { text-align:left; } .mk { color:var(--sub); font-size:11px; margin-left:4px; }
+td.gain { color:var(--up); font-weight:700; } td.tgt { color:var(--up); } td.stop { color:var(--down); }
+tr.detail td { text-align:left; color:var(--sub); font-size:12px; background:var(--hl); border-top:none; padding:6px 10px 12px 46px; }
+.dim { display:inline-block; background:var(--card2); color:var(--ink); border-radius:4px; padding:0 6px; margin-right:4px; font-size:11px; }
+.rl-high { color:var(--up); font-weight:700; } .rl-mid { color:#d6b46a; }
+.badge { font-size:10px; padding:1px 6px; border-radius:4px; margin-left:6px; vertical-align:middle; }
+.badge.new { background:#3a2e1a; color:#e0a89e; border:1px solid #5c4830; }
+.badge.dup2 { background:#3a3320; color:#d6b46a; border:1px solid #5c5230; }
+.badge.dup3 { background:#3a2e1a; color:#e0b07a; border:1px solid #5c4830; font-weight:700; }
+.badge.dup4 { background:#3a2e1a; color:#e0a89e; border:1px solid #5c4830; font-weight:700; }
+.badge.stk2 { background:#332a1a; color:#d6a05a; border:1px solid #5c4a30; }
+.badge.stk3 { background:#3a2a1a; color:#e0a05a; border:1px solid #5c4830; font-weight:700; }
+.badge.stknew { background:#1f2a3a; color:#8ab4d8; border:1px solid #2c4358; }
+.hzchip { display:inline-block; background:var(--card2); border:1px solid var(--line); border-radius:4px; padding:0 6px; margin:1px 3px 1px 0; font-size:11px; color:var(--ink); }
+.gainlist { font-size:12px; } .gtx { color:var(--up); }
+.foot { margin-top:24px; padding:14px 18px; background:#3a2e1a; border:1px solid #5c4830; border-radius:8px; color:#e0c896; font-size:12px; }
+
+.verify .vg { display:block; font-weight:700; color:var(--up); }
+.verify .vbadge { display:inline-block; font-size:10px; padding:1px 6px; border-radius:4px; margin-top:2px; }
+.verify .vbadge.vok { background:#2c4a3a; color:#a4d4b3; border:1px solid #3e6450; }
+.verify .vbadge.vpart { background:#3a3320; color:#d6b46a; border:1px solid #5c5230; }
+.verify .vbadge.vstop { background:#3a2e1a; color:#e0a89e; border:1px solid #5c4830; font-weight:700; }
+.verify .vbadge.vnone { background:var(--card2); color:var(--sub); border:1px solid var(--line); }
+.verify .vreal { display:block; font-size:10px; color:var(--sub); margin-top:1px; }
+.histbadge { display:inline-block; background:var(--card2); color:var(--ink); border:1px solid var(--line); border-radius:6px; padding:1px 8px; font-size:13px; vertical-align:middle; margin-left:6px; }
+
+@media(max-width:680px){
+ .wrap { padding:14px 10px 50px; }
+ h1 { font-size:19px; }
+ .cards { grid-template-columns:repeat(2,1fr); gap:8px; }
+ .kpi { padding:10px 12px; } .kpi b { font-size:18px; }
+ .note { padding:10px 12px; font-size:12px; } .note ul { padding-left:18px; margin:6px 0; }
+ .tabs { position:sticky; top:0; z-index:9; background:var(--bg); padding:8px 0; margin:0 0 10px;
+        flex-wrap:nowrap; overflow-x:auto; -webkit-overflow-scrolling:touch; }
+ .tab { flex:0 0 auto; padding:10px 14px; font-size:13px; }
+ table,tbody { display:block; background:none; border:none; }
+ thead { display:none; }
+ tr { display:flex; flex-wrap:wrap; background:var(--card); border:1px solid var(--line);
+     border-radius:10px 10px 0 0; margin-top:12px; padding:8px 10px 4px; }
+ tr.detail { border-radius:0 0 10px 10px; border-top:none; margin-top:0; padding:0; }
+ td { border:none; padding:3px 8px 3px 0; font-size:13px; text-align:left; }
+ td[data-l]::before { content:attr(data-l); display:block; color:var(--sub); font-size:10px; line-height:1.2; }
+ td.rk { width:100%; padding:0; font-size:11px; }
+ td.code { width:31%; } td.nm { width:41%; } td[data-l="现价"]{width:28%;}
+ td.gain { width:31%; font-size:15px; } td.tgt { width:22%; }
+ td[data-l="触发价"]{width:22%;} td.stop{width:25%;}
+ td.rl-high,td.rl-mid{width:31%;} td.amt{width:41%;}
+ td[data-l="入选板块"],td[data-l="各周期预期涨幅"]{width:100%;}
+ .badge { margin-left:3px; }
+ tr.detail td.dspace { display:none; }
+ tr.detail td { width:100%; padding:8px 10px 10px; font-size:12px; }
+}
+</style></head><body><div class="wrap">
+<h1>📈 预期涨幅选股报告 <span style="font-size:16px;color:var(--sub);">20260803</span></h1>
+<div class="meta">数据源：DuckDB 前复权 v_day_qfq ｜ 最新交易日 <b>2026-08-03</b> ｜ 框架：动量/形态/价格/时间 四维分析 ｜ 生成 2026-08-03 15:49</div>
+
+<div class="cards">
+
+ <div class="kpi"><b>2956</b><span>非创池个股</span></div>
+ <div class="kpi"><b>2938</b><span>有效评估(剔停牌/低流动)</span></div>
+ <div class="kpi"><b>120</b><span>入选股票次(4×30)</span></div>
+ <div class="kpi"><b>36</b><span>跨周期重复入选(⭐重点)</span></div>
+ <div class="kpi"><b>31</b><span>连续≥2期在榜(🔥追踪)</span></div>
+ <div class="kpi"><b>+40</b><span>本次新增自选股</span></div>
+ <div class="kpi"><b>3→43</b><span>自选股总数</span></div>
+
+</div>
+
+<div class="note">
+<h3>方法与口径说明</h3>
+
+<ul>
+<li><b>预期涨幅定义</b>：未来 N 日窗口内可能出现的<b>最大上行幅度（峰值涨幅）</b>，非"N日后终点收益"；为技术面潜力投影而非确定收益。</li>
+<li><b>四维合成</b>：预期涨幅 = [ATR波动可达幅度 × √N] 与 [斐波那契上行目标距离] 加权，再乘 <b>动量因子</b>（周线+日线随机指标）与 <b>形态因子</b>（均线趋势/回踩/乖离），并设周期上限（5/10/20/40 日分别封顶 35/55/95/170%）。</li>
+<li><b>筛选口径</b>：仅非创板块（主板+中小板，无创业板/科创板）；剔除停牌无最新数据、20日均额&lt;2000万、上市不足60根K线者。</li>
+<li><b>写盘</b>：已按"先对比板块→增量去重入自选股→清空重写板块(.blk+.dat 直接写盘)"完成；本次仅 40 只为自选股新面孔（其余已在自选股内）。TDX 需<b>重启</b>后加载最新板块。</li>
+</ul>
+</div>
+
+
+<div class="note" style="border-left-color:#c9a87c;">
+<h3>⭐ 跨周期重复入选汇总（共 36 只，重点关注）</h3>
+<div style="font-size:12px;color:#6b7280;margin-bottom:8px;">同一股票在多个周期榜单中重复出现，说明其短中线多个时间框架的技术面共振，信号更强；周期数越多越值得优先跟踪（仍须等突破触发价）。</div>
+<table>
+ <thead><tr><th>代码</th><th>名称</th><th>入选板块</th><th>现价</th><th>各周期预期涨幅</th><th>风险</th></tr></thead>
+ <tbody>
+<tr>
+ <td class="code" data-l="代码">001309<span class="mk">深</span></td>
+ <td class="nm" data-l="名称">德明利<span class="badge dup4">4周期</span></td>
+ <td class="nm" data-l="入选板块"><span class="hzchip">预期05</span><span class="hzchip">预期10</span><span class="hzchip">预期20</span><span class="hzchip">预期40</span></td>
+ <td class="num" data-l="现价">349.0</td>
+ <td class="nm gainlist" data-l="各周期预期涨幅">5日 <b class="gtx">+35.0%</b>　10日 <b class="gtx">+55.0%</b>　20日 <b class="gtx">+95.0%</b>　40日 <b class="gtx">+108.3%</b></td>
+ <td class="rl-mid" data-l="风险">中</td>
+</tr>
+<tr>
+ <td class="code" data-l="代码">002636<span class="mk">深</span></td>
+ <td class="nm" data-l="名称">金安国纪<span class="badge dup4">4周期</span></td>
+ <td class="nm" data-l="入选板块"><span class="hzchip">预期05</span><span class="hzchip">预期10</span><span class="hzchip">预期20</span><span class="hzchip">预期40</span></td>
+ <td class="num" data-l="现价">47.32</td>
+ <td class="nm gainlist" data-l="各周期预期涨幅">5日 <b class="gtx">+35.0%</b>　10日 <b class="gtx">+55.0%</b>　20日 <b class="gtx">+93.7%</b>　40日 <b class="gtx">+108.5%</b></td>
+ <td class="rl-mid" data-l="风险">中</td>
+</tr>
+<tr>
+ <td class="code" data-l="代码">603186<span class="mk">沪</span></td>
+ <td class="nm" data-l="名称">华正新材<span class="badge dup4">4周期</span></td>
+ <td class="nm" data-l="入选板块"><span class="hzchip">预期05</span><span class="hzchip">预期10</span><span class="hzchip">预期20</span><span class="hzchip">预期40</span></td>
+ <td class="num" data-l="现价">98.6</td>
+ <td class="nm gainlist" data-l="各周期预期涨幅">5日 <b class="gtx">+35.0%</b>　10日 <b class="gtx">+55.0%</b>　20日 <b class="gtx">+95.0%</b>　40日 <b class="gtx">+128.8%</b></td>
+ <td class="rl-mid" data-l="风险">中</td>
+</tr>
+<tr>
+ <td class="code" data-l="代码">600353<span class="mk">沪</span></td>
+ <td class="nm" data-l="名称">旭光电子<span class="badge dup4">4周期</span></td>
+ <td class="nm" data-l="入选板块"><span class="hzchip">预期05</span><span class="hzchip">预期10</span><span class="hzchip">预期20</span><span class="hzchip">预期40</span></td>
+ <td class="num" data-l="现价">21.05</td>
+ <td class="nm gainlist" data-l="各周期预期涨幅">5日 <b class="gtx">+35.0%</b>　10日 <b class="gtx">+55.0%</b>　20日 <b class="gtx">+88.0%</b>　40日 <b class="gtx">+101.6%</b></td>
+ <td class="rl-mid" data-l="风险">中</td>
+</tr>
+<tr>
+ <td class="code" data-l="代码">003036<span class="mk">深</span></td>
+ <td class="nm" data-l="名称">泰坦股份<span class="badge dup4">4周期</span></td>
+ <td class="nm" data-l="入选板块"><span class="hzchip">预期05</span><span class="hzchip">预期10</span><span class="hzchip">预期20</span><span class="hzchip">预期40</span></td>
+ <td class="num" data-l="现价">40.91</td>
+ <td class="nm gainlist" data-l="各周期预期涨幅">5日 <b class="gtx">+35.0%</b>　10日 <b class="gtx">+55.0%</b>　20日 <b class="gtx">+85.3%</b>　40日 <b class="gtx">+97.7%</b></td>
+ <td class="rl-mid" data-l="风险">中</td>
+</tr>
+<tr>
+ <td class="code" data-l="代码">603773<span class="mk">沪</span></td>
+ <td class="nm" data-l="名称">沃格光电<span class="badge dup4">4周期</span></td>
+ <td class="nm" data-l="入选板块"><span class="hzchip">预期05</span><span class="hzchip">预期10</span><span class="hzchip">预期20</span><span class="hzchip">预期40</span></td>
+ <td class="num" data-l="现价">64.94</td>
+ <td class="nm gainlist" data-l="各周期预期涨幅">5日 <b class="gtx">+35.0%</b>　10日 <b class="gtx">+55.0%</b>　20日 <b class="gtx">+95.0%</b>　40日 <b class="gtx">+110.0%</b></td>
+ <td class="rl-mid" data-l="风险">中</td>
+</tr>
+<tr>
+ <td class="code" data-l="代码">600869<span class="mk">沪</span></td>
+ <td class="nm" data-l="名称">远东股份<span class="badge dup4">4周期</span></td>
+ <td class="nm" data-l="入选板块"><span class="hzchip">预期05</span><span class="hzchip">预期10</span><span class="hzchip">预期20</span><span class="hzchip">预期40</span></td>
+ <td class="num" data-l="现价">13.26</td>
+ <td class="nm gainlist" data-l="各周期预期涨幅">5日 <b class="gtx">+35.0%</b>　10日 <b class="gtx">+55.0%</b>　20日 <b class="gtx">+95.0%</b>　40日 <b class="gtx">+115.7%</b></td>
+ <td class="rl-mid" data-l="风险">中</td>
+</tr>
+<tr>
+ <td class="code" data-l="代码">603256<span class="mk">沪</span></td>
+ <td class="nm" data-l="名称">宏和科技<span class="badge dup4">4周期</span></td>
+ <td class="nm" data-l="入选板块"><span class="hzchip">预期05</span><span class="hzchip">预期10</span><span class="hzchip">预期20</span><span class="hzchip">预期40</span></td>
+ <td class="num" data-l="现价">115.32</td>
+ <td class="nm gainlist" data-l="各周期预期涨幅">5日 <b class="gtx">+35.0%</b>　10日 <b class="gtx">+55.0%</b>　20日 <b class="gtx">+90.9%</b>　40日 <b class="gtx">+104.5%</b></td>
+ <td class="rl-mid" data-l="风险">中</td>
+</tr>
+<tr>
+ <td class="code" data-l="代码">002080<span class="mk">深</span></td>
+ <td class="nm" data-l="名称">中材科技<span class="badge dup4">4周期</span></td>
+ <td class="nm" data-l="入选板块"><span class="hzchip">预期05</span><span class="hzchip">预期10</span><span class="hzchip">预期20</span><span class="hzchip">预期40</span></td>
+ <td class="num" data-l="现价">40.34</td>
+ <td class="nm gainlist" data-l="各周期预期涨幅">5日 <b class="gtx">+35.0%</b>　10日 <b class="gtx">+55.0%</b>　20日 <b class="gtx">+84.6%</b>　40日 <b class="gtx">+97.0%</b></td>
+ <td class="rl-mid" data-l="风险">中</td>
+</tr>
+<tr>
+ <td class="code" data-l="代码">603137<span class="mk">沪</span></td>
+ <td class="nm" data-l="名称">恒尚节能<span class="badge dup3">3周期</span></td>
+ <td class="nm" data-l="入选板块"><span class="hzchip">预期05</span><span class="hzchip">预期20</span><span class="hzchip">预期40</span></td>
+ <td class="num" data-l="现价">25.51</td>
+ <td class="nm gainlist" data-l="各周期预期涨幅">5日 <b class="gtx">+35.0%</b>　20日 <b class="gtx">+81.9%</b>　40日 <b class="gtx">+104.8%</b></td>
+ <td class="rl-mid" data-l="风险">中</td>
+</tr>
+<tr>
+ <td class="code" data-l="代码">002655<span class="mk">深</span></td>
+ <td class="nm" data-l="名称">共达电声<span class="badge dup3">3周期</span></td>
+ <td class="nm" data-l="入选板块"><span class="hzchip">预期05</span><span class="hzchip">预期10</span><span class="hzchip">预期20</span></td>
+ <td class="num" data-l="现价">22.37</td>
+ <td class="nm gainlist" data-l="各周期预期涨幅">5日 <b class="gtx">+35.0%</b>　10日 <b class="gtx">+55.0%</b>　20日 <b class="gtx">+83.4%</b></td>
+ <td class="rl-mid" data-l="风险">中</td>
+</tr>
+<tr>
+ <td class="code" data-l="代码">600498<span class="mk">沪</span></td>
+ <td class="nm" data-l="名称">烽火通信<span class="badge dup3">3周期</span></td>
+ <td class="nm" data-l="入选板块"><span class="hzchip">预期10</span><span class="hzchip">预期20</span><span class="hzchip">预期40</span></td>
+ <td class="num" data-l="现价">32.9</td>
+ <td class="nm gainlist" data-l="各周期预期涨幅">10日 <b class="gtx">+55.0%</b>　20日 <b class="gtx">+92.6%</b>　40日 <b class="gtx">+103.2%</b></td>
+ <td class="rl-mid" data-l="风险">中</td>
+</tr>
+<tr>
+ <td class="code" data-l="代码">002491<span class="mk">深</span></td>
+ <td class="nm" data-l="名称">通鼎互联<span class="badge dup3">3周期</span></td>
+ <td class="nm" data-l="入选板块"><span class="hzchip">预期10</span><span class="hzchip">预期20</span><span class="hzchip">预期40</span></td>
+ <td class="num" data-l="现价">13.86</td>
+ <td class="nm gainlist" data-l="各周期预期涨幅">10日 <b class="gtx">+55.0%</b>　20日 <b class="gtx">+91.8%</b>　40日 <b class="gtx">+102.3%</b></td>
+ <td class="rl-mid" data-l="风险">中</td>
+</tr>
+<tr>
+ <td class="code" data-l="代码">603738<span class="mk">沪</span></td>
+ <td class="nm" data-l="名称">泰晶科技<span class="badge dup3">3周期</span></td>
+ <td class="nm" data-l="入选板块"><span class="hzchip">预期10</span><span class="hzchip">预期20</span><span class="hzchip">预期40</span></td>
+ <td class="num" data-l="现价">28.92</td>
+ <td class="nm gainlist" data-l="各周期预期涨幅">10日 <b class="gtx">+55.0%</b>　20日 <b class="gtx">+85.4%</b>　40日 <b class="gtx">+97.4%</b></td>
+ <td class="rl-mid" data-l="风险">中</td>
+</tr>
+<tr>
+ <td class="code" data-l="代码">600714<span class="mk">沪</span></td>
+ <td class="nm" data-l="名称">金瑞矿业<span class="badge dup3">3周期</span></td>
+ <td class="nm" data-l="入选板块"><span class="hzchip">预期10</span><span class="hzchip">预期20</span><span class="hzchip">预期40</span></td>
+ <td class="num" data-l="现价">13.22</td>
+ <td class="nm gainlist" data-l="各周期预期涨幅">10日 <b class="gtx">+55.0%</b>　20日 <b class="gtx">+94.6%</b>　40日 <b class="gtx">+103.7%</b></td>
+ <td class="rl-mid" data-l="风险">中</td>
+</tr>
+<tr>
+ <td class="code" data-l="代码">600791<span class="mk">沪</span></td>
+ <td class="nm" data-l="名称">京能置业<span class="badge dup3">3周期</span></td>
+ <td class="nm" data-l="入选板块"><span class="hzchip">预期10</span><span class="hzchip">预期20</span><span class="hzchip">预期40</span></td>
+ <td class="num" data-l="现价">6.7</td>
+ <td class="nm gainlist" data-l="各周期预期涨幅">10日 <b class="gtx">+55.0%</b>　20日 <b class="gtx">+95.0%</b>　40日 <b class="gtx">+112.9%</b></td>
+ <td class="rl-mid" data-l="风险">中</td>
+</tr>
+<tr>
+ <td class="code" data-l="代码">002965<span class="mk">深</span></td>
+ <td class="nm" data-l="名称">祥鑫科技<span class="badge dup2">2周期</span></td>
+ <td class="nm" data-l="入选板块"><span class="hzchip">预期05</span><span class="hzchip">预期10</span></td>
+ <td class="num" data-l="现价">27.23</td>
+ <td class="nm gainlist" data-l="各周期预期涨幅">5日 <b class="gtx">+35.0%</b>　10日 <b class="gtx">+55.0%</b></td>
+ <td class="rl-mid" data-l="风险">中</td>
+</tr>
+<tr>
+ <td class="code" data-l="代码">603823<span class="mk">沪</span></td>
+ <td class="nm" data-l="名称">百合花<span class="badge dup2">2周期</span></td>
+ <td class="nm" data-l="入选板块"><span class="hzchip">预期05</span><span class="hzchip">预期40</span></td>
+ <td class="num" data-l="现价">51.48</td>
+ <td class="nm gainlist" data-l="各周期预期涨幅">5日 <b class="gtx">+35.0%</b>　40日 <b class="gtx">+100.7%</b></td>
+ <td class="rl-mid" data-l="风险">中</td>
+</tr>
+<tr>
+ <td class="code" data-l="代码">603683<span class="mk">沪</span></td>
+ <td class="nm" data-l="名称">晶华新材<span class="badge dup2">2周期</span></td>
+ <td class="nm" data-l="入选板块"><span class="hzchip">预期05</span><span class="hzchip">预期10</span></td>
+ <td class="num" data-l="现价">14.14</td>
+ <td class="nm gainlist" data-l="各周期预期涨幅">5日 <b class="gtx">+35.0%</b>　10日 <b class="gtx">+55.0%</b></td>
+ <td class="rl-mid" data-l="风险">中</td>
+</tr>
+<tr>
+ <td class="code" data-l="代码">002828<span class="mk">深</span></td>
+ <td class="nm" data-l="名称">贝肯能源<span class="badge dup2">2周期</span></td>
+ <td class="nm" data-l="入选板块"><span class="hzchip">预期05</span><span class="hzchip">预期40</span></td>
+ <td class="num" data-l="现价">11.79</td>
+ <td class="nm gainlist" data-l="各周期预期涨幅">5日 <b class="gtx">+35.0%</b>　40日 <b class="gtx">+137.3%</b></td>
+ <td class="rl-mid" data-l="风险">中</td>
+</tr>
+<tr>
+ <td class="code" data-l="代码">002208<span class="mk">深</span></td>
+ <td class="nm" data-l="名称">合肥城建<span class="badge dup2">2周期</span></td>
+ <td class="nm" data-l="入选板块"><span class="hzchip">预期05</span><span class="hzchip">预期20</span></td>
+ <td class="num" data-l="现价">10.38</td>
+ <td class="nm gainlist" data-l="各周期预期涨幅">5日 <b class="gtx">+35.0%</b>　20日 <b class="gtx">+83.2%</b></td>
+ <td class="rl-mid" data-l="风险">中</td>
+</tr>
+<tr>
+ <td class="code" data-l="代码">603283<span class="mk">沪</span></td>
+ <td class="nm" data-l="名称">赛腾股份<span class="badge dup2">2周期</span></td>
+ <td class="nm" data-l="入选板块"><span class="hzchip">预期05</span><span class="hzchip">预期10</span></td>
+ <td class="num" data-l="现价">36.61</td>
+ <td class="nm gainlist" data-l="各周期预期涨幅">5日 <b class="gtx">+35.0%</b>　10日 <b class="gtx">+55.0%</b></td>
+ <td class="rl-mid" data-l="风险">中</td>
+</tr>
+<tr>
+ <td class="code" data-l="代码">600129<span class="mk">沪</span></td>
+ <td class="nm" data-l="名称">太极集团<span class="badge dup2">2周期</span></td>
+ <td class="nm" data-l="入选板块"><span class="hzchip">预期05</span><span class="hzchip">预期40</span></td>
+ <td class="num" data-l="现价">15.82</td>
+ <td class="nm gainlist" data-l="各周期预期涨幅">5日 <b class="gtx">+35.0%</b>　40日 <b class="gtx">+97.4%</b></td>
+ <td class="rl-mid" data-l="风险">中</td>
+</tr>
+<tr>
+ <td class="code" data-l="代码">601208<span class="mk">沪</span></td>
+ <td class="nm" data-l="名称">东材科技<span class="badge dup2">2周期</span></td>
+ <td class="nm" data-l="入选板块"><span class="hzchip">预期05</span><span class="hzchip">预期10</span></td>
+ <td class="num" data-l="现价">32.5</td>
+ <td class="nm gainlist" data-l="各周期预期涨幅">5日 <b class="gtx">+35.0%</b>　10日 <b class="gtx">+55.0%</b></td>
+ <td class="rl-mid" data-l="风险">中</td>
+</tr>
+<tr>
+ <td class="code" data-l="代码">600487<span class="mk">沪</span></td>
+ <td class="nm" data-l="名称">亨通光电<span class="badge dup2">2周期</span></td>
+ <td class="nm" data-l="入选板块"><span class="hzchip">预期10</span><span class="hzchip">预期20</span></td>
+ <td class="num" data-l="现价">47.37</td>
+ <td class="nm gainlist" data-l="各周期预期涨幅">10日 <b class="gtx">+55.0%</b>　20日 <b class="gtx">+82.3%</b></td>
+ <td class="rl-mid" data-l="风险">中</td>
+</tr>
+<tr>
+ <td class="code" data-l="代码">002903<span class="mk">深</span></td>
+ <td class="nm" data-l="名称">宇环数控<span class="badge dup2">2周期</span></td>
+ <td class="nm" data-l="入选板块"><span class="hzchip">预期10</span><span class="hzchip">预期20</span></td>
+ <td class="num" data-l="现价">23.43</td>
+ <td class="nm gainlist" data-l="各周期预期涨幅">10日 <b class="gtx">+55.0%</b>　20日 <b class="gtx">+81.6%</b></td>
+ <td class="rl-mid" data-l="风险">中</td>
+</tr>
+<tr>
+ <td class="code" data-l="代码">600367<span class="mk">沪</span></td>
+ <td class="nm" data-l="名称">红星发展<span class="badge dup2">2周期</span></td>
+ <td class="nm" data-l="入选板块"><span class="hzchip">预期10</span><span class="hzchip">预期20</span></td>
+ <td class="num" data-l="现价">25.62</td>
+ <td class="nm gainlist" data-l="各周期预期涨幅">10日 <b class="gtx">+55.0%</b>　20日 <b class="gtx">+81.8%</b></td>
+ <td class="rl-mid" data-l="风险">中</td>
+</tr>
+<tr>
+ <td class="code" data-l="代码">603989<span class="mk">沪</span></td>
+ <td class="nm" data-l="名称">艾华集团<span class="badge dup2">2周期</span></td>
+ <td class="nm" data-l="入选板块"><span class="hzchip">预期10</span><span class="hzchip">预期20</span></td>
+ <td class="num" data-l="现价">23.57</td>
+ <td class="nm gainlist" data-l="各周期预期涨幅">10日 <b class="gtx">+55.0%</b>　20日 <b class="gtx">+81.7%</b></td>
+ <td class="rl-mid" data-l="风险">中</td>
+</tr>
+<tr>
+ <td class="code" data-l="代码">600545<span class="mk">沪</span></td>
+ <td class="nm" data-l="名称">卓郎智能<span class="badge dup2">2周期</span></td>
+ <td class="nm" data-l="入选板块"><span class="hzchip">预期10</span><span class="hzchip">预期20</span></td>
+ <td class="num" data-l="现价">3.87</td>
+ <td class="nm gainlist" data-l="各周期预期涨幅">10日 <b class="gtx">+55.0%</b>　20日 <b class="gtx">+82.0%</b></td>
+ <td class="rl-mid" data-l="风险">中</td>
+</tr>
+<tr>
+ <td class="code" data-l="代码">600683<span class="mk">沪</span></td>
+ <td class="nm" data-l="名称">京投发展<span class="badge dup2">2周期</span></td>
+ <td class="nm" data-l="入选板块"><span class="hzchip">预期20</span><span class="hzchip">预期40</span></td>
+ <td class="num" data-l="现价">7.96</td>
+ <td class="nm gainlist" data-l="各周期预期涨幅">20日 <b class="gtx">+95.0%</b>　40日 <b class="gtx">+120.1%</b></td>
+ <td class="rl-mid" data-l="风险">中</td>
+</tr>
+<tr>
+ <td class="code" data-l="代码">002943<span class="mk">深</span></td>
+ <td class="nm" data-l="名称">宇晶股份<span class="badge dup2">2周期</span></td>
+ <td class="nm" data-l="入选板块"><span class="hzchip">预期20</span><span class="hzchip">预期40</span></td>
+ <td class="num" data-l="现价">27.2</td>
+ <td class="nm gainlist" data-l="各周期预期涨幅">20日 <b class="gtx">+92.9%</b>　40日 <b class="gtx">+103.0%</b></td>
+ <td class="rl-mid" data-l="风险">中</td>
+</tr>
+<tr>
+ <td class="code" data-l="代码">603778<span class="mk">沪</span></td>
+ <td class="nm" data-l="名称">国晟科技<span class="badge dup2">2周期</span></td>
+ <td class="nm" data-l="入选板块"><span class="hzchip">预期20</span><span class="hzchip">预期40</span></td>
+ <td class="num" data-l="现价">9.94</td>
+ <td class="nm gainlist" data-l="各周期预期涨幅">20日 <b class="gtx">+91.3%</b>　40日 <b class="gtx">+135.2%</b></td>
+ <td class="rl-mid" data-l="风险">中</td>
+</tr>
+<tr>
+ <td class="code" data-l="代码">002565<span class="mk">深</span></td>
+ <td class="nm" data-l="名称">顺灏股份<span class="badge dup2">2周期</span></td>
+ <td class="nm" data-l="入选板块"><span class="hzchip">预期20</span><span class="hzchip">预期40</span></td>
+ <td class="num" data-l="现价">8.94</td>
+ <td class="nm gainlist" data-l="各周期预期涨幅">20日 <b class="gtx">+89.0%</b>　40日 <b class="gtx">+102.3%</b></td>
+ <td class="rl-mid" data-l="风险">中</td>
+</tr>
+<tr>
+ <td class="code" data-l="代码">002865<span class="mk">深</span></td>
+ <td class="nm" data-l="名称">钧达股份<span class="badge dup2">2周期</span></td>
+ <td class="nm" data-l="入选板块"><span class="hzchip">预期20</span><span class="hzchip">预期40</span></td>
+ <td class="num" data-l="现价">41.83</td>
+ <td class="nm gainlist" data-l="各周期预期涨幅">20日 <b class="gtx">+86.4%</b>　40日 <b class="gtx">+111.4%</b></td>
+ <td class="rl-mid" data-l="风险">中</td>
+</tr>
+<tr>
+ <td class="code" data-l="代码">002342<span class="mk">深</span></td>
+ <td class="nm" data-l="名称">巨力索具<span class="badge dup2">2周期</span></td>
+ <td class="nm" data-l="入选板块"><span class="hzchip">预期20</span><span class="hzchip">预期40</span></td>
+ <td class="num" data-l="现价">7.68</td>
+ <td class="nm gainlist" data-l="各周期预期涨幅">20日 <b class="gtx">+85.7%</b>　40日 <b class="gtx">+116.8%</b></td>
+ <td class="rl-mid" data-l="风险">中</td>
+</tr>
+<tr>
+ <td class="code" data-l="代码">603601<span class="mk">沪</span></td>
+ <td class="nm" data-l="名称">再升科技<span class="badge dup2">2周期</span></td>
+ <td class="nm" data-l="入选板块"><span class="hzchip">预期20</span><span class="hzchip">预期40</span></td>
+ <td class="num" data-l="现价">8.5</td>
+ <td class="nm gainlist" data-l="各周期预期涨幅">20日 <b class="gtx">+85.7%</b>　40日 <b class="gtx">+101.5%</b></td>
+ <td class="rl-mid" data-l="风险">中</td>
+</tr></tbody>
+</table>
+</div>
+
+<div class="note" style="border-left-color:#d2691e;">
+<h3>🔥 连续入选追踪（历史共 7 期榜单，连续≥2期共 31 只）</h3>
+<div style="font-size:12px;color:#6b7280;margin-bottom:8px;">连续多期在榜 = 技术面强势状态在时间上的持续确认，比单期上榜更可靠；连3期以上（🔥）为最高优先级跟踪对象。跌出榜单即视为动能衰减信号。</div>
+<table>
+ <thead><tr><th>代码</th><th>名称</th><th>连续在榜</th><th>现价</th><th>预期涨幅</th><th>风险</th></tr></thead>
+ <tbody>
+<tr>
+ <td class="code" data-l="代码">001309<span class="mk">深</span></td>
+ <td class="nm" data-l="名称">德明利<span class="badge stk3">最长连7期</span></td>
+ <td class="nm" data-l="连续在榜"><span class="hzchip">05日榜·连7期</span><span class="hzchip">10日榜·连7期</span><span class="hzchip">20日榜·连7期</span><span class="hzchip">40日榜·连6期</span></td>
+ <td class="num" data-l="现价">349.0</td>
+ <td class="nm gainlist" data-l="预期涨幅">5日 <b class="gtx">+35.0%</b>　10日 <b class="gtx">+55.0%</b>　20日 <b class="gtx">+95.0%</b>　40日 <b class="gtx">+108.3%</b></td>
+ <td class="rl-mid" data-l="风险">中</td>
+</tr>
+<tr>
+ <td class="code" data-l="代码">002342<span class="mk">深</span></td>
+ <td class="nm" data-l="名称">巨力索具<span class="badge stk3">最长连7期</span></td>
+ <td class="nm" data-l="连续在榜"><span class="hzchip">20日榜·连7期</span><span class="hzchip">40日榜·连7期</span></td>
+ <td class="num" data-l="现价">7.68</td>
+ <td class="nm gainlist" data-l="预期涨幅">20日 <b class="gtx">+85.7%</b>　40日 <b class="gtx">+116.8%</b></td>
+ <td class="rl-mid" data-l="风险">中</td>
+</tr>
+<tr>
+ <td class="code" data-l="代码">002491<span class="mk">深</span></td>
+ <td class="nm" data-l="名称">通鼎互联<span class="badge stk3">最长连7期</span></td>
+ <td class="nm" data-l="连续在榜"><span class="hzchip">10日榜·连7期</span><span class="hzchip">20日榜·连7期</span><span class="hzchip">40日榜·连4期</span></td>
+ <td class="num" data-l="现价">13.86</td>
+ <td class="nm gainlist" data-l="预期涨幅">10日 <b class="gtx">+55.0%</b>　20日 <b class="gtx">+91.8%</b>　40日 <b class="gtx">+102.3%</b></td>
+ <td class="rl-mid" data-l="风险">中</td>
+</tr>
+<tr>
+ <td class="code" data-l="代码">002636<span class="mk">深</span></td>
+ <td class="nm" data-l="名称">金安国纪<span class="badge stk3">最长连7期</span></td>
+ <td class="nm" data-l="连续在榜"><span class="hzchip">05日榜·连7期</span><span class="hzchip">10日榜·连4期</span><span class="hzchip">20日榜·连3期</span></td>
+ <td class="num" data-l="现价">47.32</td>
+ <td class="nm gainlist" data-l="预期涨幅">5日 <b class="gtx">+35.0%</b>　10日 <b class="gtx">+55.0%</b>　20日 <b class="gtx">+93.7%</b></td>
+ <td class="rl-mid" data-l="风险">中</td>
+</tr>
+<tr>
+ <td class="code" data-l="代码">600487<span class="mk">沪</span></td>
+ <td class="nm" data-l="名称">亨通光电<span class="badge stk3">最长连7期</span></td>
+ <td class="nm" data-l="连续在榜"><span class="hzchip">10日榜·连7期</span><span class="hzchip">20日榜·连5期</span></td>
+ <td class="num" data-l="现价">47.37</td>
+ <td class="nm gainlist" data-l="预期涨幅">10日 <b class="gtx">+55.0%</b>　20日 <b class="gtx">+82.3%</b></td>
+ <td class="rl-mid" data-l="风险">中</td>
+</tr>
+<tr>
+ <td class="code" data-l="代码">600498<span class="mk">沪</span></td>
+ <td class="nm" data-l="名称">烽火通信<span class="badge stk3">最长连7期</span></td>
+ <td class="nm" data-l="连续在榜"><span class="hzchip">10日榜·连7期</span><span class="hzchip">20日榜·连5期</span></td>
+ <td class="num" data-l="现价">32.9</td>
+ <td class="nm gainlist" data-l="预期涨幅">10日 <b class="gtx">+55.0%</b>　20日 <b class="gtx">+92.6%</b></td>
+ <td class="rl-mid" data-l="风险">中</td>
+</tr>
+<tr>
+ <td class="code" data-l="代码">600683<span class="mk">沪</span></td>
+ <td class="nm" data-l="名称">京投发展<span class="badge stk3">最长连7期</span></td>
+ <td class="nm" data-l="连续在榜"><span class="hzchip">20日榜·连7期</span></td>
+ <td class="num" data-l="现价">7.96</td>
+ <td class="nm gainlist" data-l="预期涨幅">20日 <b class="gtx">+95.0%</b></td>
+ <td class="rl-mid" data-l="风险">中</td>
+</tr>
+<tr>
+ <td class="code" data-l="代码">600791<span class="mk">沪</span></td>
+ <td class="nm" data-l="名称">京能置业<span class="badge stk3">最长连7期</span></td>
+ <td class="nm" data-l="连续在榜"><span class="hzchip">20日榜·连7期</span></td>
+ <td class="num" data-l="现价">6.7</td>
+ <td class="nm gainlist" data-l="预期涨幅">20日 <b class="gtx">+95.0%</b></td>
+ <td class="rl-mid" data-l="风险">中</td>
+</tr>
+<tr>
+ <td class="code" data-l="代码">600869<span class="mk">沪</span></td>
+ <td class="nm" data-l="名称">远东股份<span class="badge stk3">最长连7期</span></td>
+ <td class="nm" data-l="连续在榜"><span class="hzchip">05日榜·连7期</span><span class="hzchip">10日榜·连7期</span><span class="hzchip">20日榜·连7期</span><span class="hzchip">40日榜·连7期</span></td>
+ <td class="num" data-l="现价">13.26</td>
+ <td class="nm gainlist" data-l="预期涨幅">5日 <b class="gtx">+35.0%</b>　10日 <b class="gtx">+55.0%</b>　20日 <b class="gtx">+95.0%</b>　40日 <b class="gtx">+115.7%</b></td>
+ <td class="rl-mid" data-l="风险">中</td>
+</tr>
+<tr>
+ <td class="code" data-l="代码">603601<span class="mk">沪</span></td>
+ <td class="nm" data-l="名称">再升科技<span class="badge stk3">最长连7期</span></td>
+ <td class="nm" data-l="连续在榜"><span class="hzchip">20日榜·连7期</span><span class="hzchip">40日榜·连7期</span></td>
+ <td class="num" data-l="现价">8.5</td>
+ <td class="nm gainlist" data-l="预期涨幅">20日 <b class="gtx">+85.7%</b>　40日 <b class="gtx">+101.5%</b></td>
+ <td class="rl-mid" data-l="风险">中</td>
+</tr>
+<tr>
+ <td class="code" data-l="代码">603618<span class="mk">沪</span></td>
+ <td class="nm" data-l="名称">杭电股份<span class="badge stk3">最长连7期</span></td>
+ <td class="nm" data-l="连续在榜"><span class="hzchip">10日榜·连7期</span></td>
+ <td class="num" data-l="现价">22.95</td>
+ <td class="nm gainlist" data-l="预期涨幅">10日 <b class="gtx">+55.0%</b></td>
+ <td class="rl-mid" data-l="风险">中</td>
+</tr>
+<tr>
+ <td class="code" data-l="代码">603683<span class="mk">沪</span></td>
+ <td class="nm" data-l="名称">晶华新材<span class="badge stk3">最长连7期</span></td>
+ <td class="nm" data-l="连续在榜"><span class="hzchip">05日榜·连6期</span><span class="hzchip">10日榜·连7期</span></td>
+ <td class="num" data-l="现价">14.14</td>
+ <td class="nm gainlist" data-l="预期涨幅">5日 <b class="gtx">+35.0%</b>　10日 <b class="gtx">+55.0%</b></td>
+ <td class="rl-mid" data-l="风险">中</td>
+</tr>
+<tr>
+ <td class="code" data-l="代码">603778<span class="mk">沪</span></td>
+ <td class="nm" data-l="名称">国晟科技<span class="badge stk3">最长连7期</span></td>
+ <td class="nm" data-l="连续在榜"><span class="hzchip">20日榜·连7期</span><span class="hzchip">40日榜·连7期</span></td>
+ <td class="num" data-l="现价">9.94</td>
+ <td class="nm gainlist" data-l="预期涨幅">20日 <b class="gtx">+91.3%</b>　40日 <b class="gtx">+135.2%</b></td>
+ <td class="rl-mid" data-l="风险">中</td>
+</tr>
+<tr>
+ <td class="code" data-l="代码">002080<span class="mk">深</span></td>
+ <td class="nm" data-l="名称">中材科技<span class="badge stk3">最长连6期</span></td>
+ <td class="nm" data-l="连续在榜"><span class="hzchip">05日榜·连4期</span><span class="hzchip">10日榜·连6期</span></td>
+ <td class="num" data-l="现价">40.34</td>
+ <td class="nm gainlist" data-l="预期涨幅">5日 <b class="gtx">+35.0%</b>　10日 <b class="gtx">+55.0%</b></td>
+ <td class="rl-mid" data-l="风险">中</td>
+</tr>
+<tr>
+ <td class="code" data-l="代码">603324<span class="mk">沪</span></td>
+ <td class="nm" data-l="名称">盛剑科技<span class="badge stk3">最长连6期</span></td>
+ <td class="nm" data-l="连续在榜"><span class="hzchip">05日榜·连6期</span></td>
+ <td class="num" data-l="现价">23.27</td>
+ <td class="nm gainlist" data-l="预期涨幅">5日 <b class="gtx">+35.0%</b></td>
+ <td class="rl-mid" data-l="风险">中</td>
+</tr>
+<tr>
+ <td class="code" data-l="代码">002943<span class="mk">深</span></td>
+ <td class="nm" data-l="名称">宇晶股份<span class="badge stk3">最长连5期</span></td>
+ <td class="nm" data-l="连续在榜"><span class="hzchip">20日榜·连5期</span></td>
+ <td class="num" data-l="现价">27.2</td>
+ <td class="nm gainlist" data-l="预期涨幅">20日 <b class="gtx">+92.9%</b></td>
+ <td class="rl-mid" data-l="风险">中</td>
+</tr>
+<tr>
+ <td class="code" data-l="代码">600397<span class="mk">沪</span></td>
+ <td class="nm" data-l="名称">江钨装备<span class="badge stk3">最长连5期</span></td>
+ <td class="nm" data-l="连续在榜"><span class="hzchip">10日榜·连5期</span></td>
+ <td class="num" data-l="现价">12.68</td>
+ <td class="nm gainlist" data-l="预期涨幅">10日 <b class="gtx">+55.0%</b></td>
+ <td class="rl-mid" data-l="风险">中</td>
+</tr>
+<tr>
+ <td class="code" data-l="代码">603773<span class="mk">沪</span></td>
+ <td class="nm" data-l="名称">沃格光电<span class="badge stk3">最长连5期</span></td>
+ <td class="nm" data-l="连续在榜"><span class="hzchip">05日榜·连4期</span><span class="hzchip">10日榜·连5期</span><span class="hzchip">20日榜·连4期</span><span class="hzchip">40日榜·连4期</span></td>
+ <td class="num" data-l="现价">64.94</td>
+ <td class="nm gainlist" data-l="预期涨幅">5日 <b class="gtx">+35.0%</b>　10日 <b class="gtx">+55.0%</b>　20日 <b class="gtx">+95.0%</b>　40日 <b class="gtx">+110.0%</b></td>
+ <td class="rl-mid" data-l="风险">中</td>
+</tr>
+<tr>
+ <td class="code" data-l="代码">603936<span class="mk">沪</span></td>
+ <td class="nm" data-l="名称">博敏电子<span class="badge stk3">最长连5期</span></td>
+ <td class="nm" data-l="连续在榜"><span class="hzchip">10日榜·连5期</span></td>
+ <td class="num" data-l="现价">12.22</td>
+ <td class="nm gainlist" data-l="预期涨幅">10日 <b class="gtx">+55.0%</b></td>
+ <td class="rl-mid" data-l="风险">中</td>
+</tr>
+<tr>
+ <td class="code" data-l="代码">603186<span class="mk">沪</span></td>
+ <td class="nm" data-l="名称">华正新材<span class="badge stk3">最长连4期</span></td>
+ <td class="nm" data-l="连续在榜"><span class="hzchip">10日榜·连4期</span><span class="hzchip">20日榜·连4期</span></td>
+ <td class="num" data-l="现价">98.6</td>
+ <td class="nm gainlist" data-l="预期涨幅">10日 <b class="gtx">+55.0%</b>　20日 <b class="gtx">+95.0%</b></td>
+ <td class="rl-mid" data-l="风险">中</td>
+</tr>
+<tr>
+ <td class="code" data-l="代码">603823<span class="mk">沪</span></td>
+ <td class="nm" data-l="名称">百合花<span class="badge stk3">最长连4期</span></td>
+ <td class="nm" data-l="连续在榜"><span class="hzchip">05日榜·连4期</span><span class="hzchip">40日榜·连4期</span></td>
+ <td class="num" data-l="现价">51.48</td>
+ <td class="nm gainlist" data-l="预期涨幅">5日 <b class="gtx">+35.0%</b>　40日 <b class="gtx">+100.7%</b></td>
+ <td class="rl-mid" data-l="风险">中</td>
+</tr>
+<tr>
+ <td class="code" data-l="代码">603931<span class="mk">沪</span></td>
+ <td class="nm" data-l="名称">格林达<span class="badge stk3">最长连4期</span></td>
+ <td class="nm" data-l="连续在榜"><span class="hzchip">05日榜·连4期</span></td>
+ <td class="num" data-l="现价">29.3</td>
+ <td class="nm gainlist" data-l="预期涨幅">5日 <b class="gtx">+35.0%</b></td>
+ <td class="rl-mid" data-l="风险">中</td>
+</tr>
+<tr>
+ <td class="code" data-l="代码">002208<span class="mk">深</span></td>
+ <td class="nm" data-l="名称">合肥城建<span class="badge stk3">最长连3期</span></td>
+ <td class="nm" data-l="连续在榜"><span class="hzchip">05日榜·连2期</span><span class="hzchip">20日榜·连3期</span></td>
+ <td class="num" data-l="现价">10.38</td>
+ <td class="nm gainlist" data-l="预期涨幅">5日 <b class="gtx">+35.0%</b>　20日 <b class="gtx">+83.2%</b></td>
+ <td class="rl-mid" data-l="风险">中</td>
+</tr>
+<tr>
+ <td class="code" data-l="代码">002552<span class="mk">深</span></td>
+ <td class="nm" data-l="名称">宝鼎科技<span class="badge stk3">最长连3期</span></td>
+ <td class="nm" data-l="连续在榜"><span class="hzchip">05日榜·连3期</span></td>
+ <td class="num" data-l="现价">32.51</td>
+ <td class="nm gainlist" data-l="预期涨幅">5日 <b class="gtx">+35.0%</b></td>
+ <td class="rl-mid" data-l="风险">中</td>
+</tr>
+<tr>
+ <td class="code" data-l="代码">003036<span class="mk">深</span></td>
+ <td class="nm" data-l="名称">泰坦股份<span class="badge stk3">最长连3期</span></td>
+ <td class="nm" data-l="连续在榜"><span class="hzchip">05日榜·连3期</span><span class="hzchip">10日榜·连3期</span></td>
+ <td class="num" data-l="现价">40.91</td>
+ <td class="nm gainlist" data-l="预期涨幅">5日 <b class="gtx">+35.0%</b>　10日 <b class="gtx">+55.0%</b></td>
+ <td class="rl-mid" data-l="风险">中</td>
+</tr>
+<tr>
+ <td class="code" data-l="代码">600353<span class="mk">沪</span></td>
+ <td class="nm" data-l="名称">旭光电子<span class="badge stk3">最长连3期</span></td>
+ <td class="nm" data-l="连续在榜"><span class="hzchip">05日榜·连3期</span><span class="hzchip">10日榜·连3期</span></td>
+ <td class="num" data-l="现价">21.05</td>
+ <td class="nm gainlist" data-l="预期涨幅">5日 <b class="gtx">+35.0%</b>　10日 <b class="gtx">+55.0%</b></td>
+ <td class="rl-mid" data-l="风险">中</td>
+</tr>
+<tr>
+ <td class="code" data-l="代码">601208<span class="mk">沪</span></td>
+ <td class="nm" data-l="名称">东材科技<span class="badge stk3">最长连3期</span></td>
+ <td class="nm" data-l="连续在榜"><span class="hzchip">10日榜·连3期</span></td>
+ <td class="num" data-l="现价">32.5</td>
+ <td class="nm gainlist" data-l="预期涨幅">10日 <b class="gtx">+55.0%</b></td>
+ <td class="rl-mid" data-l="风险">中</td>
+</tr>
+<tr>
+ <td class="code" data-l="代码">001330<span class="mk">深</span></td>
+ <td class="nm" data-l="名称">博纳影业<span class="badge stk2">最长连2期</span></td>
+ <td class="nm" data-l="连续在榜"><span class="hzchip">40日榜·连2期</span></td>
+ <td class="num" data-l="现价">4.99</td>
+ <td class="nm gainlist" data-l="预期涨幅">40日 <b class="gtx">+97.1%</b></td>
+ <td class="rl-mid" data-l="风险">中</td>
+</tr>
+<tr>
+ <td class="code" data-l="代码">002903<span class="mk">深</span></td>
+ <td class="nm" data-l="名称">宇环数控<span class="badge stk2">最长连2期</span></td>
+ <td class="nm" data-l="连续在榜"><span class="hzchip">10日榜·连2期</span><span class="hzchip">20日榜·连2期</span></td>
+ <td class="num" data-l="现价">23.43</td>
+ <td class="nm gainlist" data-l="预期涨幅">10日 <b class="gtx">+55.0%</b>　20日 <b class="gtx">+81.6%</b></td>
+ <td class="rl-mid" data-l="风险">中</td>
+</tr>
+<tr>
+ <td class="code" data-l="代码">600714<span class="mk">沪</span></td>
+ <td class="nm" data-l="名称">金瑞矿业<span class="badge stk2">最长连2期</span></td>
+ <td class="nm" data-l="连续在榜"><span class="hzchip">10日榜·连2期</span><span class="hzchip">20日榜·连2期</span></td>
+ <td class="num" data-l="现价">13.22</td>
+ <td class="nm gainlist" data-l="预期涨幅">10日 <b class="gtx">+55.0%</b>　20日 <b class="gtx">+94.6%</b></td>
+ <td class="rl-mid" data-l="风险">中</td>
+</tr>
+<tr>
+ <td class="code" data-l="代码">603137<span class="mk">沪</span></td>
+ <td class="nm" data-l="名称">恒尚节能<span class="badge stk2">最长连2期</span></td>
+ <td class="nm" data-l="连续在榜"><span class="hzchip">05日榜·连2期</span><span class="hzchip">40日榜·连2期</span></td>
+ <td class="num" data-l="现价">25.51</td>
+ <td class="nm gainlist" data-l="预期涨幅">5日 <b class="gtx">+35.0%</b>　40日 <b class="gtx">+104.8%</b></td>
+ <td class="rl-mid" data-l="风险">中</td>
+</tr></tbody>
+</table>
+</div>
+
+<div class="note" style="border-left-color:#2563eb;">
+<h3>🎯 历史命中率回测摘要（2025-06-16 ~ 2026-06-04，48 个评估时点）</h3>
+<div style="font-size:12px;color:#6b7280;margin-bottom:8px;">用同一套四维引擎在历史时点重演选股，统计入选股在其后 N 日窗口的<b>实际峰值涨幅</b>。达标率=实际峰值达到预期值50%以上的比例；基准=非创池全体同期平均峰值；超额=Top30较基准的峰值优势。回测报告：历史命中率回测报告_20260731.html</div>
+<table>
+ <thead><tr><th>周期</th><th>样本数</th><th>达标率(≥50%预期)</th><th>峰值≥5%</th><th>平均实际峰值</th><th>全池基准</th><th>超额</th></tr></thead>
+ <tbody><tr><td class='code' data-l='周期'>5日榜</td><td class='num' data-l='样本'>1440</td><td class='num' data-l='达标≥50%预期'>8%</td><td class='num' data-l='峰值≥5%'>46%</td><td class='num' data-l='平均实际峰值'>+6.6%</td><td class='num' data-l='基准峰值'>+4.7%</td><td class='num gain' data-l='超额'>+1.9%</td></tr><tr><td class='code' data-l='周期'>10日榜</td><td class='num' data-l='样本'>1440</td><td class='num' data-l='达标≥50%预期'>10%</td><td class='num' data-l='峰值≥5%'>58%</td><td class='num' data-l='平均实际峰值'>+10.5%</td><td class='num' data-l='基准峰值'>+7.3%</td><td class='num gain' data-l='超额'>+3.2%</td></tr><tr><td class='code' data-l='周期'>20日榜</td><td class='num' data-l='样本'>1440</td><td class='num' data-l='达标≥50%预期'>12%</td><td class='num' data-l='峰值≥5%'>69%</td><td class='num' data-l='平均实际峰值'>+15.6%</td><td class='num' data-l='基准峰值'>+11.4%</td><td class='num gain' data-l='超额'>+4.2%</td></tr><tr><td class='code' data-l='周期'>40日榜</td><td class='num' data-l='样本'>1440</td><td class='num' data-l='达标≥50%预期'>12%</td><td class='num' data-l='峰值≥5%'>78%</td><td class='num' data-l='平均实际峰值'>+22.2%</td><td class='num' data-l='基准峰值'>+17.9%</td><td class='num gain' data-l='超额'>+4.3%</td></tr></tbody>
+</table>
+</div>
+
+<h2>四周期选股结果（各 Top30）</h2>
+<div class="tabs"><button class="tab active" onclick="showtab(5)">预期05日 · Top30</button><button class="tab" onclick="showtab(10)">预期10日 · Top30</button><button class="tab" onclick="showtab(20)">预期20日 · Top30</button><button class="tab" onclick="showtab(40)">预期40日 · Top30</button></div>
+
+<div class="panel active" id="p5">
+  <div class="phead">「预期05」板块 · 5个交易日内预期最大涨幅 Top30 <span class="cap">(数值上限35%)</span></div>
+  <table>
+   <thead><tr>
+     <th>#</th><th>代码</th><th>名称</th><th>现价</th><th>预期涨幅</th><th>目标价</th>
+     <th>触发价</th><th>止损价</th><th>风险</th><th>20日均额</th>
+     
+   </tr></thead>
+   <tbody>
+<tr>
+ <td class="rk">1</td>
+ <td class="code" data-l="代码">001309<span class="mk">深</span></td>
+ <td class="nm" data-l="名称">德明利<span class="badge dup4" title="同时入选：预期05/10/20/40">4周期·另见10/20/40</span><span class="badge stk3" title="已连续7期入选5日榜">连7期🔥</span></td>
+ <td class="num" data-l="现价">349.0</td>
+ <td class="gain" data-l="预期涨幅">+35.0%</td>
+ <td class="num tgt" data-l="目标价">900.0</td>
+ <td class="num" data-l="触发价">429.05</td>
+ <td class="num stop" data-l="止损价">345.47</td>
+ <td class="rl-mid" data-l="风险">中</td>
+ <td class="amt" data-l="20日均额">99.34亿</td>
+ 
+</tr>
+<tr class="detail"><td class="dspace"></td><td colspan="9">
+   <span class="dim">动量</span> 周线随机4(大周期偏弱)，日线K10　<span class="dim">形态</span> 趋势未确立<br>
+   <span class="dim">价格/时间</span> 最近上行目标聚合区≈900.0，斐波那契潜在上行158%，5日波动可达约54%<br>
+   <span class="dim">操作</span> 触发价 <b>429.05</b>（突破近日高点1跳，Tr-1BH 顺势介入，勿在目标价追买）；止损 <b>345.47</b>（setup 失效位）；每股暴露 <b>83.58元</b>，按3%资金规则：单笔仓位 = 可用资金×3% ÷ 83.58。 双单元管理：首单元到50%~61.8%目标启动1BL移动止盈，次单元放宽止损搏主升。
+</td></tr>
+<tr>
+ <td class="rk">2</td>
+ <td class="code" data-l="代码">002636<span class="mk">深</span></td>
+ <td class="nm" data-l="名称">金安国纪<span class="badge new">新增自选</span><span class="badge dup4" title="同时入选：预期05/10/20/40">4周期·另见10/20/40</span><span class="badge stk3" title="已连续7期入选5日榜">连7期🔥</span></td>
+ <td class="num" data-l="现价">47.32</td>
+ <td class="gain" data-l="预期涨幅">+35.0%</td>
+ <td class="num tgt" data-l="目标价">109.51</td>
+ <td class="num" data-l="触发价">54.02</td>
+ <td class="num stop" data-l="止损价">46.43</td>
+ <td class="rl-mid" data-l="风险">中</td>
+ <td class="amt" data-l="20日均额">36.25亿</td>
+ 
+</tr>
+<tr class="detail"><td class="dspace"></td><td colspan="9">
+   <span class="dim">动量</span> 周线随机14(大周期偏弱)，日线K1　<span class="dim">形态</span> 趋势未确立<br>
+   <span class="dim">价格/时间</span> 最近上行目标聚合区≈109.51，斐波那契潜在上行131%，5日波动可达约62%<br>
+   <span class="dim">操作</span> 触发价 <b>54.02</b>（突破近日高点1跳，Tr-1BH 顺势介入，勿在目标价追买）；止损 <b>46.43</b>（setup 失效位）；每股暴露 <b>7.59元</b>，按3%资金规则：单笔仓位 = 可用资金×3% ÷ 7.59。 双单元管理：首单元到50%~61.8%目标启动1BL移动止盈，次单元放宽止损搏主升。
+</td></tr>
+<tr>
+ <td class="rk">3</td>
+ <td class="code" data-l="代码">002965<span class="mk">深</span></td>
+ <td class="nm" data-l="名称">祥鑫科技<span class="badge new">新增自选</span><span class="badge dup2" title="同时入选：预期05/10">2周期·另见10</span><span class="badge stknew" title="本期新进榜">新进榜</span></td>
+ <td class="num" data-l="现价">27.23</td>
+ <td class="gain" data-l="预期涨幅">+35.0%</td>
+ <td class="num tgt" data-l="目标价">56.16</td>
+ <td class="num" data-l="触发价">31.67</td>
+ <td class="num stop" data-l="止损价">26.93</td>
+ <td class="rl-mid" data-l="风险">中</td>
+ <td class="amt" data-l="20日均额">7.66亿</td>
+ 
+</tr>
+<tr class="detail"><td class="dspace"></td><td colspan="9">
+   <span class="dim">动量</span> 周线随机14(大周期偏弱)，日线K1　<span class="dim">形态</span> 趋势未确立<br>
+   <span class="dim">价格/时间</span> 最近上行目标聚合区≈56.16，斐波那契潜在上行106%，5日波动可达约52%<br>
+   <span class="dim">操作</span> 触发价 <b>31.67</b>（突破近日高点1跳，Tr-1BH 顺势介入，勿在目标价追买）；止损 <b>26.93</b>（setup 失效位）；每股暴露 <b>4.74元</b>，按3%资金规则：单笔仓位 = 可用资金×3% ÷ 4.74。 双单元管理：首单元到50%~61.8%目标启动1BL移动止盈，次单元放宽止损搏主升。
+</td></tr>
+<tr>
+ <td class="rk">4</td>
+ <td class="code" data-l="代码">603186<span class="mk">沪</span></td>
+ <td class="nm" data-l="名称">华正新材<span class="badge new">新增自选</span><span class="badge dup4" title="同时入选：预期05/10/20/40">4周期·另见10/20/40</span><span class="badge stknew" title="本期新进榜">新进榜</span></td>
+ <td class="num" data-l="现价">98.6</td>
+ <td class="gain" data-l="预期涨幅">+35.0%</td>
+ <td class="num tgt" data-l="目标价">193.9</td>
+ <td class="num" data-l="触发价">112.0</td>
+ <td class="num stop" data-l="止损价">96.82</td>
+ <td class="rl-mid" data-l="风险">中</td>
+ <td class="amt" data-l="20日均额">23.63亿</td>
+ 
+</tr>
+<tr class="detail"><td class="dspace"></td><td colspan="9">
+   <span class="dim">动量</span> 周线随机19(大周期偏弱)，日线K3　<span class="dim">形态</span> 趋势未确立<br>
+   <span class="dim">价格/时间</span> 最近上行目标聚合区≈193.9，斐波那契潜在上行97%，5日波动可达约63%<br>
+   <span class="dim">操作</span> 触发价 <b>112.0</b>（突破近日高点1跳，Tr-1BH 顺势介入，勿在目标价追买）；止损 <b>96.82</b>（setup 失效位）；每股暴露 <b>15.18元</b>，按3%资金规则：单笔仓位 = 可用资金×3% ÷ 15.18。 双单元管理：首单元到50%~61.8%目标启动1BL移动止盈，次单元放宽止损搏主升。
+</td></tr>
+<tr>
+ <td class="rk">5</td>
+ <td class="code" data-l="代码">600353<span class="mk">沪</span></td>
+ <td class="nm" data-l="名称">旭光电子<span class="badge new">新增自选</span><span class="badge dup4" title="同时入选：预期05/10/20/40">4周期·另见10/20/40</span><span class="badge stk3" title="已连续3期入选5日榜">连3期🔥</span></td>
+ <td class="num" data-l="现价">21.05</td>
+ <td class="gain" data-l="预期涨幅">+35.0%</td>
+ <td class="num tgt" data-l="目标价">46.0</td>
+ <td class="num" data-l="触发价">23.73</td>
+ <td class="num stop" data-l="止损价">20.51</td>
+ <td class="rl-mid" data-l="风险">中</td>
+ <td class="amt" data-l="20日均额">15.46亿</td>
+ 
+</tr>
+<tr class="detail"><td class="dspace"></td><td colspan="9">
+   <span class="dim">动量</span> 周线随机18(大周期偏弱)，日线K1　<span class="dim">形态</span> 趋势未确立<br>
+   <span class="dim">价格/时间</span> 最近上行目标聚合区≈46.0，斐波那契潜在上行119%，5日波动可达约57%<br>
+   <span class="dim">操作</span> 触发价 <b>23.73</b>（突破近日高点1跳，Tr-1BH 顺势介入，勿在目标价追买）；止损 <b>20.51</b>（setup 失效位）；每股暴露 <b>3.22元</b>，按3%资金规则：单笔仓位 = 可用资金×3% ÷ 3.22。 双单元管理：首单元到50%~61.8%目标启动1BL移动止盈，次单元放宽止损搏主升。
+</td></tr>
+<tr>
+ <td class="rk">6</td>
+ <td class="code" data-l="代码">003036<span class="mk">深</span></td>
+ <td class="nm" data-l="名称">泰坦股份<span class="badge new">新增自选</span><span class="badge dup4" title="同时入选：预期05/10/20/40">4周期·另见10/20/40</span><span class="badge stk3" title="已连续3期入选5日榜">连3期🔥</span></td>
+ <td class="num" data-l="现价">40.91</td>
+ <td class="gain" data-l="预期涨幅">+35.0%</td>
+ <td class="num tgt" data-l="目标价">88.47</td>
+ <td class="num" data-l="触发价">45.06</td>
+ <td class="num stop" data-l="止损价">40.14</td>
+ <td class="rl-mid" data-l="风险">中</td>
+ <td class="amt" data-l="20日均额">4.16亿</td>
+ 
+</tr>
+<tr class="detail"><td class="dspace"></td><td colspan="9">
+   <span class="dim">动量</span> 周线随机19(大周期偏弱)，日线K4　<span class="dim">形态</span> 趋势未确立<br>
+   <span class="dim">价格/时间</span> 最近上行目标聚合区≈88.47，斐波那契潜在上行116%，5日波动可达约51%<br>
+   <span class="dim">操作</span> 触发价 <b>45.06</b>（突破近日高点1跳，Tr-1BH 顺势介入，勿在目标价追买）；止损 <b>40.14</b>（setup 失效位）；每股暴露 <b>4.92元</b>，按3%资金规则：单笔仓位 = 可用资金×3% ÷ 4.92。 双单元管理：首单元到50%~61.8%目标启动1BL移动止盈，次单元放宽止损搏主升。
+</td></tr>
+<tr>
+ <td class="rk">7</td>
+ <td class="code" data-l="代码">603823<span class="mk">沪</span></td>
+ <td class="nm" data-l="名称">百合花<span class="badge dup2" title="同时入选：预期05/40">2周期·另见40</span><span class="badge stk3" title="已连续4期入选5日榜">连4期🔥</span></td>
+ <td class="num" data-l="现价">51.48</td>
+ <td class="gain" data-l="预期涨幅">+35.0%</td>
+ <td class="num tgt" data-l="目标价">85.02</td>
+ <td class="num" data-l="触发价">53.94</td>
+ <td class="num stop" data-l="止损价">42.13</td>
+ <td class="rl-mid" data-l="风险">中</td>
+ <td class="amt" data-l="20日均额">15.55亿</td>
+ 
+</tr>
+<tr class="detail"><td class="dspace"></td><td colspan="9">
+   <span class="dim">动量</span> 周线随机61(大周期偏弱)，日线K9　<span class="dim">形态</span> 趋势未确立<br>
+   <span class="dim">价格/时间</span> 最近上行目标聚合区≈85.02，斐波那契潜在上行65%，5日波动可达约62%<br>
+   <span class="dim">操作</span> 触发价 <b>53.94</b>（突破近日高点1跳，Tr-1BH 顺势介入，勿在目标价追买）；止损 <b>42.13</b>（setup 失效位）；每股暴露 <b>11.81元</b>，按3%资金规则：单笔仓位 = 可用资金×3% ÷ 11.81。 双单元管理：首单元到50%~61.8%目标启动1BL移动止盈，次单元放宽止损搏主升。
+</td></tr>
+<tr>
+ <td class="rk">8</td>
+ <td class="code" data-l="代码">603061<span class="mk">沪</span></td>
+ <td class="nm" data-l="名称">金海通<span class="badge new">新增自选</span><span class="badge stknew" title="本期新进榜">新进榜</span></td>
+ <td class="num" data-l="现价">242.04</td>
+ <td class="gain" data-l="预期涨幅">+35.0%</td>
+ <td class="num tgt" data-l="目标价">509.01</td>
+ <td class="num" data-l="触发价">268.39</td>
+ <td class="num stop" data-l="止损价">238.68</td>
+ <td class="rl-mid" data-l="风险">中</td>
+ <td class="amt" data-l="20日均额">14.75亿</td>
+ 
+</tr>
+<tr class="detail"><td class="dspace"></td><td colspan="9">
+   <span class="dim">动量</span> 周线随机9(大周期偏弱)，日线K4　<span class="dim">形态</span> 趋势未确立<br>
+   <span class="dim">价格/时间</span> 最近上行目标聚合区≈509.01，斐波那契潜在上行110%，5日波动可达约55%<br>
+   <span class="dim">操作</span> 触发价 <b>268.39</b>（突破近日高点1跳，Tr-1BH 顺势介入，勿在目标价追买）；止损 <b>238.68</b>（setup 失效位）；每股暴露 <b>29.71元</b>，按3%资金规则：单笔仓位 = 可用资金×3% ÷ 29.71。 双单元管理：首单元到50%~61.8%目标启动1BL移动止盈，次单元放宽止损搏主升。
+</td></tr>
+<tr>
+ <td class="rk">9</td>
+ <td class="code" data-l="代码">603931<span class="mk">沪</span></td>
+ <td class="nm" data-l="名称">格林达<span class="badge stk3" title="已连续4期入选5日榜">连4期🔥</span></td>
+ <td class="num" data-l="现价">29.3</td>
+ <td class="gain" data-l="预期涨幅">+35.0%</td>
+ <td class="num tgt" data-l="目标价">62.98</td>
+ <td class="num" data-l="触发价">32.15</td>
+ <td class="num stop" data-l="止损价">28.69</td>
+ <td class="rl-mid" data-l="风险">中</td>
+ <td class="amt" data-l="20日均额">5.13亿</td>
+ 
+</tr>
+<tr class="detail"><td class="dspace"></td><td colspan="9">
+   <span class="dim">动量</span> 周线随机4(大周期偏弱)，日线K2　<span class="dim">形态</span> 趋势未确立<br>
+   <span class="dim">价格/时间</span> 最近上行目标聚合区≈62.98，斐波那契潜在上行115%，5日波动可达约48%<br>
+   <span class="dim">操作</span> 触发价 <b>32.15</b>（突破近日高点1跳，Tr-1BH 顺势介入，勿在目标价追买）；止损 <b>28.69</b>（setup 失效位）；每股暴露 <b>3.46元</b>，按3%资金规则：单笔仓位 = 可用资金×3% ÷ 3.46。 双单元管理：首单元到50%~61.8%目标启动1BL移动止盈，次单元放宽止损搏主升。
+</td></tr>
+<tr>
+ <td class="rk">10</td>
+ <td class="code" data-l="代码">603683<span class="mk">沪</span></td>
+ <td class="nm" data-l="名称">晶华新材<span class="badge dup2" title="同时入选：预期05/10">2周期·另见10</span><span class="badge stk3" title="已连续6期入选5日榜">连6期🔥</span></td>
+ <td class="num" data-l="现价">14.14</td>
+ <td class="gain" data-l="预期涨幅">+35.0%</td>
+ <td class="num tgt" data-l="目标价">30.95</td>
+ <td class="num" data-l="触发价">14.36</td>
+ <td class="num stop" data-l="止损价">13.18</td>
+ <td class="rl-mid" data-l="风险">中</td>
+ <td class="amt" data-l="20日均额">4.72亿</td>
+ 
+</tr>
+<tr class="detail"><td class="dspace"></td><td colspan="9">
+   <span class="dim">动量</span> 周线随机4(大周期偏弱)，日线K3　<span class="dim">形态</span> 趋势未确立<br>
+   <span class="dim">价格/时间</span> 最近上行目标聚合区≈30.95，斐波那契潜在上行119%，5日波动可达约43%<br>
+   <span class="dim">操作</span> 触发价 <b>14.36</b>（突破近日高点1跳，Tr-1BH 顺势介入，勿在目标价追买）；止损 <b>13.18</b>（setup 失效位）；每股暴露 <b>1.18元</b>，按3%资金规则：单笔仓位 = 可用资金×3% ÷ 1.18。 双单元管理：首单元到50%~61.8%目标启动1BL移动止盈，次单元放宽止损搏主升。
+</td></tr>
+<tr>
+ <td class="rk">11</td>
+ <td class="code" data-l="代码">603773<span class="mk">沪</span></td>
+ <td class="nm" data-l="名称">沃格光电<span class="badge dup4" title="同时入选：预期05/10/20/40">4周期·另见10/20/40</span><span class="badge stk3" title="已连续4期入选5日榜">连4期🔥</span></td>
+ <td class="num" data-l="现价">64.94</td>
+ <td class="gain" data-l="预期涨幅">+35.0%</td>
+ <td class="num tgt" data-l="目标价">136.66</td>
+ <td class="num" data-l="触发价">73.62</td>
+ <td class="num stop" data-l="止损价">64.04</td>
+ <td class="rl-mid" data-l="风险">中</td>
+ <td class="amt" data-l="20日均额">18.25亿</td>
+ 
+</tr>
+<tr class="detail"><td class="dspace"></td><td colspan="9">
+   <span class="dim">动量</span> 周线随机9(大周期偏弱)，日线K2　<span class="dim">形态</span> 趋势未确立<br>
+   <span class="dim">价格/时间</span> 最近上行目标聚合区≈136.66，斐波那契潜在上行110%，5日波动可达约52%<br>
+   <span class="dim">操作</span> 触发价 <b>73.62</b>（突破近日高点1跳，Tr-1BH 顺势介入，勿在目标价追买）；止损 <b>64.04</b>（setup 失效位）；每股暴露 <b>9.58元</b>，按3%资金规则：单笔仓位 = 可用资金×3% ÷ 9.58。 双单元管理：首单元到50%~61.8%目标启动1BL移动止盈，次单元放宽止损搏主升。
+</td></tr>
+<tr>
+ <td class="rk">12</td>
+ <td class="code" data-l="代码">603137<span class="mk">沪</span></td>
+ <td class="nm" data-l="名称">恒尚节能<span class="badge new">新增自选</span><span class="badge dup3" title="同时入选：预期05/20/40">3周期·另见20/40</span><span class="badge stk2" title="已连续2期入选5日榜">连2期</span></td>
+ <td class="num" data-l="现价">25.51</td>
+ <td class="gain" data-l="预期涨幅">+35.0%</td>
+ <td class="num tgt" data-l="目标价">35.61</td>
+ <td class="num" data-l="触发价">28.84</td>
+ <td class="num stop" data-l="止损价">22.35</td>
+ <td class="rl-mid" data-l="风险">中</td>
+ <td class="amt" data-l="20日均额">7.70亿</td>
+ 
+</tr>
+<tr class="detail"><td class="dspace"></td><td colspan="9">
+   <span class="dim">动量</span> 周线随机59(大周期偏弱)，日线K23　<span class="dim">形态</span> 均线多头排列·回踩支撑(健康setup)<br>
+   <span class="dim">价格/时间</span> 最近上行目标聚合区≈35.61，斐波那契潜在上行40%，5日波动可达约51%<br>
+   <span class="dim">操作</span> 触发价 <b>28.84</b>（突破近日高点1跳，Tr-1BH 顺势介入，勿在目标价追买）；止损 <b>22.35</b>（setup 失效位）；每股暴露 <b>6.49元</b>，按3%资金规则：单笔仓位 = 可用资金×3% ÷ 6.49。 双单元管理：首单元到50%~61.8%目标启动1BL移动止盈，次单元放宽止损搏主升。
+</td></tr>
+<tr>
+ <td class="rk">13</td>
+ <td class="code" data-l="代码">600246<span class="mk">沪</span></td>
+ <td class="nm" data-l="名称">万通发展<span class="badge new">新增自选</span><span class="badge stknew" title="本期新进榜">新进榜</span></td>
+ <td class="num" data-l="现价">10.36</td>
+ <td class="gain" data-l="预期涨幅">+35.0%</td>
+ <td class="num tgt" data-l="目标价">21.31</td>
+ <td class="num" data-l="触发价">11.5</td>
+ <td class="num stop" data-l="止损价">10.19</td>
+ <td class="rl-mid" data-l="风险">中</td>
+ <td class="amt" data-l="20日均额">29.07亿</td>
+ 
+</tr>
+<tr class="detail"><td class="dspace"></td><td colspan="9">
+   <span class="dim">动量</span> 周线随机14(大周期偏弱)，日线K1　<span class="dim">形态</span> 趋势未确立<br>
+   <span class="dim">价格/时间</span> 最近上行目标聚合区≈21.31，斐波那契潜在上行106%，5日波动可达约56%<br>
+   <span class="dim">操作</span> 触发价 <b>11.5</b>（突破近日高点1跳，Tr-1BH 顺势介入，勿在目标价追买）；止损 <b>10.19</b>（setup 失效位）；每股暴露 <b>1.31元</b>，按3%资金规则：单笔仓位 = 可用资金×3% ÷ 1.31。 双单元管理：首单元到50%~61.8%目标启动1BL移动止盈，次单元放宽止损搏主升。
+</td></tr>
+<tr>
+ <td class="rk">14</td>
+ <td class="code" data-l="代码">600869<span class="mk">沪</span></td>
+ <td class="nm" data-l="名称">远东股份<span class="badge dup4" title="同时入选：预期05/10/20/40">4周期·另见10/20/40</span><span class="badge stk3" title="已连续7期入选5日榜">连7期🔥</span></td>
+ <td class="num" data-l="现价">13.26</td>
+ <td class="gain" data-l="预期涨幅">+35.0%</td>
+ <td class="num tgt" data-l="目标价">26.14</td>
+ <td class="num" data-l="触发价">14.11</td>
+ <td class="num stop" data-l="止损价">12.49</td>
+ <td class="rl-mid" data-l="风险">中</td>
+ <td class="amt" data-l="20日均额">19.12亿</td>
+ 
+</tr>
+<tr class="detail"><td class="dspace"></td><td colspan="9">
+   <span class="dim">动量</span> 周线随机3(大周期偏弱)，日线K5　<span class="dim">形态</span> 趋势未确立<br>
+   <span class="dim">价格/时间</span> 最近上行目标聚合区≈26.14，斐波那契潜在上行97%，5日波动可达约41%<br>
+   <span class="dim">操作</span> 触发价 <b>14.11</b>（突破近日高点1跳，Tr-1BH 顺势介入，勿在目标价追买）；止损 <b>12.49</b>（setup 失效位）；每股暴露 <b>1.62元</b>，按3%资金规则：单笔仓位 = 可用资金×3% ÷ 1.62。 双单元管理：首单元到50%~61.8%目标启动1BL移动止盈，次单元放宽止损搏主升。
+</td></tr>
+<tr>
+ <td class="rk">15</td>
+ <td class="code" data-l="代码">603078<span class="mk">沪</span></td>
+ <td class="nm" data-l="名称">江化微<span class="badge new">新增自选</span><span class="badge stknew" title="本期新进榜">新进榜</span></td>
+ <td class="num" data-l="现价">26.64</td>
+ <td class="gain" data-l="预期涨幅">+35.0%</td>
+ <td class="num tgt" data-l="目标价">56.26</td>
+ <td class="num" data-l="触发价">30.47</td>
+ <td class="num stop" data-l="止损价">26.26</td>
+ <td class="rl-mid" data-l="风险">中</td>
+ <td class="amt" data-l="20日均额">12.12亿</td>
+ 
+</tr>
+<tr class="detail"><td class="dspace"></td><td colspan="9">
+   <span class="dim">动量</span> 周线随机14(大周期偏弱)，日线K1　<span class="dim">形态</span> 趋势未确立<br>
+   <span class="dim">价格/时间</span> 最近上行目标聚合区≈56.26，斐波那契潜在上行111%，5日波动可达约44%<br>
+   <span class="dim">操作</span> 触发价 <b>30.47</b>（突破近日高点1跳，Tr-1BH 顺势介入，勿在目标价追买）；止损 <b>26.26</b>（setup 失效位）；每股暴露 <b>4.21元</b>，按3%资金规则：单笔仓位 = 可用资金×3% ÷ 4.21。 双单元管理：首单元到50%~61.8%目标启动1BL移动止盈，次单元放宽止损搏主升。
+</td></tr>
+<tr>
+ <td class="rk">16</td>
+ <td class="code" data-l="代码">600172<span class="mk">沪</span></td>
+ <td class="nm" data-l="名称">黄河旋风<span class="badge new">新增自选</span><span class="badge stknew" title="本期新进榜">新进榜</span></td>
+ <td class="num" data-l="现价">9.59</td>
+ <td class="gain" data-l="预期涨幅">+35.0%</td>
+ <td class="num tgt" data-l="目标价">19.89</td>
+ <td class="num" data-l="触发价">10.3</td>
+ <td class="num stop" data-l="止损价">9.29</td>
+ <td class="rl-mid" data-l="风险">中</td>
+ <td class="amt" data-l="20日均额">26.97亿</td>
+ 
+</tr>
+<tr class="detail"><td class="dspace"></td><td colspan="9">
+   <span class="dim">动量</span> 周线随机17(大周期偏弱)，日线K4　<span class="dim">形态</span> 趋势未确立<br>
+   <span class="dim">价格/时间</span> 最近上行目标聚合区≈19.89，斐波那契潜在上行107%，5日波动可达约46%<br>
+   <span class="dim">操作</span> 触发价 <b>10.3</b>（突破近日高点1跳，Tr-1BH 顺势介入，勿在目标价追买）；止损 <b>9.29</b>（setup 失效位）；每股暴露 <b>1.01元</b>，按3%资金规则：单笔仓位 = 可用资金×3% ÷ 1.01。 双单元管理：首单元到50%~61.8%目标启动1BL移动止盈，次单元放宽止损搏主升。
+</td></tr>
+<tr>
+ <td class="rk">17</td>
+ <td class="code" data-l="代码">002552<span class="mk">深</span></td>
+ <td class="nm" data-l="名称">宝鼎科技<span class="badge stk3" title="已连续3期入选5日榜">连3期🔥</span></td>
+ <td class="num" data-l="现价">32.51</td>
+ <td class="gain" data-l="预期涨幅">+35.0%</td>
+ <td class="num tgt" data-l="目标价">70.99</td>
+ <td class="num" data-l="触发价">35.06</td>
+ <td class="num stop" data-l="止损价">31.37</td>
+ <td class="rl-mid" data-l="风险">中</td>
+ <td class="amt" data-l="20日均额">9.08亿</td>
+ 
+</tr>
+<tr class="detail"><td class="dspace"></td><td colspan="9">
+   <span class="dim">动量</span> 周线随机24(大周期偏弱)，日线K5　<span class="dim">形态</span> 趋势未确立<br>
+   <span class="dim">价格/时间</span> 最近上行目标聚合区≈70.99，斐波那契潜在上行118%，5日波动可达约50%<br>
+   <span class="dim">操作</span> 触发价 <b>35.06</b>（突破近日高点1跳，Tr-1BH 顺势介入，勿在目标价追买）；止损 <b>31.37</b>（setup 失效位）；每股暴露 <b>3.69元</b>，按3%资金规则：单笔仓位 = 可用资金×3% ÷ 3.69。 双单元管理：首单元到50%~61.8%目标启动1BL移动止盈，次单元放宽止损搏主升。
+</td></tr>
+<tr>
+ <td class="rk">18</td>
+ <td class="code" data-l="代码">002828<span class="mk">深</span></td>
+ <td class="nm" data-l="名称">贝肯能源<span class="badge new">新增自选</span><span class="badge dup2" title="同时入选：预期05/40">2周期·另见40</span><span class="badge stknew" title="本期新进榜">新进榜</span></td>
+ <td class="num" data-l="现价">11.79</td>
+ <td class="gain" data-l="预期涨幅">+35.0%</td>
+ <td class="num tgt" data-l="目标价">14.2</td>
+ <td class="num" data-l="触发价">13.68</td>
+ <td class="num stop" data-l="止损价">11.08</td>
+ <td class="rl-mid" data-l="风险">中</td>
+ <td class="amt" data-l="20日均额">3.35亿</td>
+ 
+</tr>
+<tr class="detail"><td class="dspace"></td><td colspan="9">
+   <span class="dim">动量</span> 周线随机66(大周期多头)，日线K43　<span class="dim">形态</span> 均线多头排列·回踩支撑(健康setup)<br>
+   <span class="dim">价格/时间</span> 最近上行目标聚合区≈14.2，斐波那契潜在上行20%，5日波动可达约36%<br>
+   <span class="dim">操作</span> 触发价 <b>13.68</b>（突破近日高点1跳，Tr-1BH 顺势介入，勿在目标价追买）；止损 <b>11.08</b>（setup 失效位）；每股暴露 <b>2.60元</b>，按3%资金规则：单笔仓位 = 可用资金×3% ÷ 2.60。 双单元管理：首单元到50%~61.8%目标启动1BL移动止盈，次单元放宽止损搏主升。
+</td></tr>
+<tr>
+ <td class="rk">19</td>
+ <td class="code" data-l="代码">002208<span class="mk">深</span></td>
+ <td class="nm" data-l="名称">合肥城建<span class="badge dup2" title="同时入选：预期05/20">2周期·另见20</span><span class="badge stk2" title="已连续2期入选5日榜">连2期</span></td>
+ <td class="num" data-l="现价">10.38</td>
+ <td class="gain" data-l="预期涨幅">+35.0%</td>
+ <td class="num tgt" data-l="目标价">20.94</td>
+ <td class="num" data-l="触发价">11.28</td>
+ <td class="num stop" data-l="止损价">10.21</td>
+ <td class="rl-mid" data-l="风险">中</td>
+ <td class="amt" data-l="20日均额">11.15亿</td>
+ 
+</tr>
+<tr class="detail"><td class="dspace"></td><td colspan="9">
+   <span class="dim">动量</span> 周线随机6(大周期偏弱)，日线K0　<span class="dim">形态</span> 趋势未确立<br>
+   <span class="dim">价格/时间</span> 最近上行目标聚合区≈20.94，斐波那契潜在上行102%，5日波动可达约49%<br>
+   <span class="dim">操作</span> 触发价 <b>11.28</b>（突破近日高点1跳，Tr-1BH 顺势介入，勿在目标价追买）；止损 <b>10.21</b>（setup 失效位）；每股暴露 <b>1.07元</b>，按3%资金规则：单笔仓位 = 可用资金×3% ÷ 1.07。 双单元管理：首单元到50%~61.8%目标启动1BL移动止盈，次单元放宽止损搏主升。
+</td></tr>
+<tr>
+ <td class="rk">20</td>
+ <td class="code" data-l="代码">600641<span class="mk">沪</span></td>
+ <td class="nm" data-l="名称">先导基电<span class="badge new">新增自选</span><span class="badge stknew" title="本期新进榜">新进榜</span></td>
+ <td class="num" data-l="现价">23.41</td>
+ <td class="gain" data-l="预期涨幅">+35.0%</td>
+ <td class="num tgt" data-l="目标价">46.48</td>
+ <td class="num" data-l="触发价">27.29</td>
+ <td class="num stop" data-l="止损价">23.18</td>
+ <td class="rl-mid" data-l="风险">中</td>
+ <td class="amt" data-l="20日均额">26.32亿</td>
+ 
+</tr>
+<tr class="detail"><td class="dspace"></td><td colspan="9">
+   <span class="dim">动量</span> 周线随机10(大周期偏弱)，日线K2　<span class="dim">形态</span> 趋势未确立<br>
+   <span class="dim">价格/时间</span> 最近上行目标聚合区≈46.48，斐波那契潜在上行99%，5日波动可达约52%<br>
+   <span class="dim">操作</span> 触发价 <b>27.29</b>（突破近日高点1跳，Tr-1BH 顺势介入，勿在目标价追买）；止损 <b>23.18</b>（setup 失效位）；每股暴露 <b>4.11元</b>，按3%资金规则：单笔仓位 = 可用资金×3% ÷ 4.11。 双单元管理：首单元到50%~61.8%目标启动1BL移动止盈，次单元放宽止损搏主升。
+</td></tr>
+<tr>
+ <td class="rk">21</td>
+ <td class="code" data-l="代码">603256<span class="mk">沪</span></td>
+ <td class="nm" data-l="名称">宏和科技<span class="badge new">新增自选</span><span class="badge dup4" title="同时入选：预期05/10/20/40">4周期·另见10/20/40</span><span class="badge stknew" title="本期新进榜">新进榜</span></td>
+ <td class="num" data-l="现价">115.32</td>
+ <td class="gain" data-l="预期涨幅">+35.0%</td>
+ <td class="num tgt" data-l="目标价">224.78</td>
+ <td class="num" data-l="触发价">137.69</td>
+ <td class="num stop" data-l="止损价">114.17</td>
+ <td class="rl-mid" data-l="风险">中</td>
+ <td class="amt" data-l="20日均额">28.75亿</td>
+ 
+</tr>
+<tr class="detail"><td class="dspace"></td><td colspan="9">
+   <span class="dim">动量</span> 周线随机11(大周期偏弱)，日线K1　<span class="dim">形态</span> 趋势未确立<br>
+   <span class="dim">价格/时间</span> 最近上行目标聚合区≈224.78，斐波那契潜在上行95%，5日波动可达约56%<br>
+   <span class="dim">操作</span> 触发价 <b>137.69</b>（突破近日高点1跳，Tr-1BH 顺势介入，勿在目标价追买）；止损 <b>114.17</b>（setup 失效位）；每股暴露 <b>23.52元</b>，按3%资金规则：单笔仓位 = 可用资金×3% ÷ 23.52。 双单元管理：首单元到50%~61.8%目标启动1BL移动止盈，次单元放宽止损搏主升。
+</td></tr>
+<tr>
+ <td class="rk">22</td>
+ <td class="code" data-l="代码">002080<span class="mk">深</span></td>
+ <td class="nm" data-l="名称">中材科技<span class="badge new">新增自选</span><span class="badge dup4" title="同时入选：预期05/10/20/40">4周期·另见10/20/40</span><span class="badge stk3" title="已连续4期入选5日榜">连4期🔥</span></td>
+ <td class="num" data-l="现价">40.34</td>
+ <td class="gain" data-l="预期涨幅">+35.0%</td>
+ <td class="num tgt" data-l="目标价">79.89</td>
+ <td class="num" data-l="触发价">46.57</td>
+ <td class="num stop" data-l="止损价">39.66</td>
+ <td class="rl-mid" data-l="风险">中</td>
+ <td class="amt" data-l="20日均额">29.85亿</td>
+ 
+</tr>
+<tr class="detail"><td class="dspace"></td><td colspan="9">
+   <span class="dim">动量</span> 周线随机3(大周期偏弱)，日线K5　<span class="dim">形态</span> 趋势未确立<br>
+   <span class="dim">价格/时间</span> 最近上行目标聚合区≈79.89，斐波那契潜在上行98%，5日波动可达约52%<br>
+   <span class="dim">操作</span> 触发价 <b>46.57</b>（突破近日高点1跳，Tr-1BH 顺势介入，勿在目标价追买）；止损 <b>39.66</b>（setup 失效位）；每股暴露 <b>6.91元</b>，按3%资金规则：单笔仓位 = 可用资金×3% ÷ 6.91。 双单元管理：首单元到50%~61.8%目标启动1BL移动止盈，次单元放宽止损搏主升。
+</td></tr>
+<tr>
+ <td class="rk">23</td>
+ <td class="code" data-l="代码">603283<span class="mk">沪</span></td>
+ <td class="nm" data-l="名称">赛腾股份<span class="badge new">新增自选</span><span class="badge dup2" title="同时入选：预期05/10">2周期·另见10</span><span class="badge stknew" title="本期新进榜">新进榜</span></td>
+ <td class="num" data-l="现价">36.61</td>
+ <td class="gain" data-l="预期涨幅">+35.0%</td>
+ <td class="num tgt" data-l="目标价">74.3</td>
+ <td class="num" data-l="触发价">41.03</td>
+ <td class="num stop" data-l="止损价">36.08</td>
+ <td class="rl-mid" data-l="风险">中</td>
+ <td class="amt" data-l="20日均额">13.76亿</td>
+ 
+</tr>
+<tr class="detail"><td class="dspace"></td><td colspan="9">
+   <span class="dim">动量</span> 周线随机5(大周期偏弱)，日线K3　<span class="dim">形态</span> 趋势未确立<br>
+   <span class="dim">价格/时间</span> 最近上行目标聚合区≈74.3，斐波那契潜在上行103%，5日波动可达约45%<br>
+   <span class="dim">操作</span> 触发价 <b>41.03</b>（突破近日高点1跳，Tr-1BH 顺势介入，勿在目标价追买）；止损 <b>36.08</b>（setup 失效位）；每股暴露 <b>4.95元</b>，按3%资金规则：单笔仓位 = 可用资金×3% ÷ 4.95。 双单元管理：首单元到50%~61.8%目标启动1BL移动止盈，次单元放宽止损搏主升。
+</td></tr>
+<tr>
+ <td class="rk">24</td>
+ <td class="code" data-l="代码">002655<span class="mk">深</span></td>
+ <td class="nm" data-l="名称">共达电声<span class="badge new">新增自选</span><span class="badge dup3" title="同时入选：预期05/10/20">3周期·另见10/20</span><span class="badge stknew" title="本期新进榜">新进榜</span></td>
+ <td class="num" data-l="现价">22.37</td>
+ <td class="gain" data-l="预期涨幅">+35.0%</td>
+ <td class="num tgt" data-l="目标价">41.46</td>
+ <td class="num" data-l="触发价">23.71</td>
+ <td class="num stop" data-l="止损价">21.08</td>
+ <td class="rl-mid" data-l="风险">中</td>
+ <td class="amt" data-l="20日均额">7.36亿</td>
+ 
+</tr>
+<tr class="detail"><td class="dspace"></td><td colspan="9">
+   <span class="dim">动量</span> 周线随机7(大周期偏弱)，日线K6　<span class="dim">形态</span> 趋势未确立<br>
+   <span class="dim">价格/时间</span> 最近上行目标聚合区≈41.46，斐波那契潜在上行85%，5日波动可达约43%<br>
+   <span class="dim">操作</span> 触发价 <b>23.71</b>（突破近日高点1跳，Tr-1BH 顺势介入，勿在目标价追买）；止损 <b>21.08</b>（setup 失效位）；每股暴露 <b>2.63元</b>，按3%资金规则：单笔仓位 = 可用资金×3% ÷ 2.63。 双单元管理：首单元到50%~61.8%目标启动1BL移动止盈，次单元放宽止损搏主升。
+</td></tr>
+<tr>
+ <td class="rk">25</td>
+ <td class="code" data-l="代码">002536<span class="mk">深</span></td>
+ <td class="nm" data-l="名称">飞龙股份<span class="badge new">新增自选</span><span class="badge stknew" title="本期新进榜">新进榜</span></td>
+ <td class="num" data-l="现价">31.55</td>
+ <td class="gain" data-l="预期涨幅">+35.0%</td>
+ <td class="num tgt" data-l="目标价">58.79</td>
+ <td class="num" data-l="触发价">38.91</td>
+ <td class="num stop" data-l="止损价">30.99</td>
+ <td class="rl-mid" data-l="风险">中</td>
+ <td class="amt" data-l="20日均额">22.21亿</td>
+ 
+</tr>
+<tr class="detail"><td class="dspace"></td><td colspan="9">
+   <span class="dim">动量</span> 周线随机19(大周期偏弱)，日线K1　<span class="dim">形态</span> 趋势未确立<br>
+   <span class="dim">价格/时间</span> 最近上行目标聚合区≈58.79，斐波那契潜在上行86%，5日波动可达约62%<br>
+   <span class="dim">操作</span> 触发价 <b>38.91</b>（突破近日高点1跳，Tr-1BH 顺势介入，勿在目标价追买）；止损 <b>30.99</b>（setup 失效位）；每股暴露 <b>7.92元</b>，按3%资金规则：单笔仓位 = 可用资金×3% ÷ 7.92。 双单元管理：首单元到50%~61.8%目标启动1BL移动止盈，次单元放宽止损搏主升。
+</td></tr>
+<tr>
+ <td class="rk">26</td>
+ <td class="code" data-l="代码">600129<span class="mk">沪</span></td>
+ <td class="nm" data-l="名称">太极集团<span class="badge new">新增自选</span><span class="badge dup2" title="同时入选：预期05/40">2周期·另见40</span><span class="badge stknew" title="本期新进榜">新进榜</span></td>
+ <td class="num" data-l="现价">15.82</td>
+ <td class="gain" data-l="预期涨幅">+35.0%</td>
+ <td class="num tgt" data-l="目标价">18.72</td>
+ <td class="num" data-l="触发价">16.04</td>
+ <td class="num stop" data-l="止损价">14.93</td>
+ <td class="rl-mid" data-l="风险">中</td>
+ <td class="amt" data-l="20日均额">6.59亿</td>
+ 
+</tr>
+<tr class="detail"><td class="dspace"></td><td colspan="9">
+   <span class="dim">动量</span> 周线随机54(大周期多头)，日线K27　<span class="dim">形态</span> 均线多头排列·回踩支撑(健康setup)<br>
+   <span class="dim">价格/时间</span> 最近上行目标聚合区≈18.72，斐波那契潜在上行18%，5日波动可达约26%<br>
+   <span class="dim">操作</span> 触发价 <b>16.04</b>（突破近日高点1跳，Tr-1BH 顺势介入，勿在目标价追买）；止损 <b>14.93</b>（setup 失效位）；每股暴露 <b>1.11元</b>，按3%资金规则：单笔仓位 = 可用资金×3% ÷ 1.11。 双单元管理：首单元到50%~61.8%目标启动1BL移动止盈，次单元放宽止损搏主升。
+</td></tr>
+<tr>
+ <td class="rk">27</td>
+ <td class="code" data-l="代码">603800<span class="mk">沪</span></td>
+ <td class="nm" data-l="名称">洪田股份<span class="badge new">新增自选</span><span class="badge stknew" title="本期新进榜">新进榜</span></td>
+ <td class="num" data-l="现价">47.7</td>
+ <td class="gain" data-l="预期涨幅">+35.0%</td>
+ <td class="num tgt" data-l="目标价">90.5</td>
+ <td class="num" data-l="触发价">55.87</td>
+ <td class="num stop" data-l="止损价">46.53</td>
+ <td class="rl-mid" data-l="风险">中</td>
+ <td class="amt" data-l="20日均额">7.02亿</td>
+ 
+</tr>
+<tr class="detail"><td class="dspace"></td><td colspan="9">
+   <span class="dim">动量</span> 周线随机17(大周期偏弱)，日线K1　<span class="dim">形态</span> 趋势未确立<br>
+   <span class="dim">价格/时间</span> 最近上行目标聚合区≈90.5，斐波那契潜在上行90%，5日波动可达约56%<br>
+   <span class="dim">操作</span> 触发价 <b>55.87</b>（突破近日高点1跳，Tr-1BH 顺势介入，勿在目标价追买）；止损 <b>46.53</b>（setup 失效位）；每股暴露 <b>9.34元</b>，按3%资金规则：单笔仓位 = 可用资金×3% ÷ 9.34。 双单元管理：首单元到50%~61.8%目标启动1BL移动止盈，次单元放宽止损搏主升。
+</td></tr>
+<tr>
+ <td class="rk">28</td>
+ <td class="code" data-l="代码">601208<span class="mk">沪</span></td>
+ <td class="nm" data-l="名称">东材科技<span class="badge new">新增自选</span><span class="badge dup2" title="同时入选：预期05/10">2周期·另见10</span><span class="badge stknew" title="本期新进榜">新进榜</span></td>
+ <td class="num" data-l="现价">32.5</td>
+ <td class="gain" data-l="预期涨幅">+35.0%</td>
+ <td class="num tgt" data-l="目标价">63.72</td>
+ <td class="num" data-l="触发价">36.6</td>
+ <td class="num stop" data-l="止损价">31.93</td>
+ <td class="rl-mid" data-l="风险">中</td>
+ <td class="amt" data-l="20日均额">30.04亿</td>
+ 
+</tr>
+<tr class="detail"><td class="dspace"></td><td colspan="9">
+   <span class="dim">动量</span> 周线随机7(大周期偏弱)，日线K3　<span class="dim">形态</span> 趋势未确立<br>
+   <span class="dim">价格/时间</span> 最近上行目标聚合区≈63.72，斐波那契潜在上行96%，5日波动可达约48%<br>
+   <span class="dim">操作</span> 触发价 <b>36.6</b>（突破近日高点1跳，Tr-1BH 顺势介入，勿在目标价追买）；止损 <b>31.93</b>（setup 失效位）；每股暴露 <b>4.67元</b>，按3%资金规则：单笔仓位 = 可用资金×3% ÷ 4.67。 双单元管理：首单元到50%~61.8%目标启动1BL移动止盈，次单元放宽止损搏主升。
+</td></tr>
+<tr>
+ <td class="rk">29</td>
+ <td class="code" data-l="代码">603324<span class="mk">沪</span></td>
+ <td class="nm" data-l="名称">盛剑科技<span class="badge stk3" title="已连续6期入选5日榜">连6期🔥</span></td>
+ <td class="num" data-l="现价">23.27</td>
+ <td class="gain" data-l="预期涨幅">+35.0%</td>
+ <td class="num tgt" data-l="目标价">46.37</td>
+ <td class="num" data-l="触发价">25.51</td>
+ <td class="num stop" data-l="止损价">22.67</td>
+ <td class="rl-mid" data-l="风险">中</td>
+ <td class="amt" data-l="20日均额">2.08亿</td>
+ 
+</tr>
+<tr class="detail"><td class="dspace"></td><td colspan="9">
+   <span class="dim">动量</span> 周线随机5(大周期偏弱)，日线K4　<span class="dim">形态</span> 趋势未确立<br>
+   <span class="dim">价格/时间</span> 最近上行目标聚合区≈46.37，斐波那契潜在上行99%，5日波动可达约43%<br>
+   <span class="dim">操作</span> 触发价 <b>25.51</b>（突破近日高点1跳，Tr-1BH 顺势介入，勿在目标价追买）；止损 <b>22.67</b>（setup 失效位）；每股暴露 <b>2.84元</b>，按3%资金规则：单笔仓位 = 可用资金×3% ÷ 2.84。 双单元管理：首单元到50%~61.8%目标启动1BL移动止盈，次单元放宽止损搏主升。
+</td></tr>
+<tr>
+ <td class="rk">30</td>
+ <td class="code" data-l="代码">600360<span class="mk">沪</span></td>
+ <td class="nm" data-l="名称">华微电子<span class="badge new">新增自选</span><span class="badge stknew" title="本期新进榜">新进榜</span></td>
+ <td class="num" data-l="现价">9.13</td>
+ <td class="gain" data-l="预期涨幅">+35.0%</td>
+ <td class="num tgt" data-l="目标价">18.46</td>
+ <td class="num" data-l="触发价">9.75</td>
+ <td class="num stop" data-l="止损价">8.91</td>
+ <td class="rl-mid" data-l="风险">中</td>
+ <td class="amt" data-l="20日均额">17.55亿</td>
+ 
+</tr>
+<tr class="detail"><td class="dspace"></td><td colspan="9">
+   <span class="dim">动量</span> 周线随机4(大周期偏弱)，日线K2　<span class="dim">形态</span> 趋势未确立<br>
+   <span class="dim">价格/时间</span> 最近上行目标聚合区≈18.46，斐波那契潜在上行102%，5日波动可达约39%<br>
+   <span class="dim">操作</span> 触发价 <b>9.75</b>（突破近日高点1跳，Tr-1BH 顺势介入，勿在目标价追买）；止损 <b>8.91</b>（setup 失效位）；每股暴露 <b>0.84元</b>，按3%资金规则：单笔仓位 = 可用资金×3% ÷ 0.84。 双单元管理：首单元到50%~61.8%目标启动1BL移动止盈，次单元放宽止损搏主升。
+</td></tr></tbody>
+  </table>
+</div>
+<div class="panel" id="p10">
+  <div class="phead">「预期10」板块 · 10个交易日内预期最大涨幅 Top30 <span class="cap">(数值上限55%)</span></div>
+  <table>
+   <thead><tr>
+     <th>#</th><th>代码</th><th>名称</th><th>现价</th><th>预期涨幅</th><th>目标价</th>
+     <th>触发价</th><th>止损价</th><th>风险</th><th>20日均额</th>
+     
+   </tr></thead>
+   <tbody>
+<tr>
+ <td class="rk">1</td>
+ <td class="code" data-l="代码">603186<span class="mk">沪</span></td>
+ <td class="nm" data-l="名称">华正新材<span class="badge new">新增自选</span><span class="badge dup4" title="同时入选：预期05/10/20/40">4周期·另见05/20/40</span><span class="badge stk3" title="已连续4期入选10日榜">连4期🔥</span></td>
+ <td class="num" data-l="现价">98.6</td>
+ <td class="gain" data-l="预期涨幅">+55.0%</td>
+ <td class="num tgt" data-l="目标价">269.87</td>
+ <td class="num" data-l="触发价">112.0</td>
+ <td class="num stop" data-l="止损价">96.82</td>
+ <td class="rl-mid" data-l="风险">中</td>
+ <td class="amt" data-l="20日均额">23.63亿</td>
+ 
+</tr>
+<tr class="detail"><td class="dspace"></td><td colspan="9">
+   <span class="dim">动量</span> 周线随机19(大周期偏弱)，日线K3　<span class="dim">形态</span> 趋势未确立<br>
+   <span class="dim">价格/时间</span> 最近上行目标聚合区≈269.87，斐波那契潜在上行174%，10日波动可达约89%<br>
+   <span class="dim">操作</span> 触发价 <b>112.0</b>（突破近日高点1跳，Tr-1BH 顺势介入，勿在目标价追买）；止损 <b>96.82</b>（setup 失效位）；每股暴露 <b>15.18元</b>，按3%资金规则：单笔仓位 = 可用资金×3% ÷ 15.18。 双单元管理：首单元到50%~61.8%目标启动1BL移动止盈，次单元放宽止损搏主升。
+</td></tr>
+<tr>
+ <td class="rk">2</td>
+ <td class="code" data-l="代码">600869<span class="mk">沪</span></td>
+ <td class="nm" data-l="名称">远东股份<span class="badge dup4" title="同时入选：预期05/10/20/40">4周期·另见05/20/40</span><span class="badge stk3" title="已连续7期入选10日榜">连7期🔥</span></td>
+ <td class="num" data-l="现价">13.26</td>
+ <td class="gain" data-l="预期涨幅">+55.0%</td>
+ <td class="num tgt" data-l="目标价">38.56</td>
+ <td class="num" data-l="触发价">14.11</td>
+ <td class="num stop" data-l="止损价">12.49</td>
+ <td class="rl-mid" data-l="风险">中</td>
+ <td class="amt" data-l="20日均额">19.12亿</td>
+ 
+</tr>
+<tr class="detail"><td class="dspace"></td><td colspan="9">
+   <span class="dim">动量</span> 周线随机3(大周期偏弱)，日线K5　<span class="dim">形态</span> 趋势未确立<br>
+   <span class="dim">价格/时间</span> 最近上行目标聚合区≈38.56，斐波那契潜在上行191%，10日波动可达约59%<br>
+   <span class="dim">操作</span> 触发价 <b>14.11</b>（突破近日高点1跳，Tr-1BH 顺势介入，勿在目标价追买）；止损 <b>12.49</b>（setup 失效位）；每股暴露 <b>1.62元</b>，按3%资金规则：单笔仓位 = 可用资金×3% ÷ 1.62。 双单元管理：首单元到50%~61.8%目标启动1BL移动止盈，次单元放宽止损搏主升。
+</td></tr>
+<tr>
+ <td class="rk">3</td>
+ <td class="code" data-l="代码">603773<span class="mk">沪</span></td>
+ <td class="nm" data-l="名称">沃格光电<span class="badge dup4" title="同时入选：预期05/10/20/40">4周期·另见05/20/40</span><span class="badge stk3" title="已连续5期入选10日榜">连5期🔥</span></td>
+ <td class="num" data-l="现价">64.94</td>
+ <td class="gain" data-l="预期涨幅">+55.0%</td>
+ <td class="num tgt" data-l="目标价">188.0</td>
+ <td class="num" data-l="触发价">73.62</td>
+ <td class="num stop" data-l="止损价">64.04</td>
+ <td class="rl-mid" data-l="风险">中</td>
+ <td class="amt" data-l="20日均额">18.25亿</td>
+ 
+</tr>
+<tr class="detail"><td class="dspace"></td><td colspan="9">
+   <span class="dim">动量</span> 周线随机9(大周期偏弱)，日线K2　<span class="dim">形态</span> 趋势未确立<br>
+   <span class="dim">价格/时间</span> 最近上行目标聚合区≈188.0，斐波那契潜在上行190%，10日波动可达约73%<br>
+   <span class="dim">操作</span> 触发价 <b>73.62</b>（突破近日高点1跳，Tr-1BH 顺势介入，勿在目标价追买）；止损 <b>64.04</b>（setup 失效位）；每股暴露 <b>9.58元</b>，按3%资金规则：单笔仓位 = 可用资金×3% ÷ 9.58。 双单元管理：首单元到50%~61.8%目标启动1BL移动止盈，次单元放宽止损搏主升。
+</td></tr>
+<tr>
+ <td class="rk">4</td>
+ <td class="code" data-l="代码">001309<span class="mk">深</span></td>
+ <td class="nm" data-l="名称">德明利<span class="badge dup4" title="同时入选：预期05/10/20/40">4周期·另见05/20/40</span><span class="badge stk3" title="已连续7期入选10日榜">连7期🔥</span></td>
+ <td class="num" data-l="现价">349.0</td>
+ <td class="gain" data-l="预期涨幅">+55.0%</td>
+ <td class="num tgt" data-l="目标价">980.0</td>
+ <td class="num" data-l="触发价">429.05</td>
+ <td class="num stop" data-l="止损价">345.47</td>
+ <td class="rl-mid" data-l="风险">中</td>
+ <td class="amt" data-l="20日均额">99.34亿</td>
+ 
+</tr>
+<tr class="detail"><td class="dspace"></td><td colspan="9">
+   <span class="dim">动量</span> 周线随机4(大周期偏弱)，日线K10　<span class="dim">形态</span> 趋势未确立<br>
+   <span class="dim">价格/时间</span> 最近上行目标聚合区≈980.0，斐波那契潜在上行181%，10日波动可达约76%<br>
+   <span class="dim">操作</span> 触发价 <b>429.05</b>（突破近日高点1跳，Tr-1BH 顺势介入，勿在目标价追买）；止损 <b>345.47</b>（setup 失效位）；每股暴露 <b>83.58元</b>，按3%资金规则：单笔仓位 = 可用资金×3% ÷ 83.58。 双单元管理：首单元到50%~61.8%目标启动1BL移动止盈，次单元放宽止损搏主升。
+</td></tr>
+<tr>
+ <td class="rk">5</td>
+ <td class="code" data-l="代码">600498<span class="mk">沪</span></td>
+ <td class="nm" data-l="名称">烽火通信<span class="badge new">新增自选</span><span class="badge dup3" title="同时入选：预期10/20/40">3周期·另见20/40</span><span class="badge stk3" title="已连续7期入选10日榜">连7期🔥</span></td>
+ <td class="num" data-l="现价">32.9</td>
+ <td class="gain" data-l="预期涨幅">+55.0%</td>
+ <td class="num tgt" data-l="目标价">87.43</td>
+ <td class="num" data-l="触发价">35.0</td>
+ <td class="num stop" data-l="止损价">31.05</td>
+ <td class="rl-mid" data-l="风险">中</td>
+ <td class="amt" data-l="20日均额">36.40亿</td>
+ 
+</tr>
+<tr class="detail"><td class="dspace"></td><td colspan="9">
+   <span class="dim">动量</span> 周线随机4(大周期偏弱)，日线K6　<span class="dim">形态</span> 趋势未确立<br>
+   <span class="dim">价格/时间</span> 最近上行目标聚合区≈87.43，斐波那契潜在上行166%，10日波动可达约55%<br>
+   <span class="dim">操作</span> 触发价 <b>35.0</b>（突破近日高点1跳，Tr-1BH 顺势介入，勿在目标价追买）；止损 <b>31.05</b>（setup 失效位）；每股暴露 <b>3.95元</b>，按3%资金规则：单笔仓位 = 可用资金×3% ÷ 3.95。 双单元管理：首单元到50%~61.8%目标启动1BL移动止盈，次单元放宽止损搏主升。
+</td></tr>
+<tr>
+ <td class="rk">6</td>
+ <td class="code" data-l="代码">002491<span class="mk">深</span></td>
+ <td class="nm" data-l="名称">通鼎互联<span class="badge dup3" title="同时入选：预期10/20/40">3周期·另见20/40</span><span class="badge stk3" title="已连续7期入选10日榜">连7期🔥</span></td>
+ <td class="num" data-l="现价">13.86</td>
+ <td class="gain" data-l="预期涨幅">+55.0%</td>
+ <td class="num tgt" data-l="目标价">39.71</td>
+ <td class="num" data-l="触发价">15.19</td>
+ <td class="num stop" data-l="止损价">13.31</td>
+ <td class="rl-mid" data-l="风险">中</td>
+ <td class="amt" data-l="20日均额">25.53亿</td>
+ 
+</tr>
+<tr class="detail"><td class="dspace"></td><td colspan="9">
+   <span class="dim">动量</span> 周线随机2(大周期偏弱)，日线K5　<span class="dim">形态</span> 趋势未确立<br>
+   <span class="dim">价格/时间</span> 最近上行目标聚合区≈39.71，斐波那契潜在上行187%，10日波动可达约62%<br>
+   <span class="dim">操作</span> 触发价 <b>15.19</b>（突破近日高点1跳，Tr-1BH 顺势介入，勿在目标价追买）；止损 <b>13.31</b>（setup 失效位）；每股暴露 <b>1.88元</b>，按3%资金规则：单笔仓位 = 可用资金×3% ÷ 1.88。 双单元管理：首单元到50%~61.8%目标启动1BL移动止盈，次单元放宽止损搏主升。
+</td></tr>
+<tr>
+ <td class="rk">7</td>
+ <td class="code" data-l="代码">002636<span class="mk">深</span></td>
+ <td class="nm" data-l="名称">金安国纪<span class="badge new">新增自选</span><span class="badge dup4" title="同时入选：预期05/10/20/40">4周期·另见05/20/40</span><span class="badge stk3" title="已连续4期入选10日榜">连4期🔥</span></td>
+ <td class="num" data-l="现价">47.32</td>
+ <td class="gain" data-l="预期涨幅">+55.0%</td>
+ <td class="num tgt" data-l="目标价">124.38</td>
+ <td class="num" data-l="触发价">54.02</td>
+ <td class="num stop" data-l="止损价">46.43</td>
+ <td class="rl-mid" data-l="风险">中</td>
+ <td class="amt" data-l="20日均额">36.25亿</td>
+ 
+</tr>
+<tr class="detail"><td class="dspace"></td><td colspan="9">
+   <span class="dim">动量</span> 周线随机14(大周期偏弱)，日线K1　<span class="dim">形态</span> 趋势未确立<br>
+   <span class="dim">价格/时间</span> 最近上行目标聚合区≈124.38，斐波那契潜在上行163%，10日波动可达约87%<br>
+   <span class="dim">操作</span> 触发价 <b>54.02</b>（突破近日高点1跳，Tr-1BH 顺势介入，勿在目标价追买）；止损 <b>46.43</b>（setup 失效位）；每股暴露 <b>7.59元</b>，按3%资金规则：单笔仓位 = 可用资金×3% ÷ 7.59。 双单元管理：首单元到50%~61.8%目标启动1BL移动止盈，次单元放宽止损搏主升。
+</td></tr>
+<tr>
+ <td class="rk">8</td>
+ <td class="code" data-l="代码">603256<span class="mk">沪</span></td>
+ <td class="nm" data-l="名称">宏和科技<span class="badge new">新增自选</span><span class="badge dup4" title="同时入选：预期05/10/20/40">4周期·另见05/20/40</span><span class="badge stknew" title="本期新进榜">新进榜</span></td>
+ <td class="num" data-l="现价">115.32</td>
+ <td class="gain" data-l="预期涨幅">+55.0%</td>
+ <td class="num tgt" data-l="目标价">304.0</td>
+ <td class="num" data-l="触发价">137.69</td>
+ <td class="num stop" data-l="止损价">114.17</td>
+ <td class="rl-mid" data-l="风险">中</td>
+ <td class="amt" data-l="20日均额">28.75亿</td>
+ 
+</tr>
+<tr class="detail"><td class="dspace"></td><td colspan="9">
+   <span class="dim">动量</span> 周线随机11(大周期偏弱)，日线K1　<span class="dim">形态</span> 趋势未确立<br>
+   <span class="dim">价格/时间</span> 最近上行目标聚合区≈304.0，斐波那契潜在上行164%，10日波动可达约80%<br>
+   <span class="dim">操作</span> 触发价 <b>137.69</b>（突破近日高点1跳，Tr-1BH 顺势介入，勿在目标价追买）；止损 <b>114.17</b>（setup 失效位）；每股暴露 <b>23.52元</b>，按3%资金规则：单笔仓位 = 可用资金×3% ÷ 23.52。 双单元管理：首单元到50%~61.8%目标启动1BL移动止盈，次单元放宽止损搏主升。
+</td></tr>
+<tr>
+ <td class="rk">9</td>
+ <td class="code" data-l="代码">600353<span class="mk">沪</span></td>
+ <td class="nm" data-l="名称">旭光电子<span class="badge new">新增自选</span><span class="badge dup4" title="同时入选：预期05/10/20/40">4周期·另见05/20/40</span><span class="badge stk3" title="已连续3期入选10日榜">连3期🔥</span></td>
+ <td class="num" data-l="现价">21.05</td>
+ <td class="gain" data-l="预期涨幅">+55.0%</td>
+ <td class="num tgt" data-l="目标价">53.68</td>
+ <td class="num" data-l="触发价">23.73</td>
+ <td class="num stop" data-l="止损价">20.51</td>
+ <td class="rl-mid" data-l="风险">中</td>
+ <td class="amt" data-l="20日均额">15.46亿</td>
+ 
+</tr>
+<tr class="detail"><td class="dspace"></td><td colspan="9">
+   <span class="dim">动量</span> 周线随机18(大周期偏弱)，日线K1　<span class="dim">形态</span> 趋势未确立<br>
+   <span class="dim">价格/时间</span> 最近上行目标聚合区≈53.68，斐波那契潜在上行155%，10日波动可达约80%<br>
+   <span class="dim">操作</span> 触发价 <b>23.73</b>（突破近日高点1跳，Tr-1BH 顺势介入，勿在目标价追买）；止损 <b>20.51</b>（setup 失效位）；每股暴露 <b>3.22元</b>，按3%资金规则：单笔仓位 = 可用资金×3% ÷ 3.22。 双单元管理：首单元到50%~61.8%目标启动1BL移动止盈，次单元放宽止损搏主升。
+</td></tr>
+<tr>
+ <td class="rk">10</td>
+ <td class="code" data-l="代码">603738<span class="mk">沪</span></td>
+ <td class="nm" data-l="名称">泰晶科技<span class="badge new">新增自选</span><span class="badge dup3" title="同时入选：预期10/20/40">3周期·另见20/40</span><span class="badge stknew" title="本期新进榜">新进榜</span></td>
+ <td class="num" data-l="现价">28.92</td>
+ <td class="gain" data-l="预期涨幅">+55.0%</td>
+ <td class="num tgt" data-l="目标价">69.35</td>
+ <td class="num" data-l="触发价">30.99</td>
+ <td class="num stop" data-l="止损价">26.36</td>
+ <td class="rl-mid" data-l="风险">中</td>
+ <td class="amt" data-l="20日均额">12.54亿</td>
+ 
+</tr>
+<tr class="detail"><td class="dspace"></td><td colspan="9">
+   <span class="dim">动量</span> 周线随机7(大周期偏弱)，日线K12　<span class="dim">形态</span> 趋势未确立<br>
+   <span class="dim">价格/时间</span> 最近上行目标聚合区≈69.35，斐波那契潜在上行140%，10日波动可达约62%<br>
+   <span class="dim">操作</span> 触发价 <b>30.99</b>（突破近日高点1跳，Tr-1BH 顺势介入，勿在目标价追买）；止损 <b>26.36</b>（setup 失效位）；每股暴露 <b>4.63元</b>，按3%资金规则：单笔仓位 = 可用资金×3% ÷ 4.63。 双单元管理：首单元到50%~61.8%目标启动1BL移动止盈，次单元放宽止损搏主升。
+</td></tr>
+<tr>
+ <td class="rk">11</td>
+ <td class="code" data-l="代码">003036<span class="mk">深</span></td>
+ <td class="nm" data-l="名称">泰坦股份<span class="badge new">新增自选</span><span class="badge dup4" title="同时入选：预期05/10/20/40">4周期·另见05/20/40</span><span class="badge stk3" title="已连续3期入选10日榜">连3期🔥</span></td>
+ <td class="num" data-l="现价">40.91</td>
+ <td class="gain" data-l="预期涨幅">+55.0%</td>
+ <td class="num tgt" data-l="目标价">104.79</td>
+ <td class="num" data-l="触发价">45.06</td>
+ <td class="num stop" data-l="止损价">40.14</td>
+ <td class="rl-mid" data-l="风险">中</td>
+ <td class="amt" data-l="20日均额">4.16亿</td>
+ 
+</tr>
+<tr class="detail"><td class="dspace"></td><td colspan="9">
+   <span class="dim">动量</span> 周线随机19(大周期偏弱)，日线K4　<span class="dim">形态</span> 趋势未确立<br>
+   <span class="dim">价格/时间</span> 最近上行目标聚合区≈104.79，斐波那契潜在上行156%，10日波动可达约73%<br>
+   <span class="dim">操作</span> 触发价 <b>45.06</b>（突破近日高点1跳，Tr-1BH 顺势介入，勿在目标价追买）；止损 <b>40.14</b>（setup 失效位）；每股暴露 <b>4.92元</b>，按3%资金规则：单笔仓位 = 可用资金×3% ÷ 4.92。 双单元管理：首单元到50%~61.8%目标启动1BL移动止盈，次单元放宽止损搏主升。
+</td></tr>
+<tr>
+ <td class="rk">12</td>
+ <td class="code" data-l="代码">002080<span class="mk">深</span></td>
+ <td class="nm" data-l="名称">中材科技<span class="badge new">新增自选</span><span class="badge dup4" title="同时入选：预期05/10/20/40">4周期·另见05/20/40</span><span class="badge stk3" title="已连续6期入选10日榜">连6期🔥</span></td>
+ <td class="num" data-l="现价">40.34</td>
+ <td class="gain" data-l="预期涨幅">+55.0%</td>
+ <td class="num tgt" data-l="目标价">102.22</td>
+ <td class="num" data-l="触发价">46.57</td>
+ <td class="num stop" data-l="止损价">39.66</td>
+ <td class="rl-mid" data-l="风险">中</td>
+ <td class="amt" data-l="20日均额">29.85亿</td>
+ 
+</tr>
+<tr class="detail"><td class="dspace"></td><td colspan="9">
+   <span class="dim">动量</span> 周线随机3(大周期偏弱)，日线K5　<span class="dim">形态</span> 趋势未确立<br>
+   <span class="dim">价格/时间</span> 最近上行目标聚合区≈102.22，斐波那契潜在上行153%，10日波动可达约73%<br>
+   <span class="dim">操作</span> 触发价 <b>46.57</b>（突破近日高点1跳，Tr-1BH 顺势介入，勿在目标价追买）；止损 <b>39.66</b>（setup 失效位）；每股暴露 <b>6.91元</b>，按3%资金规则：单笔仓位 = 可用资金×3% ÷ 6.91。 双单元管理：首单元到50%~61.8%目标启动1BL移动止盈，次单元放宽止损搏主升。
+</td></tr>
+<tr>
+ <td class="rk">13</td>
+ <td class="code" data-l="代码">600487<span class="mk">沪</span></td>
+ <td class="nm" data-l="名称">亨通光电<span class="badge dup2" title="同时入选：预期10/20">2周期·另见20</span><span class="badge stk3" title="已连续7期入选10日榜">连7期🔥</span></td>
+ <td class="num" data-l="现价">47.37</td>
+ <td class="gain" data-l="预期涨幅">+55.0%</td>
+ <td class="num tgt" data-l="目标价">124.85</td>
+ <td class="num" data-l="触发价">51.27</td>
+ <td class="num stop" data-l="止损价">45.14</td>
+ <td class="rl-mid" data-l="风险">中</td>
+ <td class="amt" data-l="20日均额">126.98亿</td>
+ 
+</tr>
+<tr class="detail"><td class="dspace"></td><td colspan="9">
+   <span class="dim">动量</span> 周线随机2(大周期偏弱)，日线K6　<span class="dim">形态</span> 趋势未确立<br>
+   <span class="dim">价格/时间</span> 最近上行目标聚合区≈124.85，斐波那契潜在上行164%，10日波动可达约59%<br>
+   <span class="dim">操作</span> 触发价 <b>51.27</b>（突破近日高点1跳，Tr-1BH 顺势介入，勿在目标价追买）；止损 <b>45.14</b>（setup 失效位）；每股暴露 <b>6.13元</b>，按3%资金规则：单笔仓位 = 可用资金×3% ÷ 6.13。 双单元管理：首单元到50%~61.8%目标启动1BL移动止盈，次单元放宽止损搏主升。
+</td></tr>
+<tr>
+ <td class="rk">14</td>
+ <td class="code" data-l="代码">002655<span class="mk">深</span></td>
+ <td class="nm" data-l="名称">共达电声<span class="badge new">新增自选</span><span class="badge dup3" title="同时入选：预期05/10/20">3周期·另见05/20</span><span class="badge stknew" title="本期新进榜">新进榜</span></td>
+ <td class="num" data-l="现价">22.37</td>
+ <td class="gain" data-l="预期涨幅">+55.0%</td>
+ <td class="num tgt" data-l="目标价">52.72</td>
+ <td class="num" data-l="触发价">23.71</td>
+ <td class="num stop" data-l="止损价">21.08</td>
+ <td class="rl-mid" data-l="风险">中</td>
+ <td class="amt" data-l="20日均额">7.36亿</td>
+ 
+</tr>
+<tr class="detail"><td class="dspace"></td><td colspan="9">
+   <span class="dim">动量</span> 周线随机7(大周期偏弱)，日线K6　<span class="dim">形态</span> 趋势未确立<br>
+   <span class="dim">价格/时间</span> 最近上行目标聚合区≈52.72，斐波那契潜在上行136%，10日波动可达约61%<br>
+   <span class="dim">操作</span> 触发价 <b>23.71</b>（突破近日高点1跳，Tr-1BH 顺势介入，勿在目标价追买）；止损 <b>21.08</b>（setup 失效位）；每股暴露 <b>2.63元</b>，按3%资金规则：单笔仓位 = 可用资金×3% ÷ 2.63。 双单元管理：首单元到50%~61.8%目标启动1BL移动止盈，次单元放宽止损搏主升。
+</td></tr>
+<tr>
+ <td class="rk">15</td>
+ <td class="code" data-l="代码">002903<span class="mk">深</span></td>
+ <td class="nm" data-l="名称">宇环数控<span class="badge dup2" title="同时入选：预期10/20">2周期·另见20</span><span class="badge stk2" title="已连续2期入选10日榜">连2期</span></td>
+ <td class="num" data-l="现价">23.43</td>
+ <td class="gain" data-l="预期涨幅">+55.0%</td>
+ <td class="num tgt" data-l="目标价">54.9</td>
+ <td class="num" data-l="触发价">24.58</td>
+ <td class="num stop" data-l="止损价">22.59</td>
+ <td class="rl-mid" data-l="风险">中</td>
+ <td class="amt" data-l="20日均额">3.20亿</td>
+ 
+</tr>
+<tr class="detail"><td class="dspace"></td><td colspan="9">
+   <span class="dim">动量</span> 周线随机10(大周期偏弱)，日线K29　<span class="dim">形态</span> 趋势未确立<br>
+   <span class="dim">价格/时间</span> 最近上行目标聚合区≈54.9，斐波那契潜在上行134%，10日波动可达约49%<br>
+   <span class="dim">操作</span> 触发价 <b>24.58</b>（突破近日高点1跳，Tr-1BH 顺势介入，勿在目标价追买）；止损 <b>22.59</b>（setup 失效位）；每股暴露 <b>1.99元</b>，按3%资金规则：单笔仓位 = 可用资金×3% ÷ 1.99。 双单元管理：首单元到50%~61.8%目标启动1BL移动止盈，次单元放宽止损搏主升。
+</td></tr>
+<tr>
+ <td class="rk">16</td>
+ <td class="code" data-l="代码">600367<span class="mk">沪</span></td>
+ <td class="nm" data-l="名称">红星发展<span class="badge new">新增自选</span><span class="badge dup2" title="同时入选：预期10/20">2周期·另见20</span><span class="badge stknew" title="本期新进榜">新进榜</span></td>
+ <td class="num" data-l="现价">25.62</td>
+ <td class="gain" data-l="预期涨幅">+55.0%</td>
+ <td class="num tgt" data-l="目标价">66.39</td>
+ <td class="num" data-l="触发价">29.09</td>
+ <td class="num stop" data-l="止损价">25.15</td>
+ <td class="rl-mid" data-l="风险">中</td>
+ <td class="amt" data-l="20日均额">9.70亿</td>
+ 
+</tr>
+<tr class="detail"><td class="dspace"></td><td colspan="9">
+   <span class="dim">动量</span> 周线随机13(大周期偏弱)，日线K5　<span class="dim">形态</span> 趋势未确立<br>
+   <span class="dim">价格/时间</span> 最近上行目标聚合区≈66.39，斐波那契潜在上行159%，10日波动可达约61%<br>
+   <span class="dim">操作</span> 触发价 <b>29.09</b>（突破近日高点1跳，Tr-1BH 顺势介入，勿在目标价追买）；止损 <b>25.15</b>（setup 失效位）；每股暴露 <b>3.94元</b>，按3%资金规则：单笔仓位 = 可用资金×3% ÷ 3.94。 双单元管理：首单元到50%~61.8%目标启动1BL移动止盈，次单元放宽止损搏主升。
+</td></tr>
+<tr>
+ <td class="rk">17</td>
+ <td class="code" data-l="代码">600522<span class="mk">沪</span></td>
+ <td class="nm" data-l="名称">中天科技<span class="badge new">新增自选</span><span class="badge stknew" title="本期新进榜">新进榜</span></td>
+ <td class="num" data-l="现价">28.39</td>
+ <td class="gain" data-l="预期涨幅">+55.0%</td>
+ <td class="num tgt" data-l="目标价">67.69</td>
+ <td class="num" data-l="触发价">30.11</td>
+ <td class="num stop" data-l="止损价">26.75</td>
+ <td class="rl-mid" data-l="风险">中</td>
+ <td class="amt" data-l="20日均额">89.70亿</td>
+ 
+</tr>
+<tr class="detail"><td class="dspace"></td><td colspan="9">
+   <span class="dim">动量</span> 周线随机5(大周期偏弱)，日线K7　<span class="dim">形态</span> 趋势未确立<br>
+   <span class="dim">价格/时间</span> 最近上行目标聚合区≈67.69，斐波那契潜在上行138%，10日波动可达约53%<br>
+   <span class="dim">操作</span> 触发价 <b>30.11</b>（突破近日高点1跳，Tr-1BH 顺势介入，勿在目标价追买）；止损 <b>26.75</b>（setup 失效位）；每股暴露 <b>3.36元</b>，按3%资金规则：单笔仓位 = 可用资金×3% ÷ 3.36。 双单元管理：首单元到50%~61.8%目标启动1BL移动止盈，次单元放宽止损搏主升。
+</td></tr>
+<tr>
+ <td class="rk">18</td>
+ <td class="code" data-l="代码">603989<span class="mk">沪</span></td>
+ <td class="nm" data-l="名称">艾华集团<span class="badge new">新增自选</span><span class="badge dup2" title="同时入选：预期10/20">2周期·另见20</span><span class="badge stknew" title="本期新进榜">新进榜</span></td>
+ <td class="num" data-l="现价">23.57</td>
+ <td class="gain" data-l="预期涨幅">+55.0%</td>
+ <td class="num tgt" data-l="目标价">57.77</td>
+ <td class="num" data-l="触发价">26.56</td>
+ <td class="num stop" data-l="止损价">22.65</td>
+ <td class="rl-mid" data-l="风险">中</td>
+ <td class="amt" data-l="20日均额">6.69亿</td>
+ 
+</tr>
+<tr class="detail"><td class="dspace"></td><td colspan="9">
+   <span class="dim">动量</span> 周线随机14(大周期偏弱)，日线K4　<span class="dim">形态</span> 趋势未确立<br>
+   <span class="dim">价格/时间</span> 最近上行目标聚合区≈57.77，斐波那契潜在上行145%，10日波动可达约73%<br>
+   <span class="dim">操作</span> 触发价 <b>26.56</b>（突破近日高点1跳，Tr-1BH 顺势介入，勿在目标价追买）；止损 <b>22.65</b>（setup 失效位）；每股暴露 <b>3.91元</b>，按3%资金规则：单笔仓位 = 可用资金×3% ÷ 3.91。 双单元管理：首单元到50%~61.8%目标启动1BL移动止盈，次单元放宽止损搏主升。
+</td></tr>
+<tr>
+ <td class="rk">19</td>
+ <td class="code" data-l="代码">600714<span class="mk">沪</span></td>
+ <td class="nm" data-l="名称">金瑞矿业<span class="badge new">新增自选</span><span class="badge dup3" title="同时入选：预期10/20/40">3周期·另见20/40</span><span class="badge stk2" title="已连续2期入选10日榜">连2期</span></td>
+ <td class="num" data-l="现价">13.22</td>
+ <td class="gain" data-l="预期涨幅">+55.0%</td>
+ <td class="num tgt" data-l="目标价">33.35</td>
+ <td class="num" data-l="触发价">13.61</td>
+ <td class="num stop" data-l="止损价">12.52</td>
+ <td class="rl-mid" data-l="风险">中</td>
+ <td class="amt" data-l="20日均额">2.06亿</td>
+ 
+</tr>
+<tr class="detail"><td class="dspace"></td><td colspan="9">
+   <span class="dim">动量</span> 周线随机8(大周期偏弱)，日线K38　<span class="dim">形态</span> 趋势未确立<br>
+   <span class="dim">价格/时间</span> 最近上行目标聚合区≈33.35，斐波那契潜在上行152%，10日波动可达约40%<br>
+   <span class="dim">操作</span> 触发价 <b>13.61</b>（突破近日高点1跳，Tr-1BH 顺势介入，勿在目标价追买）；止损 <b>12.52</b>（setup 失效位）；每股暴露 <b>1.09元</b>，按3%资金规则：单笔仓位 = 可用资金×3% ÷ 1.09。 双单元管理：首单元到50%~61.8%目标启动1BL移动止盈，次单元放宽止损搏主升。
+</td></tr>
+<tr>
+ <td class="rk">20</td>
+ <td class="code" data-l="代码">600545<span class="mk">沪</span></td>
+ <td class="nm" data-l="名称">卓郎智能<span class="badge new">新增自选</span><span class="badge dup2" title="同时入选：预期10/20">2周期·另见20</span><span class="badge stknew" title="本期新进榜">新进榜</span></td>
+ <td class="num" data-l="现价">3.87</td>
+ <td class="gain" data-l="预期涨幅">+55.0%</td>
+ <td class="num tgt" data-l="目标价">8.24</td>
+ <td class="num" data-l="触发价">3.96</td>
+ <td class="num stop" data-l="止损价">3.54</td>
+ <td class="rl-mid" data-l="风险">中</td>
+ <td class="amt" data-l="20日均额">4.21亿</td>
+ 
+</tr>
+<tr class="detail"><td class="dspace"></td><td colspan="9">
+   <span class="dim">动量</span> 周线随机11(大周期偏弱)，日线K26　<span class="dim">形态</span> 趋势未确立<br>
+   <span class="dim">价格/时间</span> 最近上行目标聚合区≈8.24，斐波那契潜在上行113%，10日波动可达约48%<br>
+   <span class="dim">操作</span> 触发价 <b>3.96</b>（突破近日高点1跳，Tr-1BH 顺势介入，勿在目标价追买）；止损 <b>3.54</b>（setup 失效位）；每股暴露 <b>0.42元</b>，按3%资金规则：单笔仓位 = 可用资金×3% ÷ 0.42。 双单元管理：首单元到50%~61.8%目标启动1BL移动止盈，次单元放宽止损搏主升。
+</td></tr>
+<tr>
+ <td class="rk">21</td>
+ <td class="code" data-l="代码">601208<span class="mk">沪</span></td>
+ <td class="nm" data-l="名称">东材科技<span class="badge new">新增自选</span><span class="badge dup2" title="同时入选：预期05/10">2周期·另见05</span><span class="badge stk3" title="已连续3期入选10日榜">连3期🔥</span></td>
+ <td class="num" data-l="现价">32.5</td>
+ <td class="gain" data-l="预期涨幅">+55.0%</td>
+ <td class="num tgt" data-l="目标价">80.37</td>
+ <td class="num" data-l="触发价">36.6</td>
+ <td class="num stop" data-l="止损价">31.93</td>
+ <td class="rl-mid" data-l="风险">中</td>
+ <td class="amt" data-l="20日均额">30.04亿</td>
+ 
+</tr>
+<tr class="detail"><td class="dspace"></td><td colspan="9">
+   <span class="dim">动量</span> 周线随机7(大周期偏弱)，日线K3　<span class="dim">形态</span> 趋势未确立<br>
+   <span class="dim">价格/时间</span> 最近上行目标聚合区≈80.37，斐波那契潜在上行147%，10日波动可达约67%<br>
+   <span class="dim">操作</span> 触发价 <b>36.6</b>（突破近日高点1跳，Tr-1BH 顺势介入，勿在目标价追买）；止损 <b>31.93</b>（setup 失效位）；每股暴露 <b>4.67元</b>，按3%资金规则：单笔仓位 = 可用资金×3% ÷ 4.67。 双单元管理：首单元到50%~61.8%目标启动1BL移动止盈，次单元放宽止损搏主升。
+</td></tr>
+<tr>
+ <td class="rk">22</td>
+ <td class="code" data-l="代码">603618<span class="mk">沪</span></td>
+ <td class="nm" data-l="名称">杭电股份<span class="badge stk3" title="已连续7期入选10日榜">连7期🔥</span></td>
+ <td class="num" data-l="现价">22.95</td>
+ <td class="gain" data-l="预期涨幅">+55.0%</td>
+ <td class="num tgt" data-l="目标价">57.21</td>
+ <td class="num" data-l="触发价">23.73</td>
+ <td class="num stop" data-l="止损价">20.91</td>
+ <td class="rl-mid" data-l="风险">中</td>
+ <td class="amt" data-l="20日均额">19.88亿</td>
+ 
+</tr>
+<tr class="detail"><td class="dspace"></td><td colspan="9">
+   <span class="dim">动量</span> 周线随机4(大周期偏弱)，日线K9　<span class="dim">形态</span> 趋势未确立<br>
+   <span class="dim">价格/时间</span> 最近上行目标聚合区≈57.21，斐波那契潜在上行149%，10日波动可达约61%<br>
+   <span class="dim">操作</span> 触发价 <b>23.73</b>（突破近日高点1跳，Tr-1BH 顺势介入，勿在目标价追买）；止损 <b>20.91</b>（setup 失效位）；每股暴露 <b>2.82元</b>，按3%资金规则：单笔仓位 = 可用资金×3% ÷ 2.82。 双单元管理：首单元到50%~61.8%目标启动1BL移动止盈，次单元放宽止损搏主升。
+</td></tr>
+<tr>
+ <td class="rk">23</td>
+ <td class="code" data-l="代码">600791<span class="mk">沪</span></td>
+ <td class="nm" data-l="名称">京能置业<span class="badge new">新增自选</span><span class="badge dup3" title="同时入选：预期10/20/40">3周期·另见20/40</span><span class="badge stknew" title="本期新进榜">新进榜</span></td>
+ <td class="num" data-l="现价">6.7</td>
+ <td class="gain" data-l="预期涨幅">+55.0%</td>
+ <td class="num tgt" data-l="目标价">14.3</td>
+ <td class="num" data-l="触发价">6.82</td>
+ <td class="num stop" data-l="止损价">5.86</td>
+ <td class="rl-mid" data-l="风险">中</td>
+ <td class="amt" data-l="20日均额">1.48亿</td>
+ 
+</tr>
+<tr class="detail"><td class="dspace"></td><td colspan="9">
+   <span class="dim">动量</span> 周线随机7(大周期偏弱)，日线K32　<span class="dim">形态</span> 趋势未确立<br>
+   <span class="dim">价格/时间</span> 最近上行目标聚合区≈14.3，斐波那契潜在上行113%，10日波动可达约43%<br>
+   <span class="dim">操作</span> 触发价 <b>6.82</b>（突破近日高点1跳，Tr-1BH 顺势介入，勿在目标价追买）；止损 <b>5.86</b>（setup 失效位）；每股暴露 <b>0.96元</b>，按3%资金规则：单笔仓位 = 可用资金×3% ÷ 0.96。 双单元管理：首单元到50%~61.8%目标启动1BL移动止盈，次单元放宽止损搏主升。
+</td></tr>
+<tr>
+ <td class="rk">24</td>
+ <td class="code" data-l="代码">000962<span class="mk">深</span></td>
+ <td class="nm" data-l="名称">东方钽业<span class="badge new">新增自选</span><span class="badge stknew" title="本期新进榜">新进榜</span></td>
+ <td class="num" data-l="现价">42.67</td>
+ <td class="gain" data-l="预期涨幅">+55.0%</td>
+ <td class="num tgt" data-l="目标价">96.24</td>
+ <td class="num" data-l="触发价">45.17</td>
+ <td class="num stop" data-l="止损价">40.37</td>
+ <td class="rl-mid" data-l="风险">中</td>
+ <td class="amt" data-l="20日均额">14.69亿</td>
+ 
+</tr>
+<tr class="detail"><td class="dspace"></td><td colspan="9">
+   <span class="dim">动量</span> 周线随机7(大周期偏弱)，日线K7　<span class="dim">形态</span> 趋势未确立<br>
+   <span class="dim">价格/时间</span> 最近上行目标聚合区≈96.24，斐波那契潜在上行126%，10日波动可达约60%<br>
+   <span class="dim">操作</span> 触发价 <b>45.17</b>（突破近日高点1跳，Tr-1BH 顺势介入，勿在目标价追买）；止损 <b>40.37</b>（setup 失效位）；每股暴露 <b>4.80元</b>，按3%资金规则：单笔仓位 = 可用资金×3% ÷ 4.80。 双单元管理：首单元到50%~61.8%目标启动1BL移动止盈，次单元放宽止损搏主升。
+</td></tr>
+<tr>
+ <td class="rk">25</td>
+ <td class="code" data-l="代码">000823<span class="mk">深</span></td>
+ <td class="nm" data-l="名称">超声电子<span class="badge new">新增自选</span><span class="badge stknew" title="本期新进榜">新进榜</span></td>
+ <td class="num" data-l="现价">12.67</td>
+ <td class="gain" data-l="预期涨幅">+55.0%</td>
+ <td class="num tgt" data-l="目标价">29.77</td>
+ <td class="num" data-l="触发价">13.24</td>
+ <td class="num stop" data-l="止损价">11.93</td>
+ <td class="rl-mid" data-l="风险">中</td>
+ <td class="amt" data-l="20日均额">8.51亿</td>
+ 
+</tr>
+<tr class="detail"><td class="dspace"></td><td colspan="9">
+   <span class="dim">动量</span> 周线随机6(大周期偏弱)，日线K15　<span class="dim">形态</span> 趋势未确立<br>
+   <span class="dim">价格/时间</span> 最近上行目标聚合区≈29.77，斐波那契潜在上行135%，10日波动可达约47%<br>
+   <span class="dim">操作</span> 触发价 <b>13.24</b>（突破近日高点1跳，Tr-1BH 顺势介入，勿在目标价追买）；止损 <b>11.93</b>（setup 失效位）；每股暴露 <b>1.31元</b>，按3%资金规则：单笔仓位 = 可用资金×3% ÷ 1.31。 双单元管理：首单元到50%~61.8%目标启动1BL移动止盈，次单元放宽止损搏主升。
+</td></tr>
+<tr>
+ <td class="rk">26</td>
+ <td class="code" data-l="代码">600397<span class="mk">沪</span></td>
+ <td class="nm" data-l="名称">江钨装备<span class="badge stk3" title="已连续5期入选10日榜">连5期🔥</span></td>
+ <td class="num" data-l="现价">12.68</td>
+ <td class="gain" data-l="预期涨幅">+55.0%</td>
+ <td class="num tgt" data-l="目标价">31.79</td>
+ <td class="num" data-l="触发价">13.44</td>
+ <td class="num stop" data-l="止损价">12.0</td>
+ <td class="rl-mid" data-l="风险">中</td>
+ <td class="amt" data-l="20日均额">11.03亿</td>
+ 
+</tr>
+<tr class="detail"><td class="dspace"></td><td colspan="9">
+   <span class="dim">动量</span> 周线随机4(大周期偏弱)，日线K6　<span class="dim">形态</span> 趋势未确立<br>
+   <span class="dim">价格/时间</span> 最近上行目标聚合区≈31.79，斐波那契潜在上行151%，10日波动可达约56%<br>
+   <span class="dim">操作</span> 触发价 <b>13.44</b>（突破近日高点1跳，Tr-1BH 顺势介入，勿在目标价追买）；止损 <b>12.0</b>（setup 失效位）；每股暴露 <b>1.44元</b>，按3%资金规则：单笔仓位 = 可用资金×3% ÷ 1.44。 双单元管理：首单元到50%~61.8%目标启动1BL移动止盈，次单元放宽止损搏主升。
+</td></tr>
+<tr>
+ <td class="rk">27</td>
+ <td class="code" data-l="代码">002965<span class="mk">深</span></td>
+ <td class="nm" data-l="名称">祥鑫科技<span class="badge new">新增自选</span><span class="badge dup2" title="同时入选：预期05/10">2周期·另见05</span><span class="badge stknew" title="本期新进榜">新进榜</span></td>
+ <td class="num" data-l="现价">27.23</td>
+ <td class="gain" data-l="预期涨幅">+55.0%</td>
+ <td class="num tgt" data-l="目标价">57.86</td>
+ <td class="num" data-l="触发价">31.67</td>
+ <td class="num stop" data-l="止损价">26.93</td>
+ <td class="rl-mid" data-l="风险">中</td>
+ <td class="amt" data-l="20日均额">7.66亿</td>
+ 
+</tr>
+<tr class="detail"><td class="dspace"></td><td colspan="9">
+   <span class="dim">动量</span> 周线随机14(大周期偏弱)，日线K1　<span class="dim">形态</span> 趋势未确立<br>
+   <span class="dim">价格/时间</span> 最近上行目标聚合区≈57.86，斐波那契潜在上行112%，10日波动可达约74%<br>
+   <span class="dim">操作</span> 触发价 <b>31.67</b>（突破近日高点1跳，Tr-1BH 顺势介入，勿在目标价追买）；止损 <b>26.93</b>（setup 失效位）；每股暴露 <b>4.74元</b>，按3%资金规则：单笔仓位 = 可用资金×3% ÷ 4.74。 双单元管理：首单元到50%~61.8%目标启动1BL移动止盈，次单元放宽止损搏主升。
+</td></tr>
+<tr>
+ <td class="rk">28</td>
+ <td class="code" data-l="代码">603936<span class="mk">沪</span></td>
+ <td class="nm" data-l="名称">博敏电子<span class="badge stk3" title="已连续5期入选10日榜">连5期🔥</span></td>
+ <td class="num" data-l="现价">12.22</td>
+ <td class="gain" data-l="预期涨幅">+55.0%</td>
+ <td class="num tgt" data-l="目标价">30.5</td>
+ <td class="num" data-l="触发价">13.14</td>
+ <td class="num stop" data-l="止损价">11.62</td>
+ <td class="rl-mid" data-l="风险">中</td>
+ <td class="amt" data-l="20日均额">6.30亿</td>
+ 
+</tr>
+<tr class="detail"><td class="dspace"></td><td colspan="9">
+   <span class="dim">动量</span> 周线随机7(大周期偏弱)，日线K10　<span class="dim">形态</span> 趋势未确立<br>
+   <span class="dim">价格/时间</span> 最近上行目标聚合区≈30.5，斐波那契潜在上行150%，10日波动可达约56%<br>
+   <span class="dim">操作</span> 触发价 <b>13.14</b>（突破近日高点1跳，Tr-1BH 顺势介入，勿在目标价追买）；止损 <b>11.62</b>（setup 失效位）；每股暴露 <b>1.52元</b>，按3%资金规则：单笔仓位 = 可用资金×3% ÷ 1.52。 双单元管理：首单元到50%~61.8%目标启动1BL移动止盈，次单元放宽止损搏主升。
+</td></tr>
+<tr>
+ <td class="rk">29</td>
+ <td class="code" data-l="代码">603283<span class="mk">沪</span></td>
+ <td class="nm" data-l="名称">赛腾股份<span class="badge new">新增自选</span><span class="badge dup2" title="同时入选：预期05/10">2周期·另见05</span><span class="badge stknew" title="本期新进榜">新进榜</span></td>
+ <td class="num" data-l="现价">36.61</td>
+ <td class="gain" data-l="预期涨幅">+55.0%</td>
+ <td class="num tgt" data-l="目标价">88.88</td>
+ <td class="num" data-l="触发价">41.03</td>
+ <td class="num stop" data-l="止损价">36.08</td>
+ <td class="rl-mid" data-l="风险">中</td>
+ <td class="amt" data-l="20日均额">13.76亿</td>
+ 
+</tr>
+<tr class="detail"><td class="dspace"></td><td colspan="9">
+   <span class="dim">动量</span> 周线随机5(大周期偏弱)，日线K3　<span class="dim">形态</span> 趋势未确立<br>
+   <span class="dim">价格/时间</span> 最近上行目标聚合区≈88.88，斐波那契潜在上行143%，10日波动可达约64%<br>
+   <span class="dim">操作</span> 触发价 <b>41.03</b>（突破近日高点1跳，Tr-1BH 顺势介入，勿在目标价追买）；止损 <b>36.08</b>（setup 失效位）；每股暴露 <b>4.95元</b>，按3%资金规则：单笔仓位 = 可用资金×3% ÷ 4.95。 双单元管理：首单元到50%~61.8%目标启动1BL移动止盈，次单元放宽止损搏主升。
+</td></tr>
+<tr>
+ <td class="rk">30</td>
+ <td class="code" data-l="代码">603683<span class="mk">沪</span></td>
+ <td class="nm" data-l="名称">晶华新材<span class="badge dup2" title="同时入选：预期05/10">2周期·另见05</span><span class="badge stk3" title="已连续7期入选10日榜">连7期🔥</span></td>
+ <td class="num" data-l="现价">14.14</td>
+ <td class="gain" data-l="预期涨幅">+55.0%</td>
+ <td class="num tgt" data-l="目标价">34.46</td>
+ <td class="num" data-l="触发价">14.36</td>
+ <td class="num stop" data-l="止损价">13.18</td>
+ <td class="rl-mid" data-l="风险">中</td>
+ <td class="amt" data-l="20日均额">4.72亿</td>
+ 
+</tr>
+<tr class="detail"><td class="dspace"></td><td colspan="9">
+   <span class="dim">动量</span> 周线随机4(大周期偏弱)，日线K3　<span class="dim">形态</span> 趋势未确立<br>
+   <span class="dim">价格/时间</span> 最近上行目标聚合区≈34.46，斐波那契潜在上行144%，10日波动可达约60%<br>
+   <span class="dim">操作</span> 触发价 <b>14.36</b>（突破近日高点1跳，Tr-1BH 顺势介入，勿在目标价追买）；止损 <b>13.18</b>（setup 失效位）；每股暴露 <b>1.18元</b>，按3%资金规则：单笔仓位 = 可用资金×3% ÷ 1.18。 双单元管理：首单元到50%~61.8%目标启动1BL移动止盈，次单元放宽止损搏主升。
+</td></tr></tbody>
+  </table>
+</div>
+<div class="panel" id="p20">
+  <div class="phead">「预期20」板块 · 20个交易日内预期最大涨幅 Top30 <span class="cap">(数值上限95%)</span></div>
+  <table>
+   <thead><tr>
+     <th>#</th><th>代码</th><th>名称</th><th>现价</th><th>预期涨幅</th><th>目标价</th>
+     <th>触发价</th><th>止损价</th><th>风险</th><th>20日均额</th>
+     
+   </tr></thead>
+   <tbody>
+<tr>
+ <td class="rk">1</td>
+ <td class="code" data-l="代码">603186<span class="mk">沪</span></td>
+ <td class="nm" data-l="名称">华正新材<span class="badge new">新增自选</span><span class="badge dup4" title="同时入选：预期05/10/20/40">4周期·另见05/10/40</span><span class="badge stk3" title="已连续4期入选20日榜">连4期🔥</span></td>
+ <td class="num" data-l="现价">98.6</td>
+ <td class="gain" data-l="预期涨幅">+95.0%</td>
+ <td class="num tgt" data-l="目标价">269.87</td>
+ <td class="num" data-l="触发价">112.0</td>
+ <td class="num stop" data-l="止损价">96.82</td>
+ <td class="rl-mid" data-l="风险">中</td>
+ <td class="amt" data-l="20日均额">23.63亿</td>
+ 
+</tr>
+<tr class="detail"><td class="dspace"></td><td colspan="9">
+   <span class="dim">动量</span> 周线随机19(大周期偏弱)，日线K3　<span class="dim">形态</span> 趋势未确立<br>
+   <span class="dim">价格/时间</span> 最近上行目标聚合区≈269.87，斐波那契潜在上行174%，20日波动可达约126%<br>
+   <span class="dim">操作</span> 触发价 <b>112.0</b>（突破近日高点1跳，Tr-1BH 顺势介入，勿在目标价追买）；止损 <b>96.82</b>（setup 失效位）；每股暴露 <b>15.18元</b>，按3%资金规则：单笔仓位 = 可用资金×3% ÷ 15.18。 双单元管理：首单元到50%~61.8%目标启动1BL移动止盈，次单元放宽止损搏主升。
+</td></tr>
+<tr>
+ <td class="rk">2</td>
+ <td class="code" data-l="代码">600683<span class="mk">沪</span></td>
+ <td class="nm" data-l="名称">京投发展<span class="badge new">新增自选</span><span class="badge dup2" title="同时入选：预期20/40">2周期·另见40</span><span class="badge stk3" title="已连续7期入选20日榜">连7期🔥</span></td>
+ <td class="num" data-l="现价">7.96</td>
+ <td class="gain" data-l="预期涨幅">+95.0%</td>
+ <td class="num tgt" data-l="目标价">21.83</td>
+ <td class="num" data-l="触发价">8.18</td>
+ <td class="num stop" data-l="止损价">7.27</td>
+ <td class="rl-mid" data-l="风险">中</td>
+ <td class="amt" data-l="20日均额">1.71亿</td>
+ 
+</tr>
+<tr class="detail"><td class="dspace"></td><td colspan="9">
+   <span class="dim">动量</span> 周线随机6(大周期偏弱)，日线K27　<span class="dim">形态</span> 趋势未确立<br>
+   <span class="dim">价格/时间</span> 最近上行目标聚合区≈21.83，斐波那契潜在上行174%，20日波动可达约67%<br>
+   <span class="dim">操作</span> 触发价 <b>8.18</b>（突破近日高点1跳，Tr-1BH 顺势介入，勿在目标价追买）；止损 <b>7.27</b>（setup 失效位）；每股暴露 <b>0.91元</b>，按3%资金规则：单笔仓位 = 可用资金×3% ÷ 0.91。 双单元管理：首单元到50%~61.8%目标启动1BL移动止盈，次单元放宽止损搏主升。
+</td></tr>
+<tr>
+ <td class="rk">3</td>
+ <td class="code" data-l="代码">600869<span class="mk">沪</span></td>
+ <td class="nm" data-l="名称">远东股份<span class="badge dup4" title="同时入选：预期05/10/20/40">4周期·另见05/10/40</span><span class="badge stk3" title="已连续7期入选20日榜">连7期🔥</span></td>
+ <td class="num" data-l="现价">13.26</td>
+ <td class="gain" data-l="预期涨幅">+95.0%</td>
+ <td class="num tgt" data-l="目标价">38.56</td>
+ <td class="num" data-l="触发价">14.11</td>
+ <td class="num stop" data-l="止损价">12.49</td>
+ <td class="rl-mid" data-l="风险">中</td>
+ <td class="amt" data-l="20日均额">19.12亿</td>
+ 
+</tr>
+<tr class="detail"><td class="dspace"></td><td colspan="9">
+   <span class="dim">动量</span> 周线随机3(大周期偏弱)，日线K5　<span class="dim">形态</span> 趋势未确立<br>
+   <span class="dim">价格/时间</span> 最近上行目标聚合区≈38.56，斐波那契潜在上行191%，20日波动可达约83%<br>
+   <span class="dim">操作</span> 触发价 <b>14.11</b>（突破近日高点1跳，Tr-1BH 顺势介入，勿在目标价追买）；止损 <b>12.49</b>（setup 失效位）；每股暴露 <b>1.62元</b>，按3%资金规则：单笔仓位 = 可用资金×3% ÷ 1.62。 双单元管理：首单元到50%~61.8%目标启动1BL移动止盈，次单元放宽止损搏主升。
+</td></tr>
+<tr>
+ <td class="rk">4</td>
+ <td class="code" data-l="代码">600791<span class="mk">沪</span></td>
+ <td class="nm" data-l="名称">京能置业<span class="badge new">新增自选</span><span class="badge dup3" title="同时入选：预期10/20/40">3周期·另见10/40</span><span class="badge stk3" title="已连续7期入选20日榜">连7期🔥</span></td>
+ <td class="num" data-l="现价">6.7</td>
+ <td class="gain" data-l="预期涨幅">+95.0%</td>
+ <td class="num tgt" data-l="目标价">17.88</td>
+ <td class="num" data-l="触发价">6.82</td>
+ <td class="num stop" data-l="止损价">5.86</td>
+ <td class="rl-mid" data-l="风险">中</td>
+ <td class="amt" data-l="20日均额">1.48亿</td>
+ 
+</tr>
+<tr class="detail"><td class="dspace"></td><td colspan="9">
+   <span class="dim">动量</span> 周线随机7(大周期偏弱)，日线K32　<span class="dim">形态</span> 趋势未确立<br>
+   <span class="dim">价格/时间</span> 最近上行目标聚合区≈17.88，斐波那契潜在上行167%，20日波动可达约61%<br>
+   <span class="dim">操作</span> 触发价 <b>6.82</b>（突破近日高点1跳，Tr-1BH 顺势介入，勿在目标价追买）；止损 <b>5.86</b>（setup 失效位）；每股暴露 <b>0.96元</b>，按3%资金规则：单笔仓位 = 可用资金×3% ÷ 0.96。 双单元管理：首单元到50%~61.8%目标启动1BL移动止盈，次单元放宽止损搏主升。
+</td></tr>
+<tr>
+ <td class="rk">5</td>
+ <td class="code" data-l="代码">603773<span class="mk">沪</span></td>
+ <td class="nm" data-l="名称">沃格光电<span class="badge dup4" title="同时入选：预期05/10/20/40">4周期·另见05/10/40</span><span class="badge stk3" title="已连续4期入选20日榜">连4期🔥</span></td>
+ <td class="num" data-l="现价">64.94</td>
+ <td class="gain" data-l="预期涨幅">+95.0%</td>
+ <td class="num tgt" data-l="目标价">188.0</td>
+ <td class="num" data-l="触发价">73.62</td>
+ <td class="num stop" data-l="止损价">64.04</td>
+ <td class="rl-mid" data-l="风险">中</td>
+ <td class="amt" data-l="20日均额">18.25亿</td>
+ 
+</tr>
+<tr class="detail"><td class="dspace"></td><td colspan="9">
+   <span class="dim">动量</span> 周线随机9(大周期偏弱)，日线K2　<span class="dim">形态</span> 趋势未确立<br>
+   <span class="dim">价格/时间</span> 最近上行目标聚合区≈188.0，斐波那契潜在上行190%，20日波动可达约104%<br>
+   <span class="dim">操作</span> 触发价 <b>73.62</b>（突破近日高点1跳，Tr-1BH 顺势介入，勿在目标价追买）；止损 <b>64.04</b>（setup 失效位）；每股暴露 <b>9.58元</b>，按3%资金规则：单笔仓位 = 可用资金×3% ÷ 9.58。 双单元管理：首单元到50%~61.8%目标启动1BL移动止盈，次单元放宽止损搏主升。
+</td></tr>
+<tr>
+ <td class="rk">6</td>
+ <td class="code" data-l="代码">001309<span class="mk">深</span></td>
+ <td class="nm" data-l="名称">德明利<span class="badge dup4" title="同时入选：预期05/10/20/40">4周期·另见05/10/40</span><span class="badge stk3" title="已连续7期入选20日榜">连7期🔥</span></td>
+ <td class="num" data-l="现价">349.0</td>
+ <td class="gain" data-l="预期涨幅">+95.0%</td>
+ <td class="num tgt" data-l="目标价">980.0</td>
+ <td class="num" data-l="触发价">429.05</td>
+ <td class="num stop" data-l="止损价">330.66</td>
+ <td class="rl-mid" data-l="风险">中</td>
+ <td class="amt" data-l="20日均额">99.34亿</td>
+ 
+</tr>
+<tr class="detail"><td class="dspace"></td><td colspan="9">
+   <span class="dim">动量</span> 周线随机4(大周期偏弱)，日线K10　<span class="dim">形态</span> 趋势未确立<br>
+   <span class="dim">价格/时间</span> 最近上行目标聚合区≈980.0，斐波那契潜在上行181%，20日波动可达约107%<br>
+   <span class="dim">操作</span> 触发价 <b>429.05</b>（突破近日高点1跳，Tr-1BH 顺势介入，勿在目标价追买）；止损 <b>330.66</b>（setup 失效位）；每股暴露 <b>98.39元</b>，按3%资金规则：单笔仓位 = 可用资金×3% ÷ 98.39。 双单元管理：首单元到50%~61.8%目标启动1BL移动止盈，次单元放宽止损搏主升。
+</td></tr>
+<tr>
+ <td class="rk">7</td>
+ <td class="code" data-l="代码">600714<span class="mk">沪</span></td>
+ <td class="nm" data-l="名称">金瑞矿业<span class="badge new">新增自选</span><span class="badge dup3" title="同时入选：预期10/20/40">3周期·另见10/40</span><span class="badge stk2" title="已连续2期入选20日榜">连2期</span></td>
+ <td class="num" data-l="现价">13.22</td>
+ <td class="gain" data-l="预期涨幅">+94.6%</td>
+ <td class="num tgt" data-l="目标价">33.35</td>
+ <td class="num" data-l="触发价">13.61</td>
+ <td class="num stop" data-l="止损价">12.52</td>
+ <td class="rl-mid" data-l="风险">中</td>
+ <td class="amt" data-l="20日均额">2.06亿</td>
+ 
+</tr>
+<tr class="detail"><td class="dspace"></td><td colspan="9">
+   <span class="dim">动量</span> 周线随机8(大周期偏弱)，日线K38　<span class="dim">形态</span> 趋势未确立<br>
+   <span class="dim">价格/时间</span> 最近上行目标聚合区≈33.35，斐波那契潜在上行152%，20日波动可达约57%<br>
+   <span class="dim">操作</span> 触发价 <b>13.61</b>（突破近日高点1跳，Tr-1BH 顺势介入，勿在目标价追买）；止损 <b>12.52</b>（setup 失效位）；每股暴露 <b>1.09元</b>，按3%资金规则：单笔仓位 = 可用资金×3% ÷ 1.09。 双单元管理：首单元到50%~61.8%目标启动1BL移动止盈，次单元放宽止损搏主升。
+</td></tr>
+<tr>
+ <td class="rk">8</td>
+ <td class="code" data-l="代码">002636<span class="mk">深</span></td>
+ <td class="nm" data-l="名称">金安国纪<span class="badge new">新增自选</span><span class="badge dup4" title="同时入选：预期05/10/20/40">4周期·另见05/10/40</span><span class="badge stk3" title="已连续3期入选20日榜">连3期🔥</span></td>
+ <td class="num" data-l="现价">47.32</td>
+ <td class="gain" data-l="预期涨幅">+93.7%</td>
+ <td class="num tgt" data-l="目标价">124.38</td>
+ <td class="num" data-l="触发价">54.02</td>
+ <td class="num stop" data-l="止损价">46.43</td>
+ <td class="rl-mid" data-l="风险">中</td>
+ <td class="amt" data-l="20日均额">36.25亿</td>
+ 
+</tr>
+<tr class="detail"><td class="dspace"></td><td colspan="9">
+   <span class="dim">动量</span> 周线随机14(大周期偏弱)，日线K1　<span class="dim">形态</span> 趋势未确立<br>
+   <span class="dim">价格/时间</span> 最近上行目标聚合区≈124.38，斐波那契潜在上行163%，20日波动可达约123%<br>
+   <span class="dim">操作</span> 触发价 <b>54.02</b>（突破近日高点1跳，Tr-1BH 顺势介入，勿在目标价追买）；止损 <b>46.43</b>（setup 失效位）；每股暴露 <b>7.59元</b>，按3%资金规则：单笔仓位 = 可用资金×3% ÷ 7.59。 双单元管理：首单元到50%~61.8%目标启动1BL移动止盈，次单元放宽止损搏主升。
+</td></tr>
+<tr>
+ <td class="rk">9</td>
+ <td class="code" data-l="代码">002943<span class="mk">深</span></td>
+ <td class="nm" data-l="名称">宇晶股份<span class="badge new">新增自选</span><span class="badge dup2" title="同时入选：预期20/40">2周期·另见40</span><span class="badge stk3" title="已连续5期入选20日榜">连5期🔥</span></td>
+ <td class="num" data-l="现价">27.2</td>
+ <td class="gain" data-l="预期涨幅">+92.9%</td>
+ <td class="num tgt" data-l="目标价">73.54</td>
+ <td class="num" data-l="触发价">28.6</td>
+ <td class="num stop" data-l="止损价">25.59</td>
+ <td class="rl-mid" data-l="风险">中</td>
+ <td class="amt" data-l="20日均额">4.04亿</td>
+ 
+</tr>
+<tr class="detail"><td class="dspace"></td><td colspan="9">
+   <span class="dim">动量</span> 周线随机4(大周期偏弱)，日线K6　<span class="dim">形态</span> 趋势未确立<br>
+   <span class="dim">价格/时间</span> 最近上行目标聚合区≈73.54，斐波那契潜在上行170%，20日波动可达约73%<br>
+   <span class="dim">操作</span> 触发价 <b>28.6</b>（突破近日高点1跳，Tr-1BH 顺势介入，勿在目标价追买）；止损 <b>25.59</b>（setup 失效位）；每股暴露 <b>3.01元</b>，按3%资金规则：单笔仓位 = 可用资金×3% ÷ 3.01。 双单元管理：首单元到50%~61.8%目标启动1BL移动止盈，次单元放宽止损搏主升。
+</td></tr>
+<tr>
+ <td class="rk">10</td>
+ <td class="code" data-l="代码">600498<span class="mk">沪</span></td>
+ <td class="nm" data-l="名称">烽火通信<span class="badge new">新增自选</span><span class="badge dup3" title="同时入选：预期10/20/40">3周期·另见10/40</span><span class="badge stk3" title="已连续5期入选20日榜">连5期🔥</span></td>
+ <td class="num" data-l="现价">32.9</td>
+ <td class="gain" data-l="预期涨幅">+92.6%</td>
+ <td class="num tgt" data-l="目标价">87.43</td>
+ <td class="num" data-l="触发价">35.0</td>
+ <td class="num stop" data-l="止损价">31.05</td>
+ <td class="rl-mid" data-l="风险">中</td>
+ <td class="amt" data-l="20日均额">36.40亿</td>
+ 
+</tr>
+<tr class="detail"><td class="dspace"></td><td colspan="9">
+   <span class="dim">动量</span> 周线随机4(大周期偏弱)，日线K6　<span class="dim">形态</span> 趋势未确立<br>
+   <span class="dim">价格/时间</span> 最近上行目标聚合区≈87.43，斐波那契潜在上行166%，20日波动可达约78%<br>
+   <span class="dim">操作</span> 触发价 <b>35.0</b>（突破近日高点1跳，Tr-1BH 顺势介入，勿在目标价追买）；止损 <b>31.05</b>（setup 失效位）；每股暴露 <b>3.95元</b>，按3%资金规则：单笔仓位 = 可用资金×3% ÷ 3.95。 双单元管理：首单元到50%~61.8%目标启动1BL移动止盈，次单元放宽止损搏主升。
+</td></tr>
+<tr>
+ <td class="rk">11</td>
+ <td class="code" data-l="代码">002491<span class="mk">深</span></td>
+ <td class="nm" data-l="名称">通鼎互联<span class="badge dup3" title="同时入选：预期10/20/40">3周期·另见10/40</span><span class="badge stk3" title="已连续7期入选20日榜">连7期🔥</span></td>
+ <td class="num" data-l="现价">13.86</td>
+ <td class="gain" data-l="预期涨幅">+91.8%</td>
+ <td class="num tgt" data-l="目标价">39.71</td>
+ <td class="num" data-l="触发价">15.19</td>
+ <td class="num stop" data-l="止损价">13.31</td>
+ <td class="rl-mid" data-l="风险">中</td>
+ <td class="amt" data-l="20日均额">25.53亿</td>
+ 
+</tr>
+<tr class="detail"><td class="dspace"></td><td colspan="9">
+   <span class="dim">动量</span> 周线随机2(大周期偏弱)，日线K5　<span class="dim">形态</span> 趋势未确立<br>
+   <span class="dim">价格/时间</span> 最近上行目标聚合区≈39.71，斐波那契潜在上行187%，20日波动可达约88%<br>
+   <span class="dim">操作</span> 触发价 <b>15.19</b>（突破近日高点1跳，Tr-1BH 顺势介入，勿在目标价追买）；止损 <b>13.31</b>（setup 失效位）；每股暴露 <b>1.88元</b>，按3%资金规则：单笔仓位 = 可用资金×3% ÷ 1.88。 双单元管理：首单元到50%~61.8%目标启动1BL移动止盈，次单元放宽止损搏主升。
+</td></tr>
+<tr>
+ <td class="rk">12</td>
+ <td class="code" data-l="代码">603778<span class="mk">沪</span></td>
+ <td class="nm" data-l="名称">国晟科技<span class="badge dup2" title="同时入选：预期20/40">2周期·另见40</span><span class="badge stk3" title="已连续7期入选20日榜">连7期🔥</span></td>
+ <td class="num" data-l="现价">9.94</td>
+ <td class="gain" data-l="预期涨幅">+91.3%</td>
+ <td class="num tgt" data-l="目标价">26.15</td>
+ <td class="num" data-l="触发价">9.95</td>
+ <td class="num stop" data-l="止损价">8.25</td>
+ <td class="rl-mid" data-l="风险">中</td>
+ <td class="amt" data-l="20日均额">7.14亿</td>
+ 
+</tr>
+<tr class="detail"><td class="dspace"></td><td colspan="9">
+   <span class="dim">动量</span> 周线随机7(大周期偏弱)，日线K49　<span class="dim">形态</span> 趋势未确立<br>
+   <span class="dim">价格/时间</span> 最近上行目标聚合区≈26.15，斐波那契潜在上行163%，20日波动可达约62%<br>
+   <span class="dim">操作</span> 触发价 <b>9.95</b>（突破近日高点1跳，Tr-1BH 顺势介入，勿在目标价追买）；止损 <b>8.25</b>（setup 失效位）；每股暴露 <b>1.70元</b>，按3%资金规则：单笔仓位 = 可用资金×3% ÷ 1.70。 双单元管理：首单元到50%~61.8%目标启动1BL移动止盈，次单元放宽止损搏主升。
+</td></tr>
+<tr>
+ <td class="rk">13</td>
+ <td class="code" data-l="代码">603256<span class="mk">沪</span></td>
+ <td class="nm" data-l="名称">宏和科技<span class="badge new">新增自选</span><span class="badge dup4" title="同时入选：预期05/10/20/40">4周期·另见05/10/40</span><span class="badge stknew" title="本期新进榜">新进榜</span></td>
+ <td class="num" data-l="现价">115.32</td>
+ <td class="gain" data-l="预期涨幅">+90.9%</td>
+ <td class="num tgt" data-l="目标价">304.0</td>
+ <td class="num" data-l="触发价">137.69</td>
+ <td class="num stop" data-l="止损价">114.17</td>
+ <td class="rl-mid" data-l="风险">中</td>
+ <td class="amt" data-l="20日均额">28.75亿</td>
+ 
+</tr>
+<tr class="detail"><td class="dspace"></td><td colspan="9">
+   <span class="dim">动量</span> 周线随机11(大周期偏弱)，日线K1　<span class="dim">形态</span> 趋势未确立<br>
+   <span class="dim">价格/时间</span> 最近上行目标聚合区≈304.0，斐波那契潜在上行164%，20日波动可达约113%<br>
+   <span class="dim">操作</span> 触发价 <b>137.69</b>（突破近日高点1跳，Tr-1BH 顺势介入，勿在目标价追买）；止损 <b>114.17</b>（setup 失效位）；每股暴露 <b>23.52元</b>，按3%资金规则：单笔仓位 = 可用资金×3% ÷ 23.52。 双单元管理：首单元到50%~61.8%目标启动1BL移动止盈，次单元放宽止损搏主升。
+</td></tr>
+<tr>
+ <td class="rk">14</td>
+ <td class="code" data-l="代码">002565<span class="mk">深</span></td>
+ <td class="nm" data-l="名称">顺灏股份<span class="badge new">新增自选</span><span class="badge dup2" title="同时入选：预期20/40">2周期·另见40</span><span class="badge stknew" title="本期新进榜">新进榜</span></td>
+ <td class="num" data-l="现价">8.94</td>
+ <td class="gain" data-l="预期涨幅">+89.0%</td>
+ <td class="num tgt" data-l="目标价">22.0</td>
+ <td class="num" data-l="触发价">9.0</td>
+ <td class="num stop" data-l="止损价">8.0</td>
+ <td class="rl-mid" data-l="风险">中</td>
+ <td class="amt" data-l="20日均额">5.01亿</td>
+ 
+</tr>
+<tr class="detail"><td class="dspace"></td><td colspan="9">
+   <span class="dim">动量</span> 周线随机6(大周期偏弱)，日线K30　<span class="dim">形态</span> 趋势未确立<br>
+   <span class="dim">价格/时间</span> 最近上行目标聚合区≈22.0，斐波那契潜在上行146%，20日波动可达约50%<br>
+   <span class="dim">操作</span> 触发价 <b>9.0</b>（突破近日高点1跳，Tr-1BH 顺势介入，勿在目标价追买）；止损 <b>8.0</b>（setup 失效位）；每股暴露 <b>1.00元</b>，按3%资金规则：单笔仓位 = 可用资金×3% ÷ 1.00。 双单元管理：首单元到50%~61.8%目标启动1BL移动止盈，次单元放宽止损搏主升。
+</td></tr>
+<tr>
+ <td class="rk">15</td>
+ <td class="code" data-l="代码">600353<span class="mk">沪</span></td>
+ <td class="nm" data-l="名称">旭光电子<span class="badge new">新增自选</span><span class="badge dup4" title="同时入选：预期05/10/20/40">4周期·另见05/10/40</span><span class="badge stknew" title="本期新进榜">新进榜</span></td>
+ <td class="num" data-l="现价">21.05</td>
+ <td class="gain" data-l="预期涨幅">+88.0%</td>
+ <td class="num tgt" data-l="目标价">53.68</td>
+ <td class="num" data-l="触发价">23.73</td>
+ <td class="num stop" data-l="止损价">20.51</td>
+ <td class="rl-mid" data-l="风险">中</td>
+ <td class="amt" data-l="20日均额">15.46亿</td>
+ 
+</tr>
+<tr class="detail"><td class="dspace"></td><td colspan="9">
+   <span class="dim">动量</span> 周线随机18(大周期偏弱)，日线K1　<span class="dim">形态</span> 趋势未确立<br>
+   <span class="dim">价格/时间</span> 最近上行目标聚合区≈53.68，斐波那契潜在上行155%，20日波动可达约113%<br>
+   <span class="dim">操作</span> 触发价 <b>23.73</b>（突破近日高点1跳，Tr-1BH 顺势介入，勿在目标价追买）；止损 <b>20.51</b>（setup 失效位）；每股暴露 <b>3.22元</b>，按3%资金规则：单笔仓位 = 可用资金×3% ÷ 3.22。 双单元管理：首单元到50%~61.8%目标启动1BL移动止盈，次单元放宽止损搏主升。
+</td></tr>
+<tr>
+ <td class="rk">16</td>
+ <td class="code" data-l="代码">002865<span class="mk">深</span></td>
+ <td class="nm" data-l="名称">钧达股份<span class="badge new">新增自选</span><span class="badge dup2" title="同时入选：预期20/40">2周期·另见40</span><span class="badge stknew" title="本期新进榜">新进榜</span></td>
+ <td class="num" data-l="现价">41.83</td>
+ <td class="gain" data-l="预期涨幅">+86.4%</td>
+ <td class="num tgt" data-l="目标价">110.63</td>
+ <td class="num" data-l="触发价">42.47</td>
+ <td class="num stop" data-l="止损价">38.94</td>
+ <td class="rl-mid" data-l="风险">中</td>
+ <td class="amt" data-l="20日均额">4.79亿</td>
+ 
+</tr>
+<tr class="detail"><td class="dspace"></td><td colspan="9">
+   <span class="dim">动量</span> 周线随机5(大周期偏弱)，日线K26　<span class="dim">形态</span> 趋势未确立<br>
+   <span class="dim">价格/时间</span> 最近上行目标聚合区≈110.63，斐波那契潜在上行164%，20日波动可达约47%<br>
+   <span class="dim">操作</span> 触发价 <b>42.47</b>（突破近日高点1跳，Tr-1BH 顺势介入，勿在目标价追买）；止损 <b>38.94</b>（setup 失效位）；每股暴露 <b>3.53元</b>，按3%资金规则：单笔仓位 = 可用资金×3% ÷ 3.53。 双单元管理：首单元到50%~61.8%目标启动1BL移动止盈，次单元放宽止损搏主升。
+</td></tr>
+<tr>
+ <td class="rk">17</td>
+ <td class="code" data-l="代码">002342<span class="mk">深</span></td>
+ <td class="nm" data-l="名称">巨力索具<span class="badge dup2" title="同时入选：预期20/40">2周期·另见40</span><span class="badge stk3" title="已连续7期入选20日榜">连7期🔥</span></td>
+ <td class="num" data-l="现价">7.68</td>
+ <td class="gain" data-l="预期涨幅">+85.7%</td>
+ <td class="num tgt" data-l="目标价">22.77</td>
+ <td class="num" data-l="触发价">7.71</td>
+ <td class="num stop" data-l="止损价">6.83</td>
+ <td class="rl-mid" data-l="风险">中</td>
+ <td class="amt" data-l="20日均额">8.55亿</td>
+ 
+</tr>
+<tr class="detail"><td class="dspace"></td><td colspan="9">
+   <span class="dim">动量</span> 周线随机6(大周期偏弱)，日线K34　<span class="dim">形态</span> 趋势未确立<br>
+   <span class="dim">价格/时间</span> 最近上行目标聚合区≈22.77，斐波那契潜在上行196%，20日波动可达约52%<br>
+   <span class="dim">操作</span> 触发价 <b>7.71</b>（突破近日高点1跳，Tr-1BH 顺势介入，勿在目标价追买）；止损 <b>6.83</b>（setup 失效位）；每股暴露 <b>0.88元</b>，按3%资金规则：单笔仓位 = 可用资金×3% ÷ 0.88。 双单元管理：首单元到50%~61.8%目标启动1BL移动止盈，次单元放宽止损搏主升。
+</td></tr>
+<tr>
+ <td class="rk">18</td>
+ <td class="code" data-l="代码">603601<span class="mk">沪</span></td>
+ <td class="nm" data-l="名称">再升科技<span class="badge dup2" title="同时入选：预期20/40">2周期·另见40</span><span class="badge stk3" title="已连续7期入选20日榜">连7期🔥</span></td>
+ <td class="num" data-l="现价">8.5</td>
+ <td class="gain" data-l="预期涨幅">+85.7%</td>
+ <td class="num tgt" data-l="目标价">23.51</td>
+ <td class="num" data-l="触发价">8.58</td>
+ <td class="num stop" data-l="止损价">7.51</td>
+ <td class="rl-mid" data-l="风险">中</td>
+ <td class="amt" data-l="20日均额">7.49亿</td>
+ 
+</tr>
+<tr class="detail"><td class="dspace"></td><td colspan="9">
+   <span class="dim">动量</span> 周线随机8(大周期偏弱)，日线K39　<span class="dim">形态</span> 趋势未确立<br>
+   <span class="dim">价格/时间</span> 最近上行目标聚合区≈23.51，斐波那契潜在上行177%，20日波动可达约52%<br>
+   <span class="dim">操作</span> 触发价 <b>8.58</b>（突破近日高点1跳，Tr-1BH 顺势介入，勿在目标价追买）；止损 <b>7.51</b>（setup 失效位）；每股暴露 <b>1.07元</b>，按3%资金规则：单笔仓位 = 可用资金×3% ÷ 1.07。 双单元管理：首单元到50%~61.8%目标启动1BL移动止盈，次单元放宽止损搏主升。
+</td></tr>
+<tr>
+ <td class="rk">19</td>
+ <td class="code" data-l="代码">603738<span class="mk">沪</span></td>
+ <td class="nm" data-l="名称">泰晶科技<span class="badge new">新增自选</span><span class="badge dup3" title="同时入选：预期10/20/40">3周期·另见10/40</span><span class="badge stknew" title="本期新进榜">新进榜</span></td>
+ <td class="num" data-l="现价">28.92</td>
+ <td class="gain" data-l="预期涨幅">+85.4%</td>
+ <td class="num tgt" data-l="目标价">69.35</td>
+ <td class="num" data-l="触发价">30.99</td>
+ <td class="num stop" data-l="止损价">26.36</td>
+ <td class="rl-mid" data-l="风险">中</td>
+ <td class="amt" data-l="20日均额">12.54亿</td>
+ 
+</tr>
+<tr class="detail"><td class="dspace"></td><td colspan="9">
+   <span class="dim">动量</span> 周线随机7(大周期偏弱)，日线K12　<span class="dim">形态</span> 趋势未确立<br>
+   <span class="dim">价格/时间</span> 最近上行目标聚合区≈69.35，斐波那契潜在上行140%，20日波动可达约88%<br>
+   <span class="dim">操作</span> 触发价 <b>30.99</b>（突破近日高点1跳，Tr-1BH 顺势介入，勿在目标价追买）；止损 <b>26.36</b>（setup 失效位）；每股暴露 <b>4.63元</b>，按3%资金规则：单笔仓位 = 可用资金×3% ÷ 4.63。 双单元管理：首单元到50%~61.8%目标启动1BL移动止盈，次单元放宽止损搏主升。
+</td></tr>
+<tr>
+ <td class="rk">20</td>
+ <td class="code" data-l="代码">003036<span class="mk">深</span></td>
+ <td class="nm" data-l="名称">泰坦股份<span class="badge new">新增自选</span><span class="badge dup4" title="同时入选：预期05/10/20/40">4周期·另见05/10/40</span><span class="badge stknew" title="本期新进榜">新进榜</span></td>
+ <td class="num" data-l="现价">40.91</td>
+ <td class="gain" data-l="预期涨幅">+85.3%</td>
+ <td class="num tgt" data-l="目标价">104.79</td>
+ <td class="num" data-l="触发价">45.06</td>
+ <td class="num stop" data-l="止损价">40.14</td>
+ <td class="rl-mid" data-l="风险">中</td>
+ <td class="amt" data-l="20日均额">4.16亿</td>
+ 
+</tr>
+<tr class="detail"><td class="dspace"></td><td colspan="9">
+   <span class="dim">动量</span> 周线随机19(大周期偏弱)，日线K4　<span class="dim">形态</span> 趋势未确立<br>
+   <span class="dim">价格/时间</span> 最近上行目标聚合区≈104.79，斐波那契潜在上行156%，20日波动可达约103%<br>
+   <span class="dim">操作</span> 触发价 <b>45.06</b>（突破近日高点1跳，Tr-1BH 顺势介入，勿在目标价追买）；止损 <b>40.14</b>（setup 失效位）；每股暴露 <b>4.92元</b>，按3%资金规则：单笔仓位 = 可用资金×3% ÷ 4.92。 双单元管理：首单元到50%~61.8%目标启动1BL移动止盈，次单元放宽止损搏主升。
+</td></tr>
+<tr>
+ <td class="rk">21</td>
+ <td class="code" data-l="代码">002080<span class="mk">深</span></td>
+ <td class="nm" data-l="名称">中材科技<span class="badge new">新增自选</span><span class="badge dup4" title="同时入选：预期05/10/20/40">4周期·另见05/10/40</span><span class="badge stknew" title="本期新进榜">新进榜</span></td>
+ <td class="num" data-l="现价">40.34</td>
+ <td class="gain" data-l="预期涨幅">+84.6%</td>
+ <td class="num tgt" data-l="目标价">102.22</td>
+ <td class="num" data-l="触发价">46.57</td>
+ <td class="num stop" data-l="止损价">39.66</td>
+ <td class="rl-mid" data-l="风险">中</td>
+ <td class="amt" data-l="20日均额">29.85亿</td>
+ 
+</tr>
+<tr class="detail"><td class="dspace"></td><td colspan="9">
+   <span class="dim">动量</span> 周线随机3(大周期偏弱)，日线K5　<span class="dim">形态</span> 趋势未确立<br>
+   <span class="dim">价格/时间</span> 最近上行目标聚合区≈102.22，斐波那契潜在上行153%，20日波动可达约103%<br>
+   <span class="dim">操作</span> 触发价 <b>46.57</b>（突破近日高点1跳，Tr-1BH 顺势介入，勿在目标价追买）；止损 <b>39.66</b>（setup 失效位）；每股暴露 <b>6.91元</b>，按3%资金规则：单笔仓位 = 可用资金×3% ÷ 6.91。 双单元管理：首单元到50%~61.8%目标启动1BL移动止盈，次单元放宽止损搏主升。
+</td></tr>
+<tr>
+ <td class="rk">22</td>
+ <td class="code" data-l="代码">002655<span class="mk">深</span></td>
+ <td class="nm" data-l="名称">共达电声<span class="badge new">新增自选</span><span class="badge dup3" title="同时入选：预期05/10/20">3周期·另见05/10</span><span class="badge stknew" title="本期新进榜">新进榜</span></td>
+ <td class="num" data-l="现价">22.37</td>
+ <td class="gain" data-l="预期涨幅">+83.4%</td>
+ <td class="num tgt" data-l="目标价">52.72</td>
+ <td class="num" data-l="触发价">23.71</td>
+ <td class="num stop" data-l="止损价">21.08</td>
+ <td class="rl-mid" data-l="风险">中</td>
+ <td class="amt" data-l="20日均额">7.36亿</td>
+ 
+</tr>
+<tr class="detail"><td class="dspace"></td><td colspan="9">
+   <span class="dim">动量</span> 周线随机7(大周期偏弱)，日线K6　<span class="dim">形态</span> 趋势未确立<br>
+   <span class="dim">价格/时间</span> 最近上行目标聚合区≈52.72，斐波那契潜在上行136%，20日波动可达约87%<br>
+   <span class="dim">操作</span> 触发价 <b>23.71</b>（突破近日高点1跳，Tr-1BH 顺势介入，勿在目标价追买）；止损 <b>21.08</b>（setup 失效位）；每股暴露 <b>2.63元</b>，按3%资金规则：单笔仓位 = 可用资金×3% ÷ 2.63。 双单元管理：首单元到50%~61.8%目标启动1BL移动止盈，次单元放宽止损搏主升。
+</td></tr>
+<tr>
+ <td class="rk">23</td>
+ <td class="code" data-l="代码">002208<span class="mk">深</span></td>
+ <td class="nm" data-l="名称">合肥城建<span class="badge dup2" title="同时入选：预期05/20">2周期·另见05</span><span class="badge stk3" title="已连续3期入选20日榜">连3期🔥</span></td>
+ <td class="num" data-l="现价">10.38</td>
+ <td class="gain" data-l="预期涨幅">+83.2%</td>
+ <td class="num tgt" data-l="目标价">26.36</td>
+ <td class="num" data-l="触发价">11.28</td>
+ <td class="num stop" data-l="止损价">10.21</td>
+ <td class="rl-mid" data-l="风险">中</td>
+ <td class="amt" data-l="20日均额">11.15亿</td>
+ 
+</tr>
+<tr class="detail"><td class="dspace"></td><td colspan="9">
+   <span class="dim">动量</span> 周线随机6(大周期偏弱)，日线K0　<span class="dim">形态</span> 趋势未确立<br>
+   <span class="dim">价格/时间</span> 最近上行目标聚合区≈26.36，斐波那契潜在上行154%，20日波动可达约98%<br>
+   <span class="dim">操作</span> 触发价 <b>11.28</b>（突破近日高点1跳，Tr-1BH 顺势介入，勿在目标价追买）；止损 <b>10.21</b>（setup 失效位）；每股暴露 <b>1.07元</b>，按3%资金规则：单笔仓位 = 可用资金×3% ÷ 1.07。 双单元管理：首单元到50%~61.8%目标启动1BL移动止盈，次单元放宽止损搏主升。
+</td></tr>
+<tr>
+ <td class="rk">24</td>
+ <td class="code" data-l="代码">600487<span class="mk">沪</span></td>
+ <td class="nm" data-l="名称">亨通光电<span class="badge dup2" title="同时入选：预期10/20">2周期·另见10</span><span class="badge stk3" title="已连续5期入选20日榜">连5期🔥</span></td>
+ <td class="num" data-l="现价">47.37</td>
+ <td class="gain" data-l="预期涨幅">+82.3%</td>
+ <td class="num tgt" data-l="目标价">124.85</td>
+ <td class="num" data-l="触发价">51.27</td>
+ <td class="num stop" data-l="止损价">45.14</td>
+ <td class="rl-mid" data-l="风险">中</td>
+ <td class="amt" data-l="20日均额">126.98亿</td>
+ 
+</tr>
+<tr class="detail"><td class="dspace"></td><td colspan="9">
+   <span class="dim">动量</span> 周线随机2(大周期偏弱)，日线K6　<span class="dim">形态</span> 趋势未确立<br>
+   <span class="dim">价格/时间</span> 最近上行目标聚合区≈124.85，斐波那契潜在上行164%，20日波动可达约83%<br>
+   <span class="dim">操作</span> 触发价 <b>51.27</b>（突破近日高点1跳，Tr-1BH 顺势介入，勿在目标价追买）；止损 <b>45.14</b>（setup 失效位）；每股暴露 <b>6.13元</b>，按3%资金规则：单笔仓位 = 可用资金×3% ÷ 6.13。 双单元管理：首单元到50%~61.8%目标启动1BL移动止盈，次单元放宽止损搏主升。
+</td></tr>
+<tr>
+ <td class="rk">25</td>
+ <td class="code" data-l="代码">600545<span class="mk">沪</span></td>
+ <td class="nm" data-l="名称">卓郎智能<span class="badge new">新增自选</span><span class="badge dup2" title="同时入选：预期10/20">2周期·另见10</span><span class="badge stknew" title="本期新进榜">新进榜</span></td>
+ <td class="num" data-l="现价">3.87</td>
+ <td class="gain" data-l="预期涨幅">+82.0%</td>
+ <td class="num tgt" data-l="目标价">8.37</td>
+ <td class="num" data-l="触发价">3.96</td>
+ <td class="num stop" data-l="止损价">3.54</td>
+ <td class="rl-mid" data-l="风险">中</td>
+ <td class="amt" data-l="20日均额">4.21亿</td>
+ 
+</tr>
+<tr class="detail"><td class="dspace"></td><td colspan="9">
+   <span class="dim">动量</span> 周线随机11(大周期偏弱)，日线K26　<span class="dim">形态</span> 趋势未确立<br>
+   <span class="dim">价格/时间</span> 最近上行目标聚合区≈8.37，斐波那契潜在上行116%，20日波动可达约68%<br>
+   <span class="dim">操作</span> 触发价 <b>3.96</b>（突破近日高点1跳，Tr-1BH 顺势介入，勿在目标价追买）；止损 <b>3.54</b>（setup 失效位）；每股暴露 <b>0.42元</b>，按3%资金规则：单笔仓位 = 可用资金×3% ÷ 0.42。 双单元管理：首单元到50%~61.8%目标启动1BL移动止盈，次单元放宽止损搏主升。
+</td></tr>
+<tr>
+ <td class="rk">26</td>
+ <td class="code" data-l="代码">605299<span class="mk">沪</span></td>
+ <td class="nm" data-l="名称">舒华体育<span class="badge new">新增自选</span><span class="badge stknew" title="本期新进榜">新进榜</span></td>
+ <td class="num" data-l="现价">11.84</td>
+ <td class="gain" data-l="预期涨幅">+82.0%</td>
+ <td class="num tgt" data-l="目标价">27.0</td>
+ <td class="num" data-l="触发价">11.87</td>
+ <td class="num stop" data-l="止损价">10.7</td>
+ <td class="rl-mid" data-l="风险">中</td>
+ <td class="amt" data-l="20日均额">1.92亿</td>
+ 
+</tr>
+<tr class="detail"><td class="dspace"></td><td colspan="9">
+   <span class="dim">动量</span> 周线随机11(大周期偏弱)，日线K51　<span class="dim">形态</span> 趋势未确立<br>
+   <span class="dim">价格/时间</span> 最近上行目标聚合区≈27.0，斐波那契潜在上行128%，20日波动可达约54%<br>
+   <span class="dim">操作</span> 触发价 <b>11.87</b>（突破近日高点1跳，Tr-1BH 顺势介入，勿在目标价追买）；止损 <b>10.7</b>（setup 失效位）；每股暴露 <b>1.17元</b>，按3%资金规则：单笔仓位 = 可用资金×3% ÷ 1.17。 双单元管理：首单元到50%~61.8%目标启动1BL移动止盈，次单元放宽止损搏主升。
+</td></tr>
+<tr>
+ <td class="rk">27</td>
+ <td class="code" data-l="代码">603137<span class="mk">沪</span></td>
+ <td class="nm" data-l="名称">恒尚节能<span class="badge new">新增自选</span><span class="badge dup3" title="同时入选：预期05/20/40">3周期·另见05/40</span><span class="badge stknew" title="本期新进榜">新进榜</span></td>
+ <td class="num" data-l="现价">25.51</td>
+ <td class="gain" data-l="预期涨幅">+81.9%</td>
+ <td class="num tgt" data-l="目标价">35.61</td>
+ <td class="num" data-l="触发价">28.84</td>
+ <td class="num stop" data-l="止损价">22.35</td>
+ <td class="rl-mid" data-l="风险">中</td>
+ <td class="amt" data-l="20日均额">7.70亿</td>
+ 
+</tr>
+<tr class="detail"><td class="dspace"></td><td colspan="9">
+   <span class="dim">动量</span> 周线随机59(大周期偏弱)，日线K23　<span class="dim">形态</span> 均线多头排列·回踩支撑(健康setup)<br>
+   <span class="dim">价格/时间</span> 最近上行目标聚合区≈35.61，斐波那契潜在上行40%，20日波动可达约102%<br>
+   <span class="dim">操作</span> 触发价 <b>28.84</b>（突破近日高点1跳，Tr-1BH 顺势介入，勿在目标价追买）；止损 <b>22.35</b>（setup 失效位）；每股暴露 <b>6.49元</b>，按3%资金规则：单笔仓位 = 可用资金×3% ÷ 6.49。 双单元管理：首单元到50%~61.8%目标启动1BL移动止盈，次单元放宽止损搏主升。
+</td></tr>
+<tr>
+ <td class="rk">28</td>
+ <td class="code" data-l="代码">600367<span class="mk">沪</span></td>
+ <td class="nm" data-l="名称">红星发展<span class="badge new">新增自选</span><span class="badge dup2" title="同时入选：预期10/20">2周期·另见10</span><span class="badge stknew" title="本期新进榜">新进榜</span></td>
+ <td class="num" data-l="现价">25.62</td>
+ <td class="gain" data-l="预期涨幅">+81.8%</td>
+ <td class="num tgt" data-l="目标价">66.39</td>
+ <td class="num" data-l="触发价">29.09</td>
+ <td class="num stop" data-l="止损价">25.15</td>
+ <td class="rl-mid" data-l="风险">中</td>
+ <td class="amt" data-l="20日均额">9.70亿</td>
+ 
+</tr>
+<tr class="detail"><td class="dspace"></td><td colspan="9">
+   <span class="dim">动量</span> 周线随机13(大周期偏弱)，日线K5　<span class="dim">形态</span> 趋势未确立<br>
+   <span class="dim">价格/时间</span> 最近上行目标聚合区≈66.39，斐波那契潜在上行159%，20日波动可达约87%<br>
+   <span class="dim">操作</span> 触发价 <b>29.09</b>（突破近日高点1跳，Tr-1BH 顺势介入，勿在目标价追买）；止损 <b>25.15</b>（setup 失效位）；每股暴露 <b>3.94元</b>，按3%资金规则：单笔仓位 = 可用资金×3% ÷ 3.94。 双单元管理：首单元到50%~61.8%目标启动1BL移动止盈，次单元放宽止损搏主升。
+</td></tr>
+<tr>
+ <td class="rk">29</td>
+ <td class="code" data-l="代码">603989<span class="mk">沪</span></td>
+ <td class="nm" data-l="名称">艾华集团<span class="badge new">新增自选</span><span class="badge dup2" title="同时入选：预期10/20">2周期·另见10</span><span class="badge stknew" title="本期新进榜">新进榜</span></td>
+ <td class="num" data-l="现价">23.57</td>
+ <td class="gain" data-l="预期涨幅">+81.7%</td>
+ <td class="num tgt" data-l="目标价">57.77</td>
+ <td class="num" data-l="触发价">26.56</td>
+ <td class="num stop" data-l="止损价">22.65</td>
+ <td class="rl-mid" data-l="风险">中</td>
+ <td class="amt" data-l="20日均额">6.69亿</td>
+ 
+</tr>
+<tr class="detail"><td class="dspace"></td><td colspan="9">
+   <span class="dim">动量</span> 周线随机14(大周期偏弱)，日线K4　<span class="dim">形态</span> 趋势未确立<br>
+   <span class="dim">价格/时间</span> 最近上行目标聚合区≈57.77，斐波那契潜在上行145%，20日波动可达约104%<br>
+   <span class="dim">操作</span> 触发价 <b>26.56</b>（突破近日高点1跳，Tr-1BH 顺势介入，勿在目标价追买）；止损 <b>22.65</b>（setup 失效位）；每股暴露 <b>3.91元</b>，按3%资金规则：单笔仓位 = 可用资金×3% ÷ 3.91。 双单元管理：首单元到50%~61.8%目标启动1BL移动止盈，次单元放宽止损搏主升。
+</td></tr>
+<tr>
+ <td class="rk">30</td>
+ <td class="code" data-l="代码">002903<span class="mk">深</span></td>
+ <td class="nm" data-l="名称">宇环数控<span class="badge dup2" title="同时入选：预期10/20">2周期·另见10</span><span class="badge stk2" title="已连续2期入选20日榜">连2期</span></td>
+ <td class="num" data-l="现价">23.43</td>
+ <td class="gain" data-l="预期涨幅">+81.6%</td>
+ <td class="num tgt" data-l="目标价">54.9</td>
+ <td class="num" data-l="触发价">24.58</td>
+ <td class="num stop" data-l="止损价">22.52</td>
+ <td class="rl-mid" data-l="风险">中</td>
+ <td class="amt" data-l="20日均额">3.20亿</td>
+ 
+</tr>
+<tr class="detail"><td class="dspace"></td><td colspan="9">
+   <span class="dim">动量</span> 周线随机10(大周期偏弱)，日线K29　<span class="dim">形态</span> 趋势未确立<br>
+   <span class="dim">价格/时间</span> 最近上行目标聚合区≈54.9，斐波那契潜在上行134%，20日波动可达约69%<br>
+   <span class="dim">操作</span> 触发价 <b>24.58</b>（突破近日高点1跳，Tr-1BH 顺势介入，勿在目标价追买）；止损 <b>22.52</b>（setup 失效位）；每股暴露 <b>2.06元</b>，按3%资金规则：单笔仓位 = 可用资金×3% ÷ 2.06。 双单元管理：首单元到50%~61.8%目标启动1BL移动止盈，次单元放宽止损搏主升。
+</td></tr></tbody>
+  </table>
+</div>
+<div class="panel" id="p40">
+  <div class="phead">「预期40」板块 · 40个交易日内预期最大涨幅 Top30 <span class="cap">(数值上限170%)</span></div>
+  <table>
+   <thead><tr>
+     <th>#</th><th>代码</th><th>名称</th><th>现价</th><th>预期涨幅</th><th>目标价</th>
+     <th>触发价</th><th>止损价</th><th>风险</th><th>20日均额</th>
+     
+   </tr></thead>
+   <tbody>
+<tr>
+ <td class="rk">1</td>
+ <td class="code" data-l="代码">002828<span class="mk">深</span></td>
+ <td class="nm" data-l="名称">贝肯能源<span class="badge new">新增自选</span><span class="badge dup2" title="同时入选：预期05/40">2周期·另见05</span><span class="badge stknew" title="本期新进榜">新进榜</span></td>
+ <td class="num" data-l="现价">11.79</td>
+ <td class="gain" data-l="预期涨幅">+137.3%</td>
+ <td class="num tgt" data-l="目标价">17.9</td>
+ <td class="num" data-l="触发价">13.68</td>
+ <td class="num stop" data-l="止损价">10.59</td>
+ <td class="rl-mid" data-l="风险">中</td>
+ <td class="amt" data-l="20日均额">3.35亿</td>
+ 
+</tr>
+<tr class="detail"><td class="dspace"></td><td colspan="9">
+   <span class="dim">动量</span> 周线随机66(大周期多头)，日线K43　<span class="dim">形态</span> 均线多头排列·回踩支撑(健康setup)<br>
+   <span class="dim">价格/时间</span> 最近上行目标聚合区≈17.9，斐波那契潜在上行52%，40日波动可达约102%<br>
+   <span class="dim">操作</span> 触发价 <b>13.68</b>（突破近日高点1跳，Tr-1BH 顺势介入，勿在目标价追买）；止损 <b>10.59</b>（setup 失效位）；每股暴露 <b>3.09元</b>，按3%资金规则：单笔仓位 = 可用资金×3% ÷ 3.09。 双单元管理：首单元到50%~61.8%目标启动1BL移动止盈，次单元放宽止损搏主升。
+</td></tr>
+<tr>
+ <td class="rk">2</td>
+ <td class="code" data-l="代码">603778<span class="mk">沪</span></td>
+ <td class="nm" data-l="名称">国晟科技<span class="badge dup2" title="同时入选：预期20/40">2周期·另见20</span><span class="badge stk3" title="已连续7期入选40日榜">连7期🔥</span></td>
+ <td class="num" data-l="现价">9.94</td>
+ <td class="gain" data-l="预期涨幅">+135.2%</td>
+ <td class="num tgt" data-l="目标价">34.27</td>
+ <td class="num" data-l="触发价">9.95</td>
+ <td class="num stop" data-l="止损价">7.48</td>
+ <td class="rl-mid" data-l="风险">中</td>
+ <td class="amt" data-l="20日均额">7.14亿</td>
+ 
+</tr>
+<tr class="detail"><td class="dspace"></td><td colspan="9">
+   <span class="dim">动量</span> 周线随机7(大周期偏弱)，日线K49　<span class="dim">形态</span> 趋势未确立<br>
+   <span class="dim">价格/时间</span> 最近上行目标聚合区≈34.27，斐波那契潜在上行245%，40日波动可达约87%<br>
+   <span class="dim">操作</span> 触发价 <b>9.95</b>（突破近日高点1跳，Tr-1BH 顺势介入，勿在目标价追买）；止损 <b>7.48</b>（setup 失效位）；每股暴露 <b>2.47元</b>，按3%资金规则：单笔仓位 = 可用资金×3% ÷ 2.47。 双单元管理：首单元到50%~61.8%目标启动1BL移动止盈，次单元放宽止损搏主升。
+</td></tr>
+<tr>
+ <td class="rk">3</td>
+ <td class="code" data-l="代码">603186<span class="mk">沪</span></td>
+ <td class="nm" data-l="名称">华正新材<span class="badge new">新增自选</span><span class="badge dup4" title="同时入选：预期05/10/20/40">4周期·另见05/10/20</span><span class="badge stknew" title="本期新进榜">新进榜</span></td>
+ <td class="num" data-l="现价">98.6</td>
+ <td class="gain" data-l="预期涨幅">+128.8%</td>
+ <td class="num tgt" data-l="目标价">269.87</td>
+ <td class="num" data-l="触发价">112.0</td>
+ <td class="num stop" data-l="止损价">96.82</td>
+ <td class="rl-mid" data-l="风险">中</td>
+ <td class="amt" data-l="20日均额">23.63亿</td>
+ 
+</tr>
+<tr class="detail"><td class="dspace"></td><td colspan="9">
+   <span class="dim">动量</span> 周线随机19(大周期偏弱)，日线K3　<span class="dim">形态</span> 趋势未确立<br>
+   <span class="dim">价格/时间</span> 最近上行目标聚合区≈269.87，斐波那契潜在上行174%，40日波动可达约178%<br>
+   <span class="dim">操作</span> 触发价 <b>112.0</b>（突破近日高点1跳，Tr-1BH 顺势介入，勿在目标价追买）；止损 <b>96.82</b>（setup 失效位）；每股暴露 <b>15.18元</b>，按3%资金规则：单笔仓位 = 可用资金×3% ÷ 15.18。 双单元管理：首单元到50%~61.8%目标启动1BL移动止盈，次单元放宽止损搏主升。
+</td></tr>
+<tr>
+ <td class="rk">4</td>
+ <td class="code" data-l="代码">600683<span class="mk">沪</span></td>
+ <td class="nm" data-l="名称">京投发展<span class="badge new">新增自选</span><span class="badge dup2" title="同时入选：预期20/40">2周期·另见20</span><span class="badge stknew" title="本期新进榜">新进榜</span></td>
+ <td class="num" data-l="现价">7.96</td>
+ <td class="gain" data-l="预期涨幅">+120.1%</td>
+ <td class="num tgt" data-l="目标价">21.83</td>
+ <td class="num" data-l="触发价">8.18</td>
+ <td class="num stop" data-l="止损价">6.73</td>
+ <td class="rl-mid" data-l="风险">中</td>
+ <td class="amt" data-l="20日均额">1.71亿</td>
+ 
+</tr>
+<tr class="detail"><td class="dspace"></td><td colspan="9">
+   <span class="dim">动量</span> 周线随机6(大周期偏弱)，日线K27　<span class="dim">形态</span> 趋势未确立<br>
+   <span class="dim">价格/时间</span> 最近上行目标聚合区≈21.83，斐波那契潜在上行174%，40日波动可达约95%<br>
+   <span class="dim">操作</span> 触发价 <b>8.18</b>（突破近日高点1跳，Tr-1BH 顺势介入，勿在目标价追买）；止损 <b>6.73</b>（setup 失效位）；每股暴露 <b>1.45元</b>，按3%资金规则：单笔仓位 = 可用资金×3% ÷ 1.45。 双单元管理：首单元到50%~61.8%目标启动1BL移动止盈，次单元放宽止损搏主升。
+</td></tr>
+<tr>
+ <td class="rk">5</td>
+ <td class="code" data-l="代码">002342<span class="mk">深</span></td>
+ <td class="nm" data-l="名称">巨力索具<span class="badge dup2" title="同时入选：预期20/40">2周期·另见20</span><span class="badge stk3" title="已连续7期入选40日榜">连7期🔥</span></td>
+ <td class="num" data-l="现价">7.68</td>
+ <td class="gain" data-l="预期涨幅">+116.8%</td>
+ <td class="num tgt" data-l="目标价">23.99</td>
+ <td class="num" data-l="触发价">7.71</td>
+ <td class="num stop" data-l="止损价">6.17</td>
+ <td class="rl-mid" data-l="风险">中</td>
+ <td class="amt" data-l="20日均额">8.55亿</td>
+ 
+</tr>
+<tr class="detail"><td class="dspace"></td><td colspan="9">
+   <span class="dim">动量</span> 周线随机6(大周期偏弱)，日线K34　<span class="dim">形态</span> 趋势未确立<br>
+   <span class="dim">价格/时间</span> 最近上行目标聚合区≈23.99，斐波那契潜在上行212%，40日波动可达约74%<br>
+   <span class="dim">操作</span> 触发价 <b>7.71</b>（突破近日高点1跳，Tr-1BH 顺势介入，勿在目标价追买）；止损 <b>6.17</b>（setup 失效位）；每股暴露 <b>1.54元</b>，按3%资金规则：单笔仓位 = 可用资金×3% ÷ 1.54。 双单元管理：首单元到50%~61.8%目标启动1BL移动止盈，次单元放宽止损搏主升。
+</td></tr>
+<tr>
+ <td class="rk">6</td>
+ <td class="code" data-l="代码">600869<span class="mk">沪</span></td>
+ <td class="nm" data-l="名称">远东股份<span class="badge dup4" title="同时入选：预期05/10/20/40">4周期·另见05/10/20</span><span class="badge stk3" title="已连续7期入选40日榜">连7期🔥</span></td>
+ <td class="num" data-l="现价">13.26</td>
+ <td class="gain" data-l="预期涨幅">+115.7%</td>
+ <td class="num tgt" data-l="目标价">38.56</td>
+ <td class="num" data-l="触发价">14.11</td>
+ <td class="num stop" data-l="止损价">12.49</td>
+ <td class="rl-mid" data-l="风险">中</td>
+ <td class="amt" data-l="20日均额">19.12亿</td>
+ 
+</tr>
+<tr class="detail"><td class="dspace"></td><td colspan="9">
+   <span class="dim">动量</span> 周线随机3(大周期偏弱)，日线K5　<span class="dim">形态</span> 趋势未确立<br>
+   <span class="dim">价格/时间</span> 最近上行目标聚合区≈38.56，斐波那契潜在上行191%，40日波动可达约117%<br>
+   <span class="dim">操作</span> 触发价 <b>14.11</b>（突破近日高点1跳，Tr-1BH 顺势介入，勿在目标价追买）；止损 <b>12.49</b>（setup 失效位）；每股暴露 <b>1.62元</b>，按3%资金规则：单笔仓位 = 可用资金×3% ÷ 1.62。 双单元管理：首单元到50%~61.8%目标启动1BL移动止盈，次单元放宽止损搏主升。
+</td></tr>
+<tr>
+ <td class="rk">7</td>
+ <td class="code" data-l="代码">600791<span class="mk">沪</span></td>
+ <td class="nm" data-l="名称">京能置业<span class="badge new">新增自选</span><span class="badge dup3" title="同时入选：预期10/20/40">3周期·另见10/20</span><span class="badge stknew" title="本期新进榜">新进榜</span></td>
+ <td class="num" data-l="现价">6.7</td>
+ <td class="gain" data-l="预期涨幅">+112.9%</td>
+ <td class="num tgt" data-l="目标价">17.88</td>
+ <td class="num" data-l="触发价">6.82</td>
+ <td class="num stop" data-l="止损价">5.56</td>
+ <td class="rl-mid" data-l="风险">中</td>
+ <td class="amt" data-l="20日均额">1.48亿</td>
+ 
+</tr>
+<tr class="detail"><td class="dspace"></td><td colspan="9">
+   <span class="dim">动量</span> 周线随机7(大周期偏弱)，日线K32　<span class="dim">形态</span> 趋势未确立<br>
+   <span class="dim">价格/时间</span> 最近上行目标聚合区≈17.88，斐波那契潜在上行167%，40日波动可达约86%<br>
+   <span class="dim">操作</span> 触发价 <b>6.82</b>（突破近日高点1跳，Tr-1BH 顺势介入，勿在目标价追买）；止损 <b>5.56</b>（setup 失效位）；每股暴露 <b>1.26元</b>，按3%资金规则：单笔仓位 = 可用资金×3% ÷ 1.26。 双单元管理：首单元到50%~61.8%目标启动1BL移动止盈，次单元放宽止损搏主升。
+</td></tr>
+<tr>
+ <td class="rk">8</td>
+ <td class="code" data-l="代码">002865<span class="mk">深</span></td>
+ <td class="nm" data-l="名称">钧达股份<span class="badge new">新增自选</span><span class="badge dup2" title="同时入选：预期20/40">2周期·另见20</span><span class="badge stknew" title="本期新进榜">新进榜</span></td>
+ <td class="num" data-l="现价">41.83</td>
+ <td class="gain" data-l="预期涨幅">+111.4%</td>
+ <td class="num tgt" data-l="目标价">116.68</td>
+ <td class="num" data-l="触发价">42.47</td>
+ <td class="num stop" data-l="止损价">36.9</td>
+ <td class="rl-mid" data-l="风险">中</td>
+ <td class="amt" data-l="20日均额">4.79亿</td>
+ 
+</tr>
+<tr class="detail"><td class="dspace"></td><td colspan="9">
+   <span class="dim">动量</span> 周线随机5(大周期偏弱)，日线K26　<span class="dim">形态</span> 趋势未确立<br>
+   <span class="dim">价格/时间</span> 最近上行目标聚合区≈116.68，斐波那契潜在上行179%，40日波动可达约67%<br>
+   <span class="dim">操作</span> 触发价 <b>42.47</b>（突破近日高点1跳，Tr-1BH 顺势介入，勿在目标价追买）；止损 <b>36.9</b>（setup 失效位）；每股暴露 <b>5.57元</b>，按3%资金规则：单笔仓位 = 可用资金×3% ÷ 5.57。 双单元管理：首单元到50%~61.8%目标启动1BL移动止盈，次单元放宽止损搏主升。
+</td></tr>
+<tr>
+ <td class="rk">9</td>
+ <td class="code" data-l="代码">603773<span class="mk">沪</span></td>
+ <td class="nm" data-l="名称">沃格光电<span class="badge dup4" title="同时入选：预期05/10/20/40">4周期·另见05/10/20</span><span class="badge stk3" title="已连续4期入选40日榜">连4期🔥</span></td>
+ <td class="num" data-l="现价">64.94</td>
+ <td class="gain" data-l="预期涨幅">+110.0%</td>
+ <td class="num tgt" data-l="目标价">188.0</td>
+ <td class="num" data-l="触发价">73.62</td>
+ <td class="num stop" data-l="止损价">64.04</td>
+ <td class="rl-mid" data-l="风险">中</td>
+ <td class="amt" data-l="20日均额">18.25亿</td>
+ 
+</tr>
+<tr class="detail"><td class="dspace"></td><td colspan="9">
+   <span class="dim">动量</span> 周线随机9(大周期偏弱)，日线K2　<span class="dim">形态</span> 趋势未确立<br>
+   <span class="dim">价格/时间</span> 最近上行目标聚合区≈188.0，斐波那契潜在上行190%，40日波动可达约147%<br>
+   <span class="dim">操作</span> 触发价 <b>73.62</b>（突破近日高点1跳，Tr-1BH 顺势介入，勿在目标价追买）；止损 <b>64.04</b>（setup 失效位）；每股暴露 <b>9.58元</b>，按3%资金规则：单笔仓位 = 可用资金×3% ÷ 9.58。 双单元管理：首单元到50%~61.8%目标启动1BL移动止盈，次单元放宽止损搏主升。
+</td></tr>
+<tr>
+ <td class="rk">10</td>
+ <td class="code" data-l="代码">002636<span class="mk">深</span></td>
+ <td class="nm" data-l="名称">金安国纪<span class="badge new">新增自选</span><span class="badge dup4" title="同时入选：预期05/10/20/40">4周期·另见05/10/20</span><span class="badge stknew" title="本期新进榜">新进榜</span></td>
+ <td class="num" data-l="现价">47.32</td>
+ <td class="gain" data-l="预期涨幅">+108.5%</td>
+ <td class="num tgt" data-l="目标价">124.38</td>
+ <td class="num" data-l="触发价">54.02</td>
+ <td class="num stop" data-l="止损价">46.43</td>
+ <td class="rl-mid" data-l="风险">中</td>
+ <td class="amt" data-l="20日均额">36.25亿</td>
+ 
+</tr>
+<tr class="detail"><td class="dspace"></td><td colspan="9">
+   <span class="dim">动量</span> 周线随机14(大周期偏弱)，日线K1　<span class="dim">形态</span> 趋势未确立<br>
+   <span class="dim">价格/时间</span> 最近上行目标聚合区≈124.38，斐波那契潜在上行163%，40日波动可达约174%<br>
+   <span class="dim">操作</span> 触发价 <b>54.02</b>（突破近日高点1跳，Tr-1BH 顺势介入，勿在目标价追买）；止损 <b>46.43</b>（setup 失效位）；每股暴露 <b>7.59元</b>，按3%资金规则：单笔仓位 = 可用资金×3% ÷ 7.59。 双单元管理：首单元到50%~61.8%目标启动1BL移动止盈，次单元放宽止损搏主升。
+</td></tr>
+<tr>
+ <td class="rk">11</td>
+ <td class="code" data-l="代码">001309<span class="mk">深</span></td>
+ <td class="nm" data-l="名称">德明利<span class="badge dup4" title="同时入选：预期05/10/20/40">4周期·另见05/10/20</span><span class="badge stk3" title="已连续6期入选40日榜">连6期🔥</span></td>
+ <td class="num" data-l="现价">349.0</td>
+ <td class="gain" data-l="预期涨幅">+108.3%</td>
+ <td class="num tgt" data-l="目标价">980.0</td>
+ <td class="num" data-l="触发价">429.05</td>
+ <td class="num stop" data-l="止损价">330.66</td>
+ <td class="rl-mid" data-l="风险">中</td>
+ <td class="amt" data-l="20日均额">99.34亿</td>
+ 
+</tr>
+<tr class="detail"><td class="dspace"></td><td colspan="9">
+   <span class="dim">动量</span> 周线随机4(大周期偏弱)，日线K10　<span class="dim">形态</span> 趋势未确立<br>
+   <span class="dim">价格/时间</span> 最近上行目标聚合区≈980.0，斐波那契潜在上行181%，40日波动可达约152%<br>
+   <span class="dim">操作</span> 触发价 <b>429.05</b>（突破近日高点1跳，Tr-1BH 顺势介入，勿在目标价追买）；止损 <b>330.66</b>（setup 失效位）；每股暴露 <b>98.39元</b>，按3%资金规则：单笔仓位 = 可用资金×3% ÷ 98.39。 双单元管理：首单元到50%~61.8%目标启动1BL移动止盈，次单元放宽止损搏主升。
+</td></tr>
+<tr>
+ <td class="rk">12</td>
+ <td class="code" data-l="代码">603137<span class="mk">沪</span></td>
+ <td class="nm" data-l="名称">恒尚节能<span class="badge new">新增自选</span><span class="badge dup3" title="同时入选：预期05/20/40">3周期·另见05/20</span><span class="badge stk2" title="已连续2期入选40日榜">连2期</span></td>
+ <td class="num" data-l="现价">25.51</td>
+ <td class="gain" data-l="预期涨幅">+104.8%</td>
+ <td class="num tgt" data-l="目标价">35.61</td>
+ <td class="num" data-l="触发价">28.84</td>
+ <td class="num stop" data-l="止损价">22.28</td>
+ <td class="rl-mid" data-l="风险">中</td>
+ <td class="amt" data-l="20日均额">7.70亿</td>
+ 
+</tr>
+<tr class="detail"><td class="dspace"></td><td colspan="9">
+   <span class="dim">动量</span> 周线随机59(大周期偏弱)，日线K23　<span class="dim">形态</span> 均线多头排列·回踩支撑(健康setup)<br>
+   <span class="dim">价格/时间</span> 最近上行目标聚合区≈35.61，斐波那契潜在上行40%，40日波动可达约144%<br>
+   <span class="dim">操作</span> 触发价 <b>28.84</b>（突破近日高点1跳，Tr-1BH 顺势介入，勿在目标价追买）；止损 <b>22.28</b>（setup 失效位）；每股暴露 <b>6.56元</b>，按3%资金规则：单笔仓位 = 可用资金×3% ÷ 6.56。 双单元管理：首单元到50%~61.8%目标启动1BL移动止盈，次单元放宽止损搏主升。
+</td></tr>
+<tr>
+ <td class="rk">13</td>
+ <td class="code" data-l="代码">603256<span class="mk">沪</span></td>
+ <td class="nm" data-l="名称">宏和科技<span class="badge new">新增自选</span><span class="badge dup4" title="同时入选：预期05/10/20/40">4周期·另见05/10/20</span><span class="badge stknew" title="本期新进榜">新进榜</span></td>
+ <td class="num" data-l="现价">115.32</td>
+ <td class="gain" data-l="预期涨幅">+104.5%</td>
+ <td class="num tgt" data-l="目标价">304.0</td>
+ <td class="num" data-l="触发价">137.69</td>
+ <td class="num stop" data-l="止损价">114.17</td>
+ <td class="rl-mid" data-l="风险">中</td>
+ <td class="amt" data-l="20日均额">28.75亿</td>
+ 
+</tr>
+<tr class="detail"><td class="dspace"></td><td colspan="9">
+   <span class="dim">动量</span> 周线随机11(大周期偏弱)，日线K1　<span class="dim">形态</span> 趋势未确立<br>
+   <span class="dim">价格/时间</span> 最近上行目标聚合区≈304.0，斐波那契潜在上行164%，40日波动可达约160%<br>
+   <span class="dim">操作</span> 触发价 <b>137.69</b>（突破近日高点1跳，Tr-1BH 顺势介入，勿在目标价追买）；止损 <b>114.17</b>（setup 失效位）；每股暴露 <b>23.52元</b>，按3%资金规则：单笔仓位 = 可用资金×3% ÷ 23.52。 双单元管理：首单元到50%~61.8%目标启动1BL移动止盈，次单元放宽止损搏主升。
+</td></tr>
+<tr>
+ <td class="rk">14</td>
+ <td class="code" data-l="代码">600714<span class="mk">沪</span></td>
+ <td class="nm" data-l="名称">金瑞矿业<span class="badge new">新增自选</span><span class="badge dup3" title="同时入选：预期10/20/40">3周期·另见10/20</span><span class="badge stknew" title="本期新进榜">新进榜</span></td>
+ <td class="num" data-l="现价">13.22</td>
+ <td class="gain" data-l="预期涨幅">+103.7%</td>
+ <td class="num tgt" data-l="目标价">33.35</td>
+ <td class="num" data-l="触发价">13.61</td>
+ <td class="num stop" data-l="止损价">11.21</td>
+ <td class="rl-mid" data-l="风险">中</td>
+ <td class="amt" data-l="20日均额">2.06亿</td>
+ 
+</tr>
+<tr class="detail"><td class="dspace"></td><td colspan="9">
+   <span class="dim">动量</span> 周线随机8(大周期偏弱)，日线K38　<span class="dim">形态</span> 趋势未确立<br>
+   <span class="dim">价格/时间</span> 最近上行目标聚合区≈33.35，斐波那契潜在上行152%，40日波动可达约80%<br>
+   <span class="dim">操作</span> 触发价 <b>13.61</b>（突破近日高点1跳，Tr-1BH 顺势介入，勿在目标价追买）；止损 <b>11.21</b>（setup 失效位）；每股暴露 <b>2.40元</b>，按3%资金规则：单笔仓位 = 可用资金×3% ÷ 2.40。 双单元管理：首单元到50%~61.8%目标启动1BL移动止盈，次单元放宽止损搏主升。
+</td></tr>
+<tr>
+ <td class="rk">15</td>
+ <td class="code" data-l="代码">600498<span class="mk">沪</span></td>
+ <td class="nm" data-l="名称">烽火通信<span class="badge new">新增自选</span><span class="badge dup3" title="同时入选：预期10/20/40">3周期·另见10/20</span><span class="badge stknew" title="本期新进榜">新进榜</span></td>
+ <td class="num" data-l="现价">32.9</td>
+ <td class="gain" data-l="预期涨幅">+103.2%</td>
+ <td class="num tgt" data-l="目标价">87.43</td>
+ <td class="num" data-l="触发价">35.0</td>
+ <td class="num stop" data-l="止损价">31.05</td>
+ <td class="rl-mid" data-l="风险">中</td>
+ <td class="amt" data-l="20日均额">36.40亿</td>
+ 
+</tr>
+<tr class="detail"><td class="dspace"></td><td colspan="9">
+   <span class="dim">动量</span> 周线随机4(大周期偏弱)，日线K6　<span class="dim">形态</span> 趋势未确立<br>
+   <span class="dim">价格/时间</span> 最近上行目标聚合区≈87.43，斐波那契潜在上行166%，40日波动可达约110%<br>
+   <span class="dim">操作</span> 触发价 <b>35.0</b>（突破近日高点1跳，Tr-1BH 顺势介入，勿在目标价追买）；止损 <b>31.05</b>（setup 失效位）；每股暴露 <b>3.95元</b>，按3%资金规则：单笔仓位 = 可用资金×3% ÷ 3.95。 双单元管理：首单元到50%~61.8%目标启动1BL移动止盈，次单元放宽止损搏主升。
+</td></tr>
+<tr>
+ <td class="rk">16</td>
+ <td class="code" data-l="代码">002943<span class="mk">深</span></td>
+ <td class="nm" data-l="名称">宇晶股份<span class="badge new">新增自选</span><span class="badge dup2" title="同时入选：预期20/40">2周期·另见20</span><span class="badge stknew" title="本期新进榜">新进榜</span></td>
+ <td class="num" data-l="现价">27.2</td>
+ <td class="gain" data-l="预期涨幅">+103.0%</td>
+ <td class="num tgt" data-l="目标价">73.54</td>
+ <td class="num" data-l="触发价">28.6</td>
+ <td class="num stop" data-l="止损价">25.59</td>
+ <td class="rl-mid" data-l="风险">中</td>
+ <td class="amt" data-l="20日均额">4.04亿</td>
+ 
+</tr>
+<tr class="detail"><td class="dspace"></td><td colspan="9">
+   <span class="dim">动量</span> 周线随机4(大周期偏弱)，日线K6　<span class="dim">形态</span> 趋势未确立<br>
+   <span class="dim">价格/时间</span> 最近上行目标聚合区≈73.54，斐波那契潜在上行170%，40日波动可达约103%<br>
+   <span class="dim">操作</span> 触发价 <b>28.6</b>（突破近日高点1跳，Tr-1BH 顺势介入，勿在目标价追买）；止损 <b>25.59</b>（setup 失效位）；每股暴露 <b>3.01元</b>，按3%资金规则：单笔仓位 = 可用资金×3% ÷ 3.01。 双单元管理：首单元到50%~61.8%目标启动1BL移动止盈，次单元放宽止损搏主升。
+</td></tr>
+<tr>
+ <td class="rk">17</td>
+ <td class="code" data-l="代码">002491<span class="mk">深</span></td>
+ <td class="nm" data-l="名称">通鼎互联<span class="badge dup3" title="同时入选：预期10/20/40">3周期·另见10/20</span><span class="badge stk3" title="已连续4期入选40日榜">连4期🔥</span></td>
+ <td class="num" data-l="现价">13.86</td>
+ <td class="gain" data-l="预期涨幅">+102.3%</td>
+ <td class="num tgt" data-l="目标价">39.71</td>
+ <td class="num" data-l="触发价">15.19</td>
+ <td class="num stop" data-l="止损价">13.31</td>
+ <td class="rl-mid" data-l="风险">中</td>
+ <td class="amt" data-l="20日均额">25.53亿</td>
+ 
+</tr>
+<tr class="detail"><td class="dspace"></td><td colspan="9">
+   <span class="dim">动量</span> 周线随机2(大周期偏弱)，日线K5　<span class="dim">形态</span> 趋势未确立<br>
+   <span class="dim">价格/时间</span> 最近上行目标聚合区≈39.71，斐波那契潜在上行187%，40日波动可达约124%<br>
+   <span class="dim">操作</span> 触发价 <b>15.19</b>（突破近日高点1跳，Tr-1BH 顺势介入，勿在目标价追买）；止损 <b>13.31</b>（setup 失效位）；每股暴露 <b>1.88元</b>，按3%资金规则：单笔仓位 = 可用资金×3% ÷ 1.88。 双单元管理：首单元到50%~61.8%目标启动1BL移动止盈，次单元放宽止损搏主升。
+</td></tr>
+<tr>
+ <td class="rk">18</td>
+ <td class="code" data-l="代码">002565<span class="mk">深</span></td>
+ <td class="nm" data-l="名称">顺灏股份<span class="badge new">新增自选</span><span class="badge dup2" title="同时入选：预期20/40">2周期·另见20</span><span class="badge stknew" title="本期新进榜">新进榜</span></td>
+ <td class="num" data-l="现价">8.94</td>
+ <td class="gain" data-l="预期涨幅">+102.3%</td>
+ <td class="num tgt" data-l="目标价">22.99</td>
+ <td class="num" data-l="触发价">9.0</td>
+ <td class="num stop" data-l="止损价">7.67</td>
+ <td class="rl-mid" data-l="风险">中</td>
+ <td class="amt" data-l="20日均额">5.01亿</td>
+ 
+</tr>
+<tr class="detail"><td class="dspace"></td><td colspan="9">
+   <span class="dim">动量</span> 周线随机6(大周期偏弱)，日线K30　<span class="dim">形态</span> 趋势未确立<br>
+   <span class="dim">价格/时间</span> 最近上行目标聚合区≈22.99，斐波那契潜在上行157%，40日波动可达约70%<br>
+   <span class="dim">操作</span> 触发价 <b>9.0</b>（突破近日高点1跳，Tr-1BH 顺势介入，勿在目标价追买）；止损 <b>7.67</b>（setup 失效位）；每股暴露 <b>1.33元</b>，按3%资金规则：单笔仓位 = 可用资金×3% ÷ 1.33。 双单元管理：首单元到50%~61.8%目标启动1BL移动止盈，次单元放宽止损搏主升。
+</td></tr>
+<tr>
+ <td class="rk">19</td>
+ <td class="code" data-l="代码">600353<span class="mk">沪</span></td>
+ <td class="nm" data-l="名称">旭光电子<span class="badge new">新增自选</span><span class="badge dup4" title="同时入选：预期05/10/20/40">4周期·另见05/10/20</span><span class="badge stknew" title="本期新进榜">新进榜</span></td>
+ <td class="num" data-l="现价">21.05</td>
+ <td class="gain" data-l="预期涨幅">+101.6%</td>
+ <td class="num tgt" data-l="目标价">53.68</td>
+ <td class="num" data-l="触发价">23.73</td>
+ <td class="num stop" data-l="止损价">20.51</td>
+ <td class="rl-mid" data-l="风险">中</td>
+ <td class="amt" data-l="20日均额">15.46亿</td>
+ 
+</tr>
+<tr class="detail"><td class="dspace"></td><td colspan="9">
+   <span class="dim">动量</span> 周线随机18(大周期偏弱)，日线K1　<span class="dim">形态</span> 趋势未确立<br>
+   <span class="dim">价格/时间</span> 最近上行目标聚合区≈53.68，斐波那契潜在上行155%，40日波动可达约160%<br>
+   <span class="dim">操作</span> 触发价 <b>23.73</b>（突破近日高点1跳，Tr-1BH 顺势介入，勿在目标价追买）；止损 <b>20.51</b>（setup 失效位）；每股暴露 <b>3.22元</b>，按3%资金规则：单笔仓位 = 可用资金×3% ÷ 3.22。 双单元管理：首单元到50%~61.8%目标启动1BL移动止盈，次单元放宽止损搏主升。
+</td></tr>
+<tr>
+ <td class="rk">20</td>
+ <td class="code" data-l="代码">603601<span class="mk">沪</span></td>
+ <td class="nm" data-l="名称">再升科技<span class="badge dup2" title="同时入选：预期20/40">2周期·另见20</span><span class="badge stk3" title="已连续7期入选40日榜">连7期🔥</span></td>
+ <td class="num" data-l="现价">8.5</td>
+ <td class="gain" data-l="预期涨幅">+101.5%</td>
+ <td class="num tgt" data-l="目标价">23.51</td>
+ <td class="num" data-l="触发价">8.58</td>
+ <td class="num stop" data-l="止损价">6.79</td>
+ <td class="rl-mid" data-l="风险">中</td>
+ <td class="amt" data-l="20日均额">7.49亿</td>
+ 
+</tr>
+<tr class="detail"><td class="dspace"></td><td colspan="9">
+   <span class="dim">动量</span> 周线随机8(大周期偏弱)，日线K39　<span class="dim">形态</span> 趋势未确立<br>
+   <span class="dim">价格/时间</span> 最近上行目标聚合区≈23.51，斐波那契潜在上行177%，40日波动可达约74%<br>
+   <span class="dim">操作</span> 触发价 <b>8.58</b>（突破近日高点1跳，Tr-1BH 顺势介入，勿在目标价追买）；止损 <b>6.79</b>（setup 失效位）；每股暴露 <b>1.79元</b>，按3%资金规则：单笔仓位 = 可用资金×3% ÷ 1.79。 双单元管理：首单元到50%~61.8%目标启动1BL移动止盈，次单元放宽止损搏主升。
+</td></tr>
+<tr>
+ <td class="rk">21</td>
+ <td class="code" data-l="代码">002891<span class="mk">深</span></td>
+ <td class="nm" data-l="名称">中宠股份<span class="badge new">新增自选</span><span class="badge stknew" title="本期新进榜">新进榜</span></td>
+ <td class="num" data-l="现价">32.25</td>
+ <td class="gain" data-l="预期涨幅">+101.2%</td>
+ <td class="num tgt" data-l="目标价">50.1</td>
+ <td class="num" data-l="触发价">33.79</td>
+ <td class="num stop" data-l="止损价">27.53</td>
+ <td class="rl-mid" data-l="风险">中</td>
+ <td class="amt" data-l="20日均额">4.07亿</td>
+ 
+</tr>
+<tr class="detail"><td class="dspace"></td><td colspan="9">
+   <span class="dim">动量</span> 周线随机53(大周期多头)，日线K78　<span class="dim">形态</span> 均线多头排列<br>
+   <span class="dim">价格/时间</span> 最近上行目标聚合区≈50.1，斐波那契潜在上行55%，40日波动可达约68%<br>
+   <span class="dim">操作</span> 触发价 <b>33.79</b>（突破近日高点1跳，Tr-1BH 顺势介入，勿在目标价追买）；止损 <b>27.53</b>（setup 失效位）；每股暴露 <b>6.26元</b>，按3%资金规则：单笔仓位 = 可用资金×3% ÷ 6.26。 双单元管理：首单元到50%~61.8%目标启动1BL移动止盈，次单元放宽止损搏主升。
+</td></tr>
+<tr>
+ <td class="rk">22</td>
+ <td class="code" data-l="代码">603823<span class="mk">沪</span></td>
+ <td class="nm" data-l="名称">百合花<span class="badge dup2" title="同时入选：预期05/40">2周期·另见05</span><span class="badge stk3" title="已连续4期入选40日榜">连4期🔥</span></td>
+ <td class="num" data-l="现价">51.48</td>
+ <td class="gain" data-l="预期涨幅">+100.7%</td>
+ <td class="num tgt" data-l="目标价">85.02</td>
+ <td class="num" data-l="触发价">53.94</td>
+ <td class="num stop" data-l="止损价">42.13</td>
+ <td class="rl-mid" data-l="风险">中</td>
+ <td class="amt" data-l="20日均额">15.55亿</td>
+ 
+</tr>
+<tr class="detail"><td class="dspace"></td><td colspan="9">
+   <span class="dim">动量</span> 周线随机61(大周期偏弱)，日线K9　<span class="dim">形态</span> 趋势未确立<br>
+   <span class="dim">价格/时间</span> 最近上行目标聚合区≈85.02，斐波那契潜在上行65%，40日波动可达约176%<br>
+   <span class="dim">操作</span> 触发价 <b>53.94</b>（突破近日高点1跳，Tr-1BH 顺势介入，勿在目标价追买）；止损 <b>42.13</b>（setup 失效位）；每股暴露 <b>11.81元</b>，按3%资金规则：单笔仓位 = 可用资金×3% ÷ 11.81。 双单元管理：首单元到50%~61.8%目标启动1BL移动止盈，次单元放宽止损搏主升。
+</td></tr>
+<tr>
+ <td class="rk">23</td>
+ <td class="code" data-l="代码">003036<span class="mk">深</span></td>
+ <td class="nm" data-l="名称">泰坦股份<span class="badge new">新增自选</span><span class="badge dup4" title="同时入选：预期05/10/20/40">4周期·另见05/10/20</span><span class="badge stknew" title="本期新进榜">新进榜</span></td>
+ <td class="num" data-l="现价">40.91</td>
+ <td class="gain" data-l="预期涨幅">+97.7%</td>
+ <td class="num tgt" data-l="目标价">104.79</td>
+ <td class="num" data-l="触发价">45.06</td>
+ <td class="num stop" data-l="止损价">40.14</td>
+ <td class="rl-mid" data-l="风险">中</td>
+ <td class="amt" data-l="20日均额">4.16亿</td>
+ 
+</tr>
+<tr class="detail"><td class="dspace"></td><td colspan="9">
+   <span class="dim">动量</span> 周线随机19(大周期偏弱)，日线K4　<span class="dim">形态</span> 趋势未确立<br>
+   <span class="dim">价格/时间</span> 最近上行目标聚合区≈104.79，斐波那契潜在上行156%，40日波动可达约145%<br>
+   <span class="dim">操作</span> 触发价 <b>45.06</b>（突破近日高点1跳，Tr-1BH 顺势介入，勿在目标价追买）；止损 <b>40.14</b>（setup 失效位）；每股暴露 <b>4.92元</b>，按3%资金规则：单笔仓位 = 可用资金×3% ÷ 4.92。 双单元管理：首单元到50%~61.8%目标启动1BL移动止盈，次单元放宽止损搏主升。
+</td></tr>
+<tr>
+ <td class="rk">24</td>
+ <td class="code" data-l="代码">600129<span class="mk">沪</span></td>
+ <td class="nm" data-l="名称">太极集团<span class="badge new">新增自选</span><span class="badge dup2" title="同时入选：预期05/40">2周期·另见05</span><span class="badge stknew" title="本期新进榜">新进榜</span></td>
+ <td class="num" data-l="现价">15.82</td>
+ <td class="gain" data-l="预期涨幅">+97.4%</td>
+ <td class="num tgt" data-l="目标价">18.94</td>
+ <td class="num" data-l="触发价">16.04</td>
+ <td class="num stop" data-l="止损价">14.36</td>
+ <td class="rl-mid" data-l="风险">中</td>
+ <td class="amt" data-l="20日均额">6.59亿</td>
+ 
+</tr>
+<tr class="detail"><td class="dspace"></td><td colspan="9">
+   <span class="dim">动量</span> 周线随机54(大周期多头)，日线K27　<span class="dim">形态</span> 均线多头排列·回踩支撑(健康setup)<br>
+   <span class="dim">价格/时间</span> 最近上行目标聚合区≈18.94，斐波那契潜在上行20%，40日波动可达约72%<br>
+   <span class="dim">操作</span> 触发价 <b>16.04</b>（突破近日高点1跳，Tr-1BH 顺势介入，勿在目标价追买）；止损 <b>14.36</b>（setup 失效位）；每股暴露 <b>1.68元</b>，按3%资金规则：单笔仓位 = 可用资金×3% ÷ 1.68。 双单元管理：首单元到50%~61.8%目标启动1BL移动止盈，次单元放宽止损搏主升。
+</td></tr>
+<tr>
+ <td class="rk">25</td>
+ <td class="code" data-l="代码">603738<span class="mk">沪</span></td>
+ <td class="nm" data-l="名称">泰晶科技<span class="badge new">新增自选</span><span class="badge dup3" title="同时入选：预期10/20/40">3周期·另见10/20</span><span class="badge stknew" title="本期新进榜">新进榜</span></td>
+ <td class="num" data-l="现价">28.92</td>
+ <td class="gain" data-l="预期涨幅">+97.4%</td>
+ <td class="num tgt" data-l="目标价">69.35</td>
+ <td class="num" data-l="触发价">30.99</td>
+ <td class="num stop" data-l="止损价">26.36</td>
+ <td class="rl-mid" data-l="风险">中</td>
+ <td class="amt" data-l="20日均额">12.54亿</td>
+ 
+</tr>
+<tr class="detail"><td class="dspace"></td><td colspan="9">
+   <span class="dim">动量</span> 周线随机7(大周期偏弱)，日线K12　<span class="dim">形态</span> 趋势未确立<br>
+   <span class="dim">价格/时间</span> 最近上行目标聚合区≈69.35，斐波那契潜在上行140%，40日波动可达约124%<br>
+   <span class="dim">操作</span> 触发价 <b>30.99</b>（突破近日高点1跳，Tr-1BH 顺势介入，勿在目标价追买）；止损 <b>26.36</b>（setup 失效位）；每股暴露 <b>4.63元</b>，按3%资金规则：单笔仓位 = 可用资金×3% ÷ 4.63。 双单元管理：首单元到50%~61.8%目标启动1BL移动止盈，次单元放宽止损搏主升。
+</td></tr>
+<tr>
+ <td class="rk">26</td>
+ <td class="code" data-l="代码">001330<span class="mk">深</span></td>
+ <td class="nm" data-l="名称">博纳影业<span class="badge stk2" title="已连续2期入选40日榜">连2期</span></td>
+ <td class="num" data-l="现价">4.99</td>
+ <td class="gain" data-l="预期涨幅">+97.1%</td>
+ <td class="num tgt" data-l="目标价">13.72</td>
+ <td class="num" data-l="触发价">5.01</td>
+ <td class="num stop" data-l="止损价">4.14</td>
+ <td class="rl-mid" data-l="风险">中</td>
+ <td class="amt" data-l="20日均额">3.32亿</td>
+ 
+</tr>
+<tr class="detail"><td class="dspace"></td><td colspan="9">
+   <span class="dim">动量</span> 周线随机10(大周期偏弱)，日线K56　<span class="dim">形态</span> 趋势未确立<br>
+   <span class="dim">价格/时间</span> 最近上行目标聚合区≈13.72，斐波那契潜在上行175%，40日波动可达约64%<br>
+   <span class="dim">操作</span> 触发价 <b>5.01</b>（突破近日高点1跳，Tr-1BH 顺势介入，勿在目标价追买）；止损 <b>4.14</b>（setup 失效位）；每股暴露 <b>0.87元</b>，按3%资金规则：单笔仓位 = 可用资金×3% ÷ 0.87。 双单元管理：首单元到50%~61.8%目标启动1BL移动止盈，次单元放宽止损搏主升。
+</td></tr>
+<tr>
+ <td class="rk">27</td>
+ <td class="code" data-l="代码">002080<span class="mk">深</span></td>
+ <td class="nm" data-l="名称">中材科技<span class="badge new">新增自选</span><span class="badge dup4" title="同时入选：预期05/10/20/40">4周期·另见05/10/20</span><span class="badge stknew" title="本期新进榜">新进榜</span></td>
+ <td class="num" data-l="现价">40.34</td>
+ <td class="gain" data-l="预期涨幅">+97.0%</td>
+ <td class="num tgt" data-l="目标价">102.22</td>
+ <td class="num" data-l="触发价">46.57</td>
+ <td class="num stop" data-l="止损价">39.66</td>
+ <td class="rl-mid" data-l="风险">中</td>
+ <td class="amt" data-l="20日均额">29.85亿</td>
+ 
+</tr>
+<tr class="detail"><td class="dspace"></td><td colspan="9">
+   <span class="dim">动量</span> 周线随机3(大周期偏弱)，日线K5　<span class="dim">形态</span> 趋势未确立<br>
+   <span class="dim">价格/时间</span> 最近上行目标聚合区≈102.22，斐波那契潜在上行153%，40日波动可达约146%<br>
+   <span class="dim">操作</span> 触发价 <b>46.57</b>（突破近日高点1跳，Tr-1BH 顺势介入，勿在目标价追买）；止损 <b>39.66</b>（setup 失效位）；每股暴露 <b>6.91元</b>，按3%资金规则：单笔仓位 = 可用资金×3% ÷ 6.91。 双单元管理：首单元到50%~61.8%目标启动1BL移动止盈，次单元放宽止损搏主升。
+</td></tr>
+<tr>
+ <td class="rk">28</td>
+ <td class="code" data-l="代码">603192<span class="mk">沪</span></td>
+ <td class="nm" data-l="名称">汇得科技<span class="badge new">新增自选</span><span class="badge stknew" title="本期新进榜">新进榜</span></td>
+ <td class="num" data-l="现价">21.88</td>
+ <td class="gain" data-l="预期涨幅">+96.6%</td>
+ <td class="num tgt" data-l="目标价">27.89</td>
+ <td class="num" data-l="触发价">21.89</td>
+ <td class="num stop" data-l="止损价">18.11</td>
+ <td class="rl-mid" data-l="风险">中</td>
+ <td class="amt" data-l="20日均额">0.75亿</td>
+ 
+</tr>
+<tr class="detail"><td class="dspace"></td><td colspan="9">
+   <span class="dim">动量</span> 周线随机59(大周期多头)，日线K51　<span class="dim">形态</span> 均线多头排列<br>
+   <span class="dim">价格/时间</span> 最近上行目标聚合区≈27.89，斐波那契潜在上行27%，40日波动可达约73%<br>
+   <span class="dim">操作</span> 触发价 <b>21.89</b>（突破近日高点1跳，Tr-1BH 顺势介入，勿在目标价追买）；止损 <b>18.11</b>（setup 失效位）；每股暴露 <b>3.78元</b>，按3%资金规则：单笔仓位 = 可用资金×3% ÷ 3.78。 双单元管理：首单元到50%~61.8%目标启动1BL移动止盈，次单元放宽止损搏主升。
+</td></tr>
+<tr>
+ <td class="rk">29</td>
+ <td class="code" data-l="代码">600844<span class="mk">沪</span></td>
+ <td class="nm" data-l="名称">金煤科技<span class="badge new">新增自选</span><span class="badge stknew" title="本期新进榜">新进榜</span></td>
+ <td class="num" data-l="现价">3.41</td>
+ <td class="gain" data-l="预期涨幅">+95.9%</td>
+ <td class="num tgt" data-l="目标价">5.49</td>
+ <td class="num" data-l="触发价">3.43</td>
+ <td class="num stop" data-l="止损价">2.6</td>
+ <td class="rl-mid" data-l="风险">中</td>
+ <td class="amt" data-l="20日均额">2.41亿</td>
+ 
+</tr>
+<tr class="detail"><td class="dspace"></td><td colspan="9">
+   <span class="dim">动量</span> 周线随机60(大周期多头)，日线K87　<span class="dim">形态</span> 趋势未确立<br>
+   <span class="dim">价格/时间</span> 最近上行目标聚合区≈5.49，斐波那契潜在上行61%，40日波动可达约85%<br>
+   <span class="dim">操作</span> 触发价 <b>3.43</b>（突破近日高点1跳，Tr-1BH 顺势介入，勿在目标价追买）；止损 <b>2.6</b>（setup 失效位）；每股暴露 <b>0.83元</b>，按3%资金规则：单笔仓位 = 可用资金×3% ÷ 0.83。 双单元管理：首单元到50%~61.8%目标启动1BL移动止盈，次单元放宽止损搏主升。
+</td></tr>
+<tr>
+ <td class="rk">30</td>
+ <td class="code" data-l="代码">002931<span class="mk">深</span></td>
+ <td class="nm" data-l="名称">锋龙股份<span class="badge new">新增自选</span><span class="badge stknew" title="本期新进榜">新进榜</span></td>
+ <td class="num" data-l="现价">46.22</td>
+ <td class="gain" data-l="预期涨幅">+95.4%</td>
+ <td class="num tgt" data-l="目标价">118.02</td>
+ <td class="num" data-l="触发价">47.81</td>
+ <td class="num stop" data-l="止损价">39.29</td>
+ <td class="rl-mid" data-l="风险">中</td>
+ <td class="amt" data-l="20日均额">6.72亿</td>
+ 
+</tr>
+<tr class="detail"><td class="dspace"></td><td colspan="9">
+   <span class="dim">动量</span> 周线随机11(大周期偏弱)，日线K30　<span class="dim">形态</span> 趋势未确立<br>
+   <span class="dim">价格/时间</span> 最近上行目标聚合区≈118.02，斐波那契潜在上行155%，40日波动可达约83%<br>
+   <span class="dim">操作</span> 触发价 <b>47.81</b>（突破近日高点1跳，Tr-1BH 顺势介入，勿在目标价追买）；止损 <b>39.29</b>（setup 失效位）；每股暴露 <b>8.52元</b>，按3%资金规则：单笔仓位 = 可用资金×3% ÷ 8.52。 双单元管理：首单元到50%~61.8%目标启动1BL移动止盈，次单元放宽止损搏主升。
+</td></tr></tbody>
+  </table>
+</div>
+
+<div class="note" style="margin-top:24px;">
+<h3>通俗总结</h3>
+
+<ul>
+<li>这份报告从 2956 只非创业板/科创板股票里，挑出未来 5、10、20、40 天里"最有可能冲高"的各 30 只，涨幅数字是<b>期间可能摸到的最高点</b>，不是保证能赚到的钱。</li>
+<li>每只股票都给了三个关键价：<b>触发价</b>（涨过这个价才考虑买）、<b>目标价</b>（大概能涨到哪）、<b>止损价</b>（跌破就必须卖出认错）。</li>
+<li>简单执行法：只买"突破触发价"的股票，买入后跌破止损价立刻卖，单只股票最多亏掉总资金的 3%。</li>
+<li>标了"高风险"的股票波动剧烈（含ST、低价股等），新手建议只看不买或减半仓位。</li>
+<li>带「N周期」黄/橙/红徽标的股票同时进了多个周期榜单（顶部⭐汇总区有完整名单），说明短中线信号共振，值得优先跟踪——但同样必须等突破触发价再考虑。</li>
+<li>带「连N期」徽标的股票已连续多期上榜（🔥追踪区有完整名单），强势状态在持续；「新进榜」是本期新面孔。跌出榜单说明动能减弱，持仓者要提高警惕。</li>
+<li>🎯回测摘要（如有）告诉你这套选股方法过去的"命中率"——达标率越高、超额越大，说明榜单历史表现越靠谱，但过去不代表未来。</li>
+</ul>
+</div>
+
+<div class="foot">股市有风险，技术分析不保证盈利，以上为技术面分析非投资建议。所有目标价/触发价/止损价为 setup 参考，务必等价格朝预期方向突破触发价后再介入，并严格执行止损与≤3%单笔仓位纪律。</div>
+</div>
+<script>
+function showtab(n){
+ document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
+ document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+ document.getElementById('p'+n).classList.add('active');
+ event.target.classList.add('active');
+}
+</script></body></html>
