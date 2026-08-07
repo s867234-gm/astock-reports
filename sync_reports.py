@@ -21,7 +21,7 @@ D:/报告同步/astock-reports/<类别>/ ，重建 index.html 落地页，
 
 用法：python sync_reports.py
 """
-import os, shutil, subprocess, datetime, sys, socket
+import os, shutil, subprocess, datetime, sys, socket, re, time, urllib.request, urllib.error
 import base64, json, hashlib
 
 # ---- 整站密码加密依赖 ----
@@ -302,11 +302,75 @@ def push_all():
         print(f"[sync] push {remote} rc={rc} {head}")
 
 
+def decrypt_payload(html, password):
+    """从解密门页提取并解密 PAYLOAD，返回明文 HTML 字符串。"""
+    m = re.search(r"const PAYLOAD = (\{.*?\});", html, re.DOTALL)
+    if not m:
+        raise ValueError("PAYLOAD not found")
+    payload = json.loads(m.group(1))
+    salt = base64.b64decode(payload["s"])
+    nonce = base64.b64decode(payload["n"])
+    ct = base64.b64decode(payload["c"])
+    kdf = PBKDF2HMAC(algorithm=hashes.SHA256(), length=32, salt=salt, iterations=PBKDF2_ITERS)
+    key = kdf.derive(password.encode("utf-8"))
+    return AESGCM(key).decrypt(nonce, ct, None).decode("utf-8")
+
+
+def extract_generated(text):
+    """从 index 明文提取「生成于」时间戳，用于比对 Pages 是否已刷新到本次版本。"""
+    if isinstance(text, bytes):
+        text = text.decode("utf-8", "replace")
+    m = re.search(r"生成于\s*([\d\-:\s]+)", text)
+    return m.group(1).strip() if m else None
+
+
+def wait_for_pages(local_gen, password, timeout=180, poll=15):
+    """推送后轮询 GitHub Pages，直到解密后的落地页「生成于」>= 本地本次生成时间，
+    证明后台 build 已部署完成；超时或无法访问则提示手动刷新，不阻塞主流程。
+
+    说明：GitHub Pages 在 push 后会异步触发一次站点构建，通常几十秒~几分钟才生效，
+    期间访问到的仍是旧版。此函数让脚本自己等到「用户看到的就是最新」，无需手动刷新等待。
+    """
+    url = "https://s867234-gm.github.io/astock-reports/"
+    deadline = time.time() + timeout
+    first = True
+    while time.time() < deadline:
+        try:
+            req = urllib.request.Request(
+                url, headers={"User-Agent": "Mozilla/5.0",
+                              "Cache-Control": "no-cache", "Pragma": "no-cache"})
+            with urllib.request.urlopen(req, timeout=20) as resp:
+                html = resp.read().decode("utf-8")
+        except urllib.error.URLError as e:
+            if first:
+                print(f"[sync] 无法访问 GitHub Pages（{e}），跳过部署等待；本地与仓库已更新，稍后手动访问即可")
+                return False
+            time.sleep(poll); first = False; continue
+        except Exception:
+            if first:
+                print("[sync] 无法访问 GitHub Pages，跳过部署等待；本地与仓库已更新，稍后手动访问即可")
+                return False
+            time.sleep(poll); first = False; continue
+        try:
+            plain = decrypt_payload(html, password)
+        except Exception:
+            time.sleep(poll); first = False; continue
+        remote_gen = extract_generated(plain)
+        if local_gen and remote_gen and remote_gen >= local_gen:
+            print(f"[sync] GitHub Pages 已刷新（生成于 {remote_gen}）✅")
+            return True
+        first = False
+        time.sleep(poll)
+    print(f"[sync] 警告：{timeout}s 内 GitHub Pages 仍未刷新到最新（可能后台仍在构建）；仓库与本地均已更新，请稍后刷新页面")
+    return False
+
+
 def main():
     apply_proxy()
     password = load_site_password()
     cache = load_cache()
     changed = 0
+    local_gen = None  # 本次 index.html 明文「生成于」时间，用于等待 Pages 部署
 
     # 1) 报告：从本地明文存档读取并加密写入仓库（仅变更者重加密）
     if os.path.isdir(SRC):
@@ -332,6 +396,7 @@ def main():
     if os.path.isfile(idx):
         with open(idx, "rb") as fh:
             pt = fh.read()
+        local_gen = extract_generated(pt)
         if ensure_encrypted("index.html", pt, password, cache):
             changed += 1
 
@@ -365,6 +430,10 @@ def main():
 
     # 无论是否有新提交，都尝试推送（补推之前因网络失败积压的提交）
     push_all()
+
+    # 4) 等待 GitHub Pages 部署完成（消除异步 build 延迟导致的页面陈旧）
+    if local_gen:
+        wait_for_pages(local_gen, password)
 
 
 if __name__ == "__main__":
